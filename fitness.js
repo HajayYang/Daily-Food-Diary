@@ -1,3 +1,4 @@
+import { validBody, validTraining } from './training.js';
 import { localDate } from './records.js';
 
 // Approximate values per 100 g edible portion, based on generic USDA FoodData Central foods.
@@ -12,10 +13,10 @@ export const FOODS = [
 export const TYPES = { strength: '力量训练', cardio: '有氧运动', mobility: '拉伸 / 活动度' };
 const numberBetween = (value, min, max) => typeof value === 'number' && Number.isFinite(value) && value >= min && value <= max;
 export function validProfile(profile) {
-  return Boolean(profile && ['health', 'muscle', 'fatloss'].includes(profile.goal) && (profile.weight === null || numberBetween(profile.weight, 30, 300)) && (profile.target === null || Number.isInteger(profile.target) && numberBetween(profile.target, 1200, 6000)));
+  return Boolean(profile && validBody(profile) && ['health', 'muscle', 'fatloss'].includes(profile.goal) && (profile.weight === null || numberBetween(profile.weight, 30, 300)) && (profile.target === null || Number.isInteger(profile.target) && numberBetween(profile.target, 1200, 6000)));
 }
 export function validWorkout(workout) {
-  return Boolean(workout && typeof workout.id === 'string' && workout.id && typeof workout.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(workout.date) && Number.isFinite(new Date(`${workout.date}T12:00:00`).getTime()) && localDate(new Date(`${workout.date}T12:00:00`)) === workout.date && Object.hasOwn(TYPES, workout.type) && Number.isInteger(workout.minutes) && numberBetween(workout.minutes, 5, 300) && ['light', 'moderate', 'vigorous'].includes(workout.intensity) && typeof workout.done === 'boolean');
+  return Boolean(workout && validTraining(workout) && typeof workout.id === 'string' && workout.id && typeof workout.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(workout.date) && Number.isFinite(new Date(`${workout.date}T12:00:00`).getTime()) && localDate(new Date(`${workout.date}T12:00:00`)) === workout.date && Object.hasOwn(TYPES, workout.type) && Number.isInteger(workout.minutes) && numberBetween(workout.minutes, 5, 300) && ['light', 'moderate', 'vigorous'].includes(workout.intensity) && typeof workout.done === 'boolean');
 }
 export function validFitness(data) {
   return Boolean(data && validProfile(data.profile) && Array.isArray(data.workouts) && data.workouts.every(validWorkout) && new Set(data.workouts.map(workout => workout.id)).size === data.workouts.length);

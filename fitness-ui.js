@@ -1,3 +1,4 @@
+import { ACTIVITIES, bodyEstimate, workoutEnergy, dailyEnergy, dailyTemplate, trainingAdvice } from './training.js';
 import { FOODS, TYPES, validFitness, validProfile, validWorkout, scaleFood, weekSummary, proteinRange, macroSummary } from './fitness.js';
 
 export function setupFitness({ $, element, toast, refresh, getDate, getRecords }) {
@@ -31,13 +32,16 @@ export function setupFitness({ $, element, toast, refresh, getDate, getRecords }
   });
   for (const button of document.querySelectorAll('[data-close]')) button.addEventListener('click', () => $(`#${button.dataset.close}`).close());
   $('#profile-button').addEventListener('click', () => {
-    for (const [field, value] of Object.entries(state.profile)) $('#profile-form').elements[field].value = value ?? '';
+    $('#profile-form').reset();
+    for (const [field, value] of Object.entries(state.profile)) { const input = $('#profile-form').elements.namedItem(field); if (input) input.value = value ?? ''; }
     $('#profile-dialog').showModal();
   });
   $('#profile-form').addEventListener('submit', event => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const profile = { goal: data.get('goal'), weight: data.get('weight') === '' ? null : Number(data.get('weight')), target: data.get('target') === '' ? null : Number(data.get('target')) };
+    for (const field of ['height', 'age']) profile[field] = data.get(field) === '' ? null : Number(data.get(field));
+    for (const field of ['sex', 'activity', 'experience']) profile[field] = data.get(field) || null;
     if (!validProfile(profile)) { toast('请检查体重和能量目标的输入范围'); return; }
     if (save({ ...state, profile })) { $('#profile-dialog').close(); refresh(); toast('营养目标已保存'); }
   });
@@ -46,15 +50,43 @@ export function setupFitness({ $, element, toast, refresh, getDate, getRecords }
     form.elements.id.value = workout?.id ?? '';
     form.elements.date.value = workout?.date ?? getDate();
     if (workout) for (const field of ['type', 'minutes', 'intensity']) form.elements[field].value = workout[field];
+    fillExercises(workout?.exercise ?? form.elements.type.value);
+    form.elements.details.value = workout?.details ?? '';
+    form.elements.weight.value = workout?.weight ?? state.profile.weight ?? '';
     form.elements.done.checked = workout?.done ?? false;
     $('#workout-title').textContent = workout ? '编辑训练' : '安排一次训练';
+    updatePreview();
     $('#workout-dialog').showModal();
   }
+  function fillExercises(selected) {
+    const form = $('#workout-form');
+    form.elements.exercise.replaceChildren();
+    for (const [id, activity] of Object.entries(ACTIVITIES).filter(([, activity]) => activity.type === form.elements.type.value)) {
+      const option = element('option', '', activity.name); option.value = id; form.elements.exercise.append(option);
+    }
+    if (selected && ACTIVITIES[selected]?.type === form.elements.type.value) form.elements.exercise.value = selected;
+  }
+  function updatePreview() {
+    const form = $('#workout-form');
+    const preview = { type: form.elements.type.value, exercise: form.elements.exercise.value, intensity: form.elements.intensity.value, minutes: Number(form.elements.minutes.value), weight: form.elements.weight.value === '' ? null : Number(form.elements.weight.value) };
+    const energy = workoutEnergy(preview, state.profile);
+    $('#workout-preview').textContent = energy ? `估计总消耗 ${energy.gross} kcal · 额外消耗 ${energy.net} kcal（${energy.met} MET，${energy.weight} kg）。含组间休息的训练仅作粗略参考。` : '补充有效体重和时长后可预览热量消耗；未知消耗不会按 0 计算。';
+  }
+  $('#workout-form').elements.type.addEventListener('change', () => { fillExercises(); updatePreview(); });
+  $('#workout-form').addEventListener('input', updatePreview);
+  $('#suggest-workout').addEventListener('click', () => {
+    const suggestion = dailyTemplate(getDate(), state.profile);
+    openWorkout({ ...suggestion, date: getDate(), done: false });
+    $('#workout-title').textContent = '当天训练示例 · 可调整';
+  });
   $('#add-workout').addEventListener('click', () => openWorkout());
   $('#workout-form').addEventListener('submit', event => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const workout = { id: data.get('id') || crypto.randomUUID(), date: data.get('date'), type: data.get('type'), minutes: Number(data.get('minutes')), intensity: data.get('intensity'), done: data.has('done') };
+    workout.exercise = data.get('exercise');
+    workout.details = data.get('details').trim();
+    workout.weight = data.get('weight') === '' ? state.profile.weight : Number(data.get('weight'));
     if (!validWorkout(workout)) { toast('请检查训练日期、时长和类型'); return; }
     const workouts = state.workouts.some(item => item.id === workout.id) ? state.workouts.map(item => item.id === workout.id ? workout : item) : [...state.workouts, workout];
     if (save({ ...state, workouts })) { $('#workout-dialog').close(); refresh(); toast('训练已保存'); }
@@ -63,6 +95,16 @@ export function setupFitness({ $, element, toast, refresh, getDate, getRecords }
     const daily = getRecords().filter(record => record.date === getDate());
     const workouts = state.workouts.filter(workout => workout.date === getDate());
     const profile = state.profile;
+    const expenditure = dailyEnergy(workouts, profile);
+    $('#workout-energy').textContent = !readable ? '原有健身数据不可读，暂不能估算。' : !workouts.length ? '添加训练后显示预计消耗；标记完成后计入已完成消耗。' : `当日全部计划总消耗约 ${expenditure.planned} kcal（含已完成） · 已完成总消耗约 ${expenditure.completed} kcal · 已完成额外消耗约 ${expenditure.netCompleted} kcal${expenditure.unknown ? ` · ${expenditure.unknown} 次缺少体重等信息，未计入合计` : ''}`;
+    const estimate = readable ? bodyEstimate(profile) : null;
+    $('#body-estimate').replaceChildren();
+    if (estimate) {
+      for (const [name, value] of [['静息代谢参考', estimate.resting], ['每日维持能量参考', estimate.maintenance]]) {
+        const metric = element('div'); metric.append(element('small', '', name), element('strong', '', value ? `约 ${value} kcal/天` : '待选择活动水平')); $('#body-estimate').append(metric);
+      }
+    } else $('#body-estimate').append(element('p', 'muted', readable ? '填写身体资料后显示代谢参考；不会自动覆盖手填饮食目标。' : '健身数据读取失败，暂不能显示建议。'));
+    $('#personal-advice').replaceChildren(...(readable ? trainingAdvice(profile, workouts).map(note => element('li', '', note)) : []));
     const training = workouts.some(workout => workout.type !== 'mobility');
     const total = daily.reduce((sum, record) => sum + (record.calories ?? 0), 0);
     const missing = daily.filter(record => record.calories === null).length;
@@ -94,7 +136,11 @@ export function setupFitness({ $, element, toast, refresh, getDate, getRecords }
       const actions = element('div', 'record-actions');
       const edit = element('button', 'text-button', '编辑训练'); edit.addEventListener('click', () => openWorkout(workout));
       const remove = element('button', 'text-button delete-button', '删除训练'); remove.addEventListener('click', () => { if (confirm('删除这次训练安排？') && save({ ...state, workouts: state.workouts.filter(item => item.id !== workout.id) })) refresh(); });
-      actions.append(edit, remove); const info = element('div'); info.append(label, detail); row.append(info, actions); $('#workouts').append(row);
+      const energy = workoutEnergy(workout, profile);
+      const energyLabel = element('p', 'exercise-energy', energy ? `约 ${energy.gross} kcal 总消耗 / ${energy.net} kcal 额外消耗 · ${energy.met} MET · ${energy.weight} kg${energy.currentWeight ? '（使用当前体重）' : '（本次保存体重）'}` : '消耗未知：请补充本次或个人体重');
+      const activityLabel = element('p', 'muted', ACTIVITIES[workout.exercise ?? workout.type].name);
+      actions.append(edit, remove); const info = element('div', 'workout-info'); info.append(label, detail, activityLabel, energyLabel);
+      if (workout.details) info.append(element('p', 'workout-details', workout.details)); row.append(info, actions); $('#workouts').append(row);
     }
     const week = weekSummary(state.workouts, getDate());
     $('#week-summary').textContent = `所选日期所在周（周一至周日）已完成：有氧 ${week.aerobic} 等效分钟 · 力量 ${week.strengthDays} 天`;
