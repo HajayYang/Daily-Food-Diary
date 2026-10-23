@@ -1,3 +1,4 @@
+import { REFERENCE_NUTRITION, REFERENCE_SOURCE, scaleNutrients } from './nutrition.js';
 import { validBody, validTraining } from './training.js';
 import { localDate } from './records.js';
 
@@ -9,7 +10,7 @@ export const FOODS = [
   { name: '香蕉（去皮）', kcal: 89, protein: 1.1, carbs: 22.8, fat: 0.3 },
   { name: '原味干燕麦', kcal: 379, protein: 13.2, carbs: 67.7, fat: 6.5 },
   { name: '熟西兰花（不加油）', kcal: 35, protein: 2.4, carbs: 7.2, fat: 0.4 },
-];
+].map((food,index)=>({...REFERENCE_NUTRITION[['rice','chicken','egg','banana','oats','broccoli'][index]],...food,nutritionSource:REFERENCE_SOURCE}));
 export const TYPES = { strength: '健身 / 力量', swimming: '游泳', running: '跑步', badminton: '羽毛球', tabletennis: '乒乓球', tennis: '网球', hiking: '徒步', cardio: '其他有氧 / 骑行', mobility: '拉伸 / 恢复' };
 export const AEROBIC_TYPES = new Set(['cardio', 'swimming', 'running', 'badminton', 'tabletennis', 'tennis', 'hiking']);
 const numberBetween = (value, min, max) => typeof value === 'number' && Number.isFinite(value) && value >= min && value <= max;
@@ -25,7 +26,7 @@ export function validFitness(data) {
 export function scaleFood(index, grams) {
   const food = FOODS[index];
   if (!food || !numberBetween(grams, 1, 2000)) throw new Error('请选择食物并填写 1–2000 克');
-  return Object.fromEntries(['kcal', 'protein', 'carbs', 'fat'].map(key => [key, Math.round(food[key] * grams / 100 * 10) / 10]));
+  return {kcal:Math.round(food.kcal*grams/100*10)/10,...scaleNutrients(food,grams)};
 }
 export function weekSummary(workouts, date) {
   const start = new Date(`${date}T12:00:00`);

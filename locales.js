@@ -1,4 +1,4 @@
-// Interface copy. Source Chinese maps to English, Japanese and Korean.
+// Simplified Chinese source copy mapped to English, Japanese and Korean.
 export const MESSAGES = {
   "一日食记": [
     "Daily Bites",
@@ -1536,9 +1536,9 @@ export const MESSAGES = {
     "진행률은 기록용이며 영양 균형을 판단하지 않아요."
   ],
   "{n} 条未填写": [
-    "{n} missing",
-    "{n}件未入力",
-    "{n}건 미입력"
+    "{n} entries missing",
+    "{n} 件未入力",
+    "{n}개 미입력"
   ],
   "规律训练者蛋白质参考：{min}–{max} g/天（体重 × 1.4–2.0）；分配到各餐，按需要调整。": [
     "Regularly active adults: {min}–{max} g protein/day (weight ×1.4–2.0), spread across meals and adjusted individually.",
@@ -2829,5 +2829,635 @@ export const MESSAGES = {
     "Cannot connect. Check service URL, network and CORS settings.",
     "接続できません。サービスURL、ネットワーク、CORS設定を確認してください。",
     "연결할 수 없어요. 서비스 주소, 네트워크, CORS 설정을 확인하세요."
+  ],
+  "把今天的记录，变成明天的搭配": [
+    "Plan tomorrow from today's diary",
+    "今日の記録から、明日の献立へ",
+    "오늘의 기록으로 내일의 식단 계획"
+  ],
+  "不只看热量，也看蛋白质、食物结构和次日活动": [
+    "Beyond calories: protein, food variety and tomorrow's activity",
+    "熱量だけでなく、たんぱく質・食事構成・翌日の活動も",
+    "열량뿐 아니라 단백질, 식사 구성, 내일의 활동도 고려"
+  ],
+  "次日饮食偏好": [
+    "Tomorrow's diet preference",
+    "翌日の食事スタイル",
+    "내일의 식사 유형"
+  ],
+  "均衡饮食": [
+    "Balanced",
+    "バランス重視",
+    "균형식"
+  ],
+  "蛋奶素": [
+    "Lacto-ovo vegetarian",
+    "卵乳菜食",
+    "달걀·유제품 채식"
+  ],
+  "纯素": [
+    "Vegan",
+    "完全菜食",
+    "완전 채식"
+  ],
+  "我已记录所选日的全部饮食，含饮料和加餐": [
+    "I logged all food, drinks and snacks for this day",
+    "この日の飲料・間食を含む全ての飲食を記録しました",
+    "이 날의 음료와 간식을 포함한 모든 식사를 기록했습니다"
+  ],
+  "补充当天食物类别（可选，不从菜名自动猜测）": [
+    "Confirm food groups (optional; never guessed from names)",
+    "食品群を確認（任意・料理名から推測しません）",
+    "식품군 확인 (선택 사항, 음식 이름으로 추측하지 않음)"
+  ],
+  "未确认": [
+    "Unconfirmed",
+    "未確認",
+    "미확인"
+  ],
+  "当天有吃": [
+    "Included that day",
+    "この日に食べた",
+    "이 날 섭취함"
+  ],
+  "当天未包含": [
+    "Not included that day",
+    "この日は含まず",
+    "이 날 포함하지 않음"
+  ],
+  "优质蛋白食物": [
+    "Protein foods",
+    "良質なたんぱく源",
+    "양질의 단백질 식품"
+  ],
+  "乳品或钙强化替代品": [
+    "Dairy or calcium-fortified alternatives",
+    "乳製品・カルシウム強化代替品",
+    "유제품 또는 칼슘 강화 대체품"
+  ],
+  "从今天看，明天可以这样调整": [
+    "Adjustments for tomorrow",
+    "明日の食事へのヒント",
+    "내일을 위한 조정 제안"
+  ],
+  "查看其他已记录营养素与数据完整度": [
+    "Other logged nutrients and data coverage",
+    "その他の記録済み栄養素と入力状況",
+    "기타 기록된 영양소와 데이터 완성도"
+  ],
+  "以下仅为已填合计；缺失条数不为零时，不能代表全天摄入。总糖不是游离糖，食物中的水也不是额外饮水目标。": [
+    "Only entered amounts are summed. Missing values mean this is not a full-day intake. Total sugars are not free sugars; food water is not an extra drinking target.",
+    "入力値のみの合計です。未入力があれば一日全体の摂取量ではありません。総糖類は遊離糖とは異なり、食品の水分は追加の飲水目標ではありません。",
+    "입력한 값만 합산합니다. 누락이 있으면 하루 전체 섭취량이 아닙니다. 총당류는 유리당과 다르며 식품 속 수분은 추가 음수 목표가 아닙니다."
+  ],
+  "次日三餐与加餐示例": [
+    "Tomorrow's meals and optional snack",
+    "翌日の三食と間食の例",
+    "내일의 세 끼와 선택 간식 예시"
+  ],
+  "建议依据与适用范围": [
+    "How suggestions work",
+    "提案の根拠と対象",
+    "제안의 근거와 적용 범위"
+  ],
+  "这些是本地规则生成的一般健康成人饮食参考，不是营养缺乏诊断或治疗食谱。不会把建议自动写成已吃记录，也不会根据单日摄入要求跳餐或补偿。": [
+    "Local rules provide general guidance for healthy adults, not deficiency diagnoses or treatment diets. Suggestions never become eaten-food records automatically, and a single day's intake never triggers skipping meals or compensation.",
+    "端末内のルールによる健康な成人向けの一般的な参考で、欠乏症の診断や治療食ではありません。提案を摂取記録に自動保存せず、一日の摂取量から欠食や埋め合わせを求めません。",
+    "기기 내 규칙으로 만든 건강한 성인용 일반 참고이며 결핍 진단이나 치료 식단이 아닙니다. 제안을 섭취 기록으로 자동 저장하거나 하루 섭취량에 따라 결식·보상을 요구하지 않습니다."
+  ],
+  "只有明确确认全天记录完整，才比较摄入与手填目标。能量偏离目标 10% 仅作提醒；宏量比例用蛋白质/碳水/脂肪 4/4/9 换算，一般成人碳水 45%–65%、脂肪 20%–35% 仅作参考。与已记录热量差异超过 25% 时先核对数据，这不是医学判定阈值。": [
+    "Intake is compared with your entered target only after you confirm a complete day. A 10% energy difference is just a prompt. Macro energy uses protein/carbs/fat at 4/4/9 kcal/g; adult carbohydrate 45–65% and fat 20–35% are references. A difference over 25% from logged calories prompts a data check, not a medical conclusion.",
+    "一日分の記録完了を確認した場合のみ、入力目標と比較します。目標との10%の差は注意喚起のみです。たんぱく質・炭水化物・脂質を4/4/9 kcal/gで換算し、成人の炭水化物45–65%、脂質20–35%を参考とします。記録熱量と25%超の差があればデータを確認しますが、医学的な判定基準ではありません。",
+    "하루 기록의 완전성을 확인한 경우에만 입력 목표와 비교합니다. 열량 10% 차이는 알림일 뿐입니다. 단백질·탄수화물·지방을 4/4/9 kcal/g으로 환산하며 성인 탄수화물 45–65%, 지방 20–35%는 참고 범위입니다. 기록 열량과 25% 넘게 차이 나면 데이터를 확인하며 의학적 기준이 아닙니다."
+  ],
+  "未记录完整的膳食纤维、钠、游离糖和维生素，不能据此判断是否达标。食材请按过敏、个人医嘱和口味替换；纯素饮食需额外关注 B12。修改当天记录后，原完整性确认会失效。": [
+    "Incomplete fiber, sodium, free-sugar or vitamin data cannot establish adequacy. Adapt ingredients to allergies, medical guidance and taste; vegans need special attention to B12. Editing that day's records invalidates its completeness confirmation.",
+    "食物繊維・ナトリウム・遊離糖・ビタミンの記録が不完全な場合、充足度は判断できません。アレルギー・医師の指示・好みに合わせて食材を変更し、完全菜食ではB12に注意してください。記録の編集後は完了確認が無効になります。",
+    "식이섬유·나트륨·유리당·비타민 데이터가 불완전하면 충족 여부를 판단할 수 없습니다. 알레르기, 의료 지침, 기호에 맞춰 재료를 바꾸고 완전 채식은 B12에 주의하세요. 당일 기록을 수정하면 완전성 확인이 해제됩니다."
+  ],
+  "DRI 宏量营养素参考": [
+    "DRI macronutrient references",
+    "DRI 多量栄養素の参考",
+    "DRI 다량 영양소 참고"
+  ],
+  "糖类 / 碳水（g）": [
+    "Carbohydrates (g)",
+    "糖質類・炭水化物（g）",
+    "탄수화물 (g)"
+  ],
+  "补充糖、水、维生素与无机盐（可不填）": [
+    "Add sugars, water, vitamins and minerals (optional)",
+    "糖類・水分・ビタミン・ミネラルを追加（任意）",
+    "당류·수분·비타민·무기질 추가 (선택)"
+  ],
+  "填写本条食物实际份量的含量，注意 mg 与 µg 相差 1000 倍。只收录部分维生素和矿物质，不代表完整成分分析。": [
+    "Enter amounts for this whole food portion. Note: 1 mg = 1000 µg. Only selected vitamins and minerals are covered, not a complete composition analysis.",
+    "この食品の実際の一食分を入力してください。1 mg = 1000 µgです。一部のビタミン・ミネラルのみを扱い、全成分の分析ではありません。",
+    "이 음식의 실제 전체 분량에 해당하는 함량을 입력하세요. 1 mg = 1000 µg입니다. 일부 비타민과 무기질만 다루며 전체 성분 분석이 아닙니다."
+  ],
+  "其中糖（g）": [
+    "Of which sugars (g)",
+    "うち糖類（g）",
+    "당류 (g)"
+  ],
+  "水（g）": [
+    "Water (g)",
+    "水分（g）",
+    "수분 (g)"
+  ],
+  "膳食纤维（g）": [
+    "Fiber (g)",
+    "食物繊維（g）",
+    "식이섬유 (g)"
+  ],
+  "维生素 C（mg）": [
+    "Vitamin C (mg)",
+    "ビタミン C（mg）",
+    "비타민 C (mg)"
+  ],
+  "维生素 A（µg RAE）": [
+    "Vitamin A (µg RAE)",
+    "ビタミン A（µg RAE）",
+    "비타민 A (µg RAE)"
+  ],
+  "维生素 D（µg）": [
+    "Vitamin D (µg)",
+    "ビタミン D（µg）",
+    "비타민 D (µg)"
+  ],
+  "维生素 B12（µg）": [
+    "Vitamin B12 (µg)",
+    "ビタミン B12（µg）",
+    "비타민 B12 (µg)"
+  ],
+  "钙（mg）": [
+    "Calcium (mg)",
+    "カルシウム（mg）",
+    "칼슘 (mg)"
+  ],
+  "铁（mg）": [
+    "Iron (mg)",
+    "鉄（mg）",
+    "철 (mg)"
+  ],
+  "钾（mg）": [
+    "Potassium (mg)",
+    "カリウム（mg）",
+    "칼륨 (mg)"
+  ],
+  "钠（mg）": [
+    "Sodium (mg)",
+    "ナトリウム（mg）",
+    "나트륨 (mg)"
+  ],
+  "营养数据来源": [
+    "Nutrition data source",
+    "栄養データの出典",
+    "영양 데이터 출처"
+  ],
+  "例如：产品营养标签": [
+    "e.g. package nutrition label",
+    "例：商品の栄養成分表示",
+    "예: 제품 영양 정보 표시"
+  ],
+  "糖类（碳水化合物）": [
+    "Carbohydrates",
+    "糖類（炭水化物）",
+    "탄수화물"
+  ],
+  "其中糖": [
+    "Of which sugars",
+    "うち糖類",
+    "당류"
+  ],
+  "维生素 C": [
+    "Vitamin C",
+    "ビタミン C",
+    "비타민 C"
+  ],
+  "维生素 A（RAE）": [
+    "Vitamin A (RAE)",
+    "ビタミン A（RAE）",
+    "비타민 A (RAE)"
+  ],
+  "维生素 D": [
+    "Vitamin D",
+    "ビタミン D",
+    "비타민 D"
+  ],
+  "维生素 B12": [
+    "Vitamin B12",
+    "ビタミン B12",
+    "비타민 B12"
+  ],
+  "钙": [
+    "Calcium",
+    "カルシウム",
+    "칼슘"
+  ],
+  "铁": [
+    "Iron",
+    "鉄",
+    "철"
+  ],
+  "钾": [
+    "Potassium",
+    "カリウム",
+    "칼륨"
+  ],
+  "钠": [
+    "Sodium",
+    "ナトリウム",
+    "나트륨"
+  ],
+  "水": [
+    "Water",
+    "水分",
+    "수분"
+  ],
+  "营养数值对应本条记录的份量。": [
+    "Nutrients are for the whole recorded portion.",
+    "栄養値はこの記録の一食分に対応します。",
+    "영양 수치는 기록된 전체 분량 기준입니다."
+  ],
+  "六类营养信息": [
+    "Six nutrient classes",
+    "六大栄養素の情報",
+    "6대 영양소 정보"
+  ],
+  "维生素（已收录项目）": [
+    "Vitamins (selected types)",
+    "ビタミン（収録項目）",
+    "비타민 (수록 항목)"
+  ],
+  "无机盐（矿物质）": [
+    "Minerals",
+    "無機質（ミネラル）",
+    "무기질 (미네랄)"
+  ],
+  "维生素和矿物质按具体项目列出，不相加成总克数；未提供不代表没有。糖是碳水的一部分，不等于游离糖。": [
+    "Vitamins and minerals are listed separately, never summed as total grams. Missing does not mean absent. Sugars are part of carbohydrates and are not the same as free sugars.",
+    "ビタミン・ミネラルは項目別に表示し、総グラム数として合算しません。未提供は含有ゼロを意味しません。糖類は炭水化物の一部で、遊離糖とは異なります。",
+    "비타민과 무기질은 항목별로 표시하며 총 g으로 합산하지 않습니다. 미제공은 없다는 뜻이 아닙니다. 당류는 탄수화물의 일부이며 유리당과 다릅니다."
+  ],
+  "数据来源": [
+    "Data source",
+    "出典",
+    "데이터 출처"
+  ],
+  "原味燕麦＋牛奶或无糖豆浆＋完整水果。": [
+    "Plain oats + milk or unsweetened soy drink + whole fruit.",
+    "プレーンオートミール＋牛乳または無糖豆乳＋丸ごとの果物。",
+    "플레인 오트밀 + 우유 또는 무가당 두유 + 통과일."
+  ],
+  "杂粮饭＋鱼、去皮禽肉或豆腐＋两种蔬菜。": [
+    "Mixed grains + fish, skinless poultry or tofu + two vegetables.",
+    "雑穀ご飯＋魚・皮なし鶏肉・豆腐のいずれか＋野菜2種類。",
+    "잡곡밥 + 생선·껍질 없는 가금육 또는 두부 + 채소 두 종류."
+  ],
+  "米饭或薯类＋鸡蛋、瘦肉或豆类＋蔬菜。": [
+    "Rice or potatoes + eggs, lean meat or legumes + vegetables.",
+    "ご飯またはいも類＋卵・赤身肉・豆類のいずれか＋野菜。",
+    "밥 또는 감자류 + 달걀·살코기 또는 콩류 + 채소."
+  ],
+  "按饥饿和活动安排选择水果或原味无糖酸奶；不需要时可并入正餐。": [
+    "Choose fruit or plain unsweetened yogurt for hunger and activity; merge into a main meal if no snack is needed.",
+    "空腹感や活動に合わせて果物または無糖ヨーグルトを。間食が不要なら食事に組み込めます。",
+    "배고픔과 활동에 맞춰 과일이나 무가당 플레인 요구르트를 고르세요. 간식이 필요 없으면 식사에 포함해도 됩니다."
+  ],
+  "原味燕麦＋牛奶或钙强化豆饮＋完整水果。": [
+    "Plain oats + milk or calcium-fortified soy drink + whole fruit.",
+    "オートミール＋牛乳またはカルシウム強化豆乳＋丸ごとの果物。",
+    "플레인 오트밀 + 우유 또는 칼슘 강화 두유 + 통과일."
+  ],
+  "杂粮饭＋豆腐或鸡蛋＋两种蔬菜。": [
+    "Mixed grains + tofu or eggs + two vegetables.",
+    "雑穀ご飯＋豆腐または卵＋野菜2種類。",
+    "잡곡밥 + 두부 또는 달걀 + 채소 두 종류."
+  ],
+  "薯类或米饭＋豆类或鸡蛋＋蔬菜。": [
+    "Potatoes or rice + legumes or eggs + vegetables.",
+    "いも類またはご飯＋豆類または卵＋野菜。",
+    "감자류 또는 밥 + 콩류 또는 달걀 + 채소."
+  ],
+  "按需要选择原味无糖酸奶或水果；不需要时可并入正餐。": [
+    "Choose plain unsweetened yogurt or fruit if needed; otherwise include it in a main meal.",
+    "必要に応じて無糖ヨーグルトや果物を。不要なら食事に組み込めます。",
+    "필요에 따라 무가당 플레인 요구르트나 과일을 선택하고 식사에 포함해도 됩니다."
+  ],
+  "原味燕麦＋钙强化无糖豆饮＋完整水果。": [
+    "Plain oats + calcium-fortified unsweetened soy drink + whole fruit.",
+    "オートミール＋カルシウム強化無糖豆乳＋丸ごとの果物。",
+    "플레인 오트밀 + 칼슘 강화 무가당 두유 + 통과일."
+  ],
+  "杂粮饭＋豆腐或扁豆＋两种蔬菜。": [
+    "Mixed grains + tofu or lentils + two vegetables.",
+    "雑穀ご飯＋豆腐またはレンズ豆＋野菜2種類。",
+    "잡곡밥 + 두부 또는 렌틸콩 + 채소 두 종류."
+  ],
+  "米饭或薯类＋鹰嘴豆或其他豆类＋菌菇和蔬菜。": [
+    "Rice or potatoes + chickpeas or other legumes + mushrooms and vegetables.",
+    "ご飯またはいも類＋ひよこ豆などの豆類＋きのこ・野菜。",
+    "밥 또는 감자류 + 병아리콩 등 콩류 + 버섯과 채소."
+  ],
+  "按需要选择水果或少量无盐坚果；不需要时可并入正餐。": [
+    "Choose fruit or a small portion of unsalted nuts if needed; otherwise include it in a main meal.",
+    "必要に応じて果物や少量の無塩ナッツを。不要なら食事に組み込めます。",
+    "필요하면 과일이나 소량의 무염 견과류를 선택하고 식사에 포함해도 됩니다."
+  ],
+  "这一天没有饮食记录，先给出通用配餐，不判断吃多、吃少或营养缺乏。": [
+    "No food is logged for this day. Suggestions are general and do not assess over-eating, under-eating or nutrient deficiency.",
+    "この日の食事記録がないため一般的な献立を示します。食べ過ぎ・不足・栄養欠乏は判断しません。",
+    "이 날의 식사 기록이 없어 일반 식단을 제안하며 과식·부족·영양 결핍을 판단하지 않습니다."
+  ],
+  "尚未确认全天记录完整；仅展示已记录合计，不把漏记当作没有摄入。": [
+    "A full day has not been confirmed. Totals cover logged amounts only; unlogged does not mean uneaten.",
+    "一日分の記録完了が未確認です。記録済み分のみを合計し、未記録を未摂取とみなしません。",
+    "하루 전체 기록이 확인되지 않았습니다. 기록된 양만 합산하며 미기록을 미섭취로 보지 않습니다."
+  ],
+  "手填目标低于估算静息代谢，暂不据此分配次日热量；请先核对需求，静息代谢也不是个人安全阈值。": [
+    "Your entered target is below estimated resting metabolism, so it is not used for meal allocation. Review your needs; resting metabolism is not a personal safety threshold.",
+    "入力目標が推定安静時代謝を下回るため、翌日の熱量配分には使いません。必要量を確認してください。安静時代謝は個人の安全基準ではありません。",
+    "입력 목표가 추정 안정 시 대사량보다 낮아 다음 날 열량 배분에 쓰지 않습니다. 필요량을 확인하세요. 안정 시 대사량은 개인의 안전 기준이 아닙니다."
+  ],
+  "已记录热量高于手填参考；次日回到规律三餐，不跳餐，也不扣除今天的差额。": [
+    "Logged energy exceeds your entered reference. Return to regular meals tomorrow; do not skip meals or subtract today's difference.",
+    "記録熱量が入力参考値を上回りました。翌日も規則的に三食をとり、欠食や差額の差し引きはしません。",
+    "기록 열량이 입력 참고치를 넘었습니다. 내일도 규칙적인 세 끼를 먹고 결식하거나 오늘의 차액을 빼지 마세요."
+  ],
+  "已记录热量低于手填参考；先核对是否漏记，次日规律进餐，按饥饿和活动调整，不补吃固定差额。": [
+    "Logged energy is below your reference. Check for omissions, eat regularly tomorrow and adjust to hunger and activity rather than making up a fixed difference.",
+    "記録熱量が参考値を下回りました。記録漏れを確認し、翌日も規則的に食べ、空腹感と活動で調整します。固定の差額を食べ足しません。",
+    "기록 열량이 참고치보다 낮습니다. 누락을 확인하고 내일도 규칙적으로 먹으며 고정 차액을 보충하지 말고 배고픔과 활동에 맞추세요."
+  ],
+  "已记录热量接近手填参考；次日继续均衡搭配，这不等于整体营养已经达标。": [
+    "Logged energy is near your reference. Continue balanced meals tomorrow; this does not establish overall nutritional adequacy.",
+    "記録熱量は参考値に近い値です。翌日もバランスを保ちましょう。栄養全体の充足を示すものではありません。",
+    "기록 열량이 참고치에 가깝습니다. 내일도 균형을 유지하세요. 전체 영양 충족을 의미하지는 않습니다."
+  ],
+  "已记录蛋白质低于规律运动者参考下限；次日在各餐安排蛋白食物，不把差额集中到一顿。": [
+    "Logged protein is below the regular-exercise reference range. Include protein across tomorrow's meals rather than concentrating a shortfall in one meal.",
+    "記録たんぱく質が定期的な運動者向け参考範囲を下回ります。翌日は各食に分け、一食で差額を補おうとしないでください。",
+    "기록 단백질이 규칙적 운동자 참고 범위보다 낮습니다. 내일 각 끼니에 단백질 식품을 나누고 차이를 한 끼에 몰지 마세요."
+  ],
+  "已记录蛋白质超过运动人群参考范围；次日无需继续堆叠蛋白食物或补剂，也要留出主食和蔬果。": [
+    "Logged protein exceeds the exercise reference range. Avoid adding more protein foods or supplements tomorrow at the expense of grains, fruit and vegetables.",
+    "記録たんぱく質が運動者向け参考範囲を上回ります。翌日はさらに重ねず、主食や野菜・果物も確保しましょう。",
+    "기록 단백질이 운동자 참고 범위를 넘습니다. 내일 단백질 식품이나 보충제를 더 쌓기보다 곡류·채소·과일도 챙기세요."
+  ],
+  "已记录蛋白质处于运动人群参考范围；次日继续分配到各餐，不因此忽略其他食物。": [
+    "Logged protein is within the exercise reference range. Spread it across meals tomorrow and keep other food groups.",
+    "記録たんぱく質は運動者向け参考範囲内です。翌日も各食に分け、他の食品群も大切にしましょう。",
+    "기록 단백질이 운동자 참고 범위 내입니다. 내일도 각 끼니에 나누고 다른 식품군을 소홀히 하지 마세요."
+  ],
+  "宏量营养素换算能量与记录热量差异较大，请先核对单位和份量，暂不比较供能比例。": [
+    "Macro-derived energy differs substantially from logged calories. Check units and portions before comparing energy shares.",
+    "栄養素からの換算熱量と記録値の差が大きいため、単位と量を確認するまで比率の比較を控えます。",
+    "영양소 환산 열량과 기록 열량의 차이가 큽니다. 단위와 분량을 확인할 때까지 에너지 비율을 비교하지 않습니다."
+  ],
+  "碳水占宏量换算能量的比例偏低于一般成人参考；次日主食不省略，优先全谷物和薯类。": [
+    "The carbohydrate energy share is below the general adult reference. Keep staple foods tomorrow, favoring whole grains and potatoes.",
+    "炭水化物の熱量比率が成人参考範囲を下回ります。翌日も主食を抜かず、全粒穀物やいも類を選びましょう。",
+    "탄수화물 에너지 비율이 일반 성인 참고보다 낮습니다. 내일 주식을 빼지 말고 통곡물과 감자류를 우선하세요."
+  ],
+  "碳水供能比例偏高于一般成人参考；次日搭配蛋白食物和适量健康油脂，不简单地戒掉主食。": [
+    "The carbohydrate energy share is above the adult reference. Pair staples with protein and moderate healthy fats rather than eliminating staples.",
+    "炭水化物の熱量比率が成人参考範囲を上回ります。主食を断つのでなく、たんぱく源と適量の良質な油脂を合わせましょう。",
+    "탄수화물 에너지 비율이 성인 참고보다 높습니다. 주식을 끊기보다 단백질 식품과 적당한 건강 지방을 곁들이세요."
+  ],
+  "脂肪供能比例偏高于一般成人参考；次日可更多选择蒸、煮、炖，按实际情况减少额外油和酱汁。": [
+    "The fat energy share is above the adult reference. Consider steaming, boiling or stewing and moderate added oils and sauces.",
+    "脂質の熱量比率が成人参考範囲を上回ります。蒸す・ゆでる・煮る調理を増やし、追加の油やソースを適宜減らしましょう。",
+    "지방 에너지 비율이 성인 참고보다 높습니다. 찜·삶기·끓이기를 활용하고 추가 기름과 소스를 적절히 줄이세요."
+  ],
+  "脂肪供能比例偏低于一般成人参考；次日可搭配适量植物油或坚果，不追求完全无脂。": [
+    "The fat energy share is below the adult reference. Include moderate plant oils or nuts rather than aiming for fat-free meals.",
+    "脂質の熱量比率が成人参考範囲を下回ります。適量の植物油やナッツを取り入れ、完全無脂肪を目指さないでください。",
+    "지방 에너지 비율이 성인 참고보다 낮습니다. 식물성 기름이나 견과류를 적당히 포함하고 무지방을 추구하지 마세요."
+  ],
+  "已记录膳食纤维低于一般成人每日 25 g 的参考；次日可逐步增加全谷物、豆类和蔬果，并正常补水。": [
+    "Logged fiber is below the general adult reference of 25 g/day. Gradually include more whole grains, legumes, vegetables and fruit, with normal hydration.",
+    "記録食物繊維が成人の参考量25 g/日を下回ります。全粒穀物・豆類・野菜・果物を徐々に増やし、通常の水分補給を。",
+    "기록 식이섬유가 성인 참고인 하루 25 g보다 낮습니다. 통곡물·콩류·채소·과일을 서서히 늘리고 정상적으로 수분을 섭취하세요."
+  ],
+  "已记录钠达到或超过一般成人每日少于 2000 mg 的参考；次日优先清淡烹调，留意酱汁和包装标签，不用极端限盐补偿。": [
+    "Logged sodium meets or exceeds the adult reference limit of under 2000 mg/day. Choose less salty cooking and check sauces and labels tomorrow; avoid extreme salt restriction to compensate.",
+    "記録ナトリウムが成人参考上限2000 mg未満/日以上です。翌日は薄味にし、ソースや表示を確認しますが、極端な減塩で埋め合わせないでください。",
+    "기록 나트륨이 성인 참고인 하루 2000 mg 미만 기준에 이르거나 넘습니다. 내일은 싱겁게 조리하고 소스·표시를 확인하되 극단적으로 제한해 보상하지 마세요."
+  ],
+  "这里记录的是总糖，包含水果和乳品中的糖；没有游离糖数据，不能用总糖判断是否超过游离糖建议。": [
+    "These are total sugars, including fruit and dairy sugars. Without free-sugar data, they cannot be compared with a free-sugar limit.",
+    "ここでの総糖類には果物や乳製品の糖も含まれます。遊離糖のデータなしに遊離糖の基準超過は判断できません。",
+    "총당류에는 과일과 유제품의 당도 포함됩니다. 유리당 데이터 없이 총당류로 유리당 기준 초과를 판단할 수 없습니다."
+  ],
+  "水合计包含已记录食物中的水，不等于额外饮水需求；按天气、活动与个人医嘱安排补水，不据此判断脱水。": [
+    "Water totals include logged food moisture, not extra drinking needs. Hydrate for weather, activity and medical guidance; this does not diagnose dehydration.",
+    "水分合計には食品の水分を含み、追加飲水量ではありません。天候・活動・医師の指示に応じて補給し、脱水の判定には使いません。",
+    "수분 합계는 식품 속 수분을 포함하며 추가 음수 필요량이 아닙니다. 날씨·활동·의료 지침에 맞춰 수분을 섭취하고 탈수를 판단하지 마세요."
+  ],
+  "维生素和矿物质仅展示已填写项目与完整度；单日数值和有限项目不能用于诊断缺乏，也不自动建议补剂剂量。": [
+    "Vitamin and mineral values show entered items and coverage only. A single day and limited nutrients cannot diagnose deficiency or determine supplement doses.",
+    "ビタミン・ミネラルは入力項目と記録状況のみを示します。一日分や限られた項目で欠乏症の診断やサプリ用量を決めません。",
+    "비타민·무기질은 입력 항목과 완성도만 표시합니다. 하루 수치와 제한된 항목으로 결핍을 진단하거나 보충제 용량을 정하지 않습니다."
+  ],
+  "你标记当天未包含蔬菜：次日午晚餐各搭配蔬菜，并轮换颜色；这不是纤维或维生素缺乏诊断。": [
+    "You marked no vegetables that day. Include varied-color vegetables at lunch and dinner tomorrow; this is not a fiber or vitamin deficiency diagnosis.",
+    "野菜なしと回答しました。翌日の昼・夕食に色の異なる野菜を。食物繊維やビタミン欠乏の診断ではありません。",
+    "당일 채소를 포함하지 않았다고 표시했습니다. 내일 점심·저녁에 다양한 색의 채소를 곁들이세요. 결핍 진단이 아닙니다."
+  ],
+  "你标记当天未包含水果：次日可加入一份完整水果，计入全天总量，不用补吃昨天的量。": [
+    "You marked no fruit. Include a portion of whole fruit in tomorrow's total, without making up yesterday's amount.",
+    "果物なしと回答しました。翌日の総量に丸ごとの果物一食分を加え、前日の分を補おうとしないでください。",
+    "과일을 포함하지 않았다고 표시했습니다. 내일 전체 섭취량에 통과일 한 분량을 포함하되 어제의 양을 보충하지 마세요."
+  ],
+  "你标记当天未包含全谷物：次日可用燕麦、杂粮饭等替换部分精制主食，逐步增加。": [
+    "You marked no whole grains. Gradually replace some refined grains with oats or mixed grains tomorrow.",
+    "全粒穀物なしと回答しました。翌日は主食の一部をオーツや雑穀に置き換え、徐々に増やしましょう。",
+    "통곡물을 포함하지 않았다고 표시했습니다. 내일 정제 곡물 일부를 오트밀·잡곡으로 서서히 대체하세요."
+  ],
+  "你标记当天未包含优质蛋白食物：次日三餐安排豆类、蛋、乳、鱼或肉中的适合选项。": [
+    "You marked no protein foods. Choose suitable legumes, eggs, dairy, fish or meat across tomorrow's meals.",
+    "たんぱく源なしと回答しました。翌日の三食に豆・卵・乳・魚・肉など適したものを。",
+    "단백질 식품을 포함하지 않았다고 표시했습니다. 내일 세 끼에 콩·달걀·유제품·생선·고기 중 맞는 것을 포함하세요."
+  ],
+  "你标记当天未包含乳品或钙强化替代品：次日可安排合适的乳品或明确标注钙强化的植物饮品。": [
+    "You marked no dairy or calcium-fortified alternative. Consider suitable dairy or a plant drink labeled calcium-fortified tomorrow.",
+    "乳製品・カルシウム強化代替品なしと回答しました。翌日は合う乳製品やカルシウム強化表示のある植物飲料を。",
+    "유제품·칼슘 강화 대체품을 포함하지 않았다고 표시했습니다. 내일 맞는 유제품이나 칼슘 강화 표시 식물성 음료를 고려하세요."
+  ],
+  "次日有较长或高强度运动：保留主食，按运动时间安排餐食和补水，不把估算消耗直接加到目标上。": [
+    "Long or vigorous activity is planned tomorrow. Keep staples, time meals and hydration around activity, and do not automatically add estimated expenditure to your target.",
+    "翌日に長時間・高強度の運動があります。主食を確保し、運動に合わせ食事と水分を調整します。推定消費を目標に自動加算しません。",
+    "내일 장시간 또는 고강도 운동이 예정되어 있습니다. 주식을 유지하고 운동 시간에 맞춰 식사·수분을 배치하며 추정 소모량을 목표에 자동 추가하지 않습니다."
+  ],
+  "次日有运动安排：正常进餐，训练前饿了可选择易消化加餐，训练后搭配主食与蛋白食物。": [
+    "Activity is planned tomorrow. Eat normally; if hungry beforehand, choose an easy-to-digest snack. Pair staples and protein afterward.",
+    "翌日は運動予定です。通常通り食べ、運動前に空腹なら消化のよい間食を。運動後は主食とたんぱく源を組み合わせましょう。",
+    "내일 운동이 예정되어 있습니다. 평소처럼 먹고 운동 전 배고프면 소화가 쉬운 간식을, 운동 후엔 주식과 단백질 식품을 곁들이세요."
+  ],
+  "次日没有记录运动安排，不代表一定休息；仍要规律进餐，按实际活动和饥饿感调整。": [
+    "No activity is logged for tomorrow; this does not guarantee a rest day. Eat regularly and adjust for actual activity and hunger.",
+    "翌日の運動記録はありませんが、必ずしも休養日ではありません。規則的に食べ、実際の活動と空腹感で調整しましょう。",
+    "내일 운동 기록이 없어도 반드시 휴식일인 것은 아닙니다. 규칙적으로 먹고 실제 활동과 배고픔에 맞추세요."
+  ],
+  "纯素饮食需关注维生素 B12，选择可靠强化食品或在专业指导下补充；植物饮品是否含钙需看标签。": [
+    "Vegan diets need reliable B12-fortified foods or professionally guided supplementation. Check plant-drink labels for calcium.",
+    "完全菜食では信頼できるB12強化食品や専門家の指導で補充を。植物飲料のカルシウムは表示を確認してください。",
+    "완전 채식은 신뢰할 수 있는 B12 강화 식품이나 전문가 지도하 보충이 필요합니다. 식물성 음료의 칼슘은 표시를 확인하세요."
+  ],
+  "增肌重在渐进力量训练、足够能量与恢复；蛋白食物分散到各餐，不为一天的数据而过量补充。": [
+    "Muscle gain relies on progressive strength training, enough energy and recovery. Spread protein across meals rather than over-supplementing for one day's data.",
+    "筋肥大には段階的な筋力トレーニング、十分なエネルギーと回復が大切です。たんぱく源は各食に分け、一日の値から過剰補充しません。",
+    "근육 증가는 점진적 근력 운동, 충분한 에너지와 회복이 중요합니다. 단백질을 각 끼니에 나누고 하루 수치로 과하게 보충하지 마세요."
+  ],
+  "体重管理优先规律三餐、饱腹感和长期趋势；本建议不根据单日摄入自动生成减脂缺口。": [
+    "For weight management, prioritize regular meals, satiety and long-term trends. A single day's intake never generates an automatic calorie deficit.",
+    "体重管理では規則的な三食、満腹感、長期傾向を優先します。一日の摂取量から減量用の不足熱量を自動設定しません。",
+    "체중 관리는 규칙적인 세 끼, 포만감, 장기 추세를 우선합니다. 하루 섭취량으로 감량 열량 적자를 자동 생성하지 않습니다."
+  ],
+  "各餐分散安排适合你的蛋白食物。": [
+    "Spread suitable protein foods across meals.",
+    "自分に合うたんぱく源を各食に分けましょう。",
+    "맞는 단백질 식품을 각 끼니에 나누세요."
+  ],
+  "用全谷物替换部分精制主食，逐步增加。": [
+    "Gradually replace some refined grains with whole grains.",
+    "精製穀物の一部を全粒穀物に替え、徐々に増やしましょう。",
+    "정제 곡물 일부를 통곡물로 서서히 대체하세요."
+  ],
+  "主食、蛋白食物和蔬果一起搭配。": [
+    "Combine staples, protein foods, fruit and vegetables.",
+    "主食・たんぱく源・野菜・果物を組み合わせましょう。",
+    "주식·단백질 식품·채소·과일을 함께 구성하세요."
+  ],
+  "完整水果优先，计入全天总量，不追求补偿。": [
+    "Favor whole fruit within daily intake, without compensation.",
+    "丸ごとの果物を一日の総量に含め、埋め合わせはしません。",
+    "통과일을 하루 섭취량에 포함하고 보상을 추구하지 마세요."
+  ],
+  "加餐是可选项，可根据饥饿和活动并入正餐。": [
+    "Snacks are optional and can be merged into meals based on hunger and activity.",
+    "間食は任意で、空腹感や活動に合わせ食事に組み込めます。",
+    "간식은 선택이며 배고픔과 활동에 따라 식사에 포함해도 됩니다."
+  ],
+  "午晚餐增加不同颜色蔬菜，不替代主食和蛋白。": [
+    "Add varied-color vegetables to lunch and dinner alongside staples and protein.",
+    "昼・夕食には色の異なる野菜を。主食やたんぱく源の代わりにはしません。",
+    "점심·저녁에 여러 색 채소를 더하되 주식과 단백질을 대체하지 마세요."
+  ],
+  "次日活动较多，主食不省略，留意补水与恢复。": [
+    "Tomorrow is active: keep staples, hydrate and allow recovery.",
+    "翌日は活動が多めです。主食を抜かず、水分と回復に気を配りましょう。",
+    "내일 활동이 많습니다. 주식을 빼지 말고 수분과 회복에 유의하세요."
+  ],
+  "饮食建议偏好读取失败，暂不能保存修改；原饮食和运动记录不受影响。": [
+    "Diet preferences could not be read; changes cannot be saved. Food and activity records are unaffected.",
+    "食事設定を読み取れず、変更を保存できません。食事・運動記録への影響はありません。",
+    "식단 설정을 읽지 못해 변경을 저장할 수 없습니다. 식사·운동 기록에는 영향이 없습니다."
+  ],
+  "建议偏好保存失败，请检查浏览器存储空间。": [
+    "Could not save preferences. Check browser storage.",
+    "設定を保存できません。ブラウザの保存容量を確認してください。",
+    "설정을 저장하지 못했습니다. 브라우저 저장 공간을 확인하세요."
+  ],
+  "原有饮食记录无法读取，暂不生成次日建议。": [
+    "Food records cannot be read; next-day suggestions are unavailable.",
+    "食事記録を読み取れないため、翌日の提案は生成しません。",
+    "식사 기록을 읽을 수 없어 다음 날 제안을 만들 수 없습니다."
+  ],
+  "饮食建议偏好读取失败，暂用默认设置展示；原数据未覆盖。": [
+    "Preferences could not be read. Defaults are displayed; existing data is preserved.",
+    "設定を読み取れず、既定値で表示します。元データは上書きしません。",
+    "설정을 읽지 못해 기본값으로 표시합니다. 기존 데이터는 보존됩니다."
+  ],
+  "这一天的记录已改变，请重新确认完整性与食物类别；目前不做摄入高低判断。": [
+    "This day's records changed. Reconfirm completeness and food groups; intake levels are not assessed for now.",
+    "この日の記録が変更されました。記録完了と食品群を再確認するまで、摂取量の高低を判断しません。",
+    "이 날의 기록이 변경되었습니다. 완전성과 식품군을 다시 확인하기 전에는 섭취량 높낮이를 판단하지 않습니다."
+  ],
+  "无当天记录：以下为通用配餐，不是基于实际摄入的个性化评估。": [
+    "No records for this day: meals below are general examples, not an assessment of actual intake.",
+    "この日の記録がないため、以下は実際の摂取に基づく個別評価ではなく一般例です。",
+    "이 날의 기록이 없어 아래는 실제 섭취량 기반 개인 평가가 아닌 일반 식단 예시입니다."
+  ],
+  "按你确认的完整记录分析；手填或照片估算仍可能有误差。": [
+    "Based on the complete day you confirmed; manual or photo estimates may still be inaccurate.",
+    "確認された一日分の記録を分析します。手入力や写真の推定には誤差があり得ます。",
+    "확인한 하루 전체 기록을 분석합니다. 수동 입력이나 사진 추정에는 오차가 있을 수 있습니다."
+  ],
+  "先看配餐结构；确认全天饮食已记录后，才比较能量与营养比例。": [
+    "Start with meal structure. Energy and macro shares are compared only after confirming a complete diary.",
+    "まず食事構成を確認しましょう。一日分の記録完了後のみ熱量と栄養比率を比較します。",
+    "먼저 식사 구성을 확인하세요. 하루 전체 기록 확인 후에만 열량과 영양 비율을 비교합니다."
+  ],
+  "已记录热量": [
+    "Logged energy",
+    "記録済み熱量",
+    "기록 열량"
+  ],
+  "次日已记录 {n} 项活动，共 {minutes} 分钟；只用于安排进餐，不抵扣摄入。": [
+    "{n} activities logged tomorrow, {minutes} minutes total; used for meal timing, never subtracted from intake.",
+    "翌日は{n}件、合計{minutes}分の活動を記録。食事の配置にのみ使い、摂取量から差し引きません。",
+    "내일 {n}개 활동, 총 {minutes}분 기록됨. 식사 배치에만 쓰며 섭취량에서 빼지 않습니다."
+  ],
+  "运动资料无法读取，次日建议暂不结合个人目标和活动。": [
+    "Activity data cannot be read; suggestions omit personal targets and activity.",
+    "運動情報を読み取れず、個人目標や活動は提案に反映しません。",
+    "운동 정보를 읽지 못해 개인 목표와 활동을 제안에 반영하지 않습니다."
+  ],
+  "规律运动人群蛋白质参考 {min}–{max} g/天；需结合个体情况，不是当天必须补足的差额。": [
+    "Regular-exercise protein reference: {min}–{max} g/day. Individual needs vary; this is not a shortfall to make up today.",
+    "定期的な運動者向けたんぱく質参考：{min}–{max} g/日。個人差があり、今日補うべき不足量ではありません。",
+    "규칙적 운동자 단백질 참고: 하루 {min}–{max} g. 개인차가 있으며 오늘 채워야 할 차액이 아닙니다."
+  ],
+  "未建立适用的运动蛋白质参考，只给出各餐均衡搭配。": [
+    "No applicable sports-protein reference; focus on balanced meals.",
+    "適用できる運動者向けたんぱく質参考値がないため、食事バランスのみを示します。",
+    "적용 가능한 운동 단백질 참고가 없어 균형 식사만 제안합니다."
+  ],
+  "按蛋白质/碳水/脂肪 4/4/9 换算：碳水约 {carbs}%，脂肪约 {fat}%；不是食物重量百分比。": [
+    "Using protein/carbs/fat at 4/4/9 kcal/g: carbs ≈ {carbs}%, fat ≈ {fat}%; these are energy, not food-weight percentages.",
+    "たんぱく質・炭水化物・脂質を4/4/9で換算：炭水化物約{carbs}%、脂質約{fat}%。食品重量の割合ではありません。",
+    "단백질·탄수화물·지방 4/4/9 환산: 탄수화물 약 {carbs}%, 지방 약 {fat}%. 식품 무게 비율이 아닙니다."
+  ],
+  "宏量供能比例暂不比较：需完整记录与可用的营养数据。": [
+    "Macro energy shares need a complete diary and usable nutrient data.",
+    "栄養素の熱量比率の比較には、一日分の完全な記録と栄養データが必要です。",
+    "영양소 에너지 비율 비교에는 완전한 기록과 사용 가능한 영양 데이터가 필요합니다."
+  ],
+  "食物类别尚未全部确认；不能从菜名或热量判断纤维、维生素、钙是否不足。": [
+    "Food groups are not fully confirmed. Names and calories cannot establish fiber, vitamin or calcium deficiency.",
+    "食品群が未確認です。料理名や熱量から繊維・ビタミン・カルシウム不足は判断できません。",
+    "식품군이 모두 확인되지 않았습니다. 이름이나 열량으로 식이섬유·비타민·칼슘 부족을 판단할 수 없습니다."
+  ],
+  "{n} kcal 分配参考": [
+    "{n} kcal allocation reference",
+    "配分参考 {n} kcal",
+    "배분 참고 {n} kcal"
+  ],
+  "餐次热量来自你的手填目标分配，不是以上食谱的营养计算值；加餐可按需要并入正餐，次日不加减当天差额。": [
+    "Meal energy is allocated from your entered target, not calculated from these menus. Snacks may be merged into meals; tomorrow never adds or subtracts today's difference.",
+    "各食の熱量は入力目標の配分で、上の献立の栄養計算値ではありません。間食は食事に組み込め、翌日に今日の差額を加減しません。",
+    "끼니 열량은 입력 목표의 배분이며 위 식단의 영양 계산값이 아닙니다. 간식을 식사에 포함할 수 있고 내일 오늘의 차액을 더하거나 빼지 않습니다."
+  ],
+  "未采用个人热量目标，只给出配餐结构和食物选择，不生成固定热量处方。": [
+    "No personal calorie target is used. Suggestions cover meal structure and choices, not a fixed calorie prescription.",
+    "個人の熱量目標は使わず、構成と食品の選択のみを示します。固定の熱量処方は生成しません。",
+    "개인 열량 목표를 쓰지 않고 식사 구성과 식품 선택만 제안하며 고정 열량 처방을 만들지 않습니다."
+  ],
+  "照片不能可靠推断维生素、矿物质或水；这些项目保持未提供，可保存后按标签编辑。": [
+    "Photos cannot reliably determine vitamins, minerals or water. These stay unknown; edit from labels after saving.",
+    "写真でビタミン・ミネラル・水分を正確に推定できないため、未提供のままです。保存後に表示を見て編集できます。",
+    "사진으로 비타민·무기질·수분을 신뢰성 있게 추정할 수 없어 미제공으로 둡니다. 저장 후 표시를 보고 수정하세요."
+  ],
+  "每 100 克可食部分的通用近似值；烹调和品牌会影响实际含量。": [
+    "Generic estimates per 100 g edible portion; cooking and brand affect actual values.",
+    "可食部100 gあたりの一般的な近似値。調理やブランドで変わります。",
+    "가식부 100 g당 일반 근사치입니다. 조리와 브랜드에 따라 실제 함량이 달라집니다."
+  ],
+  "仅为已填合计": [
+    "Entered amounts only",
+    "入力済み分のみの合計",
+    "입력한 양만 합산"
   ]
 };

@@ -9,6 +9,7 @@ export function nutrient(value) {
   const number = Number(value);
   return Number.isFinite(number) && number >= 0 ? Number(number.toPrecision(6)) : null;
 }
+function convertNutrient(nutrients,name,factor){const value=nutrient(nutrients[`${name}_100g`]);return value===null?null:Number((value*factor).toPrecision(6));}
 export function normalizeProduct(product) {
   if (!product || typeof product !== 'object') return null;
   const code = String(product.code ?? '');
@@ -19,6 +20,11 @@ export function normalizeProduct(product) {
   return { code, name, brand: cleanText(product.brands, 160), ingredients: cleanText(product.ingredients_text_zh, 1800) || cleanText(product.ingredients_text, 1800), allergens: cleanText(product.allergens, 300), serving: cleanText(product.serving_size, 200),
     kcal: nutrient(nutrients['energy-kcal_100g']) ?? (kj === null ? null : Math.round(kj / 4.184)),
     protein: nutrient(nutrients.proteins_100g), carbs: nutrient(nutrients.carbohydrates_100g), fat: nutrient(nutrients.fat_100g), fiber: nutrient(nutrients.fiber_100g), sugars: nutrient(nutrients.sugars_100g), salt: nutrient(nutrients.salt_100g),
+    // OFF stores micronutrient canonical values in grams, regardless of label display unit.
+    vitaminC: convertNutrient(nutrients,'vitamin-c',1000),
+    // Retinol-equivalent A values are not assumed to be RAE; leave A unknown.
+    vitaminA: null, vitaminD:convertNutrient(nutrients,'vitamin-d',1000000),vitaminB12:convertNutrient(nutrients,'vitamin-b12',1000000),
+    calcium:convertNutrient(nutrients,'calcium',1000),iron:convertNutrient(nutrients,'iron',1000),potassium:convertNutrient(nutrients,'potassium',1000),sodium:convertNutrient(nutrients,'sodium',1000),water:nutrient(nutrients.water_100g),
     url: `${FOOD_API_ORIGIN}/product/${code}` };
 }
 export function searchURL(query, page = 1) {

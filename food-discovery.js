@@ -1,3 +1,5 @@
+import { REFERENCE_NUTRITION, REFERENCE_SOURCE, renderNutrition } from './nutrition.js';
+import { FOODS } from './fitness.js';
 import { translateText } from './i18n.js';
 import { setupOnlineFood } from './food-online.js';
 export const FOOD_GUIDE = [
@@ -28,7 +30,10 @@ export function setupFoodDiscovery({ $, element }) {
       content.append(element('h3', '', food.name), element('p', 'food-tag', food.tag), element('small', 'food-state', food.state), element('p', 'food-feature', food.feature));
       const portion = element('div', 'food-portion'); portion.append(element('strong', '', '怎么吃 · 吃多少'), element('p', '', food.portion));
       const detail = element('details', 'food-pairing'); detail.append(element('summary', '', '搭配小灵感'), element('p', '', food.pairing));
-      content.append(portion, detail); card.append(cover, content); return card;
+      const referenceKey={苹果:'apple',橙子:'orange',猕猴桃:'kiwi',香蕉:'banana',西兰花:'broccoli',原味燕麦:'oats',水煮鸡蛋:'egg',原味无糖酸奶:'yogurt'}[food.name];
+      const preset={banana:3,broccoli:5,oats:4,egg:2}[referenceKey];
+      const nutrients=preset===undefined?REFERENCE_NUTRITION[referenceKey]:FOODS[preset];
+      content.append(renderNutrition({...nutrients,nutritionSource:REFERENCE_SOURCE},element,'每 100 克可食部分的通用近似值；烹调和品牌会影响实际含量。'),portion, detail); card.append(cover, content); return card;
     }));
   }
   for (const button of document.querySelectorAll('[data-food-category]')) button.addEventListener('click', () => {

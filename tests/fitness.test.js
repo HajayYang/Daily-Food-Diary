@@ -11,7 +11,9 @@ test('validates profiles and training data without coercing invalid values', () 
   assert.equal(validFitness({ profile: { goal: 'health', weight: null, target: null }, workouts: [workout, workout] }), false);
 });
 test('calculates calories and macros from edible weight', () => {
-  assert.deepEqual(scaleFood(0, 200), { kcal: 260, protein: 5.4, carbs: 56.4, fat: .6 });
+  const food=scaleFood(0,200);
+  assert.deepEqual(Object.fromEntries(['kcal','protein','carbs','fat'].map(key=>[key,food[key]])), { kcal: 260, protein: 5.4, carbs: 56.4, fat: .6 });
+  assert.equal(food.water,136.88); assert.equal(food.vitaminC,0);
   assert.throws(() => scaleFood(0, -100));
   assert.throws(() => scaleFood(99, 100));
 });

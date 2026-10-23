@@ -1,3 +1,4 @@
+import { renderNutrition } from './nutrition.js';
 import { getLanguage, translateText } from './i18n.js';
 import { localDate, validRecord } from './records.js';
 import { normalizePhotoService } from './photo-core.js';
@@ -68,7 +69,12 @@ export function setupPhotoDiary({ $, element, getDate, saveRecords }) {
       const confidence=element('span',`photo-confidence ${item.confidence}`,{low:'不确定，默认未勾选',medium:'有一定把握，仍需核对',high:'模型自评较有把握，仍需核对'}[item.confidence]);selection.append(confidence);row.append(selection);
       const basics=element('div','form-row');basics.append(field('食物名称','food',item.name),field('估算份量，可修改','portion',item.grams===null?'':`${item.grams} ${translateText('克')}`));
       const nutrition=element('div','photo-nutrition-inputs');for(const [key,label] of [['calories','估算热量（kcal）'],['protein','蛋白质（g）'],['carbs','碳水（g）'],['fat','脂肪（g）']])nutrition.append(field(label,key,item[key],{numeric:true,max:key==='calories'?20000:2000,integer:key==='calories'}));
-      row.append(basics,nutrition,field('识别备注，可修改','note',item.note,{textarea:true}));
+      let nutrientPreview=renderNutrition(item,element);
+      nutrition.addEventListener('input',()=>{
+        const values={...item};for(const key of ['protein','carbs','fat']){const raw=nutrition.querySelector(`[name=${key}]`).value;values[key]=raw===''?null:Number(raw);}
+        const updated=renderNutrition(values,element);updated.open=nutrientPreview.open;nutrientPreview.replaceWith(updated);nutrientPreview=updated;
+      });
+      row.append(basics,nutrition,element('p','muted','照片不能可靠推断维生素、矿物质或水；这些项目保持未提供，可保存后按标签编辑。'),nutrientPreview,field('识别备注，可修改','note',item.note,{textarea:true}));
       const enabled=()=>{for(const input of row.querySelectorAll('input,textarea'))if(input!==check)input.disabled=!check.checked;};check.addEventListener('change',enabled);enabled();return row;
     }));
     $('#photo-review').hidden=false;

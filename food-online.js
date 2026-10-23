@@ -1,3 +1,4 @@
+import { renderNutrition } from './nutrition.js';
 import { createFoodClient } from './food-api.js';
 export function setupOnlineFood({ $, element, renderLocal }) {
   const client = createFoodClient();
@@ -23,7 +24,7 @@ export function setupOnlineFood({ $, element, renderLocal }) {
       for (const [key, label, unit] of [['kcal','热量','kcal'],['protein','蛋白质','g'],['carbs','碳水','g'],['fat','脂肪','g'],['fiber','膳食纤维','g'],['sugars','糖','g'],['salt','盐','g']]) {
         const row = element('div'); row.append(element('dt', '', label), element('dd', '', product[key] === null ? '未提供' : `${product[key]} ${unit}`)); dl.append(row);
       }
-      content.append(dl);
+      content.append(dl,renderNutrition({...product,nutritionSource:'Open Food Facts'},element,'营养基准：每 100 克 / 100 毫升，以商品原标签为准'));
       const details = element('details', 'food-pairing'); details.append(element('summary', '', '配料、过敏原与标签份量'));
       for (const [label, value] of [['配料',product.ingredients],['过敏原',product.allergens],['标签份量（非摄入建议）',product.serving]]) {
         const row = element('p'); const text = element('span', '', value || '未提供，请查看原包装'); if (value) text.translate = false;

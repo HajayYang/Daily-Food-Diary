@@ -91,6 +91,18 @@
 
 身体数据、训练内容和估算体重均保存在当前浏览器，随 JSON 一起导出。参考：[Adult Compendium](https://pacompendium.com/)；[Mifflin–St Jeor](https://pubmed.ncbi.nlm.nih.gov/2305711/)。
 
+## 六类营养信息与次日饮食建议
+
+每条食物记录、精选食材、在线商品都可展开六类营养信息：糖类（碳水化合物，单列其中糖）、脂肪、蛋白质、维生素、无机盐（矿物质）和水。维生素目前收录 C、A（RAE）、D、B12，矿物质收录钙、铁、钾、钠；不是全成分分析，不将不同单位或不同微量营养素相加。另支持记录膳食纤维。编辑时展开“补充糖、水、维生素与无机盐”，填写**本条实际份量**的数值及来源。空白代表未知，明确的 0 会保留。旧记录无需迁移。
+
+内置通用食材沿用 USDA FoodData Central / SR Legacy 近似成分，生熟状态见食物卡片；按克数换算时，所有已知项目一起填入，微量数值保留至三位小数。请优先使用实际产品标签，不能把通用值当作检测结果。在线 Open Food Facts 缺失项标“未提供”；API 微量营养素标准值的 g 转换为页面 mg / µg，不能直接拿标签显示单位解释 API 数值。API 的维生素 A 数据未保证 RAE 定义，因此不自动转换成 RAE。照片不能可靠推断维生素、矿物质和水，保留未知，可保存后按可靠资料编辑。
+
+“把今天的记录，变成明天的搭配”使用所选日期的饮食和**下一天**的运动生成三餐及可选加餐，支持均衡饮食、蛋奶素、纯素，不需要新 API 或密钥。建议不会自动存为已吃记录。只有勾选已完整记录全天饮食，并且相应营养项目没有缺失，才比较能量、运动蛋白质、宏量供能比例、纤维和钠；可选确认当天是否包含五类食物，不从菜名猜测。修改食品、份量或营养数值后，需重新确认完整性和食物类别。
+
+手填能量目标只用于可调整的餐次分配示例，**不是示例菜单的营养计算值**；不根据昨天的差额要求补吃、跳餐，不将运动消耗直接加回摄入。低于估算静息代谢的目标会暂停用于分配。一般成人宏量比例参考碳水 45%–65%、脂肪 20%–35%（DRI），纤维参考至少 25 g/天、钠参考少于 2000 mg/天（WHO）。总糖不等于游离糖；食物水分不是额外饮水目标。维生素和矿物质展示已填合计及缺失条数，不用单日记录诊断缺乏或推荐补剂剂量。依据可在页面的“建议依据与适用范围”查看。
+
+饮食偏好与每日确认保存在 `daily-bites.next-day.v1`，随 JSON 导出；保存失败会回退控件并保留原数据。原有存储不可读时不覆盖原记录。建议面向一般健康成年人，特殊情况应按个人医嘱调整。
+
 ## 本地运行
 
 需要 Node.js 18 或更高版本。拍照服务本地开发命令需要 Node.js 22.9+。
@@ -99,7 +111,7 @@
 npm start
 ```
 
-在本地电脑运行时，访问 `http://localhost:3000`。无需安装应用依赖。此服务器仅公开网页资源白名单，不提供 Worker 目录及本地密钥文件。手动饮食数据保存在浏览器；拍照识别另行请求已配置的服务。部署时将 `index.html`、`style.css`、`app.js`、`records.js`、`fitness.js`、`fitness-ui.js`、`charts.js`、`training.js`、`appearance.js`、`appearance.css`、`food-discovery.js`、`food-api.js`、`food-online.js`、`i18n.js`、`locales.js`、`photo-core.js`、`photo-client.js` 和 `photo-ui.js` 放到任意静态网站托管平台；正式部署使用 HTTPS。
+在本地电脑运行时，访问 `http://localhost:3000`。无需安装应用依赖。此服务器仅公开网页资源白名单，不提供 Worker 目录及本地密钥文件。手动饮食数据保存在浏览器；拍照识别另行请求已配置的服务。部署时将 `index.html`、`style.css`、`app.js`、`records.js`、`fitness.js`、`fitness-ui.js`、`charts.js`、`training.js`、`appearance.js`、`appearance.css`、`food-discovery.js`、`food-api.js`、`food-online.js`、`i18n.js`、`locales.js`、`photo-core.js`、`photo-client.js`、`photo-ui.js`、`nutrition.js`、`next-day.js` 和 `next-day-ui.js` 放到任意静态网站托管平台；正式部署使用 HTTPS。
 
 ## 验证
 

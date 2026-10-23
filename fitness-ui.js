@@ -1,3 +1,4 @@
+import { NUTRIENTS } from './nutrition.js';
 import { translateText } from './i18n.js';
 import { ACTIVITIES, bodyEstimate, workoutEnergy, dailyEnergy, dailyTemplate, trainingAdvice } from './training.js';
 import { FOODS, TYPES, validFitness, validProfile, validWorkout, scaleFood, weekSummary, proteinRange, macroSummary } from './fitness.js';
@@ -27,7 +28,8 @@ export function setupFitness({ $, element, toast, refresh, getDate, getRecords }
       form.elements.food.value = translateText(FOODS[index].name);
       form.elements.portion.value = `${grams} 克`;
       form.elements.calories.value = Math.round(scaled.kcal);
-      for (const nutrient of ['protein', 'carbs', 'fat']) form.elements[nutrient].value = scaled[nutrient];
+      for (const nutrient of Object.keys(NUTRIENTS)) form.elements[nutrient].value = scaled[nutrient] ?? '';
+      form.elements.nutritionSource.value = FOODS[index].nutritionSource;
       toast('已填入估算值，可按实际食物修改');
     } catch (error) { toast(error.message); }
   });
