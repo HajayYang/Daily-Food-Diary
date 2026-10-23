@@ -1,0 +1,18 @@
+import {PGlite} from '@electric-sql/pglite';
+import {readFile} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const db=new PGlite();await db.exec(`create role anon;create role authenticated;create schema auth;create table auth.users(id uuid primary key);create function auth.uid() returns uuid language sql stable as $$ select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid $$;grant usage on schema auth to authenticated,anon;grant execute on function auth.uid() to authenticated,anon;`);
+await db.exec(await readFile(new URL('./schema.sql',import.meta.url),'utf8'));
+const a='11111111-1111-4111-8111-111111111111',b='22222222-2222-4222-8222-222222222222';await db.query('insert into auth.users(id) values($1),($2)',[a,b]);
+await db.exec(`set role authenticated;select set_config('request.jwt.claim.sub','${a}',false)`);
+let result=await db.query('select public.put_diary_snapshot(0,$1::jsonb) as revision',[JSON.stringify({version:3,records:[]})]);assert.equal(result.rows[0].revision,1);
+assert.equal((await db.query('select * from public.diary_snapshots')).rows.length,1);
+await assert.rejects(()=>db.query('select public.put_diary_snapshot(0,$1::jsonb)',[JSON.stringify({version:3,records:[]})]),/sync_conflict/);
+result=await db.query('select public.put_diary_snapshot(1,$1::jsonb) as revision',[JSON.stringify({version:3,records:[]})]);assert.equal(result.rows[0].revision,2);
+await assert.rejects(()=>db.query("update public.diary_snapshots set revision=999"),/permission denied/);
+await db.exec(`select set_config('request.jwt.claim.sub','${b}',false)`);assert.equal((await db.query('select * from public.diary_snapshots')).rows.length,0);
+await assert.rejects(()=>db.query('select public.put_diary_snapshot(2,$1::jsonb)',[JSON.stringify({version:3,records:[]})]),/sync_conflict/);
+await db.query('select public.put_diary_snapshot(0,$1::jsonb)',[JSON.stringify({version:3,records:[]})]);assert.equal((await db.query('select user_id from public.diary_snapshots')).rows[0].user_id,b);
+await assert.rejects(()=>db.query('select public.put_diary_snapshot(1,$1::jsonb)',[JSON.stringify({huge:'x'.repeat(2097152)})]),/check constraint/);
+await db.exec(`set role anon;select set_config('request.jwt.claim.sub','',false)`);await assert.rejects(()=>db.query('select * from public.diary_snapshots'),/permission denied/);await assert.rejects(()=>db.query('select public.put_diary_snapshot(0,$1::jsonb)',['{}']),/permission denied/);
+console.log('PASS PostgreSQL schema execution, owner RLS isolation, stale revision rejection, RPC-only writes, payload size and anonymous denial');await db.close();

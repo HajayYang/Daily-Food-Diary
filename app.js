@@ -1,3 +1,7 @@
+import { setupLifestyle } from './lifestyle-ui.js';
+import { setupBarcode } from './barcode-ui.js';
+import { setupBackup } from './backup-ui.js';
+import { writeLocal, recoverImport, blockExternalWrites } from './storage.js';
 import { NUTRIENTS, renderNutrition } from './nutrition.js';
 import { setupNextDayAdvice } from './next-day-ui.js';
 import { setupPhotoDiary } from './photo-ui.js';
@@ -11,8 +15,10 @@ import { MEALS, localDate, validRecord, summarize } from './records.js';
 const STORAGE_KEY = 'daily-bites.records.v1';
 const $ = selector => document.querySelector(selector);
 let records = [];
-let storageReadable = true;
+const recovered = recoverImport();
+let storageReadable = recovered;
 try {
+  if(!recovered)throw new Error('unfinished import');
   const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '[]');
   if (!Array.isArray(saved) || !saved.every(validRecord) || new Set(saved.map(record => record.id)).size !== saved.length) throw new Error('Invalid records');
   records = saved;
@@ -29,7 +35,7 @@ function toast(message) {
 }
 function persist(next) {
   if (!storageReadable) { toast('无法读取原有记录，为保护数据，暂不能修改。请检查浏览器存储设置。'); return false; }
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); records = next; return true; }
+  try { writeLocal(STORAGE_KEY, JSON.stringify(next)); records = next; return true; }
   catch { toast('保存失败：浏览器存储不可用或空间不足，请先导出已有记录。'); return false; }
 }
 function element(tag, className, text) {
@@ -52,6 +58,7 @@ function render() {
   }
   fitness.render();
   nextDay.render();
+  lifestyle.render();
   renderCharts({ records, date: selectedDate, readable: storageReadable, $, element, selectDate: date => { selectedDate = date; render(); } });
   $('#meals').replaceChildren(...MEALS.map(meal => {
     const card = element('article', `meal-card ${meal.color}`);
@@ -79,13 +86,14 @@ function render() {
       info.append(renderNutrition(record, element));
       if (record.note) { const note = element('p', 'record-note', record.note); note.translate = false; info.append(note); }
       const actions = element('div', 'record-actions');
+      const favorite = element('button','text-button','收藏');favorite.addEventListener('click',()=>lifestyle.favoriteFood(record));
       const edit = element('button', 'text-button', '编辑');
       edit.addEventListener('click', () => openForm(meal.id, record));
       const remove = element('button', 'text-button delete-button', '删除');
       remove.addEventListener('click', () => {
         if (confirm(translateText('删除「{name}」这条记录？').replace('{name}', () => record.food)) && persist(records.filter(item => item.id !== record.id))) { render(); toast('记录已删除'); }
       });
-      actions.append(edit, remove); row.append(info, actions); body.append(row);
+      actions.append(favorite,edit, remove); row.append(info, actions); body.append(row);
     }
     const add = element('button', 'add-meal', `＋ 记录${meal.name}`);
     add.addEventListener('click', () => openForm(meal.id));
@@ -93,13 +101,15 @@ function render() {
     return card;
   }));
 }
+let pendingSource=null;
 function openForm(meal = 'breakfast', record) {
+  pendingSource=record?.source?{source:record.source,...(record.barcode?{barcode:record.barcode}:{})}:null;
   const form = $('#record-form');
   form.reset();
   for (const [key, value] of Object.entries(record ?? { id: '', date: selectedDate, meal })) {
     if (form.elements.namedItem(key)) form.elements.namedItem(key).value = value ?? '';
   }
-  $('#dialog-title').textContent = record ? '编辑这一餐' : '记下这一餐';
+  $('#dialog-title').textContent = record?.id ? '编辑这一餐' : '记下这一餐';
   $('#record-dialog').showModal();
 }
 $('#record-form').addEventListener('submit', event => {
@@ -111,6 +121,8 @@ $('#record-form').addEventListener('submit', event => {
   if (!validRecord(record)) { toast('请检查日期、食物名称和热量是否填写正确。'); return; }
   const previous = records.find(item => item.id === record.id);
   if (previous?.source) record.source = previous.source;
+  if (previous?.barcode) record.barcode=previous.barcode;
+  if (pendingSource&&!previous){record.source=pendingSource.source;if(pendingSource.barcode)record.barcode=pendingSource.barcode;}
   const next = records.some(item => item.id === record.id) ? records.map(item => item.id === record.id ? record : item) : [...records, record];
   if (persist(next)) { selectedDate = record.date; $('#record-dialog').close(); render(); toast('已保存，记得好好吃饭'); }
 });
@@ -123,7 +135,7 @@ for (const [id, offset] of [['previous-day', -1], ['next-day', 1]]) {
 $('#today').addEventListener('click', () => { selectedDate = localDate(); render(); });
 $('#export').addEventListener('click', () => {
   if (!storageReadable) { toast('原有数据无法读取，暂不能导出。'); return; }
-  const url = URL.createObjectURL(new Blob([JSON.stringify({ version: 2, exportedAt: new Date().toISOString(), records, fitness: fitness.exportData(), nextDay: nextDay.exportData() }, null, 2)], { type: 'application/json' }));
+  const url = URL.createObjectURL(new Blob([JSON.stringify({ version: 3, exportedAt: new Date().toISOString(), records, fitness: fitness.exportData(), nextDay: nextDay.exportData(), lifestyle:lifestyle.exportData() }, null, 2)], { type: 'application/json' }));
   const link = element('a'); link.href = url; link.download = `一日食记-${localDate()}.json`; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
 setupLanguage({ refresh: render, toast });
@@ -135,7 +147,12 @@ setupPhotoDiary({ $, element, getDate: () => selectedDate, saveRecords: entries 
 setupFoodDiscovery({ $, element });
 setupAppearance({ $, toast });
 $('#appearance-done').addEventListener('click', () => $('#appearance-dialog').close());
-const fitness = setupFitness({ $, element, toast, refresh: render, getDate: () => selectedDate, getRecords: () => records });
-const nextDay = setupNextDayAdvice({ $, element, getDate: () => selectedDate, getRecords: () => records, getFitness: () => fitness.exportData(), recordsReadable: () => storageReadable });
+const lifestyle=setupLifestyle({$,element,toast,refresh:render,recordsReadable:()=>storageReadable,getRecords:()=>records,getDate:()=>selectedDate,getFitness:()=>fitness.exportData(),getPlanner:()=>nextDay.exportData(),saveRecords:entries=>{if(!entries.length||!entries.every(validRecord)||!persist([...records,...entries]))return false;selectedDate=entries[0].date;render();return true;}});
+setupBarcode({$,element,getDate:()=>selectedDate,openForm,getRestrictions:()=>lifestyle.getRestrictions()});
+setupBackup({$,element,toast});
+const fitness = setupFitness({ $, element, toast, refresh: render, getDate: () => selectedDate, getRecords: () => records, getRestrictions:()=>lifestyle.getRestrictions() });
+const nextDay = setupNextDayAdvice({ $, element, getDate: () => selectedDate, getRecords: () => records, getFitness: () => fitness.exportData(), recordsReadable: () => storageReadable, getRestrictions:()=>lifestyle.getRestrictions(),generateShopping:advice=>lifestyle.generateShopping(advice),refresh:render });
 render();
 if (!storageReadable) toast('本地记录读取失败。原数据未被覆盖，请检查浏览器存储设置。');
+
+window.addEventListener('storage',event=>{if(event.key===null||['daily-bites.records.v1','daily-bites.fitness.v1','daily-bites.next-day.v1','daily-bites.lifestyle.v1','daily-bites.import-journal.v1'].includes(event.key)){blockExternalWrites();storageReadable=false;render();$('#lifestyle-status').textContent='另一标签页更新了数据，请刷新后继续编辑。';toast('另一标签页更新了数据，请刷新后继续编辑。');}});

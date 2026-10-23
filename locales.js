@@ -3459,5 +3459,920 @@ export const MESSAGES = {
     "Entered amounts only",
     "入力済み分のみの合計",
     "입력한 양만 합산"
+  ],
+  "备份与同步": [
+    "Backup & sync",
+    "バックアップと同期",
+    "백업 및 동기화"
+  ],
+  "▥ 条码记录": [
+    "▥ Barcode entry",
+    "▥ バーコード記録",
+    "▥ 바코드 기록"
+  ],
+  "生成次日购物清单": [
+    "Create tomorrow's shopping list",
+    "翌日の買い物リストを作成",
+    "내일의 장보기 목록 만들기"
+  ],
+  "让健康习惯更轻松": [
+    "Make healthy routines easier",
+    "健康習慣をもっと手軽に",
+    "건강한 습관을 더 편하게"
+  ],
+  "饮食禁忌": [
+    "Food restrictions",
+    "食事の制限",
+    "식사 제한"
+  ],
+  "常吃食物与餐单": [
+    "Favorite foods & meals",
+    "よく食べる食品と献立",
+    "자주 먹는 음식과 식단"
+  ],
+  "收藏当前餐次": [
+    "Save current meal",
+    "現在の食事を保存",
+    "현재 끼니 저장"
+  ],
+  "收藏餐单": [
+    "Save meal favorite",
+    "献立をお気に入りに",
+    "식단 즐겨찾기"
+  ],
+  "购物清单": [
+    "Shopping list",
+    "買い物リスト",
+    "장보기 목록"
+  ],
+  "数量请按人数与家中库存调整；勾选表示已经有或已购买。": [
+    "Adjust quantities for people and pantry supplies. Check items you have or bought.",
+    "人数や在庫に合わせて量を調整し、手元にある物・購入済みの物にチェック。",
+    "인원과 집에 있는 재료에 맞춰 수량을 조정하고 보유·구매한 항목을 체크하세요."
+  ],
+  "添加食材": [
+    "Add ingredient",
+    "食材を追加",
+    "재료 추가"
+  ],
+  "添加": [
+    "Add",
+    "追加",
+    "추가"
+  ],
+  "移除已勾选项目": [
+    "Remove checked items",
+    "チェック済みを削除",
+    "체크한 항목 삭제"
+  ],
+  "每周饮食与运动报告": [
+    "Weekly food & activity report",
+    "週間の食事と運動レポート",
+    "주간 식사·운동 보고서"
+  ],
+  "展示所选日期所在周，周一至周日；营养合计仅包含已填写数值。": [
+    "Monday–Sunday for the selected week. Nutrient totals include entered values only.",
+    "選択日を含む月曜〜日曜を表示。栄養合計は入力済みの値のみです。",
+    "선택한 날짜가 속한 월~일을 표시합니다. 영양 합계는 입력한 값만 포함합니다."
+  ],
+  "先补齐漏记，再观察长期趋势；不根据单周数值诊断营养缺乏，也不要求补偿性节食。": [
+    "Fill diary gaps first, then follow longer-term trends. One week cannot diagnose deficiency or justify compensatory restriction.",
+    "記録漏れを補ってから長期傾向を見ましょう。一週間の数値で欠乏を診断せず、埋め合わせの食事制限も求めません。",
+    "누락을 먼저 채우고 장기 추세를 보세요. 한 주 수치로 결핍을 진단하거나 보상성 식이 제한을 요구하지 않습니다."
+  ],
+  "备份、恢复与跨设备同步": [
+    "Backup, restore & device sync",
+    "バックアップ・復元・端末間同期",
+    "백업·복원·기기 간 동기화"
+  ],
+  "JSON 备份包含饮食、身体与运动资料、建议偏好、收藏、禁忌和购物清单；不包含照片、背景图片、密码或识别密钥。": [
+    "JSON includes food, body and activity data, planner preferences, favorites, restrictions and shopping lists. Photos, backgrounds, passwords and recognition keys are excluded.",
+    "JSONには食事・身体・運動情報、提案設定、お気に入り、食事制限、買い物リストを含みます。写真・背景・パスワード・認識キーは含みません。",
+    "JSON에는 식사·신체·운동 정보, 제안 설정, 즐겨찾기, 식사 제한, 장보기 목록이 포함됩니다. 사진·배경·비밀번호·인식 키는 제외됩니다."
+  ],
+  "可使用主页的“导出记录”保存备份，再在另一设备导入。": [
+    "Use Export records on the home page, then import on another device.",
+    "ホームの「記録をエクスポート」で保存し、別の端末でインポートできます。",
+    "홈의 기록 내보내기로 백업한 뒤 다른 기기에서 가져올 수 있습니다."
+  ],
+  "选择 JSON 备份": [
+    "Choose JSON backup",
+    "JSONバックアップを選択",
+    "JSON 백업 선택"
+  ],
+  "导入预览": [
+    "Import preview",
+    "インポートの確認",
+    "가져오기 미리보기"
+  ],
+  "相同 ID、内容不同的记录": [
+    "Same ID, different content",
+    "同じIDで内容が異なる記録",
+    "ID는 같고 내용은 다른 기록"
+  ],
+  "保留本地内容": [
+    "Keep local content",
+    "端末の内容を優先",
+    "로컬 내용 유지"
+  ],
+  "采用备份内容": [
+    "Use backup content",
+    "バックアップを優先",
+    "백업 내용 사용"
+  ],
+  "同时采用备份中的身体目标、饮食禁忌和饮食偏好": [
+    "Also use the backup's body goals, restrictions and diet preferences",
+    "身体目標・食事制限・食事設定もバックアップから復元",
+    "백업의 신체 목표·식사 제한·식사 유형도 적용"
+  ],
+  "默认合并新增项目，不删除本地记录。相同 ID 的内容差异才算冲突，不按菜名去重；确认完整性与实际食物数据不一致时会失效。": [
+    "New items are merged without deleting local entries. Only different content with the same ID conflicts; names are not deduplicated. Completeness confirmations expire when food data no longer matches.",
+    "新規項目を統合し、端末の記録は削除しません。同じIDの内容差のみを競合とし、料理名では重複除外しません。食事データが一致しなければ完了確認は無効になります。",
+    "로컬 기록을 삭제하지 않고 새 항목을 합칩니다. 같은 ID의 내용 차이만 충돌이며 이름으로 중복 제거하지 않습니다. 음식 데이터가 다르면 완전성 확인은 해제됩니다."
+  ],
+  "确认合并并刷新": [
+    "Confirm merge & reload",
+    "統合を確定して再読み込み",
+    "병합 확인 후 새로고침"
+  ],
+  "可选账号同步 · Supabase": [
+    "Optional account sync · Supabase",
+    "任意のアカウント同期 · Supabase",
+    "선택 계정 동기화 · Supabase"
+  ],
+  "默认关闭。先按仓库 sync/README.md 配置自己的 Supabase 项目，再登录同一账号手动上传或下载。上传前需确认；健康数据会存入你选择的云端项目。": [
+    "Off by default. Configure your own Supabase project using sync/README.md, then sign in to upload or download manually. Upload requires confirmation; health data goes to your chosen project.",
+    "初期状態では無効です。sync/README.mdに従い自分のSupabaseを設定し、同じアカウントで手動送受信します。アップロード前に確認し、健康データは選んだプロジェクトに保存されます。",
+    "기본은 꺼짐입니다. sync/README.md로 본인 Supabase를 설정한 뒤 같은 계정으로 수동 전송하세요. 업로드 확인 후 건강 데이터가 선택한 프로젝트에 저장됩니다."
+  ],
+  "Supabase 项目地址": [
+    "Supabase project URL",
+    "SupabaseプロジェクトURL",
+    "Supabase 프로젝트 URL"
+  ],
+  "公开 publishable / anon key": [
+    "Public publishable / anon key",
+    "公開publishable / anonキー",
+    "공개 publishable / anon 키"
+  ],
+  "只接受公开客户端密钥，不要填写 secret 或 service_role 密钥。登录会话仅保留在本标签页，密码不保存。": [
+    "Use only a public client key, never a secret or service_role key. Sessions stay in this tab; passwords are never saved.",
+    "公開クライアントキーのみ使用し、secretやservice_roleは入力しないでください。セッションはこのタブのみ、パスワードは保存しません。",
+    "공개 클라이언트 키만 사용하고 secret·service_role 키는 입력하지 마세요. 로그인 세션은 이 탭에만 보관하며 비밀번호는 저장하지 않습니다."
+  ],
+  "邮箱": [
+    "Email",
+    "メールアドレス",
+    "이메일"
+  ],
+  "密码": [
+    "Password",
+    "パスワード",
+    "비밀번호"
+  ],
+  "登录": [
+    "Sign in",
+    "ログイン",
+    "로그인"
+  ],
+  "注册账号": [
+    "Create account",
+    "アカウント登録",
+    "계정 등록"
+  ],
+  "退出登录": [
+    "Sign out",
+    "ログアウト",
+    "로그아웃"
+  ],
+  "尚未连接云同步，本地功能可直接使用。": [
+    "Cloud sync is not connected. Local features are ready to use.",
+    "クラウド同期は未接続です。端末内の機能はすぐ使えます。",
+    "클라우드 동기화에 연결하지 않았습니다. 로컬 기능은 바로 사용할 수 있습니다."
+  ],
+  "检查云端版本": [
+    "Check cloud version",
+    "クラウド版を確認",
+    "클라우드 버전 확인"
+  ],
+  "下载并预览": [
+    "Download & preview",
+    "ダウンロードして確認",
+    "다운로드 및 미리보기"
+  ],
+  "上传本机备份": [
+    "Upload local backup",
+    "端末のバックアップを送信",
+    "로컬 백업 업로드"
+  ],
+  "另一设备更新过云端时会拒绝旧版本上传，请先下载合并。下载只生成预览，确认导入后才修改本机数据。": [
+    "Stale uploads are rejected if another device updated the cloud. Download and merge first. Download only opens a preview; local data changes after import confirmation.",
+    "他の端末が更新した場合、古い版の送信を拒否します。先にダウンロードして統合してください。確認するまでは端末のデータを変更しません。",
+    "다른 기기가 클라우드를 갱신하면 이전 버전 업로드를 거부합니다. 먼저 다운로드해 병합하세요. 가져오기를 확인하기 전에는 로컬 데이터를 바꾸지 않습니다."
+  ],
+  "复用收藏": [
+    "Reuse favorite",
+    "お気に入りを再利用",
+    "즐겨찾기 재사용"
+  ],
+  "保存后会创建新记录，请核对份量、营养值和当前饮食禁忌。": [
+    "Saving creates new entries. Check portions, nutrients and current restrictions.",
+    "保存すると新しい記録を作成します。量・栄養値・現在の食事制限を確認してください。",
+    "저장하면 새 기록이 생성됩니다. 분량·영양 수치·현재 식사 제한을 확인하세요."
+  ],
+  "添加这些食物": [
+    "Add these foods",
+    "この食品を追加",
+    "이 음식 추가"
+  ],
+  "饮食禁忌与过敏设置": [
+    "Food restrictions & allergies",
+    "食事制限とアレルギー設定",
+    "식사 제한 및 알레르기 설정"
+  ],
+  "次日菜单会排除下列已知过敏原和关键词对应食材。实际配料、加工与交叉接触仍需核对，不能保证无过敏原。": [
+    "Tomorrow's menu excludes known allergens and matching ingredient keywords below. Check actual ingredients, processing and cross-contact; allergen-free status is not guaranteed.",
+    "翌日の献立は以下の既知アレルゲンとキーワード該当食材を除きます。実際の原材料・加工・交差接触は確認が必要で、除去を保証しません。",
+    "내일 식단은 아래 알려진 알레르겐과 키워드에 맞는 재료를 제외합니다. 실제 원재료·가공·교차 접촉은 확인해야 하며 무알레르겐을 보장하지 않습니다."
+  ],
+  "其他不吃的食材": [
+    "Other excluded ingredients",
+    "その他の避けたい食材",
+    "기타 제외할 재료"
+  ],
+  "最多 20 个关键词，每个最多 40 字；匹配内置食材名称和别名。收藏和手填记录仍需自行核对。": [
+    "Up to 20 keywords, 40 characters each; matches built-in names and aliases. Check favorites and manual entries yourself.",
+    "最大20語、各40文字。内蔵食材名と別名に一致させます。お気に入りや手入力はご自身で確認してください。",
+    "최대 20개 키워드, 각 40자. 내장 재료명과 별칭을 비교합니다. 즐겨찾기·수동 기록은 직접 확인하세요."
+  ],
+  "保存饮食禁忌": [
+    "Save restrictions",
+    "食事制限を保存",
+    "식사 제한 저장"
+  ],
+  "扫描食品条码": [
+    "Scan food barcode",
+    "食品バーコードをスキャン",
+    "식품 바코드 스캔"
+  ],
+  "查询会将数字条码发送到 Open Food Facts。摄像头画面在本机识别，不上传；社区标签数据请与原包装核对。": [
+    "The numeric barcode is sent to Open Food Facts. Camera frames are decoded locally and never uploaded. Verify community label data against the package.",
+    "数字バーコードをOpen Food Factsへ送信します。映像は端末内で読み取り、送信しません。共同編集データは包装表示と照合してください。",
+    "숫자 바코드를 Open Food Facts로 보냅니다. 카메라 화면은 기기에서 해독하며 업로드하지 않습니다. 커뮤니티 데이터는 원포장과 비교하세요."
+  ],
+  "包装条码": [
+    "Package barcode",
+    "包装のバーコード",
+    "포장 바코드"
+  ],
+  "查询条码": [
+    "Look up barcode",
+    "バーコードを検索",
+    "바코드 조회"
+  ],
+  "开启摄像头扫码": [
+    "Scan with camera",
+    "カメラで読み取る",
+    "카메라로 스캔"
+  ],
+  "关闭摄像头": [
+    "Stop camera",
+    "カメラを停止",
+    "카메라 끄기"
+  ],
+  "配料、过敏原与痕量提示": [
+    "Ingredients, allergens & traces",
+    "原材料・アレルゲン・微量混入表示",
+    "원재료·알레르겐·미량 혼입 표시"
+  ],
+  "先按原包装选择每 100 克或每 100 毫升基准，再填实际份量；本工具不换算密度。": [
+    "Choose the package's per-100 g or per-100 ml basis, then enter your portion. Density is not converted.",
+    "包装の100 gまたは100 ml基準を選び、実際の量を入力します。密度換算は行いません。",
+    "원포장의 100 g 또는 100 ml 기준을 고르고 실제 분량을 입력하세요. 밀도는 환산하지 않습니다."
+  ],
+  "实际份量": [
+    "Actual portion",
+    "実際の量",
+    "실제 분량"
+  ],
+  "标签基准": [
+    "Label basis",
+    "表示の基準",
+    "표시 기준"
+  ],
+  "每 100 g": [
+    "Per 100 g",
+    "100 gあたり",
+    "100 g당"
+  ],
+  "每 100 ml": [
+    "Per 100 ml",
+    "100 mlあたり",
+    "100 ml당"
+  ],
+  "填入记录并核对": [
+    "Fill entry for review",
+    "記録に入力して確認",
+    "기록에 채워 확인"
+  ],
+  "饱和脂肪（g）": [
+    "Saturated fat (g)",
+    "飽和脂肪酸（g）",
+    "포화지방 (g)"
+  ],
+  "例如：牛奶一盒": [
+    "e.g. one carton of milk",
+    "例：牛乳1パック",
+    "예: 우유 한 팩"
+  ],
+  "用逗号分隔，例如：苹果，鸡蛋": [
+    "Separate with commas, e.g. apple, egg",
+    "カンマ区切り（例：りんご, 卵）",
+    "쉼표로 구분, 예: 사과, 달걀"
+  ],
+  "乳": [
+    "Milk",
+    "乳",
+    "우유"
+  ],
+  "蛋": [
+    "Eggs",
+    "卵",
+    "달걀"
+  ],
+  "大豆": [
+    "Soy",
+    "大豆",
+    "대두"
+  ],
+  "含麸质谷物": [
+    "Gluten-containing grains",
+    "グルテンを含む穀物",
+    "글루텐 함유 곡류"
+  ],
+  "花生": [
+    "Peanuts",
+    "落花生",
+    "땅콩"
+  ],
+  "树坚果": [
+    "Tree nuts",
+    "木の実",
+    "견과류"
+  ],
+  "鱼": [
+    "Fish",
+    "魚",
+    "생선"
+  ],
+  "甲壳类与贝类": [
+    "Crustaceans & shellfish",
+    "甲殻類・貝類",
+    "갑각류·조개류"
+  ],
+  "芝麻": [
+    "Sesame",
+    "ごま",
+    "참깨"
+  ],
+  "请检查日期、餐次与收藏内容。": [
+    "Check the date, meal and favorite contents.",
+    "日付・食事区分・お気に入り内容を確認してください。",
+    "날짜·끼니·즐겨찾기 내용을 확인하세요."
+  ],
+  "购物清单最多保存 200 项，请先整理已有项目。": [
+    "Shopping lists hold up to 200 items. Remove old items first.",
+    "買い物リストは最大200項目です。先に整理してください。",
+    "장보기 목록은 최대 200개입니다. 기존 항목을 정리하세요."
+  ],
+  "生活工具数据无法读取，原数据已保留。": [
+    "Routine-tool data could not be read. Existing data is preserved.",
+    "生活ツールのデータを読み取れません。元のデータは保持されています。",
+    "생활 도구 데이터를 읽을 수 없습니다. 기존 데이터는 보존됩니다."
+  ],
+  "请检查内容长度或项目数量。": [
+    "Check text lengths and item counts.",
+    "文字数や項目数を確認してください。",
+    "내용 길이나 항목 수를 확인하세요."
+  ],
+  "保存失败，请检查浏览器存储空间。": [
+    "Save failed. Check browser storage.",
+    "保存できません。ブラウザの容量を確認してください。",
+    "저장하지 못했습니다. 브라우저 저장 공간을 확인하세요."
+  ],
+  "请先记录食物再收藏。": [
+    "Log some food before saving a favorite.",
+    "先に食事を記録してください。",
+    "먼저 음식을 기록한 뒤 즐겨찾기에 추가하세요."
+  ],
+  "收藏最多保存 100 项，请先整理。": [
+    "Up to 100 favorites. Remove old items first.",
+    "お気に入りは最大100件です。先に整理してください。",
+    "즐겨찾기는 최대 100개입니다. 먼저 정리하세요."
+  ],
+  "已加入收藏，可在常吃食物与餐单中复用。": [
+    "Saved to favorites for reuse.",
+    "お気に入りに保存しました。再利用できます。",
+    "즐겨찾기에 저장하여 다시 사용할 수 있습니다."
+  ],
+  "收藏已添加为新的饮食记录。": [
+    "Favorite added as new food entries.",
+    "お気に入りを新しい食事記録として追加しました。",
+    "즐겨찾기를 새 식사 기록으로 추가했습니다."
+  ],
+  "收藏、禁忌和购物清单默认只保存在本浏览器。": [
+    "Favorites, restrictions and shopping lists stay in this browser by default.",
+    "お気に入り・食事制限・買い物リストは通常このブラウザのみに保存します。",
+    "즐겨찾기·식사 제한·장보기 목록은 기본적으로 이 브라우저에만 저장됩니다."
+  ],
+  "收藏常吃的食物，或保存当前餐次，下一次直接复用。": [
+    "Save regular foods or the current meal to reuse next time.",
+    "よく食べる食品や現在の献立を保存して、次回再利用できます。",
+    "자주 먹는 음식이나 현재 끼니를 저장해 다음에 재사용하세요."
+  ],
+  "使用收藏": [
+    "Use favorite",
+    "再利用",
+    "즐겨찾기 사용"
+  ],
+  "移除": [
+    "Remove",
+    "削除",
+    "삭제"
+  ],
+  "已设置禁忌，次日示例将筛选已知食材；仍需核对包装与交叉接触风险。": [
+    "Restrictions are set; tomorrow's examples filter known ingredients. Check packaging and cross-contact risks.",
+    "食事制限を設定しました。翌日の例は既知の食材を選別しますが、包装表示と交差接触を確認してください。",
+    "식사 제한이 설정되어 내일 예시에서 알려진 재료를 걸러냅니다. 포장·교차 접촉 위험은 확인하세요."
+  ],
+  "可在饮食禁忌中排除过敏原与不吃的食材。": [
+    "Set allergens and excluded ingredients under Food restrictions.",
+    "食事制限でアレルゲンや避けたい食材を設定できます。",
+    "식사 제한에서 알레르겐과 먹지 않는 재료를 설정하세요."
+  ],
+  "从次日菜单生成清单，或手动添加；已有食材可勾选。": [
+    "Generate from tomorrow's menu or add manually. Check ingredients you already have.",
+    "翌日の献立から作成するか手動追加。手元にある食材にチェックできます。",
+    "내일 식단에서 만들거나 직접 추가하세요. 보유 재료는 체크할 수 있습니다."
+  ],
+  "手动添加": [
+    "Added manually",
+    "手動追加",
+    "수동 추가"
+  ],
+  "有记录天数": [
+    "Days logged",
+    "記録のある日数",
+    "기록한 일수"
+  ],
+  "确认完整天数": [
+    "Days confirmed complete",
+    "記録完了確認日数",
+    "완전성을 확인한 일수"
+  ],
+  "不同食物名称": [
+    "Distinct food names",
+    "異なる食品名",
+    "서로 다른 음식 이름"
+  ],
+  "完整日平均热量": [
+    "Complete-day mean energy",
+    "記録完了日の平均熱量",
+    "완전한 날 평균 열량"
+  ],
+  "暂无可用完整日": [
+    "No complete days available",
+    "利用可能な完了日なし",
+    "사용 가능한 완전 기록일 없음"
+  ],
+  "无记录": [
+    "No records",
+    "記録なし",
+    "기록 없음"
+  ],
+  "确认完整": [
+    "Confirmed complete",
+    "完了確認済み",
+    "완전성 확인됨"
+  ],
+  "部分记录": [
+    "Partial diary",
+    "一部記録",
+    "일부 기록"
+  ],
+  "饱和脂肪": [
+    "Saturated fat",
+    "飽和脂肪酸",
+    "포화지방"
+  ],
+  "运动资料无法读取，周报未包含运动统计。": [
+    "Activity data is unreadable; the report omits exercise statistics.",
+    "運動情報を読み取れないため、運動統計は含みません。",
+    "운동 정보를 읽지 못해 운동 통계를 제외합니다."
+  ],
+  "暂无完整日，不计算每日平均摄入。漏记不计为零摄入；食物名称数不是食材多样性评分。": [
+    "No complete days, so no daily mean is calculated. Unlogged days are not zero intake; name counts are not a dietary diversity score.",
+    "完了日がないため一日平均を計算しません。未記録を摂取ゼロとせず、食品名の数も多様性スコアではありません。",
+    "완전한 날이 없어 하루 평균을 계산하지 않습니다. 미기록은 섭취 0이 아니며 이름 수는 식품 다양성 점수가 아닙니다."
+  ],
+  "暂时没有可生成清单的菜单。": [
+    "No menu is available for a shopping list.",
+    "リストを作れる献立がありません。",
+    "목록을 만들 수 있는 식단이 없습니다."
+  ],
+  "已加入购物清单，同日相同食材不会重复添加。": [
+    "Added to the shopping list; same-day ingredients are not duplicated.",
+    "買い物リストに追加しました。同日の同じ食材は重複しません。",
+    "장보기 목록에 추가했습니다. 같은 날 같은 재료는 중복 추가하지 않습니다."
+  ],
+  "米饭": [
+    "Rice",
+    "ご飯",
+    "밥"
+  ],
+  "薯类": [
+    "Potatoes and tubers",
+    "いも類",
+    "감자류"
+  ],
+  "牛奶": [
+    "Milk",
+    "牛乳",
+    "우유"
+  ],
+  "钙强化无糖豆饮": [
+    "Calcium-fortified unsweetened soy drink",
+    "カルシウム強化無糖豆乳",
+    "칼슘 강화 무가당 두유"
+  ],
+  "钙强化无糖米饮": [
+    "Calcium-fortified unsweetened rice drink",
+    "カルシウム強化無糖ライスミルク",
+    "칼슘 강화 무가당 쌀 음료"
+  ],
+  "完整水果": [
+    "Whole fruit",
+    "丸ごとの果物",
+    "통과일"
+  ],
+  "去皮禽肉": [
+    "Skinless poultry",
+    "皮なし鶏肉",
+    "껍질 없는 가금육"
+  ],
+  "豆腐": [
+    "Tofu",
+    "豆腐",
+    "두부"
+  ],
+  "鸡蛋": [
+    "Eggs",
+    "卵",
+    "달걀"
+  ],
+  "扁豆": [
+    "Lentils",
+    "レンズ豆",
+    "렌틸콩"
+  ],
+  "鹰嘴豆": [
+    "Chickpeas",
+    "ひよこ豆",
+    "병아리콩"
+  ],
+  "胡萝卜": [
+    "Carrots",
+    "にんじん",
+    "당근"
+  ],
+  "绿叶菜": [
+    "Leafy greens",
+    "葉野菜",
+    "잎채소"
+  ],
+  "{prefix}＋{suffix}": [
+    "{prefix} + {suffix}",
+    "{prefix}＋{suffix}",
+    "{prefix} + {suffix}"
+  ],
+  "{n} 项食物": [
+    "{n} foods",
+    "食品{n}品",
+    "음식 {n}개"
+  ],
+  "本周已完成有氧 {n} 等效分钟，力量训练 {days} 天。": [
+    "This week: {n} aerobic-equivalent minutes and {days} strength days completed.",
+    "今週の完了分：有酸素換算{n}分、筋力運動{days}日。",
+    "이번 주 완료: 유산소 환산 {n}분, 근력 운동 {days}일."
+  ],
+  "平均热量仅采用 {n} 个已确认且热量无缺失的完整日。食物名称数不是食材多样性评分。": [
+    "Mean energy uses only {n} confirmed complete days with all calories entered. Food-name counts are not a dietary diversity score.",
+    "平均熱量は熱量の欠損がない完了確認済み{n}日のみから計算します。食品名の数は多様性スコアではありません。",
+    "평균 열량은 열량 누락 없이 완전성을 확인한 {n}일만 사용합니다. 음식 이름 수는 다양성 점수가 아닙니다."
+  ],
+  "请输入有效的 EAN / UPC 条码，校验位需正确。": [
+    "Enter a valid EAN / UPC barcode with a correct check digit.",
+    "チェック桁の正しいEAN / UPCバーコードを入力してください。",
+    "검증 숫자가 올바른 EAN / UPC 바코드를 입력하세요."
+  ],
+  "查询较频繁，请稍后再试。": [
+    "Queries are too frequent. Try again shortly.",
+    "検索が頻繁です。少し待って再試行してください。",
+    "조회가 잦습니다. 잠시 후 다시 시도하세요."
+  ],
+  "条码食品库暂不可用，请稍后重试。": [
+    "Barcode database unavailable. Try later.",
+    "バーコード食品庫を利用できません。後で再試行してください。",
+    "바코드 식품 DB를 사용할 수 없습니다. 나중에 다시 시도하세요."
+  ],
+  "条码食品库返回了无效数据。": [
+    "The barcode database returned invalid data.",
+    "バーコード食品庫から無効なデータが返されました。",
+    "바코드 식품 DB가 잘못된 데이터를 반환했습니다."
+  ],
+  "请填写 0.1–5000 的实际份量，并核对克或毫升。": [
+    "Enter a portion from 0.1–5000 and check grams or milliliters.",
+    "実際の量を0.1〜5000で入力し、gまたはmlを確認してください。",
+    "실제 분량 0.1~5000을 입력하고 g·ml를 확인하세요."
+  ],
+  "输入包装条码，或在支持的浏览器使用摄像头扫描。": [
+    "Enter the package barcode or scan with a supported browser.",
+    "包装のバーコードを入力するか、対応ブラウザのカメラで読み取ってください。",
+    "포장 바코드를 입력하거나 지원 브라우저에서 카메라로 스캔하세요."
+  ],
+  "正在按条码查询食品标签…": [
+    "Looking up the food label…",
+    "食品表示を検索中…",
+    "식품 표시 조회 중…"
+  ],
+  "没有找到此条码，可改用手动输入或拍照识别。": [
+    "Barcode not found. Use manual entry or photo recognition.",
+    "このバーコードは見つかりません。手入力や写真認識を利用できます。",
+    "바코드를 찾지 못했습니다. 수동 입력이나 사진 인식을 이용하세요."
+  ],
+  "已设置饮食禁忌，请核对下面的配料、过敏原与痕量提示。": [
+    "Restrictions are set. Check ingredients, allergens and trace warnings below.",
+    "食事制限が設定されています。以下の原材料・アレルゲン・微量混入表示を確認してください。",
+    "식사 제한이 설정되어 있습니다. 아래 원재료·알레르겐·미량 혼입 표시를 확인하세요."
+  ],
+  "查询完成，请核对原包装基准与实际份量。": [
+    "Found. Check the package basis and your portion.",
+    "検索完了。包装の基準と実際の量を確認してください。",
+    "조회 완료. 원포장 기준과 실제 분량을 확인하세요."
+  ],
+  "条码查询已取消或超时，请重试。": [
+    "Barcode lookup cancelled or timed out. Try again.",
+    "検索が中止またはタイムアウトしました。再試行してください。",
+    "바코드 조회가 취소되었거나 시간 초과되었습니다. 다시 시도하세요."
+  ],
+  "此浏览器不支持扫码，请手动输入包装上的数字条码。": [
+    "Scanning is unsupported here. Enter the package's barcode digits.",
+    "このブラウザは読み取りに非対応です。包装の数字を手入力してください。",
+    "이 브라우저는 스캔을 지원하지 않습니다. 포장의 바코드 숫자를 직접 입력하세요."
+  ],
+  "将包装条码放在镜头中，识别在本机进行。": [
+    "Place the barcode in view. Decoding happens on your device.",
+    "バーコードをカメラに映してください。読み取りは端末内で行います。",
+    "바코드를 카메라에 비추세요. 기기에서 해독합니다."
+  ],
+  "无法开启摄像头，请允许权限或手动输入条码。": [
+    "Camera unavailable. Allow access or enter the barcode manually.",
+    "カメラを開始できません。権限を許可するか手入力してください。",
+    "카메라를 열 수 없습니다. 권한을 허용하거나 직접 입력하세요."
+  ],
+  "备份文件必须小于 2 MiB。": [
+    "Backup files must be under 2 MiB.",
+    "バックアップは2 MiB未満にしてください。",
+    "백업 파일은 2 MiB 미만이어야 합니다."
+  ],
+  "备份不是有效 JSON 文件。": [
+    "The backup is not valid JSON.",
+    "有効なJSONファイルではありません。",
+    "유효한 JSON 백업이 아닙니다."
+  ],
+  "备份格式或数据校验失败，没有修改现有记录。": [
+    "Backup validation failed. Existing entries are unchanged.",
+    "形式またはデータの検証に失敗しました。既存の記録は変更していません。",
+    "백업 형식·데이터 검증에 실패했습니다. 기존 기록은 변경하지 않았습니다."
+  ],
+  "请先刷新页面以恢复上次未完成的导入。": [
+    "Reload to recover the unfinished import first.",
+    "再読み込みして未完了のインポートを復旧してください。",
+    "새로고침하여 미완료 가져오기를 먼저 복구하세요."
+  ],
+  "本地数据无法读取，暂不能导入或上传。": [
+    "Local data is unreadable. Import and upload are unavailable.",
+    "端末のデータを読み取れず、インポートや送信はできません。",
+    "로컬 데이터를 읽을 수 없어 가져오기·업로드를 할 수 없습니다."
+  ],
+  "合并后的数据超出限制，请先整理记录。": [
+    "The merged data exceeds limits. Organize records first.",
+    "統合後のデータが上限を超えます。先に記録を整理してください。",
+    "병합한 데이터가 한도를 넘습니다. 먼저 기록을 정리하세요."
+  ],
+  "已校验备份，请核对数量和冲突处理后再导入。": [
+    "Backup validated. Review counts and conflict handling before importing.",
+    "検証済みです。件数と競合処理を確認してからインポートしてください。",
+    "백업 검증 완료. 수량과 충돌 처리를 확인한 뒤 가져오세요."
+  ],
+  "本地数据在预览后发生变化，请重新选择备份或下载云端数据。": [
+    "Local data changed after preview. Select the file again or download again.",
+    "確認後に端末のデータが変更されました。ファイルを再選択するか再ダウンロードしてください。",
+    "미리보기 후 로컬 데이터가 변경되었습니다. 백업을 다시 선택하거나 다운로드하세요."
+  ],
+  "导入成功，即将刷新显示。": [
+    "Imported. Reloading the page.",
+    "インポートしました。再読み込みします。",
+    "가져오기 성공. 새로고침합니다."
+  ],
+  "请填写 Supabase 项目地址和公开 publishable / anon key，不能使用 service_role 或 secret key。": [
+    "Enter a Supabase project URL and public publishable / anon key. Never use service_role or secret keys.",
+    "Supabase URLと公開publishable / anonキーを入力してください。service_role・secretは使用できません。",
+    "Supabase URL과 공개 publishable / anon 키를 입력하세요. service_role·secret 키는 사용할 수 없습니다."
+  ],
+  "请填写邮箱和至少 8 位密码。": [
+    "Enter an email and a password of at least 8 characters.",
+    "メールと8文字以上のパスワードを入力してください。",
+    "이메일과 8자 이상 비밀번호를 입력하세요."
+  ],
+  "云同步配置未能保存，本次连接仍可使用。": [
+    "Sync settings could not be saved; this connection still works.",
+    "同期設定を保存できませんでしたが、今回の接続は使えます。",
+    "동기화 설정을 저장하지 못했지만 이번 연결은 사용할 수 있습니다."
+  ],
+  "已登录。请先检查云端版本，再选择上传或下载。": [
+    "Signed in. Check the cloud version before uploading or downloading.",
+    "ログインしました。クラウド版を確認して送受信してください。",
+    "로그인했습니다. 클라우드 버전을 확인한 뒤 전송하세요."
+  ],
+  "注册已提交，请前往邮箱验证后登录。": [
+    "Registration submitted. Verify your email, then sign in.",
+    "登録を送信しました。メール確認後にログインしてください。",
+    "가입을 요청했습니다. 이메일 인증 후 로그인하세요."
+  ],
+  "已退出云同步，本地记录保留。": [
+    "Signed out. Local records are preserved.",
+    "ログアウトしました。端末の記録は保持されています。",
+    "로그아웃했습니다. 로컬 기록은 보존됩니다."
+  ],
+  "已检查云端版本。建议先下载预览并合并，再上传本机记录。": [
+    "Cloud version checked. Download, review and merge before uploading local records.",
+    "クラウド版を確認しました。先にダウンロード・確認・統合してから送信してください。",
+    "클라우드 버전 확인 완료. 먼저 다운로드·미리보기·병합한 뒤 로컬 기록을 업로드하세요."
+  ],
+  "云端暂无备份，可以上传本机数据。": [
+    "No cloud backup exists. You can upload local data.",
+    "クラウドにバックアップがありません。端末のデータを送信できます。",
+    "클라우드 백업이 없습니다. 로컬 데이터를 업로드할 수 있습니다."
+  ],
+  "云端数据已读取，仅生成导入预览，尚未修改本地记录。": [
+    "Cloud data loaded into a preview only. Local entries are unchanged.",
+    "クラウドデータは確認用に読み込んだだけで、端末の記録は未変更です。",
+    "클라우드 데이터를 미리보기에만 불러왔습니다. 로컬 기록은 변경하지 않았습니다."
+  ],
+  "请先检查云端版本。": [
+    "Check the cloud version first.",
+    "先にクラウド版を確認してください。",
+    "먼저 클라우드 버전을 확인하세요."
+  ],
+  "将把本机饮食、运动、收藏、禁忌和购物清单上传到你的 Supabase 账号，并更新该账号的云端备份。确定继续？": [
+    "Upload local food, activity, favorites, restrictions and shopping lists to your Supabase account and update its cloud backup? ",
+    "食事・運動・お気に入り・制限・買い物リストをSupabaseアカウントへ送信し、クラウドのバックアップを更新しますか？",
+    "식사·운동·즐겨찾기·식사 제한·장보기 목록을 Supabase 계정에 업로드하고 클라우드 백업을 갱신할까요?"
+  ],
+  "云服务响应无效，请检查部署配置。": [
+    "Invalid cloud response. Check deployment settings.",
+    "クラウド応答が無効です。構成を確認してください。",
+    "클라우드 응답이 잘못되었습니다. 배포 설정을 확인하세요."
+  ],
+  "已上传云端备份。另一设备登录同一账号后可下载预览并合并。": [
+    "Cloud backup uploaded. Sign in on another device to download, preview and merge.",
+    "送信しました。別端末で同じアカウントにログインし、確認して統合できます。",
+    "클라우드 백업 업로드 완료. 다른 기기에서 같은 계정으로 로그인해 내려받고 확인·병합하세요."
+  ],
+  "保存失败，已恢复导入前的数据；请释放空间后重试。": [
+    "Save failed; pre-import data restored. Free storage and try again.",
+    "保存に失敗し、元のデータに戻しました。容量を空けて再試行してください。",
+    "저장 실패로 가져오기 전 데이터로 복구했습니다. 공간을 확보하고 다시 시도하세요."
+  ],
+  "导入未完成，原数据副本仍保留；请释放空间并刷新页面恢复。": [
+    "Import unfinished; the original-data copy is preserved. Free storage and reload to recover.",
+    "インポート未完了です。元データの控えを保持しています。容量を空けて再読み込みで復旧してください。",
+    "가져오기가 미완료이며 원본 사본은 보존되어 있습니다. 공간을 확보하고 새로고침해 복구하세요."
+  ],
+  "请先登录云同步账号。": [
+    "Sign in to cloud sync first.",
+    "先にクラウド同期へログインしてください。",
+    "먼저 클라우드 동기화 계정에 로그인하세요."
+  ],
+  "云端已被另一设备更新，请先下载并合并，再重新上传。": [
+    "Another device updated the cloud. Download and merge before uploading again.",
+    "別の端末が更新しました。先にダウンロード・統合してから再送信してください。",
+    "다른 기기가 클라우드를 갱신했습니다. 먼저 다운로드·병합한 뒤 다시 업로드하세요."
+  ],
+  "登录失效或没有访问权限，请重新登录并检查配置。": [
+    "Session expired or access denied. Sign in again and check settings.",
+    "ログイン期限切れか権限がありません。再ログインして設定を確認してください。",
+    "로그인이 만료되었거나 권한이 없습니다. 다시 로그인하고 설정을 확인하세요."
+  ],
+  "云服务请求失败，请核对账号、邮箱验证和部署配置。": [
+    "Cloud request failed. Check account, email verification and deployment settings.",
+    "クラウド要求が失敗しました。アカウント・メール確認・構成を確認してください。",
+    "클라우드 요청 실패. 계정·이메일 인증·배포 설정을 확인하세요."
+  ],
+  "无法连接云服务或请求超时，请检查网络。": [
+    "Cloud connection failed or timed out. Check your network.",
+    "クラウド接続失敗または時間切れです。ネットワークを確認してください。",
+    "클라우드 연결 실패 또는 시간 초과입니다. 네트워크를 확인하세요."
+  ],
+  "登录响应无效，未保存会话。": [
+    "Invalid sign-in response; no session saved.",
+    "ログイン応答が無効です。セッションは保存しません。",
+    "로그인 응답이 잘못되어 세션을 저장하지 않았습니다."
+  ],
+  "云端备份数据校验失败，没有修改本地记录。": [
+    "Cloud backup validation failed. Local entries are unchanged.",
+    "クラウドのデータ検証が失敗しました。端末の記録は未変更です。",
+    "클라우드 백업 검증 실패. 로컬 기록은 변경하지 않았습니다."
+  ],
+  "云端备份必须通过校验且小于 2 MiB。": [
+    "Cloud backups must validate and be under 2 MiB.",
+    "クラウドのバックアップは検証済みで2 MiB未満にしてください。",
+    "클라우드 백업은 검증을 통과하고 2 MiB 미만이어야 합니다."
+  ],
+  "饮食禁忌资料无法读取，暂不生成具体食材菜单。": [
+    "Restrictions are unreadable; ingredient menus are unavailable.",
+    "食事制限を読み取れず、具体的な食材の献立は作成しません。",
+    "식사 제한 정보를 읽지 못해 구체적인 재료 식단을 만들지 않습니다."
+  ],
+  "已按禁忌筛选已知食材；品牌配方、配料与交叉接触仍需自行核对，不能据此保证无过敏原。": [
+    "Known ingredients were filtered by restrictions. Check brand recipes, ingredients and cross-contact; allergen-free status is not guaranteed.",
+    "既知の食材を制限に従い選別しました。ブランドの配合・原材料・交差接触は別途確認が必要で、除去を保証しません。",
+    "알려진 재료를 제한에 따라 걸렀습니다. 브랜드 배합·원재료·교차 접촉은 확인해야 하며 무알레르겐을 보장하지 않습니다."
+  ],
+  "已记录饱和脂肪供能达到或超过一般成人 10% 的参考；次日可用适量不饱和油脂替换部分动物油，保持整体均衡。": [
+    "Logged saturated fat reaches or exceeds the general adult reference of 10% energy. Consider replacing some animal fats with moderate unsaturated fats tomorrow.",
+    "飽和脂肪酸の熱量比が成人参考の10%以上です。翌日は動物性脂肪の一部を適量の不飽和脂肪に替え、バランスを保ちましょう。",
+    "기록 포화지방이 성인 참고인 에너지 10% 이상입니다. 내일 동물성 지방 일부를 적당한 불포화지방으로 바꾸고 균형을 유지하세요."
+  ],
+  "当前禁忌下有食物类别无可用选项，请手动调整并咨询专业人员。": [
+    "Some food groups have no option under these restrictions. Adjust with professional guidance.",
+    "この制限では選択肢のない食品群があります。専門家に相談して調整してください。",
+    "현재 제한으로 선택지가 없는 식품군이 있습니다. 전문가와 상의해 조정하세요."
+  ],
+  "已设置饮食禁忌，具体食材请查看下方筛选后的次日菜单；训练前后仍应按需要正常进餐。": [
+    "Restrictions are set. See the filtered next-day menu below; eat normally around exercise as needed.",
+    "食事制限を設定済みです。下の選別済み献立を参照し、運動前後も必要に応じて通常の食事を。",
+    "식사 제한이 설정되어 있습니다. 아래 필터링한 내일 식단을 참고하고 운동 전후 필요에 맞게 정상적으로 식사하세요."
+  ],
+  "收藏": [
+    "Favorite",
+    "お気に入り",
+    "즐겨찾기"
+  ],
+  "新增饮食 {foods} 条、运动 {workouts} 项、收藏 {favorites} 项、购物 {shopping} 项；冲突 {conflicts} 项，重复 {duplicates} 项。": [
+    "New: {foods} food entries, {workouts} activities, {favorites} favorites, {shopping} shopping items; {conflicts} conflicts, {duplicates} duplicates.",
+    "新規：食事{foods}件、運動{workouts}件、お気に入り{favorites}件、買い物{shopping}件。競合{conflicts}件、重複{duplicates}件。",
+    "새 항목: 식사 {foods}개, 운동 {workouts}개, 즐겨찾기 {favorites}개, 장보기 {shopping}개. 충돌 {conflicts}개, 중복 {duplicates}개."
+  ],
+  "糙米饭": [
+    "Brown rice",
+    "玄米ご飯",
+    "현미밥"
+  ],
+  "无法创建导入前备份，现有数据未修改；请释放空间后重试。": [
+    "Could not create a recovery copy. Existing data is unchanged; free storage and try again.",
+    "復旧用コピーを作成できません。既存データは未変更です。容量を空けて再試行してください。",
+    "복구 사본을 만들지 못했습니다. 기존 데이터는 변경하지 않았습니다. 공간을 확보하고 다시 시도하세요."
+  ],
+  "另一标签页更新了数据，请刷新后继续编辑。": [
+    "Another tab updated the data. Reload before editing.",
+    "別のタブがデータを更新しました。再読み込みしてから編集してください。",
+    "다른 탭이 데이터를 갱신했습니다. 새로고침 후 편집하세요."
+  ],
+  "默认保存在本浏览器": [
+    "Stored in this browser by default",
+    "通常このブラウザ内に保存",
+    "기본적으로 이 브라우저에 저장"
+  ],
+  "个人估算 · 默认本地保存": [
+    "Personal estimate · local by default",
+    "個人用推定 · 通常は端末に保存",
+    "개인 추정 · 기본은 로컬 저장"
+  ],
+  "饮食资料无法读取，周报暂不可用。": [
+    "Food data is unreadable; the weekly report is unavailable.",
+    "食事情報を読み取れず、週間レポートは利用できません。",
+    "식사 정보를 읽을 수 없어 주간 보고서를 사용할 수 없습니다."
+  ],
+  "云端含本机没有的记录，请先在预览中合并，再上传。": [
+    "The cloud has entries missing locally. Merge them in the preview before uploading.",
+    "クラウドに端末にない記録があります。確認画面で統合してから送信してください。",
+    "클라우드에 로컬에 없는 기록이 있습니다. 미리보기에서 병합한 뒤 업로드하세요."
+  ],
+  "饱和脂肪高于总脂肪，请先核对标签、单位和份量，暂不比较饱和脂肪供能比例。": [
+    "Saturated fat exceeds total fat. Check the label, units and portions before comparing its energy share.",
+    "飽和脂肪酸が総脂質を上回っています。表示・単位・量を確認するまで熱量比率は比較しません。",
+    "포화지방이 총지방보다 많습니다. 표시·단위·분량을 확인할 때까지 에너지 비율을 비교하지 않습니다."
   ]
 };

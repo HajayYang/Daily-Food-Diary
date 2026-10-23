@@ -17,9 +17,9 @@ export function normalizeProduct(product) {
   if (!name || !/^\d{8,14}$/.test(code)) return null;
   const nutrients = product.nutriments && typeof product.nutriments === 'object' ? product.nutriments : {};
   const kj = nutrient(nutrients['energy-kj_100g']) ?? nutrient(nutrients.energy_100g);
-  return { code, name, brand: cleanText(product.brands, 160), ingredients: cleanText(product.ingredients_text_zh, 1800) || cleanText(product.ingredients_text, 1800), allergens: cleanText(product.allergens, 300), serving: cleanText(product.serving_size, 200),
+  return { code, name, brand: cleanText(product.brands, 160), ingredients: cleanText(product.ingredients_text_zh, 1800) || cleanText(product.ingredients_text, 1800), allergens: cleanText(product.allergens, 300), traces:cleanText(product.traces,300), serving: cleanText(product.serving_size, 200),
     kcal: nutrient(nutrients['energy-kcal_100g']) ?? (kj === null ? null : Math.round(kj / 4.184)),
-    protein: nutrient(nutrients.proteins_100g), carbs: nutrient(nutrients.carbohydrates_100g), fat: nutrient(nutrients.fat_100g), fiber: nutrient(nutrients.fiber_100g), sugars: nutrient(nutrients.sugars_100g), salt: nutrient(nutrients.salt_100g),
+    protein: nutrient(nutrients.proteins_100g), carbs: nutrient(nutrients.carbohydrates_100g), saturatedFat: nutrient(nutrients['saturated-fat_100g']), fat: nutrient(nutrients.fat_100g), fiber: nutrient(nutrients.fiber_100g), sugars: nutrient(nutrients.sugars_100g), salt: nutrient(nutrients.salt_100g),
     // OFF stores micronutrient canonical values in grams, regardless of label display unit.
     vitaminC: convertNutrient(nutrients,'vitamin-c',1000),
     // Retinol-equivalent A values are not assumed to be RAE; leave A unknown.

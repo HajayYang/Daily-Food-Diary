@@ -1,25 +1,29 @@
+import { writeLocal } from './storage.js';
 import { NUTRIENTS } from './nutrition.js';
 import { REVIEW_GROUPS, buildNextDayAdvice, foodFingerprint, validPlanner } from './next-day.js';
 import { MEALS } from './records.js';
-export function setupNextDayAdvice({ $, element, getDate, getRecords, getFitness, recordsReadable }) {
+export function setupNextDayAdvice({ $, element, getDate, getRecords, getFitness, recordsReadable, getRestrictions, generateShopping, refresh }) {
   const key='daily-bites.next-day.v1';
   let state={diet:'balanced',reviews:{}},readable=true;
   try{const saved=JSON.parse(localStorage.getItem(key)??'null');if(saved!==null){if(!validPlanner(saved))throw new Error('Invalid planner');state=saved;}}catch{readable=false;}
   function write(){
     if(!readable){$('#next-day-status').textContent='饮食建议偏好读取失败，暂不能保存修改；原饮食和运动记录不受影响。';return false;}
-    try{localStorage.setItem(key,JSON.stringify(state));return true;}catch{$('#next-day-status').textContent='建议偏好保存失败，请检查浏览器存储空间。';return false;}
+    try{writeLocal(key,JSON.stringify(state));return true;}catch{$('#next-day-status').textContent='建议偏好保存失败，请检查浏览器存储空间。';return false;}
   }
-  $('#next-day-diet').addEventListener('change',()=>{const previous=state.diet;state={...state,diet:$('#next-day-diet').value};if(write())render();else {state={...state,diet:previous};$('#next-day-diet').value=previous;}});
+  $('#next-day-diet').addEventListener('change',()=>{const previous=state.diet;state={...state,diet:$('#next-day-diet').value};if(write())(refresh??render)();else {state={...state,diet:previous};$('#next-day-diet').value=previous;}});
   function saveReview(){
     const date=getDate(),daily=getRecords().filter(record=>record.date===date);
     const review={fingerprint:foodFingerprint(daily),complete:$('#day-complete').checked,groups:Object.fromEntries(Object.keys(REVIEW_GROUPS).map(key=>[key,$(`[data-review-group="${key}"]`).value]))};
-    const previous=state;state={...state,reviews:{...state.reviews,[date]:review}};if(write())render();else {state=previous;const saved=state.reviews[date];const current=saved?.fingerprint===foodFingerprint(daily);$('#day-complete').checked=Boolean(current&&saved.complete);for(const key of Object.keys(REVIEW_GROUPS))$(`[data-review-group="${key}"]`).value=current?saved.groups[key]:'unknown';}
+    const previous=state;state={...state,reviews:{...state.reviews,[date]:review}};if(write())(refresh??render)();else {state=previous;const saved=state.reviews[date];const current=saved?.fingerprint===foodFingerprint(daily);$('#day-complete').checked=Boolean(current&&saved.complete);for(const key of Object.keys(REVIEW_GROUPS))$(`[data-review-group="${key}"]`).value=current?saved.groups[key]:'unknown';}
   }
   $('#day-complete').addEventListener('change',saveReview);
   for(const select of document.querySelectorAll('[data-review-group]'))select.addEventListener('change',saveReview);
+  let latestAdvice;
+  $('#generate-shopping').addEventListener('click',()=>generateShopping(latestAdvice));
   function render(){
     const date=getDate(),fitness=getFitness();
-    const data=buildNextDayAdvice({records:getRecords(),date,fitness,review:readable?state.reviews[date]:null,diet:state.diet});
+    const data=buildNextDayAdvice({records:getRecords(),date,fitness,review:readable?state.reviews[date]:null,diet:state.diet,restrictions:getRestrictions()});
+    latestAdvice=data;$('#generate-shopping').disabled=!recordsReadable()||!data.menus.length;
     $('#next-day-date').textContent=`${data.sourceDate} → ${data.targetDate}`;
     $('#next-day-diet').value=state.diet;
     $('#day-complete').checked=data.complete;$('#day-complete').disabled=!recordsReadable()||!readable||data.dailyCount===0;
@@ -48,9 +52,9 @@ export function setupNextDayAdvice({ $, element, getDate, getRecords, getFitness
       const meal=MEALS.find(meal=>meal.id===menu.meal),card=element('article','next-day-meal');card.dataset.meal=menu.meal;
       const head=element('div','next-day-meal-head');head.append(element('span','',meal.emoji),element('h4','',meal.name));
       if(menu.energy!==null)head.append(element('small','',`${menu.energy} kcal 分配参考`));
-      card.append(head,element('p','',menu.text),element('small','next-day-focus',menu.focus));$('#next-day-meals').append(card);
+      card.append(head,element('p','',menu.text),element('small','next-day-focus',menu.unavailable?'当前禁忌下有食物类别无可用选项，请手动调整并咨询专业人员。':menu.focus));$('#next-day-meals').append(card);
     }
     $('#next-day-energy-note').textContent=data.target?'餐次热量来自你的手填目标分配，不是以上食谱的营养计算值；加餐可按需要并入正餐，次日不加减当天差额。':'未采用个人热量目标，只给出配餐结构和食物选择，不生成固定热量处方。';
   }
-  return {render,exportData:()=>readable?state:null};
+  return {render,getAdvice:()=>latestAdvice,exportData:()=>readable?state:null};
 }

@@ -1,9 +1,10 @@
+import { writeLocal } from './storage.js';
 import { NUTRIENTS } from './nutrition.js';
 import { translateText } from './i18n.js';
 import { ACTIVITIES, bodyEstimate, workoutEnergy, dailyEnergy, dailyTemplate, trainingAdvice } from './training.js';
 import { FOODS, TYPES, validFitness, validProfile, validWorkout, scaleFood, weekSummary, proteinRange, macroSummary } from './fitness.js';
 
-export function setupFitness({ $, element, toast, refresh, getDate, getRecords }) {
+export function setupFitness({ $, element, toast, refresh, getDate, getRecords, getRestrictions }) {
   const key = 'daily-bites.fitness.v1';
   let state = { profile: { goal: 'health', weight: null, target: null }, workouts: [] };
   let readable = true;
@@ -13,7 +14,7 @@ export function setupFitness({ $, element, toast, refresh, getDate, getRecords }
   } catch { readable = false; }
   function save(next) {
     if (!readable) { toast('健身数据无法读取，原数据未被覆盖，暂不能修改。'); return false; }
-    try { localStorage.setItem(key, JSON.stringify(next)); state = next; return true; }
+    try { writeLocal(key, JSON.stringify(next)); state = next; return true; }
     catch { toast('健身计划保存失败，请检查浏览器存储空间。'); return false; }
   }
   for (const [index, food] of FOODS.entries()) {
@@ -154,7 +155,8 @@ export function setupFitness({ $, element, toast, refresh, getDate, getRecords }
     const week = weekSummary(state.workouts, getDate());
     $('#week-summary').textContent = `所选日期所在周（周一至周日）已完成：有氧 ${week.aerobic} 等效分钟 · 力量 ${week.strengthDays} 天`;
     $('#training-advice').textContent = training ? '今天有训练安排。训练前 1–3 小时可吃易消化的主食与少量蛋白，避免临近训练大量高脂饮食；训练后正常进餐，搭配主食与蛋白。按口渴、出汗及环境补水；长时间高强度训练需个体化补给。' : '休息日同样需要规律三餐、足量蛋白和蔬果。保持正常饮水与睡眠，不必因为没有训练就跳餐。';
-    $('#meal-example').textContent = `${profile.goal === 'fatloss' ? '体重管理优先关注规律进餐、饱腹感与长期趋势。' : profile.goal === 'muscle' ? '增肌需要渐进力量训练、充足能量与恢复。' : '多样化选择，享受食物。'}早餐：燕麦＋牛奶或豆浆＋水果；正餐：杂粮饭＋鱼、豆腐或瘦肉＋两种蔬菜；${training ? '若训练前饥饿，可用香蕉或酸奶加餐。' : '加餐可选水果或无糖酸奶。'}这是搭配示例，份量和过敏替换按个人需要调整。`;
+    const restrictions=getRestrictions?.();
+    $('#meal-example').textContent = restrictions===null?'饮食禁忌资料无法读取，暂不生成具体食材菜单。':restrictions&&(restrictions.allergens.length||restrictions.exclude.length)?'已设置饮食禁忌，具体食材请查看下方筛选后的次日菜单；训练前后仍应按需要正常进餐。': `${profile.goal === 'fatloss' ? '体重管理优先关注规律进餐、饱腹感与长期趋势。' : profile.goal === 'muscle' ? '增肌需要渐进力量训练、充足能量与恢复。' : '多样化选择，享受食物。'}早餐：燕麦＋牛奶或豆浆＋水果；正餐：杂粮饭＋鱼、豆腐或瘦肉＋两种蔬菜；${training ? '若训练前饥饿，可用香蕉或酸奶加餐。' : '加餐可选水果或无糖酸奶。'}这是搭配示例，份量和过敏替换按个人需要调整。`;
   }
   return { render, exportData: () => readable ? state : null, readable: () => readable };
 }

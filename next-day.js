@@ -1,3 +1,4 @@
+import { buildMenuPlan } from './menu-plan.js';
 import { NUTRIENTS, nutrientTotals } from './nutrition.js';
 import { localDate } from './records.js';
 import { bodyEstimate } from './training.js';
@@ -7,7 +8,7 @@ export const REVIEW_GROUPS = { vegetables:'蔬菜', fruit:'水果', grains:'全�
 export const DIETS = ['balanced','vegetarian','vegan'];
 export function nextDate(date) { const day=new Date(`${date}T12:00:00`);day.setDate(day.getDate()+1);return localDate(day); }
 export function foodFingerprint(records) {
-  return JSON.stringify(records.map(record=>[record.id,record.date,record.meal,record.food,record.portion,record.calories,record.protein??null,record.carbs??null,record.fat??null,...Object.keys(NUTRIENTS).map(key=>record[key]??null),record.nutritionSource??null]).sort((a,b)=>a[0].localeCompare(b[0])));
+  return JSON.stringify(records.map(record=>[record.id,record.date,record.meal,record.food,record.portion,record.calories,record.protein??null,record.carbs??null,record.fat??null,...Object.keys(NUTRIENTS).filter(key=>key!=='saturatedFat').map(key=>record[key]??null),record.nutritionSource??null,...(record.saturatedFat==null?[]:['saturatedFat',record.saturatedFat])]).sort((a,b)=>a[0].localeCompare(b[0])));
 }
 export function validReview(review) {
   return Boolean(review&&typeof review.fingerprint==='string'&&typeof review.complete==='boolean'&&review.groups&&Object.keys(REVIEW_GROUPS).every(key=>['unknown','present','missing'].includes(review.groups[key])));
@@ -15,27 +16,7 @@ export function validReview(review) {
 export function validPlanner(data) {
   return Boolean(data&&DIETS.includes(data.diet)&&data.reviews&&typeof data.reviews==='object'&&!Array.isArray(data.reviews)&&Object.entries(data.reviews).every(([date,review])=>/^\d{4}-\d{2}-\d{2}$/.test(date)&&Number.isFinite(new Date(`${date}T12:00:00`).getTime())&&localDate(new Date(`${date}T12:00:00`))===date&&validReview(review)));
 }
-const MENUS = {
-  balanced: [
-    '原味燕麦＋牛奶或无糖豆浆＋完整水果。',
-    '杂粮饭＋鱼、去皮禽肉或豆腐＋两种蔬菜。',
-    '米饭或薯类＋鸡蛋、瘦肉或豆类＋蔬菜。',
-    '按饥饿和活动安排选择水果或原味无糖酸奶；不需要时可并入正餐。',
-  ],
-  vegetarian: [
-    '原味燕麦＋牛奶或钙强化豆饮＋完整水果。',
-    '杂粮饭＋豆腐或鸡蛋＋两种蔬菜。',
-    '薯类或米饭＋豆类或鸡蛋＋蔬菜。',
-    '按需要选择原味无糖酸奶或水果；不需要时可并入正餐。',
-  ],
-  vegan: [
-    '原味燕麦＋钙强化无糖豆饮＋完整水果。',
-    '杂粮饭＋豆腐或扁豆＋两种蔬菜。',
-    '米饭或薯类＋鹰嘴豆或其他豆类＋菌菇和蔬菜。',
-    '按需要选择水果或少量无盐坚果；不需要时可并入正餐。',
-  ],
-};
-export function buildNextDayAdvice({ records, date, fitness=null, review=null, diet='balanced' }) {
+export function buildNextDayAdvice({ records, date, fitness=null, review=null, diet='balanced', restrictions={allergens:[],exclude:[]} }) {
   const daily=records.filter(record=>record.date===date), targetDate=nextDate(date);
   const fingerprint=foodFingerprint(daily), reviewCurrent=Boolean(review&&review.fingerprint===fingerprint);
   const complete=Boolean(daily.length&&reviewCurrent&&review.complete);
@@ -96,10 +77,15 @@ export function buildNextDayAdvice({ records, date, fitness=null, review=null, d
   if(diet==='vegan')add('vegan','纯素饮食需关注维生素 B12，选择可靠强化食品或在专业指导下补充；植物饮品是否含钙需看标签。');
   else if(profile.goal==='muscle')add('muscle','增肌重在渐进力量训练、足够能量与恢复；蛋白食物分散到各餐，不为一天的数据而过量补充。');
   else if(profile.goal==='fatloss')add('weight_goal','体重管理优先规律三餐、饱腹感和长期趋势；本建议不根据单日摄入自动生成减脂缺口。');
+  if(restrictions===null)add('restrictions_unreadable','饮食禁忌资料无法读取，暂不生成具体食材菜单。');
+  else if(restrictions.allergens.length||restrictions.exclude.length)add('restrictions','已按禁忌筛选已知食材；品牌配方、配料与交叉接触仍需自行核对，不能据此保证无过敏原。');
+  const saturatedMismatch=complete&&nutrientData.fat.missing===0&&nutrientData.saturatedFat.missing===0&&nutrientData.saturatedFat.total>nutrientData.fat.total+.2;
+  if(saturatedMismatch)add('saturated_mismatch','饱和脂肪高于总脂肪，请先核对标签、单位和份量，暂不比较饱和脂肪供能比例。');
+  if(!saturatedMismatch&&!insights.some(insight=>insight.code==='macro_mismatch')&&complete&&totals.calories.missing===0&&totals.calories.total>0&&nutrientData.saturatedFat.missing===0&&nutrientData.saturatedFat.total*9/totals.calories.total>=.1)add('saturated_fat','已记录饱和脂肪供能达到或超过一般成人 10% 的参考；次日可用适量不饱和油脂替换部分动物油，保持整体均衡。');
   const selectedDiet=DIETS.includes(diet)?diet:'balanced';
   const missingGroups=daily.length&&Object.values(groups).some(value=>value==='unknown');
   const focus=lowProtein||groups.protein==='missing'?'各餐分散安排适合你的蛋白食物。':groups.grains==='missing'?'用全谷物替换部分精制主食，逐步增加。':'主食、蛋白食物和蔬果一起搭配。';
-  const menus=['breakfast','lunch','dinner','snack'].map((meal,index)=>({meal,text:MENUS[selectedDiet][index],energy:target?Math.round(target*[.25,.35,.3,.1][index]):null,
+  const menus=(restrictions===null?[]:buildMenuPlan(selectedDiet,restrictions)).map((plan,index)=>({...plan,text:plan.ingredients.map(food=>food.label).join('＋'),energy:target?Math.round(target*[.25,.35,.3,.1][index]):null,
     focus:index===3?(groups.fruit==='missing'?'完整水果优先，计入全天总量，不追求补偿。':'加餐是可选项，可根据饥饿和活动并入正餐。'):index===1||index===2?(groups.vegetables==='missing'?'午晚餐增加不同颜色蔬菜，不替代主食和蛋白。':demanding?'次日活动较多，主食不省略，留意补水与恢复。':focus):focus}));
   return {sourceDate:date,targetDate,dailyCount:daily.length,complete,reviewCurrent,reviewChanged:Boolean(review&&!reviewCurrent),groups,totals,nutrientData,target,targetNeedsReview,protein,shares,nextWorkouts,insights,menus,missingGroups};
 }
