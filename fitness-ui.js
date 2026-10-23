@@ -1,3 +1,4 @@
+import { translateText } from './i18n.js';
 import { ACTIVITIES, bodyEstimate, workoutEnergy, dailyEnergy, dailyTemplate, trainingAdvice } from './training.js';
 import { FOODS, TYPES, validFitness, validProfile, validWorkout, scaleFood, weekSummary, proteinRange, macroSummary } from './fitness.js';
 
@@ -23,7 +24,7 @@ export function setupFitness({ $, element, toast, refresh, getDate, getRecords }
       const index = Number($('#food-preset').value), grams = Number($('#food-grams').value);
       const scaled = scaleFood(index, grams);
       const form = $('#record-form');
-      form.elements.food.value = FOODS[index].name;
+      form.elements.food.value = translateText(FOODS[index].name);
       form.elements.portion.value = `${grams} 克`;
       form.elements.calories.value = Math.round(scaled.kcal);
       for (const nutrient of ['protein', 'carbs', 'fat']) form.elements[nutrient].value = scaled[nutrient];
@@ -54,7 +55,7 @@ export function setupFitness({ $, element, toast, refresh, getDate, getRecords }
     form.elements.details.value = workout?.details ?? '';
     form.elements.weight.value = workout?.weight ?? state.profile.weight ?? '';
     form.elements.done.checked = workout?.done ?? false;
-    $('#workout-title').textContent = workout ? '编辑训练' : '安排一次训练';
+    $('#workout-title').textContent = workout ? '编辑运动' : '安排一次运动';
     updatePreview();
     $('#workout-dialog').showModal();
   }
@@ -75,9 +76,15 @@ export function setupFitness({ $, element, toast, refresh, getDate, getRecords }
   $('#workout-form').elements.type.addEventListener('change', () => { fillExercises(); updatePreview(); });
   $('#workout-form').addEventListener('input', updatePreview);
   $('#suggest-workout').addEventListener('click', () => {
-    const suggestion = dailyTemplate(getDate(), state.profile);
-    openWorkout({ ...suggestion, date: getDate(), done: false });
-    $('#workout-title').textContent = '当天训练示例 · 可调整';
+    const suggestion = dailyTemplate(getDate(), state.profile, $('#sport-template-select').value);
+    openWorkout({ ...suggestion, details: translateText(suggestion.details), date: getDate(), done: false });
+    $('#workout-title').textContent = '当天运动示例 · 可调整';
+  });
+  for (const button of document.querySelectorAll('[data-sport]')) button.addEventListener('click', () => {
+    $('#sport-template-select').value = button.dataset.sport;
+    const suggestion = dailyTemplate(getDate(), state.profile, button.dataset.sport);
+    openWorkout({ ...suggestion, details: translateText(suggestion.details), date: getDate(), done: false });
+    $('#workout-title').textContent = '当天运动示例 · 可调整';
   });
   $('#add-workout').addEventListener('click', () => openWorkout());
   $('#workout-form').addEventListener('submit', event => {
@@ -89,7 +96,7 @@ export function setupFitness({ $, element, toast, refresh, getDate, getRecords }
     workout.weight = data.get('weight') === '' ? state.profile.weight : Number(data.get('weight'));
     if (!validWorkout(workout)) { toast('请检查训练日期、时长和类型'); return; }
     const workouts = state.workouts.some(item => item.id === workout.id) ? state.workouts.map(item => item.id === workout.id ? workout : item) : [...state.workouts, workout];
-    if (save({ ...state, workouts })) { $('#workout-dialog').close(); refresh(); toast('训练已保存'); }
+    if (save({ ...state, workouts })) { $('#workout-dialog').close(); refresh(); toast('运动已保存'); }
   });
   function render() {
     const daily = getRecords().filter(record => record.date === getDate());
@@ -122,7 +129,7 @@ export function setupFitness({ $, element, toast, refresh, getDate, getRecords }
     $('#meal-reference').textContent = profile.target ? `灵活配餐示例：早餐 ${Math.round(profile.target * .25)} · 午餐 ${Math.round(profile.target * .35)} · 晚餐 ${Math.round(profile.target * .3)} · 加餐 ${Math.round(profile.target * .1)} kcal。可按训练时间调整。` : '未设置热量目标也可以用餐盘比例搭配，不必为了记录而刻意限制饮食。';
     $('#workouts').replaceChildren();
     if (!readable) $('#workouts').append(element('p', 'muted', '健身数据读取失败，原数据已保留，暂不能修改。'));
-    else if (!workouts.length) $('#workouts').append(element('p', 'workout-empty', '今天还没有训练安排，也可以留给身体休息。'));
+    else if (!workouts.length) $('#workouts').append(element('p', 'workout-empty', '今天还没有运动安排，也可以留给身体休息。'));
     for (const workout of workouts) {
       const row = element('div', 'workout-row');
       const label = element('label', 'workout-check');
@@ -134,13 +141,13 @@ export function setupFitness({ $, element, toast, refresh, getDate, getRecords }
       label.append(check, element('span', '', `${TYPES[workout.type]} · ${workout.minutes} 分钟`));
       const detail = element('small', 'muted', `${{ light: '轻度', moderate: '中等强度', vigorous: '高强度' }[workout.intensity]} · ${workout.done ? '已完成' : '待完成'}`);
       const actions = element('div', 'record-actions');
-      const edit = element('button', 'text-button', '编辑训练'); edit.addEventListener('click', () => openWorkout(workout));
-      const remove = element('button', 'text-button delete-button', '删除训练'); remove.addEventListener('click', () => { if (confirm('删除这次训练安排？') && save({ ...state, workouts: state.workouts.filter(item => item.id !== workout.id) })) refresh(); });
+      const edit = element('button', 'text-button', '编辑运动'); edit.addEventListener('click', () => openWorkout(workout));
+      const remove = element('button', 'text-button delete-button', '删除运动'); remove.addEventListener('click', () => { if (confirm(translateText('删除这次运动安排？')) && save({ ...state, workouts: state.workouts.filter(item => item.id !== workout.id) })) refresh(); });
       const energy = workoutEnergy(workout, profile);
       const energyLabel = element('p', 'exercise-energy', energy ? `约 ${energy.gross} kcal 总消耗 / ${energy.net} kcal 额外消耗 · ${energy.met} MET · ${energy.weight} kg${energy.currentWeight ? '（使用当前体重）' : '（本次保存体重）'}` : '消耗未知：请补充本次或个人体重');
       const activityLabel = element('p', 'muted', ACTIVITIES[workout.exercise ?? workout.type].name);
       actions.append(edit, remove); const info = element('div', 'workout-info'); info.append(label, detail, activityLabel, energyLabel);
-      if (workout.details) info.append(element('p', 'workout-details', workout.details)); row.append(info, actions); $('#workouts').append(row);
+      if (workout.details) { const details = element('p', 'workout-details', workout.details); details.translate = false; info.append(details); } row.append(info, actions); $('#workouts').append(row);
     }
     const week = weekSummary(state.workouts, getDate());
     $('#week-summary').textContent = `所选日期所在周（周一至周日）已完成：有氧 ${week.aerobic} 等效分钟 · 力量 ${week.strengthDays} 天`;

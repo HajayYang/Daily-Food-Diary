@@ -1,3 +1,4 @@
+import { setupLanguage, translateText, formatDateLabel } from './i18n.js';
 import { setupFoodDiscovery } from './food-discovery.js';
 import { setupAppearance } from './appearance.js';
 import { renderCharts } from './charts.js';
@@ -18,7 +19,7 @@ try {
 let selectedDate = localDate();
 let toastTimer;
 function toast(message) {
-  $('#toast').textContent = message;
+  $('#toast').textContent = translateText(message);
   $('#toast').hidden = false;
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => { $('#toast').hidden = true; }, 5000);
@@ -38,7 +39,7 @@ function render() {
   $('#date').value = selectedDate;
   const date = new Date(`${selectedDate}T12:00:00`);
   const isToday = selectedDate === localDate();
-  $('#date-heading').textContent = `${date.getMonth() + 1}月${date.getDate()}日 ${date.toLocaleDateString('zh-CN', { weekday: 'long' })}${isToday ? ' · 今天' : ''}`;
+  $('#date-heading').textContent = formatDateLabel(selectedDate, isToday);
   $('#day-description').textContent = isToday ? '今天吃了什么好吃的？' : '每一餐，都是生活的一个小片段。';
   const daily = records.filter(record => record.date === selectedDate);
   const stats = summarize(daily);
@@ -66,16 +67,18 @@ function render() {
     for (const record of entries) {
       const row = element('div', 'record');
       const info = element('div', 'record-info');
-      info.append(element('h4', '', record.food), element('p', '', [record.portion, record.calories === null ? '未填写热量' : `${record.calories} kcal`].filter(Boolean).join(' · ')));
-      const nutrition = ['protein', 'carbs', 'fat'].map((key, index) => record[key] == null ? null : `${['蛋白质', '碳水', '脂肪'][index]} ${record[key]}g`).filter(Boolean);
-      if (nutrition.length) info.append(element('p', '', nutrition.join(' · ')));
-      if (record.note) info.append(element('p', 'record-note', record.note));
+      const name = element('h4', '', record.food); name.translate = false;
+      const portion = element('p', '', [record.portion, record.calories === null ? translateText('未填写热量') : `${record.calories} kcal`].filter(Boolean).join(' · ')); portion.translate = false;
+      info.append(name, portion);
+      const nutrition = ['protein', 'carbs', 'fat'].map((key, index) => record[key] == null ? null : `${translateText(['蛋白质', '碳水', '脂肪'][index])} ${record[key]}g`).filter(Boolean);
+      if (nutrition.length) { const macroText = element('p', '', nutrition.join(' · ')); macroText.translate = false; info.append(macroText); }
+      if (record.note) { const note = element('p', 'record-note', record.note); note.translate = false; info.append(note); }
       const actions = element('div', 'record-actions');
       const edit = element('button', 'text-button', '编辑');
       edit.addEventListener('click', () => openForm(meal.id, record));
       const remove = element('button', 'text-button delete-button', '删除');
       remove.addEventListener('click', () => {
-        if (confirm(`删除「${record.food}」这条记录？`) && persist(records.filter(item => item.id !== record.id))) { render(); toast('记录已删除'); }
+        if (confirm(translateText('删除「{name}」这条记录？').replace('{name}', () => record.food)) && persist(records.filter(item => item.id !== record.id))) { render(); toast('记录已删除'); }
       });
       actions.append(edit, remove); row.append(info, actions); body.append(row);
     }
@@ -115,6 +118,7 @@ $('#export').addEventListener('click', () => {
   const url = URL.createObjectURL(new Blob([JSON.stringify({ version: 2, exportedAt: new Date().toISOString(), records, fitness: fitness.exportData() }, null, 2)], { type: 'application/json' }));
   const link = element('a'); link.href = url; link.download = `一日食记-${localDate()}.json`; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
+setupLanguage({ refresh: render, toast });
 setupFoodDiscovery({ $, element });
 setupAppearance({ $, toast });
 $('#appearance-done').addEventListener('click', () => $('#appearance-dialog').close());

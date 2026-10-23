@@ -16,14 +16,19 @@ export function setupOnlineFood({ $, element, renderLocal }) {
       const top = element('div', 'online-food-heading');
       top.append(element('span', 'online-food-symbol', '▤'), element('span', 'online-food-source', 'OPEN FOOD FACTS'));
       const content = element('div', 'food-guide-content');
-      content.append(element('h3', '', product.name), element('p', 'food-tag', product.brand || '品牌未填写'), element('p', 'food-state', '营养基准：每 100 克 / 100 毫升，以商品原标签为准'));
+      const name = element('h3', '', product.name); name.translate = false;
+      const brand = element('p', 'food-tag', product.brand); brand.translate = false;
+      content.append(name, product.brand ? brand : element('p', 'food-tag', '品牌未填写'), element('p', 'food-state', '营养基准：每 100 克 / 100 毫升，以商品原标签为准'));
       const dl = element('dl', 'online-nutrients');
       for (const [key, label, unit] of [['kcal','热量','kcal'],['protein','蛋白质','g'],['carbs','碳水','g'],['fat','脂肪','g'],['fiber','膳食纤维','g'],['sugars','糖','g'],['salt','盐','g']]) {
         const row = element('div'); row.append(element('dt', '', label), element('dd', '', product[key] === null ? '未提供' : `${product[key]} ${unit}`)); dl.append(row);
       }
       content.append(dl);
       const details = element('details', 'food-pairing'); details.append(element('summary', '', '配料、过敏原与标签份量'));
-      for (const [label, value] of [['配料',product.ingredients],['过敏原',product.allergens],['标签份量（非摄入建议）',product.serving]]) details.append(element('p', '', `${label}：${value || '未提供，请查看原包装'}`));
+      for (const [label, value] of [['配料',product.ingredients],['过敏原',product.allergens],['标签份量（非摄入建议）',product.serving]]) {
+        const row = element('p'); const text = element('span', '', value || '未提供，请查看原包装'); if (value) text.translate = false;
+        row.append(element('span', '', label), document.createTextNode(': '), text); details.append(row);
+      }
       const link = element('a', 'online-source-link', '查看原始商品与数据 →'); link.href = product.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
       content.append(details, link); card.append(top, content); return card;
     }));

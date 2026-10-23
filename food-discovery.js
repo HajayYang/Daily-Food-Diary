@@ -1,3 +1,4 @@
+import { translateText } from './i18n.js';
 import { setupOnlineFood } from './food-online.js';
 export const FOOD_GUIDE = [
   { name: '苹果', emoji: '🍎', category: 'fruit', tag: '清脆 · 带皮更添纤维', kcal: 52, state: '生，带皮，去核', feature: '提供膳食纤维，带皮吃前充分洗净。苹果含少量维生素 C，但不是高维 C 水果；想补充维 C，也可搭配橙子或猕猴桃。', portion: '一次约 1 个小苹果（可食部分约 150 克），计入全天水果总量。', pairing: '和无糖酸奶一起做加餐，完整水果比果汁更有饱腹感。', tint: 'rose' },
@@ -16,7 +17,7 @@ export function setupFoodDiscovery({ $, element }) {
   function render() {
     if (online.isOnline()) return;
     const query = $('#food-search').value.trim().toLocaleLowerCase();
-    const foods = FOOD_GUIDE.filter(food => (category === 'all' || category === food.category) && `${food.name} ${food.tag} ${food.feature}`.toLocaleLowerCase().includes(query));
+    const foods = FOOD_GUIDE.filter(food => (category === 'all' || category === food.category) && `${food.name} ${food.tag} ${food.feature} ${translateText(food.name)} ${translateText(food.tag)} ${translateText(food.feature)}`.toLocaleLowerCase().includes(query));
     $('#food-results').textContent = foods.length ? `共 ${foods.length} 种食物 · 能量单位 kcal / 100 克可食部分` : '没有找到匹配食物，试试“苹果”“维生素”或切换类别。';
     $('#food-discovery-grid').replaceChildren(...foods.map(food => {
       const card = element('article', `food-guide-card food-tint-${food.tint}`);
@@ -36,5 +37,6 @@ export function setupFoodDiscovery({ $, element }) {
     render();
   });
   $('#food-search').addEventListener('input', render);
+  document.addEventListener('languagechange', () => { if (!online.isOnline()) render(); });
   render();
 }

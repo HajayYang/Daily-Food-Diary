@@ -10,6 +10,16 @@
 - 浏览器 localStorage 保存，刷新后保留；支持饮食、个人目标及训练一起导出为 JSON。
 - 适配电脑与手机，原生 HTML、CSS、JavaScript，无第三方运行依赖。
 
+## 运动计划与语言
+
+- 运动计划支持健身 / 力量、游泳、跑步、羽毛球、乒乓球、网球、徒步、其他有氧 / 骑行及拉伸恢复。快捷按钮可生成对应项目的动作或活动内容，预览调整后保存；也可按星期自动安排。
+- 每个项目使用对应强度的近似 MET，结合保存的体重及时长估算消耗。新增有氧项目仅在完成且达到所选中高强度时计入周有氧等效分钟；旧版力量、有氧、骑行记录无需迁移。
+- 右上角语言选择支持简体中文、English、日本語、한국어。菜单、表单、图表、静态食材科普、运动示例与提示均本地翻译，无需翻译 API。日期按所选语言显示；语言偏好仅保存在当前浏览器。
+- 手写食物名、份量、备注、已保存的运动内容，以及在线食品库的原始名称、品牌和配料保持原文。生成新运动示例时使用当前语言，不修改历史记录。常见食材支持当前语言与中文搜索；外部食品库覆盖范围依其原始数据而定。
+- 食物搜索采用统一外框：聚焦时整个控件高亮，输入后保留边框提示，联网加载时整框显示动态光效。尊重系统“减少动态效果”设置，键盘聚焦仍然可见。
+
+翻译文案维护在 `locales.js`，`i18n.js` 管理偏好、参数化消息、日期和界面更新；用户内容用 `translate="no"` 排除。新增界面文案时请补齐三种翻译，并运行覆盖检查。
+
 ## 个性化外观
 
 点击页面右上角“外观设置”，即时预览并自动保存：
@@ -81,7 +91,7 @@
 npm start
 ```
 
-在本地电脑运行时，访问 `http://localhost:3000`。也可以直接运行 `python3 -m http.server 3000`，无需安装 npm 依赖。服务器只提供静态文件，不接收饮食数据。部署时将 `index.html`、`style.css`、`app.js`、`records.js`、`fitness.js`、`fitness-ui.js`、`charts.js`、`training.js`、`appearance.js`、`appearance.css`、`food-discovery.js`、`food-api.js` 和 `food-online.js` 放到任意静态网站托管平台；正式部署使用 HTTPS。
+在本地电脑运行时，访问 `http://localhost:3000`。也可以直接运行 `python3 -m http.server 3000`，无需安装 npm 依赖。服务器只提供静态文件，不接收饮食数据。部署时将 `index.html`、`style.css`、`app.js`、`records.js`、`fitness.js`、`fitness-ui.js`、`charts.js`、`training.js`、`appearance.js`、`appearance.css`、`food-discovery.js`、`food-api.js`、`food-online.js`、`i18n.js` 和 `locales.js` 放到任意静态网站托管平台；正式部署使用 HTTPS。
 
 ## 验证
 
@@ -99,7 +109,7 @@ npm test
 
 ## 参与贡献
 
-欢迎通过 Issue 提出建议或提交 Pull Request。请保持中文界面、键盘可操作、移动端可用，并避免不必要的依赖。后续可扩展 JSON 导入、趋势统计和可选的账号同步。
+欢迎通过 Issue 提出建议或提交 Pull Request。请保持四种语言文案完整、键盘可操作、移动端可用，并避免不必要的依赖。后续可扩展 JSON 导入、趋势统计和可选的账号同步。
 
 ## 许可证
 

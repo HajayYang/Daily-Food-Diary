@@ -10,7 +10,8 @@ export const FOODS = [
   { name: '原味干燕麦', kcal: 379, protein: 13.2, carbs: 67.7, fat: 6.5 },
   { name: '熟西兰花（不加油）', kcal: 35, protein: 2.4, carbs: 7.2, fat: 0.4 },
 ];
-export const TYPES = { strength: '力量训练', cardio: '有氧运动', mobility: '拉伸 / 活动度' };
+export const TYPES = { strength: '健身 / 力量', swimming: '游泳', running: '跑步', badminton: '羽毛球', tabletennis: '乒乓球', tennis: '网球', hiking: '徒步', cardio: '其他有氧 / 骑行', mobility: '拉伸 / 恢复' };
+export const AEROBIC_TYPES = new Set(['cardio', 'swimming', 'running', 'badminton', 'tabletennis', 'tennis', 'hiking']);
 const numberBetween = (value, min, max) => typeof value === 'number' && Number.isFinite(value) && value >= min && value <= max;
 export function validProfile(profile) {
   return Boolean(profile && validBody(profile) && ['health', 'muscle', 'fatloss'].includes(profile.goal) && (profile.weight === null || numberBetween(profile.weight, 30, 300)) && (profile.target === null || Number.isInteger(profile.target) && numberBetween(profile.target, 1200, 6000)));
@@ -32,7 +33,7 @@ export function weekSummary(workouts, date) {
   const end = new Date(start); end.setDate(end.getDate() + 7);
   const completed = workouts.filter(workout => workout.done && workout.date >= localDate(start) && workout.date < localDate(end));
   return {
-    aerobic: completed.filter(workout => workout.type === 'cardio').reduce((sum, workout) => sum + (workout.intensity === 'moderate' ? workout.minutes : workout.intensity === 'vigorous' ? workout.minutes * 2 : 0), 0),
+    aerobic: completed.filter(workout => AEROBIC_TYPES.has(workout.type)).reduce((sum, workout) => sum + (workout.intensity === 'moderate' ? workout.minutes : workout.intensity === 'vigorous' ? workout.minutes * 2 : 0), 0),
     strengthDays: new Set(completed.filter(workout => workout.type === 'strength').map(workout => workout.date)).size,
   };
 }
