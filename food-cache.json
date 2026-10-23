@@ -1,0 +1,2081 @@
+{
+  "version": 1,
+  "source": "https://search.openfoodfacts.org",
+  "license": "ODbL-1.0",
+  "queries": {
+    "bread": {
+      "capturedAt": "2026-10-23T13:54:55.126Z",
+      "codes": [
+        "8437006001274",
+        "9327189000142",
+        "0215167403797",
+        "5011059001592",
+        "0071315040159",
+        "8437015138015",
+        "0721762513958"
+      ]
+    },
+    "milk": {
+      "capturedAt": "2026-10-23T13:55:02.666Z",
+      "codes": [
+        "5000316000256",
+        "0025073009910",
+        "7591691180292",
+        "5099603111157",
+        "0027495012769",
+        "6281021110105",
+        "0865743000393",
+        "8938503131957"
+      ]
+    },
+    "rice": {
+      "capturedAt": "2026-10-23T13:55:09.950Z",
+      "codes": [
+        "0859278003295",
+        "9310140006451",
+        "0084253334105",
+        "5425000197683",
+        "3800233074390",
+        "0859278003066",
+        "9310140011950",
+        "0074401910411"
+      ]
+    },
+    "apple": {
+      "capturedAt": "2026-10-23T13:55:16.911Z",
+      "codes": [
+        "2000000290850",
+        "2000000248585",
+        "20247713",
+        "5054903868040",
+        "3608580083412",
+        "3608580038047",
+        "3608580106104",
+        "3256225041589"
+      ]
+    },
+    "banana": {
+      "capturedAt": "2026-10-23T13:55:23.892Z",
+      "codes": [
+        "2000000151418",
+        "5010251953760",
+        "01129441",
+        "8857122695117",
+        "0857682003009",
+        "00517706",
+        "2000000125305",
+        "03341148"
+      ]
+    },
+    "oats": {
+      "capturedAt": "2026-10-23T13:55:30.746Z",
+      "codes": [
+        "5000108236832",
+        "0039978041432",
+        "6281055001080",
+        "9020200030974",
+        "8001860209741",
+        "05867370",
+        "8001860252846",
+        "8032625480235"
+      ]
+    },
+    "egg": {
+      "capturedAt": "2026-10-23T13:55:37.819Z",
+      "codes": [
+        "50378289",
+        "50378265",
+        "5024263012131",
+        "20717414",
+        "20635589",
+        "4056489175179",
+        "8710400131472",
+        "5050854476730"
+      ]
+    },
+    "yogurt": {
+      "capturedAt": "2026-10-23T13:55:44.914Z",
+      "codes": [
+        "4993478344799",
+        "0015000047320",
+        "0635000047313",
+        "0015000047306",
+        "0053600101073",
+        "0851463005053",
+        "0851463005008",
+        "0053600000932"
+      ]
+    },
+    "tofu": {
+      "capturedAt": "2026-10-23T13:55:51.908Z",
+      "codes": [
+        "9313727087225",
+        "0850109005020",
+        "0036538812068",
+        "0065281111104",
+        "5060366570789",
+        "4260316130020",
+        "0760685412924"
+      ]
+    },
+    "chicken": {
+      "capturedAt": "2026-10-23T13:55:58.624Z",
+      "codes": [
+        "2109053009478",
+        "9414757201367",
+        "8718452361267",
+        "9414735954926",
+        "2324451705238",
+        "8718452361205",
+        "9414735957729",
+        "8718452590889"
+      ]
+    },
+    "fish": {
+      "capturedAt": "2026-10-23T13:56:05.732Z",
+      "codes": [
+        "5000116124572",
+        "5000116111947",
+        "5690330076087",
+        "01148299",
+        "5000116124657",
+        "4056489431039",
+        "20403034",
+        "8718836906985"
+      ]
+    },
+    "potato": {
+      "capturedAt": "2026-10-23T13:56:13.031Z",
+      "codes": [
+        "20242244",
+        "6021470000141",
+        "3292590836634",
+        "3663362039025",
+        "3760032005868",
+        "3591760112234",
+        "63164954",
+        "3256227455728"
+      ]
+    },
+    "noodles": {
+      "capturedAt": "2026-10-23T13:56:20.262Z",
+      "codes": [
+        "9352576000115",
+        "0070662030035",
+        "0059491000501",
+        "0059491000600",
+        "0059491000204",
+        "59491000501",
+        "8718836390319",
+        "0059491002352"
+      ]
+    },
+    "orange": {
+      "capturedAt": "2026-10-23T13:56:27.094Z",
+      "codes": [
+        "0059600070029",
+        "0899734002493",
+        "5052449462531",
+        "0059600070076",
+        "5010893701101",
+        "059600070076",
+        "0072846462694",
+        "5000232018700"
+      ]
+    },
+    "broccoli": {
+      "capturedAt": "2026-10-23T13:56:34.252Z",
+      "codes": [
+        "3800068600115",
+        "00512947",
+        "0086289251142",
+        "5054781135807",
+        "93466240",
+        "0041268160716",
+        "60078637154108",
+        "2000000125290"
+      ]
+    },
+    "beans": {
+      "capturedAt": "2026-10-23T13:56:41.105Z",
+      "codes": [
+        "0789968000023",
+        "0039400113126",
+        "0072273416789",
+        "0072273469631",
+        "0072273440166",
+        "0072273401631",
+        "0046900001082",
+        "4056489458647"
+      ]
+    }
+  },
+  "products": [
+    {
+      "code": "8437006001274",
+      "product_name": "Gluten free bread",
+      "generic_name": "Pain sans gluten Nature",
+      "brands": "Bread Sinclair",
+      "nutriments": {
+        "carbohydrates_100g": 55,
+        "energy-kcal_100g": 251,
+        "fat_100g": 2,
+        "fiber_100g": 2.5,
+        "proteins_100g": 2,
+        "salt_100g": 0.4,
+        "saturated-fat_100g": 0.3,
+        "sodium_100g": 0.16,
+        "sugars_100g": 2.3
+      }
+    },
+    {
+      "code": "9327189000142",
+      "product_name": "Bill's Carb Smart HEMP Sourdough bread",
+      "generic_name": "Bill's hemp bread",
+      "brands": "Bill's Bread",
+      "nutriments": {
+        "carbohydrates_100g": 31.1,
+        "energy-kj_100g": 965,
+        "fat_100g": 4.7,
+        "saturated-fat_100g": 0.8,
+        "sugars_100g": 0.5
+      }
+    },
+    {
+      "code": "0215167403797",
+      "product_name": "Bread",
+      "brands": "bread"
+    },
+    {
+      "code": "5011059001592",
+      "product_name": "Chia Wholegrain",
+      "generic_name": "Wholegrain bread",
+      "brands": "Brennan's bread",
+      "allergens": "en:gluten, en:soybeans",
+      "nutriments": {
+        "carbohydrates_100g": 40.2,
+        "energy-kcal_100g": 233,
+        "energy-kj_100g": 983,
+        "fat_100g": 2.3,
+        "fiber_100g": 6.2,
+        "proteins_100g": 9.7,
+        "salt_100g": 1.1,
+        "saturated-fat_100g": 0.3,
+        "sodium_100g": 0.44,
+        "sugars_100g": 2.6
+      }
+    },
+    {
+      "code": "0071315040159",
+      "product_name": "Bread",
+      "brands": "Bread",
+      "allergens": "en:gluten, en:sesame-seeds, en:soybeans",
+      "nutriments": {
+        "carbohydrates_100g": 48.5,
+        "energy-kcal_100g": 273,
+        "fat_100g": 3.03,
+        "fiber_100g": 6.06,
+        "proteins_100g": 9.09,
+        "salt_100g": 1.02,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0.409,
+        "sugars_100g": 9.09
+      }
+    },
+    {
+      "code": "8437015138015",
+      "product_name": "Pita Bread",
+      "brands": "Cedar's Bread",
+      "allergens": "en:gluten",
+      "nutriments": {
+        "carbohydrates_100g": 65,
+        "energy-kcal_100g": 308,
+        "energy-kj_100g": 1308,
+        "fat_100g": 0.9,
+        "fiber_100g": 2.7,
+        "proteins_100g": 8.2,
+        "salt_100g": 0.21,
+        "saturated-fat_100g": 0.2,
+        "sodium_100g": 0.084,
+        "sugars_100g": 3.5
+      }
+    },
+    {
+      "code": "0721762513958",
+      "product_name": "White Bread",
+      "brands": "Kneadin' Bread",
+      "nutriments": {
+        "carbohydrates_100g": 42.22,
+        "energy-kcal_100g": 244,
+        "fat_100g": 4.44,
+        "fiber_100g": 2.2,
+        "proteins_100g": 6.67,
+        "salt_100g": 0.7775,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0.311,
+        "sugars_100g": 4.44
+      }
+    },
+    {
+      "code": "5000316000256",
+      "product_name": "Moo Milk chocolate flavoured",
+      "generic_name": "Chocolate flavoured milk, high temperature pasteurised",
+      "brands": "Moo Milk",
+      "allergens": "en:milk",
+      "nutriments": {
+        "carbohydrates_100g": 9.1,
+        "energy-kcal_100g": 67,
+        "energy-kj_100g": 281,
+        "fat_100g": 1.4,
+        "fiber_100g": 0.5,
+        "proteins_100g": 4.2,
+        "salt_100g": 0.1,
+        "saturated-fat_100g": 1,
+        "sodium_100g": 0.04,
+        "sugars_100g": 9.1
+      }
+    },
+    {
+      "code": "0025073009910",
+      "product_name": "ผลิตภัณฑ์นมพาสเจอไรซ์ - 946 ml",
+      "brands": "California sunshine",
+      "allergens": "en:milk",
+      "nutriments": {
+        "carbohydrates_100g": 5,
+        "energy-kcal_100g": 65,
+        "energy-kj_100g": 272,
+        "fat_100g": 3.5,
+        "fiber_100g": 0,
+        "proteins_100g": 3.5,
+        "salt_100g": 0.0938,
+        "saturated-fat_100g": 2.25,
+        "sodium_100g": 0.0375,
+        "sugars_100g": 5
+      }
+    },
+    {
+      "code": "7591691180292",
+      "product_name": "Leche Deslactosada",
+      "brands": "Zuli Milk",
+      "allergens": "en:milk",
+      "traces": "en:milk",
+      "nutriments": {
+        "carbohydrates_100g": 50,
+        "fat_100g": 0,
+        "proteins_100g": 35
+      }
+    },
+    {
+      "code": "5099603111157",
+      "product_name": "Thurles Fresh Milk 2.5 Litre",
+      "generic_name": "Milk",
+      "brands": "Thurles Milk",
+      "allergens": "en:milk",
+      "traces": "en:milk",
+      "nutriments": {
+        "carbohydrates_100g": 4.7,
+        "energy-kcal_100g": 68,
+        "energy-kj_100g": 282,
+        "fat_100g": 3.5,
+        "fiber_100g": 0.1,
+        "proteins_100g": 3.3,
+        "salt_100g": 0.11,
+        "saturated-fat_100g": 2.2,
+        "sodium_100g": 0.044,
+        "sugars_100g": 4.7
+      }
+    },
+    {
+      "code": "0027495012769",
+      "product_name": "2% milk",
+      "generic_name": "2% Reduced Fat Milk",
+      "brands": "Hollandia Dairy",
+      "allergens": "en:milk",
+      "nutriments": {
+        "carbohydrates_100g": 5.5084745762712,
+        "energy-kcal_100g": 55.084745762712,
+        "fat_100g": 2.1186440677966,
+        "fiber_100g": 0,
+        "proteins_100g": 4.2372881355932,
+        "salt_100g": 0.13771186440678,
+        "saturated-fat_100g": 1.271186440678,
+        "sodium_100g": 0.055084745762712,
+        "sugars_100g": 5.5084745762712
+      }
+    },
+    {
+      "code": "6281021110105",
+      "product_name": "Rainbow full cream milk",
+      "brands": "Milk",
+      "nutriments": {
+        "carbohydrates_100g": 5,
+        "energy-kcal_100g": 59,
+        "fat_100g": 3,
+        "fiber_100g": 0,
+        "proteins_100g": 3,
+        "salt_100g": 0.1,
+        "saturated-fat_100g": 1.6,
+        "sodium_100g": 0.04,
+        "sugars_100g": 5
+      }
+    },
+    {
+      "code": "0865743000393",
+      "product_name": "Organic Almond Milk",
+      "generic_name": "Almond Milk",
+      "brands": "MALK",
+      "allergens": "en:nuts",
+      "traces": "en:nuts",
+      "nutriments": {
+        "carbohydrates_100g": 0.88495575221239,
+        "energy-kcal_100g": 44.247787610619,
+        "fat_100g": 3.9823008849558,
+        "fiber_100g": 1,
+        "proteins_100g": 1.7699115044248,
+        "salt_100g": 0.082964601769912,
+        "saturated-fat_100g": 0.3716814159292,
+        "sodium_100g": 0.0331858407079648,
+        "sugars_100g": 0.44247787610619
+      }
+    },
+    {
+      "code": "8938503131957",
+      "product_name": "sữa tươi tiệt trùng",
+      "brands": "Dakar Milk",
+      "nutriments": {
+        "carbohydrates_100g": 4.5,
+        "energy-kcal_100g": 65,
+        "fat_100g": 3.8,
+        "proteins_100g": 3.2
+      }
+    },
+    {
+      "code": "0859278003295",
+      "product_name": "SUPREME  RICE",
+      "generic_name": "Enriched rice",
+      "brands": "Supreme Rice",
+      "nutriments": {
+        "carbohydrates_100g": 36,
+        "energy-kcal_100g": 160,
+        "fat_100g": 0,
+        "proteins_100g": 3,
+        "salt_100g": 0,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0,
+        "sugars_100g": 0
+      }
+    },
+    {
+      "code": "9310140006451",
+      "product_name": "Australian Brown Rice",
+      "generic_name": "Brown Rice",
+      "brands": "Sun Rice"
+    },
+    {
+      "code": "0084253334105",
+      "product_name": "Lait de riz",
+      "generic_name": "Plantaardige biologische rijstdrank",
+      "brands": "Rice Dream",
+      "nutriments": {
+        "carbohydrates_100g": 9.9,
+        "energy-kcal_100g": 50,
+        "energy-kj_100g": 211,
+        "fat_100g": 1.1,
+        "proteins_100g": 0.1,
+        "salt_100g": 0.1,
+        "saturated-fat_100g": 0.1,
+        "sodium_100g": 0.04,
+        "sugars_100g": 7.1
+      }
+    },
+    {
+      "code": "5425000197683",
+      "product_name": "Rice Dream chocolate flavour + calcium",
+      "generic_name": "Non-dairy rice drink chocolate flavour",
+      "brands": "rice dream",
+      "nutriments": {
+        "carbohydrates_100g": 10,
+        "energy-kcal_100g": 50,
+        "fat_100g": 0.9,
+        "fiber_100g": 0.5,
+        "proteins_100g": 0.3,
+        "salt_100g": 0.1,
+        "saturated-fat_100g": 0.1,
+        "sodium_100g": 0.04,
+        "sugars_100g": 7
+      }
+    },
+    {
+      "code": "3800233074390",
+      "product_name": "Brown Rice Bar - Rice Up Coconut",
+      "generic_name": "Brown Rice Bar - Rice Up Coconut",
+      "brands": "Rice Up",
+      "nutriments": {
+        "carbohydrates_100g": 58,
+        "energy-kcal_100g": 534,
+        "energy-kj_100g": 2230,
+        "fat_100g": 30,
+        "fiber_100g": 3.5,
+        "proteins_100g": 8,
+        "salt_100g": 0.17,
+        "saturated-fat_100g": 16,
+        "sodium_100g": 0.068,
+        "sugars_100g": 34
+      }
+    },
+    {
+      "code": "0859278003066",
+      "product_name": "White Long Grain Rice",
+      "generic_name": "Long Grain Rice",
+      "brands": "Louisiana Rice Mill  Llc, Supreme rice",
+      "nutriments": {
+        "carbohydrates_100g": 80,
+        "energy-kcal_100g": 356,
+        "fat_100g": 0,
+        "fiber_100g": 2.2,
+        "proteins_100g": 6.67,
+        "salt_100g": 0,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0,
+        "sugars_100g": 0
+      }
+    },
+    {
+      "code": "9310140011950",
+      "product_name": "Sushi rice",
+      "brands": "Sun rice",
+      "nutriments": {
+        "carbohydrates_100g": 78.1,
+        "energy-kcal_100g": 352,
+        "fat_100g": 1.43,
+        "fiber_100g": 1.43,
+        "proteins_100g": 6.57,
+        "salt_100g": 0.0175,
+        "sodium_100g": 0.007,
+        "sugars_100g": 1.43
+      }
+    },
+    {
+      "code": "0074401910411",
+      "product_name": "Arborio Rice",
+      "brands": "Rice Select",
+      "nutriments": {
+        "carbohydrates_100g": 80,
+        "energy-kcal_100g": 355.55555555556,
+        "fat_100g": 0,
+        "fiber_100g": 0,
+        "proteins_100g": 6.6666666666667,
+        "salt_100g": 0,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0,
+        "sugars_100g": 0
+      }
+    },
+    {
+      "code": "2000000290850",
+      "product_name": "Chaussons aux pommes U x2",
+      "nutriments": {
+        "carbohydrates_100g": 24,
+        "energy-kcal_100g": 251,
+        "fat_100g": 12,
+        "proteins_100g": 11,
+        "salt_100g": 1,
+        "saturated-fat_100g": 6.2,
+        "sodium_100g": 0.4,
+        "sugars_100g": 1.4
+      }
+    },
+    {
+      "code": "2000000248585",
+      "product_name": "Chausson aux pommes",
+      "brands": "Hyper U",
+      "nutriments": {
+        "carbohydrates_100g": 38,
+        "energy-kcal_100g": 347,
+        "fat_100g": 19,
+        "fiber_100g": 2.1,
+        "proteins_100g": 2,
+        "salt_100g": 0.67,
+        "saturated-fat_100g": 12,
+        "sodium_100g": 0.268,
+        "sugars_100g": 12
+      }
+    },
+    {
+      "code": "20247713",
+      "product_name": "Pommes bicolores Joburn",
+      "generic_name": "Pommes bicolores",
+      "brands": "Côté Marché"
+    },
+    {
+      "code": "5054903868040",
+      "product_name": "Pomme rhubarbe sans sucres",
+      "brands": "Andros",
+      "nutriments": {
+        "carbohydrates_100g": 7.8,
+        "energy-kcal_100g": 42,
+        "fat_100g": 0.2,
+        "fiber_100g": 1.8,
+        "proteins_100g": 0.5,
+        "salt_100g": 0,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0,
+        "sugars_100g": 7.7
+      }
+    },
+    {
+      "code": "3608580083412",
+      "product_name": "Compote Pomme Poire SSA",
+      "brands": "Andros",
+      "nutriments": {
+        "carbohydrates_100g": 11,
+        "energy-kcal_100g": 53,
+        "fat_100g": 0.2,
+        "fiber_100g": 2.3,
+        "proteins_100g": 0.4,
+        "salt_100g": 0,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0,
+        "sugars_100g": 11
+      }
+    },
+    {
+      "code": "3608580038047",
+      "product_name": "Compote en gourde",
+      "brands": "Andros",
+      "nutriments": {
+        "carbohydrates_100g": 14,
+        "energy-kcal_100g": 62,
+        "fat_100g": 0.1,
+        "fiber_100g": 1.2,
+        "proteins_100g": 0.3,
+        "salt_100g": 0,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0,
+        "sugars_100g": 14
+      }
+    },
+    {
+      "code": "3608580106104",
+      "product_name": "Compote de France Pomme Mangue",
+      "brands": "Andros",
+      "nutriments": {
+        "carbohydrates_100g": 12,
+        "energy-kcal_100g": 59,
+        "fat_100g": 0.3,
+        "fiber_100g": 1.4,
+        "proteins_100g": 0.4,
+        "salt_100g": 0,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0,
+        "sugars_100g": 12
+      }
+    },
+    {
+      "code": "3256225041589",
+      "product_name": "Gourdes compote allégée en sucres pomme",
+      "brands": "U Mat & Lou, U",
+      "nutriments": {
+        "carbohydrates_100g": 17,
+        "energy-kcal_100g": 74,
+        "energy-kj_100g": 315,
+        "fat_100g": 0.2,
+        "fiber_100g": 1.7,
+        "proteins_100g": 0.3,
+        "salt_100g": 0,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0,
+        "sugars_100g": 15.5
+      }
+    },
+    {
+      "code": "2000000151418",
+      "product_name": "Fresh Banana",
+      "generic_name": "Fresh Banana",
+      "brands": "Fresh Banana"
+    },
+    {
+      "code": "5010251953760",
+      "product_name": "Bananas",
+      "generic_name": "Bananas",
+      "brands": "Morrisons",
+      "allergens": "en:banana"
+    },
+    {
+      "code": "01129441",
+      "product_name": "Banana",
+      "generic_name": "Banana",
+      "brands": "fairtrade",
+      "nutriments": {
+        "carbohydrates_100g": 23,
+        "energy-kcal_100g": 89,
+        "fat_100g": 0.3,
+        "fiber_100g": 2.6,
+        "proteins_100g": 1.1,
+        "salt_100g": 0.001,
+        "saturated-fat_100g": 0.1,
+        "sodium_100g": 0.0004,
+        "sugars_100g": 12
+      }
+    },
+    {
+      "code": "8857122695117",
+      "product_name": "Chocolate dipped solar dried banana",
+      "brands": "บานาน่าโซไซตี้, Banana Society",
+      "nutriments": {
+        "carbohydrates_100g": 72,
+        "energy-kcal_100g": 360,
+        "fat_100g": 8,
+        "fiber_100g": 0,
+        "proteins_100g": 3,
+        "salt_100g": 0,
+        "saturated-fat_100g": 6,
+        "sodium_100g": 0,
+        "sugars_100g": 48
+      }
+    },
+    {
+      "code": "0857682003009",
+      "product_name": "Organic Original Chewy Banana Bites",
+      "generic_name": "Dried Bananas",
+      "brands": "Barnana",
+      "allergens": "en:banana",
+      "traces": "en:fish, en:gluten, en:milk, en:nuts, en:peanuts, en:soybeans, en:shellfish"
+    },
+    {
+      "code": "00517706",
+      "product_name": "Banana",
+      "generic_name": "Bananas",
+      "brands": "M&S, Marks & Spencer",
+      "allergens": "en:banana",
+      "nutriments": {
+        "carbohydrates_100g": 20.3,
+        "energy-kcal_100g": 81,
+        "energy-kj_100g": 348,
+        "fat_100g": 0.1,
+        "fiber_100g": 1.4,
+        "proteins_100g": 1.2,
+        "salt_100g": 0.1,
+        "saturated-fat_100g": 0.1,
+        "sodium_100g": 0.04,
+        "sugars_100g": 18.1
+      }
+    },
+    {
+      "code": "2000000125305",
+      "product_name": "Bananas",
+      "generic_name": "Bananas",
+      "brands": "USDA, Houston Food Bank",
+      "allergens": "en:banana",
+      "nutriments": {
+        "carbohydrates_100g": 22.8,
+        "energy-kcal_100g": 88.9,
+        "fat_100g": 0.311,
+        "fiber_100g": 2.62,
+        "proteins_100g": 1.11,
+        "salt_100g": 0.00256,
+        "saturated-fat_100g": 0.133,
+        "sodium_100g": 0.00102,
+        "sugars_100g": 12.2
+      }
+    },
+    {
+      "code": "03341148",
+      "product_name": "Organic bananas",
+      "generic_name": "Bananas",
+      "brands": "Tesco",
+      "allergens": "en:banana",
+      "nutriments": {
+        "carbohydrates_100g": 20.3,
+        "energy-kcal_100g": 90,
+        "energy-kj_100g": 380,
+        "fat_100g": 0.1,
+        "fiber_100g": 1.4,
+        "proteins_100g": 1.2,
+        "salt_100g": 0.01,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0.004,
+        "sugars_100g": 18.1
+      }
+    },
+    {
+      "code": "5000108236832",
+      "product_name": "Oats so simple - Winter Vanilla Spice",
+      "generic_name": "Vanilla Flavoured Oat",
+      "brands": "Quaker,  Quaker Oats",
+      "allergens": "en:gluten",
+      "traces": "en:gluten, en:soybeans",
+      "nutriments": {
+        "carbohydrates_100g": 68,
+        "energy-kcal_100g": 379,
+        "energy-kj_100g": 1597,
+        "fat_100g": 6.4,
+        "proteins_100g": 8.9,
+        "salt_100g": 0,
+        "saturated-fat_100g": 1.2,
+        "sodium_100g": 0,
+        "sugars_100g": 19
+      }
+    },
+    {
+      "code": "0039978041432",
+      "product_name": "Oat Bran",
+      "generic_name": "Oat bran",
+      "brands": "Bob's Red Mill",
+      "traces": "en:milk, en:nuts, en:soybeans",
+      "nutriments": {
+        "carbohydrates_100g": 26,
+        "energy-kcal_100g": 150,
+        "fat_100g": 2.5,
+        "fiber_100g": 7,
+        "proteins_100g": 7,
+        "salt_100g": 0,
+        "saturated-fat_100g": 0.5,
+        "sodium_100g": 0,
+        "sugars_100g": 1
+      }
+    },
+    {
+      "code": "6281055001080",
+      "product_name": "Hanaa Whole Oats",
+      "generic_name": "Oats",
+      "brands": "Hanaa",
+      "nutriments": {
+        "carbohydrates_100g": 56.1,
+        "energy-kcal_100g": 370,
+        "energy-kj_100g": 1557,
+        "fat_100g": 8.4,
+        "fiber_100g": 10.8,
+        "proteins_100g": 12.1,
+        "sugars_100g": 1
+      }
+    },
+    {
+      "code": "9020200030974",
+      "product_name": "Happy Oats Barista Hafermilch",
+      "brands": "Happy Oats",
+      "nutriments": {
+        "carbohydrates_100g": 8.1,
+        "energy-kcal_100g": 58,
+        "energy-kj_100g": 245,
+        "fat_100g": 2.6,
+        "fiber_100g": 0.1,
+        "proteins_100g": 0.6,
+        "salt_100g": 0.13,
+        "saturated-fat_100g": 0.2,
+        "sodium_100g": 0.052,
+        "sugars_100g": 6.1
+      }
+    },
+    {
+      "code": "8001860209741",
+      "product_name": "Oat Barista",
+      "generic_name": "bevenda di avena.",
+      "brands": "Riso Scotti",
+      "allergens": "en:gluten, es:avena",
+      "nutriments": {
+        "carbohydrates_100g": 8.7,
+        "energy-kcal_100g": 62,
+        "energy-kj_100g": 261,
+        "fat_100g": 2.7,
+        "proteins_100g": 0.8,
+        "salt_100g": 0.11,
+        "saturated-fat_100g": 0.4,
+        "sodium_100g": 0.044,
+        "sugars_100g": 3.3
+      }
+    },
+    {
+      "code": "05867370",
+      "product_name": "Oats",
+      "brands": "Quaker Oats",
+      "nutriments": {
+        "carbohydrates_100g": 67.5,
+        "energy-kcal_100g": 375,
+        "fat_100g": 7.5,
+        "fiber_100g": 10,
+        "proteins_100g": 12.5,
+        "salt_100g": 0,
+        "saturated-fat_100g": 1.25,
+        "sodium_100g": 0,
+        "sugars_100g": 2.5
+      }
+    },
+    {
+      "code": "8001860252846",
+      "product_name": "Oat Original",
+      "generic_name": "bevenda di avena.",
+      "brands": "Riso Scotti",
+      "allergens": "en:gluten, es:avena",
+      "nutriments": {
+        "carbohydrates_100g": 10.2,
+        "energy-kcal_100g": 58,
+        "energy-kj_100g": 243,
+        "fat_100g": 1.6,
+        "fiber_100g": 0,
+        "proteins_100g": 0.5,
+        "salt_100g": 0.02,
+        "saturated-fat_100g": 0.2,
+        "sodium_100g": 0.008,
+        "sugars_100g": 6.2
+      }
+    },
+    {
+      "code": "8032625480235",
+      "product_name": "Latte d'avena",
+      "generic_name": "Latte d'avena",
+      "brands": "Mirvana",
+      "allergens": "en:gluten",
+      "nutriments": {
+        "carbohydrates_100g": 7.6,
+        "energy-kcal_100g": 45,
+        "energy-kj_100g": 189,
+        "fat_100g": 0.8,
+        "fiber_100g": 0.8,
+        "proteins_100g": 1.4,
+        "salt_100g": 0.02,
+        "saturated-fat_100g": 0.1,
+        "sodium_100g": 0.008,
+        "sugars_100g": 2.9
+      }
+    },
+    {
+      "code": "50378289",
+      "product_name": "Large Eggs",
+      "generic_name": "Free Range Large Eggs",
+      "brands": "The Happy Egg Co, Noble Foods",
+      "allergens": "en:eggs"
+    },
+    {
+      "code": "50378265",
+      "product_name": "Medium Eggs",
+      "generic_name": "Free range medium eggs",
+      "brands": "The Happy Egg Co",
+      "allergens": "en:eggs",
+      "nutriments": {
+        "carbohydrates_100g": 0.5,
+        "energy-kcal_100g": 131,
+        "energy-kj_100g": 547,
+        "fat_100g": 9,
+        "proteins_100g": 12.6,
+        "salt_100g": 0.385,
+        "saturated-fat_100g": 2.5,
+        "sodium_100g": 0.154,
+        "sugars_100g": 0.5
+      }
+    },
+    {
+      "code": "5024263012131",
+      "product_name": "12 large eggs",
+      "generic_name": "eggs",
+      "brands": "birdbros",
+      "allergens": "en:eggs",
+      "nutriments": {
+        "carbohydrates_100g": 0,
+        "energy-kj_100g": 547,
+        "fat_100g": 9,
+        "proteins_100g": 12.6,
+        "salt_100g": 0.4,
+        "saturated-fat_100g": 2.5,
+        "sodium_100g": 0.16,
+        "sugars_100g": 0
+      }
+    },
+    {
+      "code": "20717414",
+      "product_name": "6 british eggs",
+      "generic_name": "eggs",
+      "brands": "woodcote",
+      "allergens": "en:eggs",
+      "nutriments": {
+        "carbohydrates_100g": 0.1,
+        "energy-kj_100g": 647,
+        "fat_100g": 9,
+        "fiber_100g": 0.5,
+        "proteins_100g": 12.6,
+        "salt_100g": 0.38,
+        "saturated-fat_100g": 2.5,
+        "sodium_100g": 0.152,
+        "sugars_100g": 0.1
+      }
+    },
+    {
+      "code": "20635589",
+      "product_name": "15 eggs from caged hends - class A",
+      "generic_name": "Eggs",
+      "brands": "SImply...",
+      "allergens": "en:eggs",
+      "nutriments": {
+        "carbohydrates_100g": 0.1,
+        "energy-kcal_100g": 131,
+        "fat_100g": 9,
+        "fiber_100g": 0.5,
+        "proteins_100g": 12.6,
+        "salt_100g": 0.4,
+        "saturated-fat_100g": 2.5,
+        "sodium_100g": 0.16,
+        "sugars_100g": 0.1
+      }
+    },
+    {
+      "code": "4056489175179",
+      "product_name": "Free range medium eggs",
+      "generic_name": "Free range medium eggs",
+      "brands": "Woodcote",
+      "allergens": "en:eggs",
+      "nutriments": {
+        "carbohydrates_100g": 0,
+        "energy-kcal_100g": 131,
+        "energy-kj_100g": 547,
+        "fat_100g": 9,
+        "fiber_100g": 0,
+        "proteins_100g": 12.6,
+        "salt_100g": 0.39,
+        "saturated-fat_100g": 2.5,
+        "sodium_100g": 0.156,
+        "sugars_100g": 0
+      }
+    },
+    {
+      "code": "8710400131472",
+      "product_name": "Scharreleieren",
+      "generic_name": "Scharreleieren",
+      "brands": "Albert Heijn",
+      "allergens": "en:eggs",
+      "nutriments": {
+        "carbohydrates_100g": 0.2,
+        "energy-kj_100g": 550,
+        "fat_100g": 9,
+        "fiber_100g": 0,
+        "proteins_100g": 12,
+        "salt_100g": 0.4,
+        "saturated-fat_100g": 3,
+        "sodium_100g": 0.16,
+        "sugars_100g": 0.2
+      }
+    },
+    {
+      "code": "5050854476730",
+      "product_name": "Free Range Very Large British Eggs",
+      "generic_name": "Eggs",
+      "brands": "Asda",
+      "allergens": "en:eggs"
+    },
+    {
+      "code": "4993478344799",
+      "product_name": "Yogurt",
+      "brands": "Yogurt",
+      "nutriments": {
+        "carbohydrates_100g": 12.6999998092651,
+        "energy-kcal_100g": 92,
+        "fat_100g": 2.79999995231628,
+        "fiber_100g": 0.119999997317791,
+        "proteins_100g": 3.90000009536743
+      }
+    },
+    {
+      "code": "0015000047320",
+      "product_name": "Yogurt Melts Peach",
+      "generic_name": "freeze-dried yogurt snack made with real fruit.",
+      "brands": "Gerber, Yogurt Melts",
+      "allergens": "en:gelatin, en:milk",
+      "nutriments": {
+        "carbohydrates_100g": 71.4,
+        "energy-kcal_100g": 429,
+        "fat_100g": 0,
+        "proteins_100g": 14.3,
+        "salt_100g": 0.714,
+        "sodium_100g": 0.286,
+        "sugars_100g": 57.1
+      }
+    },
+    {
+      "code": "0635000047313",
+      "product_name": "Yogurt Melts Mixed Berries",
+      "generic_name": "freeze-dried yogurt snack made with real fruit.",
+      "brands": "Gerber, Yogurt Melts",
+      "allergens": "en:gelatin, en:milk",
+      "nutriments": {
+        "carbohydrates_100g": 71.4,
+        "energy-kcal_100g": 429,
+        "fat_100g": 0,
+        "proteins_100g": 14.3,
+        "salt_100g": 0.714,
+        "sodium_100g": 0.286,
+        "sugars_100g": 57.1
+      }
+    },
+    {
+      "code": "0015000047306",
+      "product_name": "Yogurt Melts Strawberry",
+      "generic_name": "freeze-dried yogurt snackmade with real fruit.",
+      "brands": "Gerber, Yogurt Melts",
+      "allergens": "en:gelatin, en:milk",
+      "nutriments": {
+        "carbohydrates_100g": 71.4,
+        "energy-kcal_100g": 429,
+        "fat_100g": 0,
+        "proteins_100g": 14.3,
+        "salt_100g": 0.714,
+        "sodium_100g": 0.286,
+        "sugars_100g": 57.1
+      }
+    },
+    {
+      "code": "0053600101073",
+      "product_name": "La yogurt, probiotic plain nonfat yogurt",
+      "brands": "La Yogurt",
+      "allergens": "en:milk",
+      "nutriments": {
+        "carbohydrates_100g": 7.93,
+        "energy-kcal_100g": 57,
+        "fat_100g": 0,
+        "fiber_100g": 0,
+        "proteins_100g": 5.73,
+        "salt_100g": 0.22,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0.088,
+        "sugars_100g": 7.05
+      }
+    },
+    {
+      "code": "0851463005053",
+      "product_name": "Strawberry greek yogurt",
+      "brands": "Powerful Yogurt",
+      "allergens": "en:milk",
+      "nutriments": {
+        "carbohydrates_100g": 4.85,
+        "energy-kcal_100g": 81,
+        "fat_100g": 3.52,
+        "fiber_100g": 0.1,
+        "proteins_100g": 9.25,
+        "salt_100g": 0.1,
+        "saturated-fat_100g": 2.64,
+        "sodium_100g": 0.04,
+        "sugars_100g": 3.08
+      }
+    },
+    {
+      "code": "0851463005008",
+      "product_name": "Powerful yogurt, greek non-fat yogurt, apple cinnamon",
+      "brands": "Powerful Yogurt",
+      "allergens": "en:milk",
+      "nutriments": {
+        "carbohydrates_100g": 9.69,
+        "energy-kcal_100g": 75,
+        "fat_100g": 0,
+        "fiber_100g": 0,
+        "proteins_100g": 9.25,
+        "salt_100g": 0.0775,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0.031,
+        "sugars_100g": 8.81
+      }
+    },
+    {
+      "code": "0053600000932",
+      "product_name": "La yogurt, blended lowfat yogurt, lemon meringue",
+      "brands": "La Yogurt",
+      "allergens": "en:milk",
+      "nutriments": {
+        "carbohydrates_100g": 17.06,
+        "energy-kcal_100g": 88,
+        "fat_100g": 0.88,
+        "fiber_100g": 0,
+        "proteins_100g": 2.94,
+        "salt_100g": 0.155,
+        "saturated-fat_100g": 0.59,
+        "sodium_100g": 0.062,
+        "sugars_100g": 15.29
+      }
+    },
+    {
+      "code": "9313727087225",
+      "product_name": "Tofu",
+      "brands": "Tofu",
+      "nutriments": {
+        "carbohydrates_100g": 2.12000007629395,
+        "energy-kcal_100g": 43.2,
+        "fat_100g": 2.32000007629395,
+        "fiber_100g": 0.0400000005960464,
+        "proteins_100g": 3.6,
+        "saturated-fat_100g": 0.4,
+        "sugars_100g": 0.320000004768372
+      }
+    },
+    {
+      "code": "0850109005020",
+      "product_name": "Tofu",
+      "brands": "Heiwa tofu",
+      "nutriments": {
+        "carbohydrates_100g": 3.5087719298246,
+        "energy-kcal_100g": 114.0350877193,
+        "fat_100g": 6.140350877193,
+        "fiber_100g": 1.7543859649123,
+        "proteins_100g": 13.157894736842,
+        "salt_100g": 0,
+        "saturated-fat_100g": 0.87719298245614,
+        "sodium_100g": 0,
+        "sugars_100g": 0.87719298245614
+      }
+    },
+    {
+      "code": "0036538812068",
+      "product_name": "Extra Firm Tofu",
+      "brands": "Ota Tofu",
+      "nutriments": {
+        "carbohydrates_100g": 2.3529411764706,
+        "energy-kcal_100g": 82.352941176471,
+        "fat_100g": 4.1176470588235,
+        "fiber_100g": 3.5294117647059,
+        "proteins_100g": 9.4117647058824,
+        "salt_100g": 0,
+        "saturated-fat_100g": 0.58823529411765,
+        "sodium_100g": 0,
+        "sugars_100g": 1.1764705882353
+      }
+    },
+    {
+      "code": "0065281111104",
+      "product_name": "Tofu",
+      "generic_name": "tofu",
+      "brands": "La Soyarie",
+      "nutriments": {
+        "carbohydrates_100g": 1,
+        "energy-kcal_100g": 130,
+        "fat_100g": 8,
+        "fiber_100g": 0,
+        "proteins_100g": 16,
+        "salt_100g": 0.0875,
+        "saturated-fat_100g": 1.4,
+        "sodium_100g": 0.035,
+        "sugars_100g": 1
+      }
+    },
+    {
+      "code": "5060366570789",
+      "product_name": "Craft Tofu Knots",
+      "brands": "Tofu Tasty",
+      "allergens": "en:soybeans",
+      "nutriments": {
+        "carbohydrates_100g": 22.266666666667,
+        "energy-kcal_100g": 462.66666666667,
+        "fat_100g": 21.733333333333,
+        "fiber_100g": 11.2,
+        "proteins_100g": 44.666666666667,
+        "saturated-fat_100g": 2.6666666666667,
+        "sugars_100g": 2
+      }
+    },
+    {
+      "code": "4260316130020",
+      "product_name": "Gewürz Tofu",
+      "brands": "Treiber Tofu",
+      "allergens": "en:gluten, en:soybeans",
+      "nutriments": {
+        "carbohydrates_100g": 1.6,
+        "energy-kcal_100g": 208,
+        "fat_100g": 12.4,
+        "proteins_100g": 22.4,
+        "salt_100g": 1.1,
+        "saturated-fat_100g": 1.7,
+        "sodium_100g": 0.44,
+        "sugars_100g": 1.6
+      }
+    },
+    {
+      "code": "0760685412924",
+      "product_name": "Organic tofu",
+      "brands": "Fresh Tofu Inc.",
+      "nutriments": {
+        "carbohydrates_100g": 2.3529411764706,
+        "energy-kcal_100g": 105.88235294118,
+        "fat_100g": 5.8823529411765,
+        "fiber_100g": 0,
+        "proteins_100g": 10.588235294118,
+        "salt_100g": 44.117647058822,
+        "saturated-fat_100g": 5.8823529411765,
+        "sodium_100g": 17.6470588235288,
+        "sugars_100g": 0
+      }
+    },
+    {
+      "code": "2109053009478",
+      "product_name": "Willowton Free Range Chicken Thigh Fillet",
+      "brands": "ALDI"
+    },
+    {
+      "code": "9414757201367",
+      "product_name": "Original chicken tenders",
+      "brands": "Waitoa",
+      "allergens": "en:chicken",
+      "nutriments": {
+        "carbohydrates_100g": 14.3,
+        "energy-kj_100g": 830,
+        "fat_100g": 8.5,
+        "proteins_100g": 16,
+        "salt_100g": 0.825,
+        "saturated-fat_100g": 0.8,
+        "sodium_100g": 0.33,
+        "sugars_100g": 3.3
+      }
+    },
+    {
+      "code": "8718452361267",
+      "product_name": "Kipsate Schnitzel",
+      "brands": "Jumbo",
+      "allergens": "en:gluten, en:milk, en:peanuts",
+      "nutriments": {
+        "carbohydrates_100g": 19.1,
+        "energy-kcal_100g": 280,
+        "energy-kj_100g": 1170,
+        "fat_100g": 17,
+        "fiber_100g": 0.9,
+        "proteins_100g": 12.3,
+        "salt_100g": 0.99,
+        "saturated-fat_100g": 3.7,
+        "sodium_100g": 0.396,
+        "sugars_100g": 2.9
+      }
+    },
+    {
+      "code": "9414735954926",
+      "product_name": "Buttermilk Tenderloins",
+      "brands": "Rangitikei Chicken",
+      "allergens": "en:chicken, en:eggs, en:gluten, en:milk",
+      "nutriments": {
+        "carbohydrates_100g": 11,
+        "energy-kj_100g": 797,
+        "fat_100g": 9.1,
+        "proteins_100g": 16.4,
+        "salt_100g": 1.56,
+        "saturated-fat_100g": 1.2,
+        "sodium_100g": 0.624,
+        "sugars_100g": 5.7
+      }
+    },
+    {
+      "code": "2324451705238",
+      "product_name": "Filet Gemarineerd",
+      "brands": "Jumbo",
+      "nutriments": {
+        "carbohydrates_100g": 0.3,
+        "energy-kcal_100g": 145,
+        "energy-kj_100g": 609,
+        "fat_100g": 6.1,
+        "fiber_100g": 0.1,
+        "proteins_100g": 22,
+        "salt_100g": 1.1,
+        "saturated-fat_100g": 0.8,
+        "sodium_100g": 0.44,
+        "sugars_100g": 0.1
+      }
+    },
+    {
+      "code": "8718452361205",
+      "product_name": "Kip cordon blue",
+      "brands": "Jumbo",
+      "allergens": "en:gluten, en:milk",
+      "traces": "en:peanuts",
+      "nutriments": {
+        "carbohydrates_100g": 10.8,
+        "energy-kcal_100g": 251,
+        "energy-kj_100g": 1046,
+        "fat_100g": 17,
+        "fiber_100g": 0.9,
+        "proteins_100g": 13.3,
+        "salt_100g": 1.1,
+        "saturated-fat_100g": 3.9,
+        "sodium_100g": 0.44,
+        "sugars_100g": 0.7
+      }
+    },
+    {
+      "code": "9414735957729",
+      "product_name": "free range chicken nuggets crumbed",
+      "brands": "Tegel",
+      "allergens": "en:chicken, en:gluten, en:soybeans",
+      "nutriments": {
+        "carbohydrates_100g": 14,
+        "energy-kcal_100g": 206,
+        "fat_100g": 10.5,
+        "proteins_100g": 13.9,
+        "salt_100g": 0.75,
+        "saturated-fat_100g": 1.58,
+        "sodium_100g": 0.3,
+        "sugars_100g": 1
+      }
+    },
+    {
+      "code": "8718452590889",
+      "product_name": "Oven & Gemak kipfilet Italiaanse stijl",
+      "brands": "Jumbo",
+      "allergens": "en:eggs, en:milk",
+      "nutriments": {
+        "carbohydrates_100g": 1.58,
+        "energy-kcal_100g": 133,
+        "energy-kj_100g": 562,
+        "fat_100g": 4.06,
+        "fiber_100g": 0.752,
+        "proteins_100g": 22.3,
+        "salt_100g": 0.82,
+        "saturated-fat_100g": 1.65,
+        "sodium_100g": 0.328,
+        "sugars_100g": 0.226
+      }
+    },
+    {
+      "code": "5000116124572",
+      "product_name": "Fish fingers",
+      "generic_name": "Alaska pollock fillet fish fingers, prefried",
+      "brands": "Birds Eye",
+      "allergens": "en:fish, en:gluten",
+      "nutriments": {
+        "carbohydrates_100g": 21,
+        "energy-kcal_100g": 218,
+        "energy-kj_100g": 916,
+        "fat_100g": 9.4,
+        "fiber_100g": 0.9,
+        "proteins_100g": 12,
+        "salt_100g": 0.88,
+        "saturated-fat_100g": 0.8,
+        "sodium_100g": 0.352,
+        "sugars_100g": 1
+      }
+    },
+    {
+      "code": "5000116111947",
+      "product_name": "Cod Fish Fingers",
+      "generic_name": "Cod fillet fish fingers, lightly fried",
+      "brands": "Birds Eye",
+      "allergens": "en:fish, en:gluten",
+      "nutriments": {
+        "carbohydrates_100g": 20,
+        "energy-kcal_100g": 211,
+        "energy-kj_100g": 883,
+        "fat_100g": 9,
+        "fiber_100g": 0.8,
+        "proteins_100g": 12,
+        "salt_100g": 0.55,
+        "saturated-fat_100g": 0.6,
+        "sodium_100g": 0.22,
+        "sugars_100g": 0.9
+      }
+    },
+    {
+      "code": "5690330076087",
+      "product_name": "Bitafishkur",
+      "generic_name": "Poisson séché",
+      "brands": "Gullfiskur",
+      "allergens": "en:fish",
+      "nutriments": {
+        "saturated-fat_100g": 1,
+        "salt_100g": 2,
+        "fat_100g": 1,
+        "fiber_100g": 0,
+        "sodium_100g": 0.8,
+        "proteins_100g": 84,
+        "energy-kcal_100g": 345,
+        "carbohydrates_100g": 0,
+        "sugars_100g": 0
+      }
+    },
+    {
+      "code": "01148299",
+      "product_name": "10 breaded cod fish fingers",
+      "generic_name": "Frozen breaded minced cod fish fingers",
+      "brands": "Stamford St.",
+      "allergens": "en:fish, en:gluten",
+      "nutriments": {
+        "carbohydrates_100g": 20.4,
+        "energy-kcal_100g": 220,
+        "energy-kj_100g": 924,
+        "fat_100g": 9.5,
+        "fiber_100g": 1.3,
+        "proteins_100g": 12.7,
+        "salt_100g": 0.74,
+        "saturated-fat_100g": 1.3,
+        "sodium_100g": 0.296,
+        "sugars_100g": 0.6
+      }
+    },
+    {
+      "code": "5000116124657",
+      "product_name": "Omega 3 Fish Fingers",
+      "generic_name": "Alaska pollock fillet fish fingers, lightly fried",
+      "brands": "Birds Eye",
+      "allergens": "en:fish, en:gluten",
+      "nutriments": {
+        "carbohydrates_100g": 20,
+        "energy-kcal_100g": 213,
+        "energy-kj_100g": 895,
+        "fat_100g": 9.3,
+        "fiber_100g": 0.8,
+        "proteins_100g": 12,
+        "salt_100g": 0.84,
+        "saturated-fat_100g": 0.8,
+        "sodium_100g": 0.336,
+        "sugars_100g": 0.9
+      }
+    },
+    {
+      "code": "4056489431039",
+      "product_name": "Omega-3 Fish Fingers",
+      "generic_name": "Breaded and pre-fried fish fingers from Alaska pollock formed from blocks",
+      "brands": "Ocean Sea",
+      "allergens": "en:fish, en:gluten",
+      "nutriments": {
+        "carbohydrates_100g": 17.1,
+        "energy-kcal_100g": 191,
+        "fat_100g": 8.2,
+        "fiber_100g": 1.2,
+        "proteins_100g": 11.6,
+        "salt_100g": 0.78,
+        "saturated-fat_100g": 1.7,
+        "sodium_100g": 0.312,
+        "sugars_100g": 0.933
+      }
+    },
+    {
+      "code": "20403034",
+      "product_name": "Thunfischfilets in Sonnenblumenöl",
+      "brands": "Nixe, Lidl",
+      "allergens": "en:fish"
+    },
+    {
+      "code": "8718836906985",
+      "product_name": "Foie de morue",
+      "brands": "FISH TALES",
+      "allergens": "en:fish",
+      "nutriments": {
+        "carbohydrates_100g": 0.86,
+        "energy-kcal_100g": 587,
+        "energy-kj_100g": 2457,
+        "fat_100g": 63.8,
+        "fiber_100g": 0,
+        "proteins_100g": 4.81,
+        "salt_100g": 4.81,
+        "saturated-fat_100g": 9.82,
+        "sodium_100g": 1.924,
+        "sugars_100g": 0.12
+      }
+    },
+    {
+      "code": "20242244",
+      "product_name": "Kartoffeln, vorwiegend festkochend",
+      "generic_name": "Speisekartoffeln, vorwiegend festkochend",
+      "brands": "oaklands",
+      "nutriments": {
+        "carbohydrates_100g": 17.5,
+        "energy-kcal_100g": 74,
+        "fat_100g": 0.1,
+        "fiber_100g": 1.6,
+        "proteins_100g": 1.8,
+        "saturated-fat_100g": 0.1,
+        "sugars_100g": 0.8
+      }
+    },
+    {
+      "code": "6021470000141",
+      "product_name": "Pomme de terre entière cuites à la vapeur",
+      "nutriments": {
+        "carbohydrates_100g": 14.4,
+        "energy-kcal_100g": 74.6,
+        "fat_100g": 0.2,
+        "proteins_100g": 1.7,
+        "saturated-fat_100g": 0.1,
+        "sugars_100g": 0.4
+      }
+    },
+    {
+      "code": "3292590836634",
+      "product_name": "Pomme Rissolées",
+      "brands": "Thiriet",
+      "nutriments": {
+        "carbohydrates_100g": 24,
+        "energy-kcal_100g": 152,
+        "fat_100g": 4.8,
+        "proteins_100g": 2.5,
+        "salt_100g": 0.14,
+        "saturated-fat_100g": 0.4,
+        "sodium_100g": 0.056,
+        "sugars_100g": 0
+      }
+    },
+    {
+      "code": "3663362039025",
+      "product_name": "Pommes de terre vapeur, salade, gratin et sautées",
+      "brands": "Priméale"
+    },
+    {
+      "code": "3760032005868",
+      "product_name": "Pommes de terre sautées",
+      "brands": "CITE GOURMANDE",
+      "nutriments": {
+        "carbohydrates_100g": 18.4,
+        "energy-kcal_100g": 157,
+        "fat_100g": 7.4,
+        "fiber_100g": 2.9,
+        "proteins_100g": 2.4,
+        "salt_100g": 0.095,
+        "saturated-fat_100g": 0.8,
+        "sodium_100g": 0.038,
+        "sugars_100g": 0.5
+      }
+    },
+    {
+      "code": "3591760112234",
+      "product_name": "Pomme de terre Charlotte"
+    },
+    {
+      "code": "63164954",
+      "product_name": "Pomme de terre grenaille",
+      "brands": "Priméale"
+    },
+    {
+      "code": "3256227455728",
+      "product_name": "Pommes rissolées",
+      "brands": "U",
+      "nutriments": {
+        "carbohydrates_100g": 19,
+        "energy-kcal_100g": 120,
+        "energy-kj_100g": 503,
+        "fat_100g": 3.3,
+        "fiber_100g": 2.4,
+        "proteins_100g": 2.2,
+        "salt_100g": 0.12,
+        "saturated-fat_100g": 0.4,
+        "sodium_100g": 0.048,
+        "sugars_100g": 0.7
+      }
+    },
+    {
+      "code": "9352576000115",
+      "product_name": "MC Yee Noodles - Hokkein Noodles",
+      "generic_name": "Hokkein noodles",
+      "brands": "MC Yee Noodles",
+      "allergens": "en:gluten",
+      "nutriments": {
+        "carbohydrates_100g": 33,
+        "energy-kj_100g": 780,
+        "fat_100g": 2.1,
+        "fiber_100g": 1.4,
+        "proteins_100g": 7.6,
+        "salt_100g": 0.475,
+        "saturated-fat_100g": 0.2,
+        "sodium_100g": 0.19,
+        "sugars_100g": 1
+      }
+    },
+    {
+      "code": "0070662030035",
+      "product_name": "Cup Noodles Chicken Flavor",
+      "generic_name": "ramen noodle soup.",
+      "brands": "Nissin, Cup Noodles",
+      "allergens": "en:eggs, en:gluten, en:milk, en:soybeans",
+      "traces": "en:crustaceans, en:fish, en:nuts, en:peanuts, en:sesame-seeds",
+      "nutriments": {
+        "carbohydrates_100g": 64.1,
+        "energy-kcal_100g": 453,
+        "fat_100g": 17.2,
+        "fiber_100g": 3.12,
+        "proteins_100g": 9.38,
+        "salt_100g": 4.53,
+        "saturated-fat_100g": 7.81,
+        "sodium_100g": 1.81,
+        "sugars_100g": 3.12
+      }
+    },
+    {
+      "code": "0059491000501",
+      "product_name": "Chicken instant noodles",
+      "brands": "Mr. Noodles",
+      "allergens": "en:fish, en:gluten, en:nuts, en:sesame-seeds, en:soybeans, en:sulphur-dioxide-and-sulphites",
+      "nutriments": {
+        "carbohydrates_100g": 62.8,
+        "energy-kcal_100g": 442,
+        "fat_100g": 16.3,
+        "fiber_100g": 4.65,
+        "proteins_100g": 11.6,
+        "salt_100g": 3.49,
+        "saturated-fat_100g": 8.14,
+        "sodium_100g": 1.4,
+        "sugars_100g": 2.33
+      }
+    },
+    {
+      "code": "0059491000600",
+      "product_name": "Oriental instant noodle",
+      "brands": "Mr. Noodles",
+      "allergens": "en:celery, en:fish, en:gluten, en:milk, en:nuts, en:sesame-seeds, en:soybeans, en:sulphur-dioxide-and-sulphites",
+      "nutriments": {
+        "carbohydrates_100g": 26.4,
+        "energy-kcal_100g": 173,
+        "fat_100g": 5.45,
+        "fiber_100g": 0.909,
+        "proteins_100g": 4.55,
+        "salt_100g": 1.34,
+        "saturated-fat_100g": 2.73,
+        "sodium_100g": 0.536
+      }
+    },
+    {
+      "code": "0059491000204",
+      "product_name": "Instant noodles vegetable",
+      "brands": "Mr. Noodles",
+      "allergens": "en:gluten, en:nuts, en:soybeans",
+      "nutriments": {
+        "carbohydrates_100g": 29,
+        "energy-kcal_100g": 190,
+        "fat_100g": 6,
+        "proteins_100g": 5,
+        "salt_100g": 5.5,
+        "saturated-fat_100g": 3,
+        "sodium_100g": 2.2,
+        "sugars_100g": 0
+      }
+    },
+    {
+      "code": "59491000501",
+      "product_name": "Instant Noodles, Chicken Flavor",
+      "brands": "Mr noodles",
+      "nutriments": {
+        "carbohydrates_100g": 62.8,
+        "energy-kcal_100g": 442,
+        "fat_100g": 16.3,
+        "fiber_100g": 4.65,
+        "proteins_100g": 11.6,
+        "salt_100g": 3.49,
+        "saturated-fat_100g": 8.14,
+        "sodium_100g": 1.4,
+        "sugars_100g": 2.33
+      }
+    },
+    {
+      "code": "8718836390319",
+      "product_name": "Zero Noodles",
+      "brands": "Zero noodles"
+    },
+    {
+      "code": "0059491002352",
+      "generic_name": "Noodles in a cup",
+      "brands": "Mr Noodles",
+      "nutriments": {
+        "carbohydrates_100g": 62.5,
+        "energy-kcal_100g": 438,
+        "fat_100g": 17.2,
+        "fiber_100g": 3.12,
+        "proteins_100g": 12.5,
+        "salt_100g": 4.96,
+        "saturated-fat_100g": 7.81,
+        "sodium_100g": 1.98,
+        "sugars_100g": 4.69
+      }
+    },
+    {
+      "code": "0059600070029",
+      "product_name": "Orange juice, Pulp-free",
+      "brands": "Simply Orange",
+      "nutriments": {
+        "carbohydrates_100g": 11.2,
+        "energy-kcal_100g": 48,
+        "fat_100g": 0,
+        "proteins_100g": 0.8,
+        "salt_100g": 0,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0,
+        "sugars_100g": 10
+      }
+    },
+    {
+      "code": "0899734002493",
+      "product_name": "Orange",
+      "brands": "Classic orange sweetness"
+    },
+    {
+      "code": "5052449462531",
+      "product_name": "Oranges",
+      "generic_name": "Oranges",
+      "brands": "Asda",
+      "allergens": "en:orange",
+      "nutriments": {
+        "salt_100g": 0,
+        "saturated-fat_100g": 0,
+        "fiber_100g": 2.4,
+        "fat_100g": 0.1,
+        "sodium_100g": 0,
+        "energy-kj_100g": 197,
+        "proteins_100g": 9,
+        "energy-kcal_100g": 47,
+        "sugars_100g": 9,
+        "carbohydrates_100g": 12
+      }
+    },
+    {
+      "code": "0059600070076",
+      "product_name": "minute maid",
+      "brands": "orange"
+    },
+    {
+      "code": "5010893701101",
+      "product_name": "Orange juice",
+      "generic_name": "Orange Juice",
+      "brands": "Heritage",
+      "nutriments": {
+        "carbohydrates_100g": 9.1,
+        "energy-kj_100g": 179,
+        "fat_100g": 0.1,
+        "fiber_100g": 0.1,
+        "proteins_100g": 0.5,
+        "salt_100g": 0,
+        "saturated-fat_100g": 0.1,
+        "sodium_100g": 0,
+        "sugars_100g": 9.1
+      }
+    },
+    {
+      "code": "059600070076",
+      "product_name": "minute maid",
+      "brands": "orange"
+    },
+    {
+      "code": "0072846462694",
+      "product_name": "orange juice",
+      "generic_name": "Orange Juice",
+      "brands": "Cal-Maid",
+      "nutriments": {
+        "carbohydrates_100g": 12.083333333333,
+        "energy-kcal_100g": 50,
+        "fat_100g": 0,
+        "fiber_100g": 0,
+        "proteins_100g": 0,
+        "salt_100g": 0.03125,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0.0125,
+        "sugars_100g": 12.083333333333
+      }
+    },
+    {
+      "code": "5000232018700",
+      "product_name": "Orange Juice",
+      "generic_name": "Orange Juice",
+      "brands": "Princes",
+      "nutriments": {
+        "carbohydrates_100g": 8.9,
+        "energy-kcal_100g": 41,
+        "energy-kj_100g": 173,
+        "fat_100g": 0.5,
+        "proteins_100g": 0.6,
+        "salt_100g": 0.01,
+        "saturated-fat_100g": 0.1,
+        "sodium_100g": 0.004,
+        "sugars_100g": 8.9
+      }
+    },
+    {
+      "code": "3800068600115",
+      "product_name": "Frozen broccoli",
+      "generic_name": "Frozen broccoli",
+      "brands": "FAVORIT",
+      "traces": "en:celery, en:eggs, en:gluten, en:milk, en:mustard, en:soybeans",
+      "nutriments": {
+        "carbohydrates_100g": 2.4,
+        "energy-kcal_100g": 29,
+        "fat_100g": 0.4,
+        "fiber_100g": 2.3,
+        "proteins_100g": 2.7,
+        "salt_100g": 0.02,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0.008,
+        "sugars_100g": 2.1
+      }
+    },
+    {
+      "code": "00512947",
+      "product_name": "Broccoli florets",
+      "generic_name": "Broccoli florets",
+      "brands": "Sainsbury's",
+      "nutriments": {
+        "carbohydrates_100g": 2.7,
+        "energy-kcal_100g": 34,
+        "fat_100g": 0.5,
+        "fiber_100g": 2.8,
+        "proteins_100g": 3.3,
+        "saturated-fat_100g": 0.1,
+        "sugars_100g": 1.6
+      }
+    },
+    {
+      "code": "0086289251142",
+      "product_name": "Broccoli Cuts",
+      "generic_name": "Broccoli Cuts",
+      "brands": "The Inn, Inn Foods Inc."
+    },
+    {
+      "code": "5054781135807",
+      "product_name": "Broccoli",
+      "generic_name": "Broccoli",
+      "brands": "Asda"
+    },
+    {
+      "code": "93466240",
+      "product_name": "Broccoli friters",
+      "brands": "Broccoli",
+      "nutriments": {
+        "energy-kcal_100g": 270,
+        "carbohydrates_100g": 15,
+        "fat_100g": 7,
+        "proteins_100g": 25,
+        "fiber_100g": 10
+      }
+    },
+    {
+      "code": "0041268160716",
+      "product_name": "Broccoli Florets, Fresh.Frozen",
+      "generic_name": "Frozen Broccoli Florets",
+      "brands": "Hannaford",
+      "nutriments": {
+        "carbohydrates_100g": 5.88,
+        "energy-kcal_100g": 35.3,
+        "fat_100g": 0,
+        "fiber_100g": 3.53,
+        "proteins_100g": 3.53,
+        "salt_100g": 0.0441,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0.0176,
+        "sugars_100g": 1.18
+      }
+    },
+    {
+      "code": "60078637154108",
+      "product_name": "Broccoli Cuts - Fzn",
+      "generic_name": "Broccoli Cuts - Fzn",
+      "brands": "Regal Nonpareil"
+    },
+    {
+      "code": "2000000125290",
+      "product_name": "Fresh Broccoli",
+      "generic_name": "Fresh Broccoli",
+      "brands": "USDA, Houston Food Bank"
+    },
+    {
+      "code": "0789968000023",
+      "product_name": "Heinz, beans with tomato sauce",
+      "generic_name": "Baked beans in tomato sauce",
+      "brands": "Heinz Beans",
+      "nutriments": {
+        "carbohydrates_100g": 15.4,
+        "energy-kcal_100g": 84.6,
+        "fat_100g": 0.385,
+        "fiber_100g": 3.85,
+        "proteins_100g": 4.62,
+        "salt_100g": 0.615,
+        "sodium_100g": 0.246,
+        "sugars_100g": 4.62
+      }
+    },
+    {
+      "code": "0039400113126",
+      "product_name": "Vegetarian Beans in Tomato Sauce",
+      "generic_name": "Vegetarian Beans in Tomato Sauce",
+      "brands": "Showboat, Bush Beans"
+    },
+    {
+      "code": "0072273416789",
+      "product_name": "Pinquito Beans",
+      "brands": "S&W Beans",
+      "nutriments": {
+        "carbohydrates_100g": 16.923076923077,
+        "energy-kcal_100g": 84.615384615385,
+        "fat_100g": 0,
+        "fiber_100g": 4.6153846153846,
+        "proteins_100g": 5.3846153846154,
+        "salt_100g": 0.92307692307693,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0.369230769230772,
+        "sugars_100g": 1.5384615384615
+      }
+    },
+    {
+      "code": "0072273469631",
+      "product_name": "Yellow Eye Beans",
+      "brands": "S&W Beans",
+      "nutriments": {
+        "carbohydrates_100g": 13.85,
+        "energy-kcal_100g": 77,
+        "fat_100g": 0,
+        "fiber_100g": 6.9,
+        "proteins_100g": 3.85,
+        "salt_100g": 0.75,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0.3,
+        "sugars_100g": 0.77
+      }
+    },
+    {
+      "code": "0072273440166",
+      "product_name": "Jacob's cattle beans",
+      "brands": "S&W Beans",
+      "nutriments": {
+        "carbohydrates_100g": 13.846153846154,
+        "energy-kcal_100g": 76.923076923077,
+        "fat_100g": 0,
+        "fiber_100g": 8.4615384615385,
+        "proteins_100g": 4.6153846153846,
+        "salt_100g": 0.78846153846155,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0.31538461538462,
+        "sugars_100g": 0.76923076923077
+      }
+    },
+    {
+      "code": "0072273401631",
+      "product_name": "European soldier beans",
+      "brands": "S&W Beans",
+      "nutriments": {
+        "carbohydrates_100g": 14.62,
+        "energy-kcal_100g": 77,
+        "fat_100g": 0,
+        "fiber_100g": 5.4,
+        "proteins_100g": 3.85,
+        "saturated-fat_100g": 0,
+        "sugars_100g": 0.77
+      }
+    },
+    {
+      "code": "0046900001082",
+      "product_name": "Beans",
+      "generic_name": "Ranch Style Beans",
+      "brands": "Ranch Style",
+      "allergens": "en:soybeans",
+      "nutriments": {
+        "carbohydrates_100g": 16.8,
+        "energy-kcal_100g": 107,
+        "fat_100g": 2.67,
+        "fiber_100g": 5.34,
+        "proteins_100g": 4.58,
+        "salt_100g": 0.84,
+        "sodium_100g": 0.336,
+        "sugars_100g": 1.53
+      }
+    },
+    {
+      "code": "4056489458647",
+      "product_name": "Cannellini beans",
+      "generic_name": "Cannellini Beans",
+      "brands": "Freshona",
+      "nutriments": {
+        "carbohydrates_100g": 8.8,
+        "energy-kcal_100g": 62,
+        "energy-kj_100g": 316,
+        "fat_100g": 0,
+        "fiber_100g": 4.4,
+        "proteins_100g": 4.3,
+        "salt_100g": 0.03,
+        "saturated-fat_100g": 0,
+        "sodium_100g": 0.012,
+        "sugars_100g": 0.3
+      }
+    }
+  ]
+}

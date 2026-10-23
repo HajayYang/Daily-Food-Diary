@@ -12,8 +12,8 @@ test('converts kJ only when kcal missing and generates trusted source links',()=
  assert.equal(normalizeProduct({...product,code:'javascript:alert(1)'}),null);assert.equal(normalizeProduct({...product,product_name:''}),null);
 });
 test('builds encoded public search URLs with pagination and exact Chinese aliases',()=>{
- const url=new URL(searchURL('苹果',2));assert.equal(url.hostname,'world.openfoodfacts.org');assert.equal(url.searchParams.get('search_terms'),'apple');assert.equal(url.searchParams.get('page'),'2');
- assert.equal(new URL(searchURL('milk & oats')).searchParams.get('search_terms'),'milk & oats');assert.throws(()=>searchURL(''));assert.throws(()=>searchURL('apple',0));
+ const url=new URL(searchURL('苹果',2));assert.equal(url.hostname,'search.openfoodfacts.org');assert.equal(url.searchParams.get('q'),'apple');assert.equal(url.searchParams.get('page'),'2');
+ assert.equal(new URL(searchURL('milk & oats')).searchParams.get('q'),'milk & oats');assert.throws(()=>searchURL(''));assert.throws(()=>searchURL('apple',0));
 });
 test('normalizes duplicates, malformed products, counts and last-page state',()=>{
  const result=normalizeSearch({count:9,products:[product,product,{},null]},1);assert.equal(result.products.length,1);assert.equal(result.hasNext,true);

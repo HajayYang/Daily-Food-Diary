@@ -1,7 +1,7 @@
 import { renderNutrition } from './nutrition.js';
 import { createFoodClient } from './food-api.js';
 export function setupOnlineFood({ $, element, renderLocal }) {
-  const client = createFoodClient();
+  const client = createFoodClient({service:document.querySelector('meta[name="food-service"]')?.content.trim()??''});
   let mode = 'local', requestId = 0, controller, query = '', page = 1, result;
   function cancel() { requestId++; controller?.abort(); controller = undefined; }
   function controls(busy = false) {
@@ -11,11 +11,11 @@ export function setupOnlineFood({ $, element, renderLocal }) {
     $('#food-online-next').disabled = busy || !result?.hasNext;
     $('#food-discovery-grid').setAttribute('aria-busy', String(busy));
   }
-  function display(products) {
+  function display(products, snapshot=false) {
     $('#food-discovery-grid').replaceChildren(...products.map(product => {
       const card = element('article', 'food-guide-card online-food-card');
       const top = element('div', 'online-food-heading');
-      top.append(element('span', 'online-food-symbol', '▤'), element('span', 'online-food-source', 'OPEN FOOD FACTS'));
+      top.append(element('span', 'online-food-symbol', '▤'), element('span', 'online-food-source', snapshot?'OPEN FOOD FACTS · SNAPSHOT':'OPEN FOOD FACTS'));
       const content = element('div', 'food-guide-content');
       const name = element('h3', '', product.name); name.translate = false;
       const brand = element('p', 'food-tag', product.brand); brand.translate = false;
@@ -50,14 +50,19 @@ export function setupOnlineFood({ $, element, renderLocal }) {
     try {
       const data = await client.search(text, targetPage, requestController.signal);
       if (id !== requestId || mode !== 'online') return;
-      result = data; page = data.page; display(data.products);
-      $('#food-results').textContent = data.products.length ? `“${text}” · 第 ${page} 页 · 当前 ${data.products.length} 项${data.count !== null ? `，食品库匹配约 ${data.count} 项` : ''} · 社区数据，缺失项标为未提供` : '当前页没有可展示的食品。可尝试其他名称或英文关键词；常见食材的科普可切回“精选食材”。';
+      result = data; page = data.page; display(data.products,data.source==='snapshot');$('#food-online-retry').hidden=data.source!=='snapshot';
+      $('#food-results').textContent = data.source==='snapshot'?`线上搜索暂不可用，以下为“${text}”的食品库快照 · 抓取于 ${data.capturedAt.slice(0,10)} · 共 ${data.count} 项；非实时结果，请核对包装。`:data.products.length ? `“${text}” · 第 ${page} 页 · 当前 ${data.products.length} 项${data.count !== null ? `，食品库匹配约 ${data.count} 项` : ''} · 社区数据，缺失项标为未提供` : '当前页没有可展示的食品。可尝试其他名称或英文关键词；常见食材的科普可切回“精选食材”。';
       $('#food-online-pages').hidden = !data.products.length && page === 1;
       $('#food-online-page').textContent = `第 ${page} 页`;
     } catch (error) {
       if (id !== requestId || mode !== 'online') return;
-      $('#food-results').textContent = timedOut ? '在线查询超时，请稍后重试；精选食材仍可离线浏览。' : error.name === 'TypeError' ? '无法连接在线食品库，请检查网络或稍后重试；精选食材仍可离线浏览。' : error.message;
+      $('#food-results').textContent = timedOut ? '在线查询超时，请稍后重试；精选食材仍可离线浏览。' : error.name === 'TypeError' ? '食品查询服务连接失败，请稍后重试；精选食材仍可离线浏览。' : error.message;
       $('#food-online-retry').hidden = false;
+      if(timedOut){
+        const fallbackController=new AbortController(),fallbackTimer=setTimeout(()=>fallbackController.abort(),3000);
+        try{const cached=await client.snapshotSearch(text,targetPage,fallbackController.signal);if(cached&&id===requestId&&mode==='online'){result=cached;page=cached.page;display(cached.products,true);$('#food-results').textContent=`线上搜索暂不可用，以下为“${text}”的食品库快照 · 抓取于 ${cached.capturedAt.slice(0,10)} · 共 ${cached.count} 项；非实时结果，请核对包装。`;$('#food-online-pages').hidden=!cached.products.length&&page===1;$('#food-online-page').textContent=`第 ${page} 页`;}}
+        catch{/* Keep the original service error if the bundled snapshot is unavailable. */}finally{clearTimeout(fallbackTimer);}
+      }
     } finally {
       clearTimeout(timer);
       if (id === requestId) { controller = undefined; controls(); }

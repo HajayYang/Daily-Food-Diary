@@ -1,6 +1,7 @@
 // Public API docs: https://openfoodfacts.github.io/openfoodfacts-server/api/
 export const FOOD_API_ORIGIN = 'https://world.openfoodfacts.org';
 export const PAGE_SIZE = 8;
+export const FOOD_SEARCH_ORIGIN = 'https://search.openfoodfacts.org';
 const aliases = { 苹果: 'apple', 橙子: 'orange', 猕猴桃: 'kiwi', 香蕉: 'banana', 西兰花: 'broccoli', 燕麦: 'oats', 鸡蛋: 'egg', 酸奶: 'yogurt', 牛奶: 'milk', 面包: 'bread', 米饭: 'rice', 豆腐: 'tofu' };
 function cleanText(value, limit = 600) { return typeof value === 'string' ? value.trim().slice(0, limit) : ''; }
 export function nutrient(value) {
@@ -28,6 +29,34 @@ export function normalizeProduct(product) {
     url: `${FOOD_API_ORIGIN}/product/${code}` };
 }
 export function searchURL(query, page = 1) {
+  const text=query.trim().slice(0,60);
+  if(!text||!Number.isInteger(page)||page<1||page>100)throw new Error('请输入食品名称，页码应为 1–100。');
+  const url=new URL('/search',FOOD_SEARCH_ORIGIN);
+  url.search=new URLSearchParams({q:aliases[text]??text,page:String(page),page_size:String(PAGE_SIZE),langs:'zh,en,ja,ko',fields:'code,product_name,product_name_zh,generic_name,brands,ingredients_text,ingredients_text_zh,allergens,allergens_tags,traces,traces_tags,serving_size,nutriments'});
+  return url.href;
+}
+export function foodServiceURL(query,page=1,service='') {
+  searchURL(query,page);
+  let base='.';
+  if(service){
+    let url;try{url=new URL(service);}catch{throw new Error('食品查询服务地址无效，请使用 HTTPS 服务根地址。');}
+    const local=['localhost','127.0.0.1','[::1]'].includes(url.hostname);
+    if((url.protocol!=='https:'&&!(local&&url.protocol==='http:'))||url.username||url.password||url.search||url.hash||url.pathname!=='/')throw new Error('食品查询服务地址无效，请使用 HTTPS 服务根地址。');
+    base=url.origin;
+  }
+  return `${base}/api/food-search?${new URLSearchParams({query:query.trim().slice(0,60),page:String(page)})}`;
+}
+// Search-a-licious uses hits and arrays for brand/allergen fields, unlike the legacy API.
+export function searchPayload(payload){
+  if(!payload||!Array.isArray(payload.hits)||payload.timed_out===true)throw new Error('invalid_search_response');
+  const joined=value=>Array.isArray(value)?value.filter(item=>typeof item==='string').join(', '):value;
+  return {count:payload.count??null,products:payload.hits.slice(0,PAGE_SIZE).filter(hit=>hit&&typeof hit==='object').map(hit=>({
+    code:hit.code,product_name:hit.product_name,product_name_zh:hit.product_name_zh,generic_name:hit.generic_name,
+    brands:joined(hit.brands),ingredients_text:hit.ingredients_text,ingredients_text_zh:hit.ingredients_text_zh,
+    allergens:joined(hit.allergens)||joined(hit.allergens_tags),traces:joined(hit.traces)||joined(hit.traces_tags),serving_size:hit.serving_size,nutriments:hit.nutriments,
+  }))};
+}
+export function legacySearchURL(query, page = 1) {
   const text = query.trim().slice(0, 60);
   if (!text || !Number.isInteger(page) || page < 1 || page > 100) throw new Error('请输入食品名称，页码应为 1–100。');
   const url = new URL('/cgi/search.pl', FOOD_API_ORIGIN);
@@ -42,22 +71,41 @@ export function normalizeSearch(data, page) {
   const count = nutrient(data.count);
   return { products, count: count === null ? null : Math.floor(count), page, hasNext: page < 100 && (count === null ? data.products.length >= PAGE_SIZE : page * PAGE_SIZE < count) };
 }
-export function createFoodClient({ fetcher = globalThis.fetch, now = Date.now } = {}) {
+export function createFoodClient({ fetcher = globalThis.fetch, now = Date.now, service = '' } = {}) {
   const cache = new Map();
+  let snapshotPromise;
+  async function snapshot(query,page,signal){
+    if(signal?.aborted)throw new DOMException('Aborted','AbortError');
+    if(!snapshotPromise)snapshotPromise=fetcher('./food-cache.json',{signal,credentials:'omit',referrerPolicy:'no-referrer',headers:{Accept:'application/json'}}).then(response=>{if(!response.ok)throw Error('snapshot_unavailable');return response.json();}).catch(error=>{snapshotPromise=undefined;throw error;});
+    const [module,data]=await Promise.all([import('./food-snapshot.js'),snapshotPromise]);if(signal?.aborted)throw new DOMException('Aborted','AbortError');return module.snapshotSearch(data,query,page);
+  }
   let lastRequest = -Infinity;
   return { async search(query, page = 1, signal) {
-    const url = searchURL(query, page);
+    const url = foodServiceURL(query, page, service);
     const cached = cache.get(url);
-    if (cached && now() - cached.time < 10 * 60 * 1000) return cached.data;
+    if (cached && now() - cached.time < (cached.ttl??10 * 60 * 1000)) return cached.data;
     if (now() - lastRequest < 6500) throw new Error('查询较频繁，请间隔约 7 秒再试，避免触发食品库限流。');
     lastRequest = now();
-    const response = await fetcher(url, { signal, credentials: 'omit', referrerPolicy: 'no-referrer', headers: { Accept: 'application/json' } });
-    if (!response.ok) throw new Error(response.status === 429 ? '食品库请求次数过多，请稍后再试。' : `食品库暂不可用（HTTP ${response.status}），请稍后重试。`);
+    const options={signal,credentials:'omit',referrerPolicy:'no-referrer',headers:{Accept:'application/json'}};
+    try {
+    let response=await fetcher(url,options);
+    // Old/static hosts may have no same-origin gateway. Use only the official legacy
+    // API as a compatibility fallback; never send queries through public CORS relays.
+    if(!service&&[404,405,501].includes(response.status)){
+      try{response=await fetcher(legacySearchURL(query,page),options);if(!response.ok)throw new Error('unavailable');}
+      catch(error){if(error.name==='AbortError')throw error;throw new Error('此站点尚未启用食品查询服务；可先浏览精选食材。');}
+    }
+    if (!response.ok) throw new Error(response.status===429?'食品库请求次数过多，请稍后再试。':response.status===504?'在线食品源响应超时，请稍后再试；精选食材仍可浏览。':response.status>=500?'在线食品源暂时不可用，请稍后再试；精选食材仍可浏览。':`食品库暂不可用（HTTP ${response.status}），请稍后重试。`);
     let payload;
     try { payload = await response.json(); } catch { throw new Error('食品库响应不是有效的 JSON 数据，请稍后重试。'); }
     const result = normalizeSearch(payload, page);
     if (cache.size >= 20) cache.delete(cache.keys().next().value);
     cache.set(url, { time: now(), data: result });
     return result;
-  } };
+    }catch(error){
+      if(error.name==='AbortError'||signal?.aborted)throw error;
+      try{const cached=await snapshot(query,page,signal);if(cached){cache.set(url,{time:now(),ttl:6500,data:cached});return cached;}}catch(fallbackError){if(fallbackError.name==='AbortError'||signal?.aborted)throw fallbackError;}
+      throw error;
+    }
+  }, snapshotSearch:snapshot };
 }

@@ -1,0 +1,8 @@
+name = "daily-bites-food-search"
+main = "index.js"
+compatibility_date = "2026-10-23"
+workers_dev = true
+
+[vars]
+# Exact webpage origins; no paths or wildcard.
+ALLOWED_ORIGIN = "https://hajayyang.github.io"

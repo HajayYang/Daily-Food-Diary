@@ -4374,5 +4374,35 @@ export const MESSAGES = {
     "Saturated fat exceeds total fat. Check the label, units and portions before comparing its energy share.",
     "飽和脂肪酸が総脂質を上回っています。表示・単位・量を確認するまで熱量比率は比較しません。",
     "포화지방이 총지방보다 많습니다. 표시·단위·분량을 확인할 때까지 에너지 비율을 비교하지 않습니다."
+  ],
+  "食品查询服务地址无效，请使用 HTTPS 服务根地址。": [
+    "Invalid food service URL. Use an HTTPS service origin.",
+    "食品検索サービスのURLが無効です。HTTPSのルートURLを使用してください。",
+    "식품 조회 서비스 URL이 잘못되었습니다. HTTPS 서비스 루트 주소를 사용하세요."
+  ],
+  "此站点尚未启用食品查询服务；可先浏览精选食材。": [
+    "This site has no active food search service. Browse curated foods for now.",
+    "このサイトの食品検索サービスは未設定です。厳選食材をご覧ください。",
+    "이 사이트의 식품 조회 서비스가 활성화되지 않았습니다. 엄선 식재료를 먼저 살펴보세요."
+  ],
+  "在线食品源响应超时，请稍后再试；精选食材仍可浏览。": [
+    "The food data source timed out. Try later; curated foods remain available.",
+    "食品データ元が時間切れです。後で再試行してください。厳選食材は閲覧できます。",
+    "식품 데이터 원본 응답 시간이 초과되었습니다. 나중에 다시 시도하세요. 엄선 식재료는 볼 수 있습니다."
+  ],
+  "在线食品源暂时不可用，请稍后再试；精选食材仍可浏览。": [
+    "The food data source is temporarily unavailable. Try later; curated foods remain available.",
+    "食品データ元を一時的に利用できません。後で再試行してください。厳選食材は閲覧できます。",
+    "식품 데이터 원본을 일시적으로 사용할 수 없습니다. 나중에 다시 시도하세요. 엄선 식재료는 볼 수 있습니다."
+  ],
+  "食品查询服务连接失败，请稍后重试；精选食材仍可离线浏览。": [
+    "Could not connect to the food search service. Try later; curated foods work offline.",
+    "食品検索サービスに接続できません。後で再試行してください。厳選食材はオフラインでも閲覧できます。",
+    "식품 조회 서비스에 연결하지 못했습니다. 나중에 다시 시도하세요. 엄선 식재료는 오프라인에서도 볼 수 있습니다."
+  ],
+  "线上搜索暂不可用，以下为“{query}”的食品库快照 · 抓取于 {date} · 共 {n} 项；非实时结果，请核对包装。": [
+    "Live search is unavailable. Food database snapshot for “{query}” · retrieved {date} · {n} items. Not live results; verify the package.",
+    "リアルタイム検索は利用できません。「{query}」の食品庫スナップショット · 取得日 {date} · {n} 件。最新検索ではありません。包装をご確認ください。",
+    "실시간 검색을 사용할 수 없습니다. “{query}” 식품 DB 스냅샷 · 수집일 {date} · {n}개. 실시간 결과가 아니므로 포장을 확인하세요."
   ]
 };
