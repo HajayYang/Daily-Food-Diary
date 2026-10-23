@@ -10,6 +10,17 @@
 - 浏览器 localStorage 保存，刷新后保留；支持饮食、个人目标及训练一起导出为 JSON。
 - 适配电脑与手机，原生 HTML、CSS、JavaScript，无第三方运行依赖。
 
+## 个性化外观
+
+点击页面右上角“外观设置”，即时预览并自动保存：
+
+- 云朵白、深夜黑、森林绿、晴空蓝四种主题，覆盖卡片、表单、图表文字和弹窗。
+- 普通按钮或液态玻璃按钮（半透明、背景模糊和高光；不支持模糊的浏览器仍能正常操作）。
+- 选择本地 JPG、PNG、WebP 图片作为背景，原图最大 12 MB、8000 万像素，处理后最长边不超过 2400 像素。
+- 图片透明度 0%–100%：0% 完全显示，100% 完全透明；卡片和文字不受影响。可单独移除图片，或恢复默认配色与按钮。
+
+主题、按钮及透明度使用 localStorage；背景图片使用 IndexedDB，均只保存在当前浏览器。不会上传服务器，不影响饮食或训练数据；外观与背景不包含在饮食 JSON 导出中。清除网站数据会清除这些设置。浏览器禁用本地存储或空间不足时会显示提示，图片保存失败不替换原背景。
+
 ## 热量可视化
 
 - 环形饼图：所选日期早餐、午餐、晚餐和加餐的已填写热量占比。
@@ -50,7 +61,7 @@
 npm start
 ```
 
-在本地电脑运行时，访问 `http://localhost:3000`。也可以直接运行 `python3 -m http.server 3000`，无需安装 npm 依赖。服务器只提供静态文件，不接收饮食数据。部署时将 `index.html`、`style.css`、`app.js`、`records.js`、`fitness.js`、`fitness-ui.js`、`charts.js` 和 `training.js` 放到任意静态网站托管平台；正式部署使用 HTTPS。
+在本地电脑运行时，访问 `http://localhost:3000`。也可以直接运行 `python3 -m http.server 3000`，无需安装 npm 依赖。服务器只提供静态文件，不接收饮食数据。部署时将 `index.html`、`style.css`、`app.js`、`records.js`、`fitness.js`、`fitness-ui.js`、`charts.js`、`training.js`、`appearance.js` 和 `appearance.css` 放到任意静态网站托管平台；正式部署使用 HTTPS。
 
 ## 验证
 
