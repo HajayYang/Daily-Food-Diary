@@ -29,6 +29,18 @@
 
 液态玻璃按钮增加折射边缘、弧面高光、投影和悬停光泽，四种主题均可使用；尊重系统“减少动态效果”设置。
 
+## 在线食品查询 API
+
+“认识食物”提供两种来源：精选食材保留本地科普、份量与搭配建议；在线食品库接入 [Open Food Facts](https://world.openfoodfacts.org/)，点击“在线食品库”输入名称后查询，支持回车、分页、失败重试及返回本地浏览。无需 API 密钥，无需后端，适合 GitHub Pages 等静态部署。
+
+接口使用公开 `/cgi/search.pl` JSON 搜索；每页 8 项。常见中文食材名会映射为英文查询，其余关键词原样提交。主要收录包装食品，覆盖与数据质量因地区和语言而异，不等同于完整的生鲜食材百科；未找到时可尝试品牌或英文。
+
+在线卡片展示品牌、每 100 克 / 100 毫升营养标签数据、配料、过敏原、标签份量和原始商品链接。标签份量不是推荐摄入量；未知营养项显示“未提供”，不生成缺乏依据的健康功效或推荐数量。热量优先使用 kcal，缺失时按 kJ ÷ 4.184 换算。
+
+为控制公共 API 负担，在线查询只在提交时发起，不随每次打字请求；网络请求至少间隔约 7 秒，同一次页面会话内保留最多 20 页、10 分钟缓存。15 秒超时，切换来源时取消请求并忽略旧响应。公共服务可能限流、不可用或被网络拦截，此时本地精选内容仍然可用。
+
+数据由 Open Food Facts 贡献者维护，按 [ODbL](https://opendatacommons.org/licenses/odbl/1-0/) 标注来源。查询关键词会发送到 `world.openfoodfacts.org`，不发送饮食记录、身体数据、背景图片，也不携带本站登录凭据。浏览器需能访问该 HTTPS 域名并获得 API 的跨域许可；应用不会绕过 TLS 或代理接口。
+
 ## 热量可视化
 
 - 环形饼图：所选日期早餐、午餐、晚餐和加餐的已填写热量占比。
@@ -69,7 +81,7 @@
 npm start
 ```
 
-在本地电脑运行时，访问 `http://localhost:3000`。也可以直接运行 `python3 -m http.server 3000`，无需安装 npm 依赖。服务器只提供静态文件，不接收饮食数据。部署时将 `index.html`、`style.css`、`app.js`、`records.js`、`fitness.js`、`fitness-ui.js`、`charts.js`、`training.js`、`appearance.js`、`appearance.css` 和 `food-discovery.js` 放到任意静态网站托管平台；正式部署使用 HTTPS。
+在本地电脑运行时，访问 `http://localhost:3000`。也可以直接运行 `python3 -m http.server 3000`，无需安装 npm 依赖。服务器只提供静态文件，不接收饮食数据。部署时将 `index.html`、`style.css`、`app.js`、`records.js`、`fitness.js`、`fitness-ui.js`、`charts.js`、`training.js`、`appearance.js`、`appearance.css`、`food-discovery.js`、`food-api.js` 和 `food-online.js` 放到任意静态网站托管平台；正式部署使用 HTTPS。
 
 ## 验证
 
