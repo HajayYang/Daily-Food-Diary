@@ -1,0 +1,8 @@
+node_modules/
+worker/.dev.vars
+worker/.dev.vars.*
+!worker/.dev.vars.example
+.wrangler/
+.env
+.env.*
+!.env.example

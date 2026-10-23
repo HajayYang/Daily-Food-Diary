@@ -1,3 +1,4 @@
+import { setupPhotoDiary } from './photo-ui.js';
 import { setupLanguage, translateText, formatDateLabel } from './i18n.js';
 import { setupFoodDiscovery } from './food-discovery.js';
 import { setupAppearance } from './appearance.js';
@@ -119,6 +120,11 @@ $('#export').addEventListener('click', () => {
   const link = element('a'); link.href = url; link.download = `一日食记-${localDate()}.json`; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
 setupLanguage({ refresh: render, toast });
+setupPhotoDiary({ $, element, getDate: () => selectedDate, saveRecords: entries => {
+  if (!entries.length || !entries.every(validRecord)) return false;
+  if (!persist([...records, ...entries])) return false;
+  selectedDate = entries[0].date; render(); toast('已保存拍照识别的食物记录'); return true;
+} });
 setupFoodDiscovery({ $, element });
 setupAppearance({ $, toast });
 $('#appearance-done').addEventListener('click', () => $('#appearance-dialog').close());

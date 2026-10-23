@@ -2479,5 +2479,355 @@ export const MESSAGES = {
     "Warm up with easy walking for 5 min; brisk walk comfortably for 30 min at a talk-but-not-sing effort; cool down 5 min. Beginners can split the session and adjust speed or duration to how they feel.",
     "ゆっくり歩いて準備5分、話せるが歌いにくい程度の速歩30分、整理歩行5分。必要なら分割し、体調で速度や時間を調整。",
     "가볍게 걷기 5분, 대화 가능하지만 노래는 어려운 정도로 빠르게 걷기 30분, 마무리 5분. 필요하면 나누고 컨디션에 맞게 속도와 시간을 조정하세요."
+  ],
+  "📷 拍照记餐": [
+    "📷 Photo meal",
+    "📷 写真で記録",
+    "📷 사진 식사 기록"
+  ],
+  "拍一张，记下一餐": [
+    "Snap a photo, log a meal",
+    "写真から食事を記録",
+    "사진 한 장으로 식사 기록"
+  ],
+  "关闭拍照记餐": [
+    "Close photo diary",
+    "写真記録を閉じる",
+    "사진 기록 닫기"
+  ],
+  "拍照或选择餐食图片，识别后可修改并一次保存多种食物。份量、油脂和热量无法仅凭照片准确判断，所有结果都需要你核对。": [
+    "Take or choose a meal photo, then edit and save several foods at once. Portions, oils and calories cannot be measured precisely from a photo; review every estimate.",
+    "食事を撮影・選択し、識別後に修正して複数の食品を保存できます。量、油、エネルギーは写真だけで正確に測れません。必ず確認してください。",
+    "식사 사진을 찍거나 선택한 뒤 수정하고 여러 음식을 한 번에 저장해요. 사진만으로 분량, 기름, 열량을 정확히 알 수 없으니 모든 추정치를 확인하세요."
+  ],
+  "识别服务设置": [
+    "Recognition service settings",
+    "識別サービスの設定",
+    "인식 서비스 설정"
+  ],
+  "识别服务根地址": [
+    "Recognition service URL",
+    "識別サービスのルートURL",
+    "인식 서비스 기본 주소"
+  ],
+  "服务访问码（不是模型 API 密钥）": [
+    "Service access code (not a model API key)",
+    "サービスのアクセスコード（モデルAPIキーではありません）",
+    "서비스 접근 코드（모델 API 키 아님）"
+  ],
+  "由识别服务管理员提供": [
+    "Provided by your service administrator",
+    "サービス管理者から取得",
+    "서비스 관리자가 제공"
+  ],
+  "模型密钥由服务管理员在服务端配置，不能填写到网页。这里只保留本次页面中的访问码，不写入浏览器存储。": [
+    "Model keys belong on the server, never in this page. The service access code stays in memory for this page only, not browser storage.",
+    "モデルキーは管理者がサーバー側で設定し、ここには入力しないでください。アクセスコードはこのページのメモリーにのみ保持し、ブラウザーに保存しません。",
+    "모델 키는 관리자가 서버에 설정하며 이 페이지에 입력하면 안 돼요. 접근 코드는 현재 페이지 메모리에만 보관하고 브라우저 저장소에는 쓰지 않아요."
+  ],
+  "保存服务地址": [
+    "Save service URL",
+    "サービスURLを保存",
+    "서비스 주소 저장"
+  ],
+  "检测服务连接": [
+    "Check connection",
+    "接続を確認",
+    "연결 확인"
+  ],
+  "餐食照片识别": [
+    "Meal photo recognition",
+    "食事写真の識別",
+    "식사 사진 인식"
+  ],
+  "尽量拍清餐食，可放入餐具作为份量参照": [
+    "Photograph the meal clearly; include cutlery as a size reference.",
+    "食事を明瞭に撮影し、量の参考に食器も写してください。",
+    "식사가 선명하게 보이도록 찍고 크기 참고용으로 식기를 함께 담아 보세요."
+  ],
+  "待识别的餐食照片预览": [
+    "Meal photo preview",
+    "識別する食事写真のプレビュー",
+    "인식할 식사 사진 미리 보기"
+  ],
+  "📷 直接拍照": [
+    "📷 Take photo",
+    "📷 撮影する",
+    "📷 사진 촬영"
+  ],
+  "选择餐食图片": [
+    "Choose meal photo",
+    "食事写真を選択",
+    "식사 사진 선택"
+  ],
+  "JPG、PNG、WebP，最大 12 MB；发送前在本地压缩。": [
+    "JPG, PNG, WebP, up to 12 MB; compressed locally before sending.",
+    "JPG・PNG・WebP、最大12 MB。送信前にローカルで圧縮。",
+    "JPG, PNG, WebP, 최대 12 MB. 전송 전 로컬에서 압축해요."
+  ],
+  "我同意将此照片发送到配置的识别服务及 OpenAI 处理。照片不保存到食记，服务方按其政策处理；身体数据和已有饮食记录不会发送。": [
+    "I agree to send this photo to the configured service and OpenAI. The diary does not save photos; providers apply their own policies. Body data and existing records are not sent.",
+    "設定したサービスとOpenAIへの写真送信に同意します。食記は写真を保存せず、提供者の方針が適用されます。身体情報や既存記録は送信しません。",
+    "설정된 서비스와 OpenAI로 사진을 보내는 데 동의해요. 일지에는 사진을 저장하지 않으며 제공자의 정책이 적용돼요. 신체 정보와 기존 기록은 전송하지 않아요."
+  ],
+  "开始识别": [
+    "Recognize meal",
+    "食事を識別",
+    "식사 인식 시작"
+  ],
+  "取消识别": [
+    "Cancel recognition",
+    "識別をキャンセル",
+    "인식 취소"
+  ],
+  "改为手动记录": [
+    "Log manually instead",
+    "手入力で記録",
+    "직접 입력하기"
+  ],
+  "核对后再入账": [
+    "Review before saving",
+    "確認してから保存",
+    "확인 후 기록"
+  ],
+  "不会自动保存": [
+    "Never saved automatically",
+    "自動保存しません",
+    "자동 저장되지 않아요"
+  ],
+  "营养值是图中整份食物的估算，不是每 100 克。修改份量后，请同步核对热量与营养值；不会自动按重量缩放。空值代表未知，不是零。模型自评不是准确率。": [
+    "Nutrients estimate the whole pictured portion, not per 100 g. If you change portions, review energy and nutrients too; they do not scale automatically. Blank means unknown, not zero. Model confidence is not an accuracy score.",
+    "栄養値は写真の全量の推定で100g当たりではありません。分量を変えたら栄養値も確認してください。自動比例計算はしません。空欄は不明、自己評価は正解率ではありません。",
+    "영양값은 사진 속 전체 분량의 추정치이며 100g 기준이 아니에요. 분량을 바꾸면 열량과 영양값도 확인하세요. 자동 비례 조정은 하지 않아요. 빈칸은 미상이며 모델 확신은 정확도가 아니에요."
+  ],
+  "确认并保存所选食物": [
+    "Confirm & save selected foods",
+    "選択した食品を確認・保存",
+    "선택한 음식 확인 및 저장"
+  ],
+  "识别食物 {n}": [
+    "Detected food {n}",
+    "識別した食品 {n}",
+    "인식된 음식 {n}"
+  ],
+  "将这项加入记录": [
+    "Include this food",
+    "この食品を記録",
+    "이 음식을 기록에 추가"
+  ],
+  "不确定，默认未勾选": [
+    "Uncertain; not selected by default",
+    "不確実・初期状態は未選択",
+    "불확실, 기본 미선택"
+  ],
+  "有一定把握，仍需核对": [
+    "Some confidence; review required",
+    "一定の自信あり・確認が必要",
+    "어느 정도 확신, 확인 필요"
+  ],
+  "模型自评较有把握，仍需核对": [
+    "Model reports confidence; review required",
+    "モデルの自信は高め・確認が必要",
+    "모델은 확신하나 확인 필요"
+  ],
+  "食物名称": [
+    "Food name",
+    "食品名",
+    "음식명"
+  ],
+  "估算份量，可修改": [
+    "Estimated portion, editable",
+    "推定分量・変更可能",
+    "추정 분량, 수정 가능"
+  ],
+  "估算热量（kcal）": [
+    "Estimated energy (kcal)",
+    "推定エネルギー（kcal）",
+    "추정 열량（kcal）"
+  ],
+  "识别备注，可修改": [
+    "Recognition notes, editable",
+    "識別メモ・変更可能",
+    "인식 메모, 수정 가능"
+  ],
+  "已取消识别，没有保存任何记录。": [
+    "Recognition cancelled. No records were saved.",
+    "識別をキャンセルしました。記録は保存していません。",
+    "인식을 취소했어요. 기록은 저장되지 않았어요."
+  ],
+  "选择一张清晰餐食照片，核对后再保存。": [
+    "Choose a clear meal photo, then review before saving.",
+    "明瞭な食事写真を選び、確認してから保存してください。",
+    "선명한 식사 사진을 선택하고 확인 후 저장하세요."
+  ],
+  "尚未设置识别服务，请先展开服务设置。": [
+    "No recognition service configured. Open service settings first.",
+    "識別サービスが未設定です。先にサービス設定を開いてください。",
+    "인식 서비스가 설정되지 않았어요. 먼저 서비스 설정을 여세요."
+  ],
+  "正在本地压缩照片，尚未上传…": [
+    "Compressing locally; nothing uploaded yet…",
+    "ローカルで圧縮中・まだ送信していません…",
+    "로컬 압축 중, 아직 업로드하지 않았어요…"
+  ],
+  "照片已就绪。确认发送后开始识别。": [
+    "Photo ready. Confirm sending to start recognition.",
+    "写真の準備完了。送信に同意して識別を開始。",
+    "사진 준비 완료. 전송에 동의하고 인식을 시작하세요."
+  ],
+  "服务地址已保存；访问码不会保存在浏览器存储中。": [
+    "Service URL saved; the access code is not stored in browser storage.",
+    "サービスURLを保存しました。アクセスコードはブラウザーに保存しません。",
+    "서비스 주소를 저장했어요. 접근 코드는 브라우저 저장소에 보관하지 않아요."
+  ],
+  "无法保存服务地址，请检查浏览器存储设置。": [
+    "Could not save the URL. Check browser storage settings.",
+    "URLを保存できません。ブラウザーの保存設定を確認してください。",
+    "주소를 저장하지 못했어요. 브라우저 저장 설정을 확인하세요."
+  ],
+  "正在检测识别服务…": [
+    "Checking recognition service…",
+    "識別サービスを確認中…",
+    "인식 서비스 확인 중…"
+  ],
+  "正在识别餐食，请稍候…": [
+    "Recognizing your meal, please wait…",
+    "食事を識別中です。お待ちください…",
+    "식사를 인식하고 있어요. 잠시 기다려 주세요…"
+  ],
+  "服务已连接；实际识别还取决于模型权限和额度。": [
+    "Service connected. Recognition still depends on model access and quota.",
+    "サービスに接続しました。識別にはモデル権限と利用枠も必要です。",
+    "서비스에 연결했어요. 실제 인식에는 모델 권한과 사용 한도도 필요해요."
+  ],
+  "没有识别到可用的餐食，请重新拍照或手动记录。": [
+    "No usable meal detected. Retake the photo or log manually.",
+    "記録可能な食事を識別できません。撮り直すか手入力してください。",
+    "기록할 식사를 인식하지 못했어요. 다시 촬영하거나 직접 입력하세요."
+  ],
+  "识别完成，请核对名称、份量和营养估算，再勾选保存。": [
+    "Recognition complete. Check names, portions and estimates, then select foods to save.",
+    "識別完了。名前、分量、栄養の推定を確認し、保存する食品を選んでください。",
+    "인식 완료. 이름, 분량, 영양 추정치를 확인하고 저장할 음식을 선택하세요."
+  ],
+  "请至少勾选一种食物；不确定的项目可以不保存。": [
+    "Select at least one food. Uncertain items can be left out.",
+    "少なくとも1つ選択してください。不確実な食品は保存しなくても構いません。",
+    "한 가지 이상 선택하세요. 불확실한 항목은 저장하지 않아도 돼요."
+  ],
+  "拍照识别估算，已人工核对。": [
+    "Photo recognition estimate, reviewed by user.",
+    "写真識別の推定・ユーザー確認済み。",
+    "사진 인식 추정치, 사용자 확인 완료."
+  ],
+  "请检查要保存的食物名称、日期、份量与营养数值。": [
+    "Check food names, date, portions and nutrient values before saving.",
+    "保存する食品名、日付、分量、栄養値を確認してください。",
+    "저장할 음식명, 날짜, 분량, 영양값을 확인하세요."
+  ],
+  "保存失败，识别结果仍保留，请检查本地存储。": [
+    "Save failed. Results are kept here; check local storage.",
+    "保存に失敗しました。結果は保持しています。ローカル保存を確認してください。",
+    "저장에 실패했어요. 결과는 유지되니 로컬 저장소를 확인하세요."
+  ],
+  "已保存拍照识别的食物记录": [
+    "Photo meal entries saved",
+    "写真からの食事記録を保存しました",
+    "사진으로 인식한 식사 기록을 저장했어요"
+  ],
+  "请选择 JPG、PNG 或 WebP 餐食照片。": [
+    "Choose a JPG, PNG or WebP meal photo.",
+    "JPG・PNG・WebPの食事写真を選んでください。",
+    "JPG, PNG 또는 WebP 식사 사진을 선택하세요."
+  ],
+  "照片超过 12 MB，请缩小后重试。": [
+    "Photo exceeds 12 MB. Resize and try again.",
+    "写真が12 MBを超えています。小さくして再試行してください。",
+    "사진이 12 MB를 초과해요. 줄인 뒤 다시 시도하세요."
+  ],
+  "餐食照片无法读取，请换一张图片。": [
+    "Cannot read this photo. Choose another image.",
+    "写真を読み込めません。別の画像を選んでください。",
+    "사진을 읽을 수 없어요. 다른 이미지를 선택하세요."
+  ],
+  "餐食照片尺寸过大，请缩小后重试。": [
+    "Photo dimensions are too large. Resize and retry.",
+    "写真の寸法が大きすぎます。小さくして再試行してください。",
+    "사진 크기가 너무 커요. 줄인 뒤 다시 시도하세요."
+  ],
+  "浏览器无法处理照片，请更新浏览器。": [
+    "Browser cannot process photos. Update your browser.",
+    "写真を処理できません。ブラウザーを更新してください。",
+    "브라우저가 사진을 처리할 수 없어요. 업데이트하세요."
+  ],
+  "请填写识别服务访问码，不要填写模型 API 密钥。": [
+    "Enter the service access code, not a model API key.",
+    "モデルAPIキーではなく、サービスのアクセスコードを入力してください。",
+    "모델 API 키가 아닌 서비스 접근 코드를 입력하세요."
+  ],
+  "请输入 HTTPS 识别服务根地址，本地开发可用 localhost。": [
+    "Enter an HTTPS service root URL; localhost HTTP is allowed for development.",
+    "HTTPSのルートURLを入力してください。開発時はlocalhostのHTTPも利用できます。",
+    "HTTPS 서비스 기본 주소를 입력하세요. 개발 시 localhost HTTP는 허용돼요."
+  ],
+  "识别服务尚未配置模型密钥或访问码，请联系服务管理员。": [
+    "Model key or access code is not configured. Contact the service administrator.",
+    "モデルキーまたはアクセスコードが未設定です。管理者に連絡してください。",
+    "모델 키 또는 접근 코드가 설정되지 않았어요. 서비스 관리자에게 문의하세요."
+  ],
+  "识别服务访问码不正确，请检查后重试。": [
+    "Incorrect service access code. Check and retry.",
+    "アクセスコードが違います。確認して再試行してください。",
+    "서비스 접근 코드가 잘못됐어요. 확인 후 다시 시도하세요."
+  ],
+  "识别服务未允许当前网站，请让管理员配置网站来源。": [
+    "This website is not allowed by the service. Ask the administrator to configure its origin.",
+    "このサイトはサービスで許可されていません。管理者にオリジン設定を依頼してください。",
+    "서비스가 현재 사이트를 허용하지 않아요. 관리자에게 사이트 출처 설정을 요청하세요."
+  ],
+  "识别请求较多，请稍后再试。": [
+    "Too many recognition requests. Try again later.",
+    "識別リクエストが多すぎます。後でお試しください。",
+    "인식 요청이 많아요. 나중에 다시 시도하세요."
+  ],
+  "视觉模型暂时限流，请稍后重试。": [
+    "Vision service rate limit reached. Retry later.",
+    "画像モデルの利用制限です。後で再試行してください。",
+    "비전 모델 요청 한도에 도달했어요. 나중에 다시 시도하세요."
+  ],
+  "视觉模型服务不可用，请检查服务端模型权限、密钥或额度。": [
+    "Vision service unavailable. Check server-side model access, key or quota.",
+    "画像モデルを利用できません。サーバーのモデル権限、キー、利用枠を確認してください。",
+    "비전 서비스를 사용할 수 없어요. 서버의 모델 권한, 키, 한도를 확인하세요."
+  ],
+  "识别超时，请重试或使用更清晰、较小的照片。": [
+    "Recognition timed out. Retry or choose a clearer, smaller photo.",
+    "識別がタイムアウトしました。再試行するか、明瞭で小さい写真を使ってください。",
+    "인식 시간이 초과됐어요. 다시 시도하거나 더 선명하고 작은 사진을 사용하세요."
+  ],
+  "暂时无法可靠识别，请重新拍照或手动记录。": [
+    "Cannot reliably recognize this meal. Retake the photo or log manually.",
+    "信頼できる識別ができません。撮り直すか手入力してください。",
+    "신뢰할 만한 인식이 어려워요. 다시 촬영하거나 직접 기록하세요."
+  ],
+  "识别结果格式异常，请重试；没有保存任何记录。": [
+    "Invalid recognition response. Retry; no records were saved.",
+    "識別結果の形式が無効です。再試行してください。記録は保存していません。",
+    "인식 결과 형식이 잘못됐어요. 다시 시도하세요. 기록은 저장되지 않았어요."
+  ],
+  "照片请求无效，请重新选择图片。": [
+    "Invalid photo request. Choose the image again.",
+    "写真リクエストが無効です。画像を選び直してください。",
+    "사진 요청이 잘못됐어요. 이미지를 다시 선택하세요."
+  ],
+  "照片处理后仍过大，请选择更小的图片。": [
+    "Photo is still too large after processing. Choose a smaller image.",
+    "処理後も写真が大きすぎます。小さい画像を選んでください。",
+    "처리 후에도 사진이 너무 커요. 더 작은 이미지를 선택하세요."
+  ],
+  "无法连接识别服务，请检查服务地址、网络与跨域设置。": [
+    "Cannot connect. Check service URL, network and CORS settings.",
+    "接続できません。サービスURL、ネットワーク、CORS設定を確認してください。",
+    "연결할 수 없어요. 서비스 주소, 네트워크, CORS 설정을 확인하세요."
   ]
 };

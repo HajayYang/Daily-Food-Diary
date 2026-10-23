@@ -1,0 +1,10 @@
+name = "daily-bites-photo"
+main = "index.js"
+compatibility_date = "2026-10-23"
+workers_dev = true
+
+[vars]
+# Exact site origin(s), comma-separated. GitHub Pages paths are NOT part of an origin.
+ALLOWED_ORIGIN = "https://hajayyang.github.io"
+VISION_MODEL = "gpt-4.1-mini"
+# Configure OPENAI_API_KEY and PHOTO_ACCESS_TOKEN using `wrangler secret put`.

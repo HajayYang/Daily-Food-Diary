@@ -1,0 +1,5 @@
+# Copy to worker/.dev.vars for LOCAL testing. Never commit actual values.
+OPENAI_API_KEY=
+PHOTO_ACCESS_TOKEN=
+ALLOWED_ORIGIN=http://localhost:3000,http://127.0.0.1:3000
+VISION_MODEL=gpt-4.1-mini
