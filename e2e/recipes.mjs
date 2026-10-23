@@ -12,6 +12,47 @@ try {
   assert.equal(await page.locator('.recipe-filters').isVisible(), true);
   assert.equal(await page.locator('.food-discovery .food-filters').isHidden(), true);
   await page.locator('[data-food-mode=local]').click();
+  const cuisines = ['home','lu','chuan','yue','su','min','zhe','xiang','hui'];
+  const seen = new Set();
+  for (const cuisine of cuisines) {
+    await page.locator(`[data-recipe-cuisine=${cuisine}]`).click();
+    assert.equal(await page.locator('#recipe-results button').count(), 12);
+    assert.equal(await page.locator('#recipe-pages').isHidden(), true);
+    for (const button of await page.locator('#recipe-results button').all()) {
+      seen.add(await button.getAttribute('data-recipe'));
+      await button.click();
+      assert.ok((await page.locator('.recipe-steps li').count()) >= 4);
+      assert.ok((await page.locator('.recipe-ingredients li').count()) >= 3);
+      assert.ok((await page.locator('#recipe-current-title').textContent()).trim());
+    }
+  }
+  assert.equal(seen.size, 108);
+  await page.locator('[data-recipe-cuisine=all]').click();
+  assert.match(await page.locator('#recipe-status').textContent(), /108/);
+  assert.equal(await page.locator('#recipe-previous').isDisabled(), true);
+  const paged = new Set();
+  for (let i = 1; i <= 9; i++) {
+    assert.match(await page.locator('#recipe-page-status').textContent(), new RegExp(`${i} / 9`));
+    for (const id of await page.locator('#recipe-results button').evaluateAll(nodes => nodes.map(n => n.dataset.recipe))) paged.add(id);
+    if (i < 9) await page.locator('#recipe-next').click();
+  }
+  assert.equal(paged.size, 108);
+  assert.equal(await page.locator('#recipe-next').isDisabled(), true);
+  await page.locator('#recipe-previous').click();
+  assert.match(await page.locator('#recipe-page-status').textContent(), /8 \/ 9/);
+  await page.locator('#recipe-search').fill('宫保鸡丁');
+  assert.equal(await page.locator('#recipe-current-title').textContent(), '宫保鸡丁');
+  assert.equal(await page.locator('#recipe-pages').isHidden(), true);
+  assert.match(await page.locator('.recipe-allergens').textContent(), /花生/);
+  await page.locator('#recipe-servings').selectOption('4');
+  assert.match(await page.locator('.recipe-ingredients li').first().textContent(), /500 g/);
+  await page.locator('#recipe-servings').selectOption('2');
+  await page.locator('[data-recipe-cuisine=yue]').click();
+  assert.equal(await page.locator('#recipe-detail').isHidden(), true);
+  await page.locator('#recipe-search').fill('');
+  await page.locator('[data-recipe-category=plant]').click();
+  assert.equal(await page.locator('#recipe-results button').count(), 2);
+  await page.locator('#recipe-reset').click();
   const search = page.locator('#recipe-search');
   await search.fill('西红柿炒蛋');
   assert.equal(await page.locator('#recipe-results button').count(), 1);
@@ -39,7 +80,14 @@ try {
   assert.match(await page.locator('.recipe-steps').textContent(), /74°C/);
   for (const language of ['en','ja','ko','zh-CN']) {
     await page.locator('#language-select').selectOption(language);
-    await page.setViewportSize({width:390,height:1000});
+    await page.setViewportSize({width:320,height:1000});
+    for (const cuisine of cuisines) {
+      await page.locator(`[data-recipe-cuisine=${cuisine}]`).click();
+      assert.equal(await page.locator('#recipe-results button').count(), 12);
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+      if (language === 'en') assert.equal(/[\u4e00-\u9fff]/.test(await page.locator('#cookbook').innerText()), false);
+    }
+    await page.locator('#recipe-reset').click();
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
     if (language === 'en') {
       assert.equal(/[\u4e00-\u9fff]/.test(await page.locator('#cookbook').innerText()), false);
@@ -51,6 +99,7 @@ try {
   for (const theme of ['green','white','black','blue']) {
     await page.evaluate(theme => {document.documentElement.dataset.theme=theme;document.documentElement.dataset.buttonStyle='glass';}, theme);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+    assert.equal(await page.locator('.recipe-filters [aria-pressed=true]').evaluate(el => getComputedStyle(el).color), await page.locator('.recipe-cuisine[aria-pressed=true]').evaluate(el => getComputedStyle(el).color));
     await search.focus();
     assert.notEqual(await search.locator('..').evaluate(el => getComputedStyle(el).boxShadow), 'none');
   }
@@ -59,7 +108,10 @@ try {
   await search.fill('鸡胸肉');
   assert.equal(await page.locator('#recipe-results button').count(), 1);
   assert.equal(await page.locator('#recipe-current-title').textContent(), '香菇炒鸡胸肉');
+  await page.locator('[data-recipe-cuisine=all]').click();
+  await search.fill('宫保');
+  assert.equal(await page.locator('#recipe-current-title').textContent(), '宫保鸡丁');
   assert.equal(await page.evaluate(() => localStorage.getItem('daily-bites.records.v1')), original);
   assert.deepEqual(errors, []);
-  console.log('PASS cookbook: dish/ingredient search, steps, servings, categories, keyboard, allergens, four languages/themes, mobile and offline use; no diary mutations');
+  console.log('PASS 108 recipes / nine collections, all details, cuisine search and pagination; cookbook: dish/ingredient search, steps, servings, categories, keyboard, allergens, four languages/themes, mobile and offline use; no diary mutations');
 } finally { await browser.close(); }

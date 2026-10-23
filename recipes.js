@@ -1,5 +1,7 @@
+import { CUISINES, REGIONAL_INGREDIENTS, REGIONAL_RECIPES } from './regional-recipes.js';
+export { CUISINES } from './regional-recipes.js';
 // Original home recipes. Ingredient amounts use raw edible weight, except cooked rice.
-export const RECIPE_INGREDIENTS = {
+const HOME_INGREDIENTS = {
   "tomato": {
     "name": "番茄",
     "unit": "g",
@@ -142,7 +144,7 @@ export const RECIPE_INGREDIENTS = {
     ]
   }
 };
-export const RECIPES = [
+const HOME_RECIPES = [
   {
     "id": "tomato-eggs",
     "name": "番茄炒蛋",
@@ -688,11 +690,14 @@ export const RECIPES = [
     "tip": "面汤不必喝完；选低钠面条，主食、蛋白质和蔬菜一起搭配。"
   }
 ];
+export const RECIPE_INGREDIENTS = {...HOME_INGREDIENTS, ...REGIONAL_INGREDIENTS};
+export const RECIPES = [...HOME_RECIPES.map(recipe => ({...recipe, cuisine: 'home'})), ...REGIONAL_RECIPES];
 const normalize = value => String(value).normalize('NFKC').toLocaleLowerCase().trim();
-export function searchRecipes(query = '', category = 'all', localize = value => value) {
+export function searchRecipes(query = '', category = 'all', localize = value => value, cuisine = 'all') {
   const terms = normalize(query).split(/\s+/).filter(Boolean);
-  return RECIPES.filter(recipe => (category === 'all' || recipe.category === category) && (() => {
-    const labels = [recipe.name, ...recipe.aliases, ...recipe.ingredients.map(item => RECIPE_INGREDIENTS[item.key].name)];
+  return RECIPES.filter(recipe => (category === 'all' || recipe.category === category) && (cuisine === 'all' || recipe.cuisine === cuisine) && (() => {
+    const origin = CUISINES.find(item => item.id === recipe.cuisine);
+    const labels = [recipe.name, origin.name, origin.region, ...recipe.aliases, ...recipe.ingredients.map(item => RECIPE_INGREDIENTS[item.key].name)];
     const haystack = normalize(labels.flatMap(label => [label, localize(label)]).join(' '));
     return terms.every(term => haystack.includes(term));
   })());

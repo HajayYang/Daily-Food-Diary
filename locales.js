@@ -5004,5 +5004,2190 @@ export const MESSAGES = {
     "cloves",
     "片",
     "쪽"
+  ],
+  "家常菜": [
+    "Home cooking",
+    "家庭料理",
+    "가정식"
+  ],
+  "日常餐桌": [
+    "Everyday table",
+    "毎日の食卓",
+    "일상의 식탁"
+  ],
+  "保留最初的 12 道家常菜，食材常见，做法易上手。": [
+    "The original 12 everyday recipes, with familiar ingredients and approachable methods.",
+    "最初の家庭料理12品。身近な食材で作りやすい献立です。",
+    "기존 가정식 12가지로, 흔한 재료와 따라 하기 쉬운 조리법을 담았습니다."
+  ],
+  "鲁菜": [
+    "Shandong cuisine",
+    "山東料理",
+    "산둥 요리"
+  ],
+  "山东": [
+    "Shandong",
+    "山東省",
+    "산둥"
+  ],
+  "咸鲜醇厚，善用葱香，讲究制汤、烧焖与爆炒。": [
+    "Savory, rounded flavors with scallion aromas, stocks, braising and quick stir-frying.",
+    "濃厚なうま味とねぎの香り。スープ、煮込み、強火炒めが特徴。",
+    "진한 감칠맛과 파 향이 특징이며 육수, 조림, 센불 볶음을 즐깁니다."
+  ],
+  "川菜": [
+    "Sichuan cuisine",
+    "四川料理",
+    "쓰촨 요리"
+  ],
+  "四川与重庆一带": [
+    "Sichuan and Chongqing",
+    "四川・重慶周辺",
+    "쓰촨·충칭 일대"
+  ],
+  "复合调味丰富，麻辣之外，也有鱼香、蒜泥与鲜香风味。": [
+    "Layered seasonings include peppercorn heat, sweet-sour yuxiang, garlic and savory flavors.",
+    "麻辣だけでなく、魚香、にんにく、うま味など複雑な味つけも豊富。",
+    "마라뿐 아니라 위샹, 마늘 소스, 감칠맛 등 다양한 복합 양념이 특징입니다."
+  ],
+  "粤菜": [
+    "Cantonese cuisine",
+    "広東料理",
+    "광둥 요리"
+  ],
+  "广东": [
+    "Guangdong",
+    "広東省",
+    "광둥"
+  ],
+  "注重食材鲜味，常用清蒸、白灼、煲汤与烧味技法。": [
+    "Emphasizes ingredient freshness through steaming, blanching, soups and roasted meats.",
+    "食材の持ち味を生かす蒸し料理、ゆで料理、スープ、焼き物が特徴。",
+    "재료 본연의 맛을 살리며 찜, 데치기, 탕, 구이 기법을 사용합니다."
+  ],
+  "苏菜": [
+    "Jiangsu cuisine",
+    "江蘇料理",
+    "장쑤 요리"
+  ],
+  "江苏": [
+    "Jiangsu",
+    "江蘇省",
+    "장쑤"
+  ],
+  "口味鲜和，刀工细致，擅长炖焖、清汤与江鲜菜肴。": [
+    "Gentle savory flavors, precise knife work, slow cooking, clear broths and freshwater ingredients.",
+    "穏やかなうま味、丁寧な包丁仕事、煮込み、澄んだスープと川の幸が特徴。",
+    "부드러운 감칠맛, 섬세한 칼질, 푹 끓이기, 맑은 국물과 민물 식재료가 특징입니다."
+  ],
+  "闽菜": [
+    "Fujian cuisine",
+    "福建料理",
+    "푸젠 요리"
+  ],
+  "福建": [
+    "Fujian",
+    "福建省",
+    "푸젠"
+  ],
+  "山海食材相融，重汤提鲜，善用红糟、酸甜与沙茶风味。": [
+    "Coastal and mountain ingredients meet in flavorful broths, red lees, sweet-sour sauces and shacha.",
+    "山海の食材とうま味のあるスープ。紅麹酒粕、甘酢、沙茶の風味も用いる。",
+    "산과 바다의 재료를 쓰며 육수, 홍차오, 새콤달콤한 맛, 사차 소스가 특징입니다."
+  ],
+  "浙菜": [
+    "Zhejiang cuisine",
+    "浙江料理",
+    "저장 요리"
+  ],
+  "浙江": [
+    "Zhejiang",
+    "浙江省",
+    "저장"
+  ],
+  "清鲜细嫩，重视时令，常见茶香、醋香与笋鲜。": [
+    "Fresh, tender and seasonal, often featuring tea, vinegar and bamboo shoots.",
+    "旬を大切にし、茶や酢、たけのこの香りを生かした繊細な料理。",
+    "신선하고 부드러운 제철 재료를 중시하며 차, 식초, 죽순의 풍미를 살립니다."
+  ],
+  "湘菜": [
+    "Hunan cuisine",
+    "湖南料理",
+    "후난 요리"
+  ],
+  "湖南": [
+    "Hunan",
+    "湖南省",
+    "후난"
+  ],
+  "鲜辣酸香，善用剁椒与腊味，炒、蒸、焖各有特色。": [
+    "Fresh chili heat, tangy aromas, chopped chili and cured meats in stir-fries, steamed dishes and braises.",
+    "唐辛子の辛さと酸味、刻み唐辛子や燻製肉を炒め物・蒸し物・煮込みに使う。",
+    "생고추의 매운맛과 산미, 다진 고추와 훈제·염장육을 볶음·찜·조림에 활용합니다."
+  ],
+  "徽菜": [
+    "Anhui cuisine",
+    "安徽料理",
+    "안후이 요리"
+  ],
+  "安徽徽州及周边": [
+    "Huizhou and nearby Anhui",
+    "安徽省徽州と周辺",
+    "안후이 후이저우와 인근"
+  ],
+  "山野食材丰富，擅长烧炖与蒸，重视火功和咸鲜本味。": [
+    "Mountain ingredients, braises, slow cooking and steaming emphasize heat control and savory depth.",
+    "山の食材を使う焼き煮、煮込み、蒸し物。火加減とうま味を重視。",
+    "산지 식재료와 조림·푹 끓이기·찜을 즐기며 불 조절과 깊은 감칠맛을 중시합니다."
+  ],
+  "已泡发可烹饪海参": [
+    "Rehydrated ready-to-cook sea cucumber",
+    "戻し済み加熱用なまこ",
+    "불린 조리용 해삼"
+  ],
+  "去鳞去内脏鲤鱼块": [
+    "Cleaned carp pieces",
+    "下処理済みの鯉の切り身",
+    "손질한 잉어 토막"
+  ],
+  "正规熟食猪大肠": [
+    "Commercially cooked pork intestine",
+    "市販の加熱済み豚大腸",
+    "시판 익힌 돼지 대창"
+  ],
+  "干木耳": [
+    "Dried wood ear",
+    "乾燥きくらげ",
+    "말린 목이버섯"
+  ],
+  "羊腿肉": [
+    "Lamb leg meat",
+    "ラムもも肉",
+    "양 다리살"
+  ],
+  "猪肉末": [
+    "Ground pork",
+    "豚ひき肉",
+    "다진 돼지고기"
+  ],
+  "大白菜": [
+    "Napa cabbage",
+    "白菜",
+    "배추"
+  ],
+  "去刺鲅鱼肉": [
+    "Boneless Spanish mackerel",
+    "骨を除いたサワラ",
+    "가시를 제거한 삼치"
+  ],
+  "韭菜": [
+    "Garlic chives",
+    "にら",
+    "부추"
+  ],
+  "饺子皮": [
+    "Dumpling wrappers",
+    "餃子の皮",
+    "만두피"
+  ],
+  "鲜蒲菜": [
+    "Fresh cattail shoots",
+    "新鮮なガマの若芽",
+    "생 부들순"
+  ],
+  "带骨鸡腿块": [
+    "Bone-in chicken leg pieces",
+    "骨付き鶏もも肉",
+    "뼈 있는 닭다리 토막"
+  ],
+  "去腰臊猪腰": [
+    "Pork kidney with white core removed",
+    "芯を除いた豚の腎臓",
+    "흰 심을 제거한 돼지 콩팥"
+  ],
+  "猪五花肉": [
+    "Pork belly",
+    "豚バラ肉",
+    "삼겹살"
+  ],
+  "干海米": [
+    "Dried shrimp",
+    "干しえび",
+    "건새우"
+  ],
+  "白糖": [
+    "Sugar",
+    "砂糖",
+    "설탕"
+  ],
+  "老抽（核对配料）": [
+    "Dark soy sauce (check label)",
+    "たまり系しょうゆ（原材料確認）",
+    "노두유 (성분 확인)"
+  ],
+  "料酒": [
+    "Cooking rice wine",
+    "料理酒",
+    "요리용 쌀술"
+  ],
+  "八角": [
+    "Star anise",
+    "八角",
+    "팔각"
+  ],
+  "桂皮": [
+    "Cassia bark",
+    "シナモン",
+    "계피"
+  ],
+  "花椒": [
+    "Sichuan peppercorns",
+    "花椒",
+    "화자오"
+  ],
+  "干辣椒": [
+    "Dried chili",
+    "乾燥唐辛子",
+    "건고추"
+  ],
+  "豆瓣酱（核对配料）": [
+    "Chili broad-bean paste (check label)",
+    "豆板醤（原材料確認）",
+    "두반장 (성분 확인)"
+  ],
+  "熟花生米": [
+    "Roasted peanuts",
+    "炒りピーナッツ",
+    "볶은 땅콩"
+  ],
+  "牛里脊": [
+    "Beef tenderloin",
+    "牛ヒレ肉",
+    "소고기 안심"
+  ],
+  "豆芽": [
+    "Bean sprouts",
+    "もやし",
+    "숙주"
+  ],
+  "芹菜": [
+    "Celery",
+    "セロリ",
+    "셀러리"
+  ],
+  "酸菜（核对配料）": [
+    "Pickled mustard greens (check label)",
+    "酸菜（原材料確認）",
+    "절인 갓 (성분 확인)"
+  ],
+  "去刺黑鱼片": [
+    "Boneless snakehead slices",
+    "骨なしライギョの薄切り",
+    "가시 없는 가물치 살"
+  ],
+  "四季豆": [
+    "Green beans",
+    "いんげん",
+    "껍질콩"
+  ],
+  "干粉丝": [
+    "Dried glass noodles",
+    "乾燥春雨",
+    "마른 당면"
+  ],
+  "熟白芝麻": [
+    "Toasted sesame seeds",
+    "炒り白ごま",
+    "볶은 흰깨"
+  ],
+  "辣椒油（核对配料）": [
+    "Chili oil (check label)",
+    "ラー油（原材料確認）",
+    "고추기름 (성분 확인)"
+  ],
+  "猪排骨": [
+    "Pork ribs",
+    "豚スペアリブ",
+    "돼지갈비"
+  ],
+  "豆豉": [
+    "Fermented black soybeans",
+    "豆豉",
+    "발효 검은콩"
+  ],
+  "猪梅花肉": [
+    "Pork collar",
+    "豚肩ロース",
+    "돼지 목살"
+  ],
+  "蜂蜜": [
+    "Honey",
+    "はちみつ",
+    "꿀"
+  ],
+  "蚝油（核对配料）": [
+    "Oyster sauce (check label)",
+    "オイスターソース（原材料確認）",
+    "굴소스 (성분 확인)"
+  ],
+  "去鳞去内脏鲈鱼": [
+    "Cleaned sea bass",
+    "下処理済みスズキ",
+    "손질한 농어"
+  ],
+  "鲜虾": [
+    "Fresh shrimp",
+    "えび",
+    "생새우"
+  ],
+  "清理后的扇贝肉": [
+    "Cleaned scallop meat",
+    "下処理済みホタテ",
+    "손질한 가리비 살"
+  ],
+  "鲜百合": [
+    "Fresh lily bulbs",
+    "生ゆり根",
+    "생 백합뿌리"
+  ],
+  "菠萝": [
+    "Pineapple",
+    "パイナップル",
+    "파인애플"
+  ],
+  "番茄酱（核对配料）": [
+    "Ketchup (check label)",
+    "ケチャップ（原材料確認）",
+    "케첩 (성분 확인)"
+  ],
+  "鲜河粉": [
+    "Fresh flat rice noodles",
+    "生の平打ち米麺",
+    "생 넓적 쌀국수"
+  ],
+  "大米（生重）": [
+    "Uncooked rice",
+    "生米",
+    "쌀 (생것)"
+  ],
+  "广式腊肠": [
+    "Cantonese cured sausage",
+    "広東式干しソーセージ",
+    "광둥식 건조 소시지"
+  ],
+  "娃娃菜": [
+    "Baby napa cabbage",
+    "ミニ白菜",
+    "알배추"
+  ],
+  "正规即食皮蛋": [
+    "Commercial ready-to-eat preserved egg",
+    "市販の即食ピータン",
+    "시판 바로 먹는 피단"
+  ],
+  "嫩豆腐": [
+    "Soft tofu",
+    "絹ごし豆腐",
+    "연두부"
+  ],
+  "去骨带皮鳜鱼肉": [
+    "Boneless skin-on mandarin fish",
+    "皮付き骨なしケツギョ",
+    "껍질 있는 가시 없는 쏘가리 살"
+  ],
+  "正规商家宰杀去骨鳝鱼": [
+    "Vendor-cleaned boneless rice eel",
+    "店で下処理した骨なしタウナギ",
+    "판매점에서 손질한 가시 없는 드렁허리"
+  ],
+  "豆腐干丝": [
+    "Shredded pressed tofu",
+    "干し豆腐の細切り",
+    "채 썬 압착 두부"
+  ],
+  "熟火腿": [
+    "Cooked ham",
+    "加熱済みハム",
+    "익힌 햄"
+  ],
+  "带骨鸭肉块": [
+    "Bone-in duck pieces",
+    "骨付き鴨肉",
+    "뼈 있는 오리고기"
+  ],
+  "碧螺春茶叶": [
+    "Biluochun green tea",
+    "碧螺春茶葉",
+    "벽라춘 찻잎"
+  ],
+  "熟蟹肉": [
+    "Cooked crab meat",
+    "加熱済みカニ身",
+    "익힌 게살"
+  ],
+  "小麦面粉": [
+    "Wheat flour",
+    "小麦粉",
+    "밀가루"
+  ],
+  "猪油": [
+    "Lard",
+    "ラード",
+    "돼지기름"
+  ],
+  "正规商用红糟": [
+    "Commercial red rice wine lees",
+    "市販の紅麹酒粕",
+    "시판 홍차오 술지게미"
+  ],
+  "清洗后的海蛎肉": [
+    "Cleaned oysters",
+    "洗浄済みカキ",
+    "씻은 굴 살"
+  ],
+  "红薯淀粉": [
+    "Sweet potato starch",
+    "さつまいもでんぷん",
+    "고구마전분"
+  ],
+  "商家清理的鲜螺片": [
+    "Vendor-cleaned fresh sea-snail slices",
+    "店で下処理した巻貝の薄切り",
+    "판매점에서 손질한 바다 고둥 살"
+  ],
+  "吐沙洗净海蚌": [
+    "Purged and cleaned clams",
+    "砂抜き済みハマグリ",
+    "해감해 씻은 조개"
+  ],
+  "清理后的青蟹块": [
+    "Cleaned mud crab pieces",
+    "下処理済みノコギリガザミ",
+    "손질한 머드크랩 토막"
+  ],
+  "糯米（生重）": [
+    "Uncooked glutinous rice",
+    "生もち米",
+    "찹쌀 (생것)"
+  ],
+  "去壳板栗": [
+    "Peeled chestnuts",
+    "皮むき栗",
+    "껍질 벗긴 밤"
+  ],
+  "去芯莲子": [
+    "Cored lotus seeds",
+    "芯を除いたハスの実",
+    "심을 제거한 연자육"
+  ],
+  "沙茶酱（核对配料）": [
+    "Shacha sauce (check label)",
+    "沙茶醤（原材料確認）",
+    "사차 소스 (성분 확인)"
+  ],
+  "去皮芋头": [
+    "Peeled taro",
+    "皮をむいた里芋",
+    "껍질 벗긴 토란"
+  ],
+  "即食红豆沙": [
+    "Ready-to-eat red bean paste",
+    "市販のあんこ",
+    "시판 팥앙금"
+  ],
+  "龙井茶叶": [
+    "Longjing green tea",
+    "龍井茶葉",
+    "룽징 찻잎"
+  ],
+  "干豆腐皮": [
+    "Dried tofu skin",
+    "乾燥ゆば",
+    "마른 두부피"
+  ],
+  "鲜竹笋": [
+    "Fresh bamboo shoots",
+    "生たけのこ",
+    "생 죽순"
+  ],
+  "去鳞去内脏黄鱼": [
+    "Cleaned yellow croaker",
+    "下処理済みイシモチ",
+    "손질한 부세"
+  ],
+  "雪菜": [
+    "Preserved mustard greens",
+    "雪菜の漬物",
+    "절인 갓줄기"
+  ],
+  "糯米粉": [
+    "Glutinous rice flour",
+    "もち米粉",
+    "찹쌀가루"
+  ],
+  "熟黑芝麻粉": [
+    "Toasted black sesame powder",
+    "炒り黒ごま粉",
+    "볶은 검은깨 가루"
+  ],
+  "正规熟制糟卤（核对配料）": [
+    "Commercial cooked lees brine (check label)",
+    "市販の加熱済み糟滷（原材料確認）",
+    "시판 가열 술지게미 양념물 (성분 확인)"
+  ],
+  "梅干菜": [
+    "Dried preserved mustard greens",
+    "梅干菜",
+    "말린 절임 갓"
+  ],
+  "剁椒（核对配料）": [
+    "Chopped pickled chili (check label)",
+    "刻み唐辛子漬け（原材料確認）",
+    "다진 절임 고추 (성분 확인)"
+  ],
+  "清理后的胖头鱼头": [
+    "Cleaned bighead carp head",
+    "下処理済みコクレンの頭",
+    "손질한 대두어 머리"
+  ],
+  "香干": [
+    "Smoked pressed tofu",
+    "燻製押し豆腐",
+    "훈제 압착 두부"
+  ],
+  "正规腊肉": [
+    "Commercial cured pork",
+    "市販の干し豚肉",
+    "시판 염장 건조 돼지고기"
+  ],
+  "正规腊鱼": [
+    "Commercial cured fish",
+    "市販の干し魚",
+    "시판 염장 건조 생선"
+  ],
+  "包菜": [
+    "Round cabbage",
+    "キャベツ",
+    "양배추"
+  ],
+  "菜花": [
+    "Cauliflower",
+    "カリフラワー",
+    "콜리플라워"
+  ],
+  "正规鲜活小龙虾": [
+    "Live crayfish from a trusted seller",
+    "信頼できる店の活ザリガニ",
+    "믿을 수 있는 판매처의 살아 있는 가재"
+  ],
+  "啤酒": [
+    "Beer",
+    "ビール",
+    "맥주"
+  ],
+  "外婆菜（核对配料）": [
+    "Hunan preserved vegetables (check label)",
+    "湖南の刻み漬物（原材料確認）",
+    "후난식 다진 절임 채소 (성분 확인)"
+  ],
+  "正规冷藏预腌臭鳜鱼": [
+    "Commercial chilled fermented mandarin fish",
+    "市販の冷蔵発酵ケツギョ",
+    "시판 냉장 발효 쏘가리"
+  ],
+  "正规冷藏毛豆腐": [
+    "Commercial chilled hairy tofu",
+    "市販の冷蔵毛豆腐",
+    "시판 냉장 발효 두부"
+  ],
+  "商家宰杀清理乳鸽": [
+    "Vendor-cleaned young pigeon",
+    "店で下処理した若鳩",
+    "판매점에서 손질한 어린 비둘기"
+  ],
+  "熟去壳鹌鹑蛋": [
+    "Cooked peeled quail eggs",
+    "ゆでて殻をむいたうずら卵",
+    "삶아 껍질 벗긴 메추리알"
+  ],
+  "清理后的鱿鱼": [
+    "Cleaned squid",
+    "下処理済みイカ",
+    "손질한 오징어"
+  ],
+  "土豆淀粉": [
+    "Potato starch",
+    "じゃがいもでんぷん",
+    "감자전분"
+  ],
+  "干石耳": [
+    "Dried rock ear mushroom",
+    "乾燥イワタケ",
+    "말린 석이버섯"
+  ],
+  "豆腐干": [
+    "Pressed dried tofu",
+    "干し豆腐",
+    "건두부"
+  ],
+  "称量所列食材，蔬菜洗净切配；生肉、鱼和即食食材使用不同刀板。": [
+    "Measure the listed ingredients and wash and cut vegetables. Keep raw meat and fish separate from ready-to-eat foods.",
+    "材料を量り、野菜を洗って切る。生肉・魚とそのまま食べる食材のまな板は分ける。",
+    "재료를 계량하고 채소를 씻어 썬다. 생고기·생선과 바로 먹는 재료는 도마를 따로 쓴다."
+  ],
+  "中火热油，加入葱段和姜片炒香，避免焦黑。": [
+    "Heat oil over medium heat and fry scallion and ginger until fragrant without burning.",
+    "中火で油を熱し、ねぎとしょうがを焦がさず炒める。",
+    "중불에 기름을 달궈 파와 생강을 타지 않게 볶는다."
+  ],
+  "中小火热油，加入蒜末炒出香味。": [
+    "Heat oil over medium-low heat and briefly fry minced garlic until fragrant.",
+    "中弱火で油を熱し、刻んだにんにくを香りが立つまで炒める。",
+    "중약불로 기름을 달구고 다진 마늘을 향이 나게 볶는다."
+  ],
+  "将配方中的酱油、醋和糖拌成调味汁，按所列用量使用。": [
+    "Mix the listed soy sauce, vinegar and sugar into a sauce using the recipe amounts.",
+    "記載のしょうゆ、酢、砂糖を分量どおり混ぜてたれを作る。",
+    "표시된 분량의 간장·식초·설탕을 섞어 양념장을 만든다."
+  ],
+  "淀粉用配方内的少量冷水调匀；沿锅边淋入，边搅边煮至略稠。": [
+    "Mix starch with a little of the measured cold water, pour around the pan and stir until lightly thickened.",
+    "でんぷんを分量内の冷水で溶き、鍋肌から加えて混ぜ、軽くとろみをつける。",
+    "분량 내 찬물에 전분을 풀고 팬 가장자리에 부어 저으며 살짝 걸쭉하게 한다."
+  ],
+  "选已充分泡发、可烹饪的海参，按包装要求处理；葱切长段。": [
+    "Use fully rehydrated, ready-to-cook sea cucumber and follow its package preparation instructions; cut scallions into lengths.",
+    "戻し済みの加熱用なまこを選び、表示どおり下処理する。ねぎは長く切る。",
+    "충분히 불린 조리용 해삼을 골라 포장 지시에 따라 준비하고 파는 길게 썬다."
+  ],
+  "葱段用油煎至金黄，加入海参、生抽、老抽、糖和水，小火烧约 10 分钟至热透入味。": [
+    "Brown scallion in oil, add sea cucumber, light and dark soy sauce, sugar and water; simmer for about 10 minutes until hot throughout.",
+    "ねぎを油できつね色に焼き、なまこ、しょうゆ2種、砂糖、水を加え、弱火で約10分煮て中まで温める。",
+    "파를 기름에 노릇하게 굽고 해삼, 간장 두 종류, 설탕, 물을 넣어 약불에서 약 10분 충분히 익힌다."
+  ],
+  "鱼肉擦干，厚处划浅刀，裹匀淀粉；注意检查小鱼刺。": [
+    "Pat fish dry, score thicker parts and coat with starch; check carefully for small bones.",
+    "魚の水気を拭き、厚い部分に浅く切れ目を入れてでんぷんをまぶす。小骨を確認する。",
+    "생선 물기를 닦고 두꺼운 곳에 얕게 칼집을 내 전분을 묻힌다. 잔가시를 확인한다."
+  ],
+  "锅中放油分批煎炸鱼块，翻面使两侧金黄；中心达到 63°C、鱼肉易分片后沥油。": [
+    "Shallow-fry fish in batches until golden on both sides; drain once the center reaches 63°C and flakes easily.",
+    "魚を数回に分けて揚げ焼きし、両面をきつね色にする。中心63°C以上で身がほぐれたら油を切る。",
+    "생선을 나눠 넣어 양면이 노릇해지도록 지지듯 튀긴다. 중심 63°C 이상으로 살이 쉽게 갈라지면 기름을 뺀다."
+  ],
+  "锅中煮开番茄酱、米醋、糖和水，淋入淀粉水收浓，再拌入熟肉或鱼块。": [
+    "Boil ketchup, rice vinegar, sugar and water, thicken with starch slurry and coat the cooked meat or fish.",
+    "ケチャップ、米酢、砂糖、水を煮立て、水溶きでんぷんでとろみをつけ、加熱済みの肉や魚を絡める。",
+    "케첩·쌀식초·설탕·물을 끓이고 전분물로 농도를 낸 뒤 익힌 고기나 생선을 버무린다."
+  ],
+  "购买正规熟制大肠，按标签储存，切段；不要直接套用本方处理生肠。": [
+    "Buy commercially cooked intestine, store as labeled and cut into pieces; this recipe is not a raw-intestine preparation method.",
+    "市販の加熱済み大腸を表示どおり保存して切る。生の腸の下処理にはこの手順を使わない。",
+    "시판 익힌 대창을 표시대로 보관해 자른다. 이 방법을 생 대창 손질에 그대로 적용하지 않는다."
+  ],
+  "炒香葱姜，加入熟大肠、酱油、糖、醋、桂皮和水，小火烧 20 分钟；收汁时加入花椒调香。": [
+    "Fry scallion and ginger; add cooked intestine, soy sauce, sugar, vinegar, cassia and water. Simmer 20 minutes, reduce and add peppercorns.",
+    "ねぎとしょうがを炒め、熟大腸、しょうゆ、砂糖、酢、桂皮、水を加えて20分煮る。煮詰めて花椒を加える。",
+    "파와 생강을 볶고 익힌 대창, 간장, 설탕, 식초, 계피, 물을 넣어 20분 조린 뒤 화자오를 더한다."
+  ],
+  "干木耳用冷水短时泡发至展开，洗净去蒂；不隔夜泡发，泡好及时烹饪。": [
+    "Soak dried wood ear briefly in cold water until expanded, wash and trim. Do not soak overnight; cook promptly.",
+    "乾燥きくらげは冷水で戻るまで短時間浸し、洗って根元を取る。一晩漬けず、戻したらすぐ調理する。",
+    "말린 목이버섯은 찬물에 펼쳐질 때까지 짧게 불려 씻고 밑동을 뗀다. 밤새 불리지 말고 바로 조리한다."
+  ],
+  "瘦猪肉切丝或薄片，用生抽和淀粉抓匀，静置约 10 分钟。": [
+    "Cut lean pork into strips or thin slices; mix with light soy sauce and starch and rest for 10 minutes.",
+    "豚赤身肉を細切りか薄切りにし、しょうゆとでんぷんを混ぜ約10分置く。",
+    "돼지고기 살코기를 채 썰거나 얇게 썰어 간장과 전분에 버무려 약 10분 둔다."
+  ],
+  "先把蛋液炒至凝固盛出，再炒熟肉片；加入木耳、黄瓜和熟蛋翻炒约 3 分钟，加盐调味。": [
+    "Scramble eggs until set and remove; cook pork through. Add wood ear, cucumber and eggs, stir-fry for about 3 minutes and season with salt.",
+    "卵を固まるまで炒めて取り出し、豚肉を中まで炒める。きくらげ、きゅうり、卵を加えて約3分炒め、塩で調える。",
+    "달걀을 완전히 익혀 덜어 둔 뒤 고기를 속까지 볶는다. 목이버섯·오이·달걀을 넣고 약 3분 볶아 소금으로 간한다."
+  ],
+  "羊肉逆纹切薄片，拌生抽和淀粉；葱斜切段，葱白与葱绿分开。": [
+    "Slice lamb thinly across the grain, mix with soy sauce and starch; cut scallions diagonally, separating white and green parts.",
+    "羊肉を繊維に逆らって薄く切り、しょうゆとでんぷんを混ぜる。ねぎは斜め切りにし、白と緑を分ける。",
+    "양고기를 결 반대로 얇게 썰어 간장과 전분을 섞는다. 파는 어슷하게 썰어 흰 부분과 초록 부분을 나눈다."
+  ],
+  "中大火热油炒散羊肉，加入葱白炒至肉片熟透，再加葱绿和米醋，翻匀立即出锅。": [
+    "Stir-fry lamb in hot oil over medium-high heat, add scallion whites and cook through; add greens and vinegar, toss and serve.",
+    "中強火で羊肉をほぐし炒め、ねぎの白い部分を加えて肉に火を通す。青い部分と酢を加えて手早く混ぜる。",
+    "중강불의 기름에 양고기를 풀어 볶고 파 흰 부분을 넣어 고기를 완전히 익힌다. 초록 부분과 식초를 넣어 섞는다."
+  ],
+  "肉末拌鸡蛋、淀粉、盐和姜末，沿同一方向搅至发黏，分成 4 个丸子。": [
+    "Mix ground pork with egg, starch, salt and minced ginger until sticky; shape into four meatballs.",
+    "ひき肉に卵、でんぷん、塩、刻んだしょうがを混ぜ、粘りが出たら4個の団子にする。",
+    "다진 고기에 달걀·전분·소금·다진 생강을 넣어 끈기가 생길 때까지 섞고 완자 4개로 빚는다."
+  ],
+  "丸子用油煎至表面定型，加入生抽、糖和水，小火煮 25–30 分钟，肉馅中心至少 71°C。": [
+    "Pan-fry meatballs until set outside; add soy sauce, sugar and water, then simmer 25–30 minutes to at least 71°C at the center.",
+    "団子の表面を焼き固め、しょうゆ、砂糖、水を加えて25～30分煮る。中心を71°C以上にする。",
+    "완자 겉면을 기름에 구워 굳힌 뒤 간장·설탕·물을 넣어 25~30분 끓여 중심을 71°C 이상으로 익힌다."
+  ],
+  "加入白菜继续煮约 5 分钟至菜梗熟透，盛出时按口味少量调盐。": [
+    "Add napa cabbage and cook for about 5 more minutes until stems are tender; adjust salt sparingly.",
+    "白菜を加え、茎に火が通るまでさらに約5分煮て、必要なら少量の塩で調える。",
+    "배추를 넣고 줄기까지 익도록 약 5분 더 끓인 뒤 필요하면 소금으로 약하게 간한다."
+  ],
+  "鲅鱼肉仔细去刺剁细，分次搅入配方内的冷水，再拌韭菜、姜末、盐和油。": [
+    "Carefully debone and mince mackerel, mix in measured cold water gradually, then add chives, ginger, salt and oil.",
+    "サワラの骨を丁寧に除いて刻み、分量の冷水を少しずつ混ぜ、にら、しょうが、塩、油を加える。",
+    "삼치의 가시를 꼼꼼히 제거해 다지고 분량의 찬물을 나눠 섞은 뒤 부추·생강·소금·기름을 넣는다."
+  ],
+  "饺子皮逐张放馅，边缘蘸水捏紧；不要包得过满。": [
+    "Fill wrappers one at a time, moisten edges and seal firmly without overfilling.",
+    "皮にあんをのせ、縁を水で湿らせてしっかり閉じる。詰めすぎない。",
+    "만두피에 소를 넣고 가장자리에 물을 묻혀 꼭 붙인다. 너무 많이 채우지 않는다."
+  ],
+  "水沸下饺子，轻推防粘；再沸后保持微沸约 6–8 分钟，切开一个确认鱼馅完全熟透，中心至少 63°C。": [
+    "Add dumplings to boiling water and stir gently. Once boiling again, simmer 6–8 minutes; open one to check the fish filling is fully cooked to at least 63°C.",
+    "沸騰した湯に入れ、優しく動かす。再沸騰後6～8分ゆで、1個割って魚のあんが中心63°C以上で完全に火が通ったか確認する。",
+    "끓는 물에 만두를 넣어 살살 젓는다. 다시 끓으면 6~8분 더 익혀 하나를 갈라 생선 소가 중심 63°C 이상으로 완전히 익었는지 확인한다."
+  ],
+  "蒲菜去老皮切段，焯水约 1 分钟后沥干；牛奶最后加入。": [
+    "Trim and cut cattail shoots, blanch for about 1 minute and drain; reserve milk for the end.",
+    "ガマの若芽の硬い部分を除いて切り、約1分ゆでて水を切る。牛乳は仕上げに使う。",
+    "부들순의 질긴 부분을 벗겨 썰고 약 1분 데쳐 물기를 뺀다. 우유는 마지막에 쓴다."
+  ],
+  "葱姜炒香后加水煮开，放蒲菜煮约 5 分钟，再加牛奶和盐，小火加热至热透，不久煮。": [
+    "Fry scallion and ginger, add water and bring to a boil. Cook shoots for 5 minutes, then add milk and salt and heat gently through.",
+    "ねぎとしょうがを炒めて水を沸かし、若芽を約5分煮る。牛乳と塩を加え、弱火で温め、煮すぎない。",
+    "파와 생강을 볶아 물을 넣고 끓인다. 부들순을 약 5분 익힌 뒤 우유와 소금을 넣고 약불로 충분히 데운다."
+  ],
+  "鸡腿切适口块，擦干水分，不冲洗生鸡肉；接触生肉后清洗手和器具。": [
+    "Cut chicken legs into serving pieces and pat dry; do not rinse raw chicken. Wash hands and utensils after handling.",
+    "鶏もも肉を食べやすく切って水気を拭く。生肉は洗わず、触れた手と器具を洗う。",
+    "닭다리를 먹기 좋게 잘라 물기를 닦는다. 생닭을 씻지 말고 만진 손과 도구를 씻는다."
+  ],
+  "鸡块煎至表面变色，加香菇、生抽和水，盖锅小火焖 25–30 分钟，鸡肉中心至少 74°C。": [
+    "Brown chicken, add shiitake, light soy sauce and water; cover and simmer 25–30 minutes until chicken reaches at least 74°C.",
+    "鶏肉を焼き、しいたけ、しょうゆ、水を加えてふたをし、25～30分煮て中心74°C以上にする。",
+    "닭 겉면을 굽고 표고버섯·간장·물을 넣어 덮은 뒤 약불로 25~30분 익혀 중심을 74°C 이상으로 만든다."
+  ],
+  "揭盖转中火，轻推收汁至酱汁能挂在食材表面，避免烧干。": [
+    "Uncover and reduce over medium heat, stirring gently, until sauce coats the food without drying out.",
+    "ふたを取り中火で優しく混ぜ、焦がさないよう具にたれが絡むまで煮詰める。",
+    "뚜껑을 열고 중불에서 살살 저어 소스가 재료에 묻을 정도로 졸이되 태우지 않는다."
+  ],
+  "猪腰剖开，彻底剔除白色筋膜和腰臊，切交叉浅花刀后切块；姜、青椒切片。": [
+    "Split kidney, thoroughly remove white core and membranes, score shallow crosshatches and cut into pieces; slice ginger and pepper.",
+    "腎臓を開いて白い芯と膜を丁寧に除き、浅く格子状に切れ目を入れて切る。しょうがとピーマンを切る。",
+    "콩팥을 갈라 흰 심과 막을 완전히 제거하고 얕게 격자 칼집을 넣어 자른다. 생강과 피망을 썬다."
+  ],
+  "腰花入沸水焯至卷起，沥干；另锅炒姜、青椒，再加腰花和生抽炒熟，腰花中心至少 71°C。": [
+    "Blanch kidney until it curls and drain. Stir-fry ginger and pepper, then add kidney and soy sauce; cook kidney to at least 71°C.",
+    "沸騰した湯で反るまでゆでて水を切る。しょうがとピーマンを炒め、腎臓としょうゆを加え、中心71°C以上にする。",
+    "콩팥을 끓는 물에 말릴 때까지 데쳐 물기를 뺀다. 생강·피망을 볶다가 콩팥과 간장을 넣어 중심 71°C 이상으로 익힌다."
+  ],
+  "五花肉切厚片或方块，冷水入锅焯至表面变色，捞出沥水。": [
+    "Cut pork belly into thick slices or cubes, start in cold water and blanch until the surface changes color, then drain.",
+    "豚バラを厚切りか角切りにし、水からゆでて表面の色が変わったら水を切る。",
+    "삼겹살을 두툼하게 썰거나 깍둑썰기해 찬물부터 끓여 표면 색이 변하면 건진다."
+  ],
+  "锅中放肉、葱姜、生抽、老抽、糖、八角和水，煮开后小火焖 60–90 分钟至肉软烂。": [
+    "Combine pork, scallion, ginger, light and dark soy sauce, sugar, star anise and water; simmer 60–90 minutes until tender.",
+    "豚肉、ねぎ、しょうが、しょうゆ2種、砂糖、八角、水を沸かし、弱火で60～90分柔らかく煮る。",
+    "고기·파·생강·간장 두 종류·설탕·팔각·물을 끓이고 약불에서 60~90분 부드러워질 때까지 익힌다."
+  ],
+  "干海米用清水快速冲洗，再泡约 10 分钟，泡水不用来补盐。": [
+    "Rinse dried shrimp and soak for about 10 minutes; do not use soaking liquid to add saltiness.",
+    "干しえびをさっと洗い、約10分戻す。戻し汁を塩味の追加に使わない。",
+    "건새우를 헹궈 약 10분 불린다. 불린 물로 짠맛을 더하지 않는다."
+  ],
+  "炒香姜丝和海米，放白菜梗略炒，加水焖约 5 分钟；再放菜叶煮软，加盐调味。": [
+    "Fry ginger and dried shrimp, add cabbage stems and water and simmer 5 minutes; add leaves, cook until tender and season with salt.",
+    "しょうがと干しえびを炒め、白菜の茎と水を加え約5分煮る。葉を加えて柔らかくし、塩で調える。",
+    "생강채와 건새우를 볶고 배추 줄기와 물을 넣어 약 5분 익힌다. 잎을 넣고 부드럽게 익혀 소금으로 간한다."
+  ],
+  "鸡胸肉切丁，拌生抽和淀粉，腌约 10 分钟；花生使用已熟制的。": [
+    "Dice chicken breast, marinate with soy sauce and starch for 10 minutes; use already roasted peanuts.",
+    "鶏むね肉を角切りにし、しょうゆとでんぷんで約10分漬ける。ピーナッツは炒ったものを使う。",
+    "닭가슴살을 깍둑썰기해 간장과 전분에 약 10분 재운다. 땅콩은 볶은 것을 쓴다."
+  ],
+  "中小火热油，炒香干辣椒、花椒、姜和蒜；辣椒不要炒黑。": [
+    "Heat oil over medium-low heat; fry dried chili, peppercorns, ginger and garlic without blackening the chili.",
+    "中弱火で油を熱し、唐辛子、花椒、しょうが、にんにくを焦がさず炒める。",
+    "중약불로 기름에 건고추·화자오·생강·마늘을 타지 않게 볶는다."
+  ],
+  "加入鸡丁炒熟，淋入预调酱油醋糖汁炒匀；鸡肉中心至少 74°C，最后放熟花生和葱段。": [
+    "Cook chicken through, add the soy-vinegar-sugar sauce and toss. Check chicken reaches 74°C; finish with roasted peanuts and scallion.",
+    "鶏肉を中まで炒めてしょうゆ・酢・砂糖のたれを絡める。中心74°C以上を確認し、炒りピーナッツとねぎを加える。",
+    "닭고기를 익혀 간장·식초·설탕 양념을 넣는다. 중심 74°C 이상을 확인하고 볶은 땅콩과 파를 넣는다."
+  ],
+  "豆腐切方块，在微沸水中煮 2 分钟后沥干，减少翻炒时碎裂。": [
+    "Cube tofu and simmer in gently boiling water for 2 minutes, then drain to reduce breakage.",
+    "豆腐を角切りにし、静かに沸く湯で2分ゆでて水を切り、崩れにくくする。",
+    "두부를 깍둑썰기해 약하게 끓는 물에서 2분 데쳐 물기를 빼면 덜 부서진다."
+  ],
+  "炒熟牛肉末，放豆瓣酱、蒜末炒香，加水和豆腐，小火煮 5 分钟至热透，撒花椒。": [
+    "Cook ground beef through, fry bean paste and garlic, then add water and tofu. Simmer 5 minutes until hot and add peppercorns.",
+    "牛ひき肉を完全に炒め、豆板醤とにんにくを炒めて水と豆腐を加える。弱火で5分温め、花椒を振る。",
+    "다진 소고기를 완전히 익히고 두반장과 마늘을 볶아 물과 두부를 넣는다. 약불로 5분 익히고 화자오를 뿌린다."
+  ],
+  "炒熟肉丝盛出；炒豆瓣酱和姜蒜，加入木耳、胡萝卜、青椒炒至熟，再倒回肉丝和糖醋汁。": [
+    "Cook pork strips through and remove; fry bean paste, ginger and garlic, cook wood ear, carrot and pepper, then return pork and sweet-sour sauce.",
+    "豚肉を中まで炒めて取り出す。豆板醤としょうが、にんにくを炒め、きくらげ、にんじん、ピーマンに火を通し、肉と甘酢だれを戻す。",
+    "고기채를 완전히 볶아 덜어 둔다. 두반장·생강·마늘을 볶고 목이버섯·당근·피망을 익힌 뒤 고기와 새콤달콤한 소스를 넣는다."
+  ],
+  "五花肉加姜放水中煮约 25–35 分钟至中心至少 63°C，静置 3 分钟后稍凉切薄片。": [
+    "Simmer belly with ginger for 25–35 minutes to at least 63°C at the center; rest 3 minutes, cool slightly and slice thinly.",
+    "豚バラをしょうが入りの湯で25～35分、中心63°C以上までゆでる。3分置いて少し冷まし薄切りにする。",
+    "삼겹살을 생강을 넣은 물에 25~35분 끓여 중심 63°C 이상으로 익힌다. 3분 두었다가 약간 식혀 얇게 썬다."
+  ],
+  "肉片入锅煸出少量油，炒入豆瓣酱、豆豉、生抽和青椒，炒至青椒熟软。": [
+    "Render a little fat from pork slices, add bean paste, fermented beans, soy sauce and green pepper and fry until peppers are cooked.",
+    "豚肉を炒めて少し脂を出し、豆板醤、豆豉、しょうゆ、ピーマンを加えて火を通す。",
+    "고기를 볶아 기름을 조금 낸 뒤 두반장·발효 검은콩·간장·피망을 넣고 피망까지 익힌다."
+  ],
+  "牛肉逆纹切薄片，拌生抽、淀粉和少量配方内的水，腌约 10 分钟。": [
+    "Slice beef thinly across the grain; marinate with soy sauce, starch and a little measured water for 10 minutes.",
+    "牛肉を繊維に逆らって薄切りにし、しょうゆ、でんぷん、分量内の少量の水で約10分漬ける。",
+    "소고기를 결 반대로 얇게 썰어 간장·전분·분량 내 물 조금에 약 10분 재운다."
+  ],
+  "豆芽和白菜先煮熟铺碗底；炒香豆瓣酱、姜蒜，加水煮开，再滑入牛肉煮至全熟。": [
+    "Cook sprouts and cabbage and place in a bowl. Fry bean paste, ginger and garlic, add water, bring to a boil and cook beef slices through.",
+    "もやしと白菜をゆでて器に敷く。豆板醤、しょうが、にんにくを炒めて水を沸かし、牛肉を完全に煮る。",
+    "숙주와 배추를 익혀 그릇에 깐다. 두반장·생강·마늘을 볶아 물을 끓이고 소고기를 넣어 완전히 익힌다."
+  ],
+  "撒干辣椒和花椒，淋少量烧热的配方内食用油激香；按耐辣程度减少辣椒，不额外加油。": [
+    "Add dried chili and peppercorns and drizzle a little hot oil from the listed amount; reduce chili to taste without adding extra oil.",
+    "唐辛子と花椒をのせ、分量内の少量の熱した油をかける。辛さは唐辛子を減らして調整し、油は追加しない。",
+    "건고추와 화자오를 올리고 분량 내 기름 조금을 달궈 끼얹는다. 고추로 맵기를 조절하고 기름을 추가하지 않는다."
+  ],
+  "鸡块先用中火煎至各面金黄，加少量水盖锅焖熟，中心至少 74°C；揭盖收干，再与辣椒香料炒匀。": [
+    "Brown chicken pieces on all sides, add a little water and cover until the center reaches 74°C; reduce dry and toss with the chili aromatics.",
+    "鶏肉の各面を焼き、少量の水を加えてふたをし、中心74°C以上まで加熱する。水気を飛ばし、唐辛子の香味と炒め合わせる。",
+    "닭을 사방으로 노릇하게 굽고 물 조금을 넣어 덮은 뒤 중심 74°C 이상으로 익힌다. 수분을 날리고 고추 향신료와 볶는다."
+  ],
+  "整块瘦肉加姜和水微沸煮约 25–35 分钟，中心至少 63°C，离火静置 3 分钟后切薄片。": [
+    "Gently poach the whole lean pork piece with ginger for 25–35 minutes to 63°C; rest 3 minutes off heat and slice thinly.",
+    "豚赤身肉の塊をしょうが入りの湯で25～35分、中心63°C以上まで静かにゆで、火から外し3分置いて薄切りにする。",
+    "통살을 생강을 넣은 물에서 25~35분 약하게 끓여 중심 63°C 이상 익힌 뒤 불에서 내려 3분 두고 얇게 썬다."
+  ],
+  "蒜捣泥，拌生抽、米醋、糖和辣椒油；肉片配黄瓜装盘，淋上酱汁。": [
+    "Crush garlic and mix with soy sauce, vinegar, sugar and chili oil; arrange cooked pork with cucumber and drizzle over sauce.",
+    "にんにくをつぶし、しょうゆ、酢、砂糖、ラー油を混ぜる。加熱した豚肉ときゅうりにかける。",
+    "마늘을 찧어 간장·식초·설탕·고추기름과 섞고 익힌 고기와 오이에 뿌린다."
+  ],
+  "酸菜切段冲洗后沥干；鱼片检查残刺，用淀粉轻拌。": [
+    "Rinse and drain chopped pickled greens; check fish slices for bones and lightly coat with starch.",
+    "酸菜を切って洗い水を切る。魚の小骨を確認し、でんぷんを薄くまぶす。",
+    "절인 갓을 썰어 헹구고 물기를 뺀다. 생선 잔가시를 확인해 전분을 가볍게 묻힌다."
+  ],
+  "姜蒜炒香，加入酸菜炒 2 分钟，加水煮 10 分钟；鱼片分散下锅，煮至中心 63°C 且易分片。": [
+    "Fry ginger and garlic, add pickled greens for 2 minutes and water for 10 minutes; add fish slices separately and cook to 63°C until flaky.",
+    "しょうがとにんにくを炒め、酸菜を2分炒めて水を加え10分煮る。魚を重ならないよう入れ、中心63°Cで身がほぐれるまで煮る。",
+    "생강과 마늘을 볶고 절인 갓을 2분 볶아 물을 넣고 10분 끓인다. 생선 살을 나눠 넣어 중심 63°C로 쉽게 갈라질 때까지 익힌다."
+  ],
+  "四季豆去筋切段，沸水煮约 10–15 分钟至完全熟透，再沥干；不能只看颜色判断。": [
+    "Trim and cut green beans; boil for 10–15 minutes until fully cooked, then drain. Color alone is not a doneness test.",
+    "いんげんの筋を取り切り、沸騰した湯で10～15分、完全に火を通して水を切る。色だけで判断しない。",
+    "껍질콩의 질긴 줄기를 제거해 자르고 끓는 물에서 10~15분 충분히 익혀 물기를 뺀다. 색깔만으로 판단하지 않는다."
+  ],
+  "先将肉末炒至全熟，再加干辣椒、蒜和熟四季豆，中火炒干表面水分，用生抽调味。": [
+    "Cook ground pork through, add dried chili, garlic and cooked beans, stir-fry off excess moisture and season with soy sauce.",
+    "ひき肉を完全に炒め、唐辛子、にんにく、加熱済みいんげんを加えて水気を飛ばし、しょうゆで調える。",
+    "다진 고기를 완전히 볶고 건고추·마늘·익힌 껍질콩을 넣어 수분을 날린 뒤 간장으로 간한다."
+  ],
+  "干粉丝按包装用温水泡软剪短，沥干；不要长时间常温浸泡。": [
+    "Soften glass noodles in warm water according to the package, cut and drain; avoid prolonged room-temperature soaking.",
+    "春雨を表示どおりぬるま湯で戻し、短く切って水を切る。室温で長時間浸さない。",
+    "당면을 포장 지시대로 미지근한 물에 불려 짧게 자르고 물기를 뺀다. 실온에 오래 담가 두지 않는다."
+  ],
+  "炒熟肉末，加入豆瓣酱、蒜和生抽炒香；加水与粉丝，小火煮约 3–5 分钟至熟软吸汁。": [
+    "Cook ground pork through, fry bean paste, garlic and soy sauce, then add water and noodles; simmer 3–5 minutes until tender and saucy.",
+    "ひき肉を炒め、豆板醤、にんにく、しょうゆを炒めて水と春雨を加える。弱火で3～5分煮て味を含ませる。",
+    "다진 고기를 익히고 두반장·마늘·간장을 볶아 물과 당면을 넣는다. 약불로 3~5분 익혀 국물이 배게 한다."
+  ],
+  "鸡腿加姜葱和水微沸煮约 25–35 分钟，最厚处中心至少 74°C；关火焖 5 分钟。": [
+    "Gently poach chicken legs with ginger and scallion for 25–35 minutes to at least 74°C in the thickest part; rest covered off heat 5 minutes.",
+    "鶏もも肉をしょうが、ねぎ入りの湯で25～35分静かにゆで、最も厚い部分を74°C以上にし、火を止め5分蒸らす。",
+    "닭다리를 생강·파와 함께 25~35분 약하게 끓여 가장 두꺼운 곳을 74°C 이상 익히고 불을 끈 채 덮어 5분 둔다."
+  ],
+  "熟鸡肉稍凉斩块；用生抽、米醋、辣椒油、蒜末调汁，淋在鸡肉上，撒熟芝麻和熟花生。": [
+    "Cool cooked chicken briefly and cut; mix soy sauce, vinegar, chili oil and garlic, pour over chicken and add toasted sesame and peanuts.",
+    "加熱した鶏肉を少し冷まして切る。しょうゆ、酢、ラー油、にんにくを混ぜてかけ、炒りごまとピーナッツを振る。",
+    "익힌 닭을 약간 식혀 자른다. 간장·식초·고추기름·다진 마늘을 섞어 뿌리고 볶은 깨와 땅콩을 올린다."
+  ],
+  "牛肉切细丝，中火用油煸炒至全熟并收干水分；加姜丝、干辣椒和芹菜继续炒 2–3 分钟，以生抽调味。": [
+    "Shred beef; stir-fry in oil over medium heat until fully cooked and moisture reduces. Add ginger, dried chili and celery for 2–3 minutes; season with soy sauce.",
+    "牛肉を細切りにし、中火で完全に火を通して水分を飛ばす。しょうが、唐辛子、セロリを加え2～3分炒め、しょうゆで調える。",
+    "소고기를 가늘게 썰어 중불의 기름에 완전히 익히고 수분을 날린다. 생강채·건고추·셀러리를 넣어 2~3분 더 볶아 간장으로 간한다."
+  ],
+  "姜和葱切细，加入配方内食用油与盐，拌成姜葱蘸料；熟鸡切块后蘸食。": [
+    "Finely chop ginger and scallion and mix with the listed oil and salt; cut cooked chicken and serve with the dip.",
+    "しょうがとねぎを細かく刻み、分量の油と塩を混ぜてたれにする。加熱した鶏肉を切って添える。",
+    "생강과 파를 잘게 썰어 분량의 기름·소금과 섞는다. 익힌 닭을 잘라 곁들여 찍어 먹는다."
+  ],
+  "排骨切小块沥干，拌豆豉、蒜末、生抽、淀粉和油，腌 15 分钟。": [
+    "Drain small rib pieces and marinate with fermented black beans, garlic, soy sauce, starch and oil for 15 minutes.",
+    "小さく切った排骨の水気を切り、豆豉、にんにく、しょうゆ、でんぷん、油で15分漬ける。",
+    "잘게 자른 갈비의 물기를 빼고 발효 검은콩·다진 마늘·간장·전분·기름에 15분 재운다."
+  ],
+  "排骨平铺浅盘，水沸后入蒸锅，蒸 25–35 分钟至软熟；最厚肉处至少 63°C，再静置 3 分钟。": [
+    "Spread ribs in a shallow dish and steam over boiling water 25–35 minutes until tender; thickest meat must reach 63°C, then rest 3 minutes.",
+    "浅皿に並べ、沸騰した蒸し器で25～35分蒸す。厚い肉が63°C以上になったら3分置く。",
+    "갈비를 얕은 접시에 펼쳐 끓는 찜기에 25~35분 찐다. 두꺼운 고기가 63°C 이상이면 3분 두었다가 먹는다."
+  ],
+  "猪梅花肉切成约 3 厘米厚长条，拌蜂蜜、生抽、蚝油和糖，盖好冷藏腌至少 2 小时。": [
+    "Cut pork collar into strips about 3 cm thick; mix with honey, soy sauce, oyster sauce and sugar, cover and refrigerate at least 2 hours.",
+    "肩ロースを厚さ約3cmの棒状に切り、はちみつ、しょうゆ、オイスターソース、砂糖を絡め、覆って冷蔵で2時間以上漬ける。",
+    "목살을 약 3cm 두께의 긴 조각으로 썰어 꿀·간장·굴소스·설탕에 버무려 덮고 냉장고에서 2시간 이상 재운다."
+  ],
+  "烤箱预热 200°C，肉放烤架并垫接汁盘，烤约 25–35 分钟，中途翻面；中心至少 63°C 后静置 3 分钟。": [
+    "Preheat oven to 200°C. Roast pork on a rack over a drip tray for 25–35 minutes, turning once; reach 63°C and rest 3 minutes.",
+    "オーブンを200°Cに予熱し、受け皿を敷いた網で25～35分、途中返して焼く。中心63°C以上で3分休ませる。",
+    "오븐을 200°C로 예열해 받침 팬 위 석쇠에서 25~35분 굽고 중간에 뒤집는다. 중심 63°C 이상 익힌 뒤 3분 둔다."
+  ],
+  "接触生肉的腌汁直接弃去，不作蘸汁；熟肉用干净刀板切片。": [
+    "Discard marinade that touched raw meat; do not use it as a dip. Slice cooked meat with clean tools.",
+    "生肉に触れた漬け汁は捨て、つけだれにしない。清潔な器具で肉を切る。",
+    "생고기에 닿은 양념은 버리고 찍어 먹는 소스로 쓰지 않는다. 익힌 고기는 깨끗한 도구로 썬다."
+  ],
+  "鱼擦干铺姜丝和葱，水沸后大火蒸约 10–15 分钟；按厚度延长，鱼最厚处至少 63°C。": [
+    "Pat fish dry, top with ginger and scallion and steam over boiling water for 10–15 minutes, longer if thick; thickest part must reach 63°C.",
+    "魚の水気を拭いてしょうがとねぎをのせ、沸騰した蒸し器で10～15分、厚さに応じ延長し、厚い部分を63°C以上にする。",
+    "생선 물기를 닦고 생강과 파를 올려 끓는 찜기에 약 10~15분 찐다. 두께에 맞춰 늘려 가장 두꺼운 곳을 63°C 이상 익힌다."
+  ],
+  "小心倒去部分蒸汁，淋生抽和配方内食用油；食用时注意鱼刺。": [
+    "Carefully drain some steaming liquid and add soy sauce and the listed oil; watch for bones when eating.",
+    "蒸し汁を少し捨て、しょうゆと分量の油をかける。骨に注意して食べる。",
+    "찜 국물을 조심히 일부 버리고 간장과 분량의 기름을 뿌린다. 먹을 때 가시를 살핀다."
+  ],
+  "鲜虾剪须去虾线，沥干；接触生虾后清洁刀板和双手。": [
+    "Trim shrimp, remove the digestive vein and drain; clean hands and boards after handling raw shrimp.",
+    "えびのひげと背わたを取り、水を切る。生えびに触れた手とまな板を洗う。",
+    "새우 수염과 내장을 제거하고 물기를 뺀다. 생새우를 만진 손과 도마를 씻는다."
+  ],
+  "水加姜葱煮开，放虾煮约 3–5 分钟；确认最厚处至少 63°C、肉质不透明，再捞出。": [
+    "Boil water with ginger and scallion, add shrimp for 3–5 minutes and drain when the thickest part reaches 63°C and is opaque.",
+    "しょうがとねぎ入りの湯を沸かし、えびを3～5分、厚い部分63°C以上で身が不透明になるまでゆでる。",
+    "생강·파를 넣은 물을 끓여 새우를 약 3~5분 익힌다. 가장 두꺼운 곳이 63°C 이상이고 속살이 불투명하면 건진다."
+  ],
+  "扇贝只用已清理的可食部，铺在泡软的粉丝上，拌入蒜末、生抽和油。": [
+    "Use cleaned edible scallop meat, arrange over softened glass noodles and add garlic, soy sauce and oil.",
+    "下処理したホタテの可食部を戻した春雨にのせ、にんにく、しょうゆ、油を加える。",
+    "손질한 가리비 가식부만 불린 당면 위에 놓고 다진 마늘·간장·기름을 넣는다."
+  ],
+  "水沸上锅蒸约 8–10 分钟，按厚度调整，贝肉中心至少 63°C 且完全不透明。": [
+    "Steam over boiling water for 8–10 minutes, adjusting for thickness, until scallop centers reach 63°C and are opaque.",
+    "沸騰した蒸し器で8～10分、厚さに応じ調整し、身の中心63°C以上で完全に不透明になるまで蒸す。",
+    "끓는 찜기에서 약 8~10분 찌고 두께에 따라 조절해 살 중심이 63°C 이상으로 완전히 불투명하게 익힌다."
+  ],
+  "芹菜切片，鲜百合拆瓣洗净；分别沸水焯约 1 分钟后沥干。": [
+    "Slice celery, separate and wash fresh lily petals; blanch each in boiling water for about 1 minute and drain.",
+    "セロリを切り、ゆり根をはがして洗う。それぞれ沸騰した湯で約1分ゆでて水を切る。",
+    "셀러리를 썰고 생 백합뿌리를 떼어 씻는다. 각각 끓는 물에 약 1분 데쳐 물기를 뺀다."
+  ],
+  "蒜末炒香，加入芹菜与百合翻炒约 2–3 分钟至熟，以盐调味。": [
+    "Fry garlic briefly, add celery and lily bulbs and stir-fry 2–3 minutes until cooked; season with salt.",
+    "にんにくを炒め、セロリとゆり根を2～3分、火が通るまで炒めて塩で調える。",
+    "마늘을 볶고 셀러리와 백합뿌리를 넣어 2~3분 익힌 뒤 소금으로 간한다."
+  ],
+  "瘦肉切小块，拌生抽和鸡蛋，裹匀淀粉；菠萝和青椒切块。": [
+    "Cube pork, mix with soy sauce and egg and coat with starch; chop pineapple and green pepper.",
+    "豚肉を一口大に切り、しょうゆと卵を混ぜてでんぷんをまぶす。パイナップルとピーマンを切る。",
+    "고기를 작게 썰어 간장·달걀과 섞고 전분을 묻힌다. 파인애플과 피망을 썬다."
+  ],
+  "中火分批将肉块煎炸至金黄熟透，中心至少 63°C，静置 3 分钟后沥油。": [
+    "Shallow-fry pork in batches over medium heat until golden and at least 63°C inside; rest 3 minutes and drain.",
+    "中火で豚肉を数回に分けて揚げ焼きし、中心63°C以上で中まで火を通す。3分置いて油を切る。",
+    "중불에서 고기를 나눠 넣어 노릇하게 지지듯 튀겨 중심을 63°C 이상 익힌다. 3분 두고 기름을 뺀다."
+  ],
+  "将菠萝、青椒和糖醋番茄汁煮约 2 分钟，再拌入熟肉块，趁热上桌。": [
+    "Simmer pineapple and pepper in the sweet-sour tomato sauce for about 2 minutes, then toss in cooked pork and serve hot.",
+    "パイナップルとピーマンを甘酢トマトだれで約2分煮て、加熱した豚肉を絡め熱いうちに盛る。",
+    "파인애플과 피망을 새콤달콤한 토마토 소스에 약 2분 익히고 익힌 고기를 버무려 따뜻하게 낸다."
+  ],
+  "先炒熟牛肉盛出；豆芽、葱段炒熟后加入鲜河粉和生抽，用宽铲轻翻至河粉全部热透，再拌回牛肉。": [
+    "Cook beef through and remove. Cook sprouts and scallion, add fresh rice noodles and soy sauce and toss gently until steaming hot; return beef.",
+    "牛肉を完全に炒めて取り出す。もやしとねぎを炒め、生米麺としょうゆを加え、全体を十分熱して牛肉を戻す。",
+    "소고기를 완전히 볶아 덜어 둔다. 숙주와 파를 익히고 생 쌀국수·간장을 넣어 부서지지 않게 뒤집어 충분히 가열한 뒤 고기를 넣는다."
+  ],
+  "生米洗净泡约 30 分钟后沥干；按米与锅具说明准备所列水量。": [
+    "Wash raw rice, soak about 30 minutes and drain; use the listed water amount, adjusting to the rice and cookware instructions.",
+    "米を洗って約30分浸し、水を切る。米と鍋の説明に合わせて記載の水量を調整する。",
+    "쌀을 씻어 약 30분 불리고 물기를 뺀다. 쌀과 조리 도구 설명에 따라 표시된 물 양을 조절한다."
+  ],
+  "厚底锅刷油，米和水煮开后转小火，米面出现孔洞时铺薄切腊肠，加盖小火煮约 15 分钟。": [
+    "Oil a heavy pot, bring rice and water to a boil, then lower heat. When holes appear, add thin sausage slices, cover and cook gently about 15 minutes.",
+    "厚手の鍋に油を塗り米と水を沸かして弱火にする。表面に穴が出たら薄切り腸詰をのせ、ふたをして約15分炊く。",
+    "두꺼운 냄비에 기름을 바르고 쌀과 물을 끓여 약불로 줄인다. 표면에 구멍이 생기면 얇게 썬 소시지를 올려 덮고 약 15분 익힌다."
+  ],
+  "确认米芯熟透、腊肠全熟；如仍夹生，少量加水继续煮。关火焖 10 分钟，配煮熟青菜和少量生抽。": [
+    "Check rice has no raw center and sausage is fully cooked; add a little water and cook longer if needed. Rest covered 10 minutes; serve with cooked greens and a little soy sauce.",
+    "米の芯がなく腸詰に完全に火が通ったか確認し、必要なら少量の水を足して炊く。火を止め10分蒸らし、ゆでた青菜と少量のしょうゆを添える。",
+    "쌀 속과 소시지가 완전히 익었는지 확인하고 설익었으면 물을 조금 넣어 더 익힌다. 불을 끄고 10분 뜸 들여 익힌 채소와 간장 조금을 곁들인다."
+  ],
+  "鸡块、姜、香菇和水煮开，撇沫后小火炖约 60 分钟，鸡肉最厚处至少 74°C，末尾加盐。": [
+    "Bring chicken, ginger, shiitake and water to a boil, skim and simmer about 60 minutes to at least 74°C in the chicken; add salt at the end.",
+    "鶏肉、しょうが、しいたけ、水を沸かし、あくを取って約60分煮る。鶏肉の厚い部分を74°C以上にし、最後に塩を加える。",
+    "닭·생강·표고버섯·물을 끓여 거품을 걷고 약불로 약 60분 익힌다. 닭의 두꺼운 곳이 74°C 이상인지 확인해 마지막에 소금으로 간한다."
+  ],
+  "娃娃菜纵切，蒜用油炒香，加水和切块皮蛋煮开；下娃娃菜煮约 5–8 分钟至熟软。": [
+    "Quarter baby cabbage lengthwise. Fry garlic in oil, boil water with chopped preserved egg, then cook cabbage for 5–8 minutes until tender.",
+    "ミニ白菜を縦に切る。にんにくを油で炒め、水と切ったピータンを沸かし、白菜を5～8分柔らかく煮る。",
+    "알배추를 세로로 자른다. 마늘을 기름에 볶고 물과 자른 피단을 넣어 끓인 뒤 배추를 약 5~8분 부드럽게 익힌다."
+  ],
+  "尝味后按需加入配方内的盐，煮匀后出锅。": [
+    "Taste and add only as much of the listed salt as needed; heat through and serve.",
+    "味を見て分量内の必要な塩だけ加え、温めて盛る。",
+    "맛을 보고 표시된 소금 중 필요한 만큼만 넣어 골고루 익힌 뒤 낸다."
+  ],
+  "肉末拌姜末、淀粉和盐，搅至发黏，做成 4 个丸子；放入微沸水中，小火煮约 30 分钟至中心 71°C。": [
+    "Mix pork mince, ginger, starch and salt until sticky, shape four balls and gently simmer in water about 30 minutes to 71°C in the center.",
+    "ひき肉、しょうが、でんぷん、塩を粘るまで混ぜ4個に丸める。静かに沸く湯で約30分、中心71°Cまで煮る。",
+    "다진 고기·생강·전분·소금을 끈기 있게 섞어 완자 4개로 빚는다. 약하게 끓는 물에 약 30분 넣어 중심 71°C로 익힌다."
+  ],
+  "鳜鱼肉去残刺，鱼肉面切交叉浅花刀而不断皮，裹淀粉后轻抖去浮粉。": [
+    "Check mandarin fish for bones, score shallow crosshatches without cutting through the skin, coat with starch and shake off excess.",
+    "ケツギョの小骨を確認し、皮を切らず身に浅い格子状の切れ目を入れ、でんぷんをまぶして余分を落とす。",
+    "쏘가리 잔가시를 확인하고 껍질은 남겨 살에 얕은 격자 칼집을 낸다. 전분을 묻혀 여분을 턴다."
+  ],
+  "选商家已宰杀去骨的鲜鳝鱼，切段；沸水焯约 1 分钟后沥干，不处理来源不明的野生鳝鱼。": [
+    "Use fresh vendor-cleaned boneless eel, cut up, blanch about 1 minute and drain; avoid wild eel of unknown origin.",
+    "店で下処理した新鮮な骨なしタウナギを切り、約1分ゆで水を切る。出所不明の野生品は使わない。",
+    "판매점에서 손질한 신선한 가시 없는 드렁허리를 잘라 약 1분 데친다. 출처가 불분명한 야생 제품은 쓰지 않는다."
+  ],
+  "姜蒜用油炒香，加入鳝鱼、生抽、米醋和水，煮约 5–8 分钟至中心至少 63°C，再撒葱。": [
+    "Fry ginger and garlic, add eel, soy sauce, vinegar and water; simmer 5–8 minutes until centers reach 63°C, then add scallion.",
+    "しょうがとにんにくを炒め、タウナギ、しょうゆ、米酢、水を加えて5～8分、中心63°C以上まで煮てねぎを振る。",
+    "생강과 마늘을 볶고 드렁허리·간장·식초·물을 넣어 약 5~8분 끓여 중심 63°C 이상 익힌 뒤 파를 올린다."
+  ],
+  "豆腐干丝用沸水浇烫两次，沥干；熟火腿、姜切细丝。": [
+    "Scald shredded pressed tofu twice with boiling water and drain; finely shred cooked ham and ginger.",
+    "干し豆腐の細切りに熱湯を2回かけて水を切る。加熱済みハムとしょうがを細切りにする。",
+    "채 썬 압착 두부에 끓는 물을 두 번 부어 데치고 물기를 뺀다. 익힌 햄과 생강을 가늘게 썬다."
+  ],
+  "水煮开，加入干丝、熟火腿、虾仁和姜丝，小火煮约 5–8 分钟，虾仁至少 63°C，最后调盐。": [
+    "Boil water, add tofu strips, cooked ham, shrimp and ginger and simmer 5–8 minutes; shrimp must reach 63°C; season lightly with salt.",
+    "水を沸かし、豆腐の細切り、加熱済みハム、えび、しょうがを5～8分煮る。えびを63°C以上にし、塩で調える。",
+    "물을 끓여 두부채·익힌 햄·새우·생강을 넣어 약 5~8분 익힌다. 새우는 63°C 이상으로 익히고 소금으로 간한다."
+  ],
+  "胡萝卜切丁，豌豆焯熟，虾去壳去虾线；使用新煮米饭或及时冷藏且保存得当的熟饭。": [
+    "Dice carrot, cook peas and peel and devein shrimp. Use fresh rice or promptly refrigerated, properly stored cooked rice.",
+    "にんじんを刻み、豆をゆで、えびの殻と背わたを取る。炊きたてか、速やかに冷蔵した適切に保存されたご飯を使う。",
+    "당근을 잘게 썰고 완두콩을 익히며 새우 껍질과 내장을 뗀다. 갓 지은 밥이나 신속히 냉장해 적절히 보관한 밥을 쓴다."
+  ],
+  "蛋液炒至凝固，虾仁炒至中心 63°C，再加米饭、熟火腿、胡萝卜和熟豌豆，翻炒至全部冒热气，盐调味。": [
+    "Scramble eggs until set and cook shrimp to 63°C; add rice, cooked ham, carrot and cooked peas and fry until steaming throughout; season with salt.",
+    "卵を固め、えびを中心63°Cまで炒める。ご飯、加熱済みハム、にんじん、豆を加え全体が熱々になるまで炒め、塩で調える。",
+    "달걀을 완전히 익히고 새우는 중심 63°C로 익힌다. 밥·익힌 햄·당근·완두콩을 넣어 전체에서 김이 날 때까지 볶고 소금으로 간한다."
+  ],
+  "鸭肉用盐、花椒和姜抹匀，盖好冷藏腌约 2 小时；不放室温久腌。": [
+    "Rub duck with salt, peppercorns and ginger; cover and refrigerate about 2 hours, never marinating for long at room temperature.",
+    "鴨肉に塩、花椒、しょうがをなじませ、覆って冷蔵で約2時間漬ける。室温で長時間漬けない。",
+    "오리고기에 소금·화자오·생강을 문질러 덮고 냉장고에서 약 2시간 재운다. 실온에 오래 재우지 않는다."
+  ],
+  "鸭块、姜葱和水煮开后转微沸，煮约 40–50 分钟至最厚处至少 74°C，关火焖 10 分钟。": [
+    "Bring duck, ginger, scallion and water to a boil, simmer gently 40–50 minutes to at least 74°C in the thickest part, then rest covered 10 minutes.",
+    "鴨肉、しょうが、ねぎ、水を沸かし、40～50分静かに煮て厚い部分を74°C以上にする。火を止め10分蒸らす。",
+    "오리·생강·파·물을 끓여 약하게 40~50분 익히고 가장 두꺼운 곳이 74°C 이상이면 불을 끄고 덮어 10분 둔다."
+  ],
+  "排骨冷水焯后沥干，和姜、八角、生抽、老抽、糖、水煮开，小火炖 45–60 分钟至熟软。": [
+    "Blanch ribs starting in cold water, drain and simmer with ginger, star anise, light and dark soy sauce, sugar and water for 45–60 minutes until tender.",
+    "排骨を水から下ゆでして水を切り、しょうが、八角、しょうゆ2種、砂糖、水で45～60分柔らかく煮る。",
+    "갈비를 찬물부터 데쳐 물기를 빼고 생강·팔각·간장 두 종류·설탕·물과 함께 약불로 45~60분 부드럽게 익힌다."
+  ],
+  "茶叶用配方内少量热水泡约 2 分钟，滤出茶汤，保留少量干净嫩叶。": [
+    "Steep tea leaves in a little measured hot water for 2 minutes, strain and reserve a few clean tender leaves.",
+    "茶葉を分量内の少量の湯で約2分抽出し、茶湯をこす。清潔な柔らかい葉を少し残す。",
+    "분량 내 뜨거운 물 조금에 찻잎을 약 2분 우려 거르고 깨끗한 연한 잎을 조금 남긴다."
+  ],
+  "虾仁去虾线擦干，拌淀粉；中火热油炒熟虾仁，中心至少 63°C，淋茶汤、加盐，轻翻后撒嫩茶叶。": [
+    "Devein and dry shrimp, coat with starch, stir-fry to at least 63°C; add tea, salt and tender tea leaves and toss gently.",
+    "えびの背わたを取り水気を拭き、でんぷんをまぶして中火で中心63°C以上まで炒める。茶湯と塩、柔らかい茶葉を加え軽く混ぜる。",
+    "새우 내장을 빼 물기를 닦아 전분을 묻힌다. 중불에서 중심 63°C 이상으로 익히고 찻물·소금·연한 찻잎을 넣어 살살 섞는다."
+  ],
+  "嫩豆腐先切薄片再切极细丝，用冷水轻轻漂散；刀工不熟可改细条，不勉强追求细度。": [
+    "Cut soft tofu into thin slices then fine threads and gently separate in cold water; use thicker strips if needed rather than risk a knife injury.",
+    "絹ごし豆腐を薄切り後、細い糸状に切り冷水で優しくほぐす。慣れない場合は少し太い細切りでよい。",
+    "연두부를 얇게 썬 뒤 가늘게 채 썰어 찬물에 살살 푼다. 칼질이 어렵다면 무리하지 말고 조금 굵게 썬다."
+  ],
+  "水与切细的熟火腿煮开，轻推入豆腐丝，微沸煮 2–3 分钟至热透，加盐调味。": [
+    "Boil water with finely shredded cooked ham, gently add tofu threads and simmer 2–3 minutes until hot, then season with salt.",
+    "水と細切りの加熱済みハムを沸かし、豆腐の糸を優しく加えて2～3分温め、塩で調える。",
+    "물과 잘게 썬 익힌 햄을 끓이고 두부채를 살살 넣어 약하게 2~3분 충분히 데운 뒤 소금으로 간한다."
+  ],
+  "姜末用油炒香，放熟蟹肉略炒，加水与嫩豆腐小火煮约 5 分钟，轻推避免豆腐碎裂。": [
+    "Fry minced ginger in oil, add cooked crab briefly, then water and soft tofu; simmer about 5 minutes, stirring gently to avoid breaking tofu.",
+    "しょうがを油で炒め、加熱済みカニ身をさっと炒め、水と絹ごし豆腐を加え約5分、崩さず優しく煮る。",
+    "다진 생강을 기름에 볶고 익힌 게살을 살짝 볶은 뒤 물과 연두부를 넣어 약불로 5분 부서지지 않게 익힌다."
+  ],
+  "生抽、老抽、糖、八角、姜与水煮开后小火煮 5 分钟，制成酱汁；鱼块另按步骤煎熟。": [
+    "Boil light and dark soy sauce, sugar, star anise, ginger and water, simmer 5 minutes for the sauce; cook fish separately as directed.",
+    "しょうゆ2種、砂糖、八角、しょうが、水を沸かして5分煮、たれを作る。魚は別に手順どおり加熱する。",
+    "간장 두 종류·설탕·팔각·생강·물을 끓여 5분 졸여 소스를 만든다. 생선은 별도 순서대로 익힌다."
+  ],
+  "熟鱼块趁热放入已煮开的酱汁中，翻面浸约 5 分钟后盛出；这是家庭酱浸版，不做烟熏。": [
+    "Place hot cooked fish in the boiled sauce, turn and soak about 5 minutes before serving; this home version is sauce-soaked, not smoke-cured.",
+    "熱い加熱済みの魚を沸かしたたれに入れ、返しながら約5分浸す。家庭用のたれ漬けで、煙で燻す工程はない。",
+    "익힌 뜨거운 생선을 끓인 소스에 넣어 뒤집으며 약 5분 담근다. 이 가정식은 소스에 적시는 방식이다."
+  ],
+  "面粉留三分之一与猪油拌成油酥；其余面粉用温水揉成面团，盖好醒 20 分钟。": [
+    "Mix one third of the flour with lard for a short paste; knead remaining flour with warm water into dough and rest covered 20 minutes.",
+    "小麦粉の3分の1をラードと混ぜて油酥にする。残りをぬるま湯でこね、覆って20分休ませる。",
+    "밀가루 3분의 1을 돼지기름과 섞어 유지 반죽을 만든다. 나머지는 미지근한 물로 반죽해 덮고 20분 둔다."
+  ],
+  "面团分成小份包油酥，擀长卷起再压扁；包熟火腿丁和葱花，收口朝下压成饼，表面蘸熟芝麻。": [
+    "Divide dough, enclose short paste, roll out, roll up and flatten; fill with cooked ham and scallion, seal downward and press into cakes, adding toasted sesame.",
+    "生地で油酥を包み、伸ばして巻き、つぶす。加熱済みハムとねぎを包み、閉じ目を下にしてごまをつける。",
+    "반죽을 나눠 유지 반죽을 싸고 길게 밀어 말아 누른다. 익힌 햄과 파를 싸서 봉합면을 아래로 눌러 깨를 묻힌다."
+  ],
+  "烤箱预热 190°C，烤约 20–25 分钟至两面金黄、饼心无湿生面；按厚度延长。": [
+    "Bake in a preheated 190°C oven for 20–25 minutes until golden with no wet raw dough in the center; allow longer for thick cakes.",
+    "190°Cに予熱したオーブンで20～25分、両面がきつね色で中心に生の生地がないまで焼く。厚さに応じ延長する。",
+    "190°C로 예열한 오븐에서 20~25분 양면이 노릇하고 속에 젖은 생반죽이 없도록 굽는다. 두꺼우면 늘린다."
+  ],
+  "瘦肉切厚片，在一面划交叉浅刀再切小块，拌生抽和淀粉；土豆切小块。": [
+    "Cut pork into thick slices, score shallow crosshatches on one side and cut smaller; coat with soy sauce and starch, then dice potato.",
+    "豚肉を厚切りにして片面に浅い格子状の切れ目を入れ、小さく切ってしょうゆとでんぷんをまぶす。じゃがいもを切る。",
+    "고기를 두껍게 썰어 한쪽에 얕은 격자 칼집을 넣고 작게 잘라 간장과 전분을 묻힌다. 감자도 작게 썬다."
+  ],
+  "土豆块先煮约 8–12 分钟至无硬芯，沥干后与熟肉块拌入糖醋汁。": [
+    "Boil potato pieces for 8–12 minutes until no hard center remains, drain and coat with cooked pork in sweet-sour sauce.",
+    "じゃがいもを8～12分、硬い芯がなくなるまでゆで、水を切り、加熱済みの豚肉と甘酢だれを絡める。",
+    "감자를 8~12분 단단한 속이 없어질 때까지 삶아 물기를 빼고 익힌 고기와 함께 새콤달콤한 소스에 버무린다."
+  ],
+  "去刺鱼肉剁细，分次加入配方内的冰水与盐，朝同一方向搅至黏稠，再拌入红薯淀粉。": [
+    "Finely mince boneless fish, gradually mix in measured ice-cold water and salt until sticky, then add sweet potato starch.",
+    "骨を除いた魚を細かくたたき、分量内の氷水と塩を少しずつ混ぜて粘らせ、さつまいもでんぷんを加える。",
+    "가시 없는 생선 살을 다져 분량 내 얼음물과 소금을 조금씩 넣으며 끈기가 생길 때까지 섞고 고구마전분을 넣는다."
+  ],
+  "猪肉末拌姜末和生抽为馅；湿手取鱼茸压扁，包少量肉馅后封成小丸子。": [
+    "Mix ground pork with ginger and soy sauce; flatten fish paste with wet hands, wrap a small portion of pork and seal into balls.",
+    "豚ひき肉にしょうがとしょうゆを混ぜる。ぬらした手で魚のすり身を広げ、少量の肉あんを包んで丸める。",
+    "다진 돼지고기에 생강과 간장을 섞는다. 젖은 손으로 생선 반죽을 펴 고기 소를 조금 싸서 둥글게 붙인다."
+  ],
+  "丸子放入温水后逐渐加热至微沸，煮约 12–15 分钟；切开一颗检查鱼茸和肉馅全熟，中心至少 71°C。": [
+    "Start balls in warm water and heat gradually to a simmer for 12–15 minutes; cut one open to check fish and pork are cooked, center at least 71°C.",
+    "団子をぬるま湯に入れ徐々に沸かし、12～15分静かに煮る。1個割り、魚も肉も中心71°C以上で完全に火が通ったか確認する。",
+    "완자를 미지근한 물에 넣고 천천히 끓여 약한 끓음에서 12~15분 익힌다. 하나를 갈라 생선과 고기 소가 중심 71°C 이상 완전히 익었는지 확인한다."
+  ],
+  "海蛎去残壳洗净沥干；红薯淀粉加水、盐和切细韭菜调成可流动糊。": [
+    "Remove shell fragments from oysters, wash and drain; mix sweet potato starch, water, salt and chopped chives into a pourable batter.",
+    "カキの殻片を除き洗って水を切る。さつまいもでんぷん、水、塩、刻んだにらを流れる生地にする。",
+    "굴의 남은 껍질을 제거해 씻어 물기를 뺀다. 고구마전분·물·소금·잘게 썬 부추를 흘러내리는 반죽으로 섞는다."
+  ],
+  "平底锅热油，倒入淀粉糊和海蛎，中火煎至定型；淋蛋液翻面，煎至蛋液凝固且海蛎中心至少 63°C。": [
+    "Heat oil in a skillet, add batter and oysters and cook until set; add beaten egg, flip and cook until egg is set and oysters reach 63°C.",
+    "油を熱したフライパンに生地とカキを入れて固め、溶き卵を加えて返す。卵を固め、カキの中心を63°C以上にする。",
+    "팬에 기름을 달궈 반죽과 굴을 넣고 굳힌다. 달걀물을 붓고 뒤집어 달걀이 굳고 굴 중심이 63°C 이상이 되도록 익힌다."
+  ],
+  "鸡块拌红糟、生抽和姜，盖好冷藏腌 30 分钟；所用红糟须为正规食用产品。": [
+    "Marinate chicken with commercial food-grade red lees, soy sauce and ginger, covered in the fridge for 30 minutes.",
+    "鶏肉を市販の食用紅麹酒粕、しょうゆ、しょうがで覆って冷蔵30分漬ける。",
+    "정식 식용 홍차오·간장·생강에 닭을 버무려 덮고 냉장고에서 30분 재운다."
+  ],
+  "鸡块用油略煎，加水与腌料煮开，小火焖约 30 分钟至鸡肉中心至少 74°C，再收汁。": [
+    "Lightly brown chicken in oil, add water and marinade and bring to a boil; simmer about 30 minutes to 74°C at center, then reduce.",
+    "鶏肉を油で軽く焼き、水と漬け汁を沸かす。弱火で約30分、中心74°C以上まで煮て煮詰める。",
+    "닭을 기름에 살짝 굽고 물과 양념을 넣어 끓인다. 약불로 약 30분 중심 74°C 이상 익힌 뒤 졸인다."
+  ],
+  "排骨用水煮约 25–35 分钟至熟，中心至少 63°C，静置 3 分钟；沥干后用油略煎上色。": [
+    "Simmer ribs in water 25–35 minutes to at least 63°C, rest 3 minutes, drain and lightly pan-fry for color.",
+    "排骨を25～35分、中心63°C以上までゆでて3分置く。水を切り、油で軽く焼き色をつける。",
+    "갈비를 물에서 25~35분 중심 63°C 이상 익혀 3분 두고 물기를 뺀 뒤 기름에 살짝 구워 색을 낸다."
+  ],
+  "蒜末、生抽、米醋和糖煮开成汁，加入熟排骨，翻拌约 2 分钟至均匀挂汁。": [
+    "Bring garlic, soy sauce, vinegar and sugar to a boil for the sauce; toss cooked ribs in it for about 2 minutes until coated.",
+    "にんにく、しょうゆ、米酢、砂糖を煮立て、加熱済み排骨を約2分絡める。",
+    "다진 마늘·간장·식초·설탕을 끓여 소스를 만들고 익힌 갈비를 넣어 약 2분 골고루 버무린다."
+  ],
+  "只使用商家已清理的可食螺肉，切薄片；沸水煮约 8–10 分钟至全熟，中心至少 63°C。": [
+    "Use only vendor-cleaned edible sea-snail meat, slice thinly and boil 8–10 minutes until fully cooked to at least 63°C.",
+    "店で下処理した巻貝の可食部だけを薄切りにし、沸騰した湯で8～10分、中心63°C以上まで完全に加熱する。",
+    "판매점에서 손질한 먹는 부위의 고둥 살만 얇게 썰어 끓는 물에서 8~10분 중심 63°C 이상 완전히 익힌다."
+  ],
+  "姜蒜用油炒香，放红糟、生抽和少量水煮开；加入熟螺片翻炒约 2 分钟至全部热透。": [
+    "Fry ginger and garlic, boil red lees, soy sauce and a little water, then add cooked sea-snail slices and heat through for about 2 minutes.",
+    "しょうがとにんにくを油で炒め、紅麹酒粕、しょうゆ、少量の水を沸かす。加熱済みの貝を約2分温める。",
+    "생강과 마늘을 기름에 볶아 홍차오·간장·물 조금을 넣고 끓인다. 익힌 고둥 살을 넣고 약 2분 충분히 데운다."
+  ],
+  "鸡块和姜加水小火炖约 40 分钟至鸡肉中心至少 74°C；此汤作为家常汤底，不使用生鸡汁。": [
+    "Simmer chicken and ginger in water about 40 minutes until chicken reaches 74°C; use this cooked broth, never raw chicken juices.",
+    "鶏肉としょうがを水で約40分、中心74°C以上まで煮て家庭用のだしにする。生の鶏汁は使わない。",
+    "닭과 생강을 물에 약 40분 끓여 닭 중심을 74°C 이상 익힌 육수를 쓴다. 생닭 육즙은 쓰지 않는다."
+  ],
+  "海蚌洗净，破壳或敲击不闭合的弃去；放入滚汤，开壳后再煮约 3–5 分钟，未开的弃去。": [
+    "Clean clams, discard cracked shells or those not closing when tapped; add to boiling broth, cook 3–5 minutes after opening and discard unopened ones.",
+    "貝を洗い、殻割れやたたいても閉じないものを除く。沸騰した汁で開いてから3～5分加熱し、開かないものは捨てる。",
+    "조개를 씻고 껍데기가 깨졌거나 두드려도 닫히지 않는 것은 버린다. 끓는 국물에서 입을 연 뒤 3~5분 더 익히고 안 열린 것은 버린다."
+  ],
+  "糯米、莲子分别按包装要求提前浸泡至吸水，沥干；香菇和板栗切小块。": [
+    "Soak glutinous rice and lotus seeds separately as their packages direct and drain; chop shiitake and chestnuts.",
+    "もち米とハスの実は表示どおり別々に吸水させ、水を切る。しいたけと栗を小さく切る。",
+    "찹쌀과 연자육은 각각 포장 지시대로 미리 불려 물기를 뺀다. 표고버섯과 밤은 작게 썬다."
+  ],
+  "糯米拌香菇、板栗、莲子、海米、生抽和水，放浅碗蒸约 30 分钟；再铺青蟹蒸约 15–20 分钟至蟹肉 63°C。": [
+    "Mix rice, shiitake, chestnuts, lotus seeds, dried shrimp, soy sauce and water in a shallow bowl; steam 30 minutes, add crab and steam 15–20 more to 63°C.",
+    "もち米、しいたけ、栗、ハスの実、干しえび、しょうゆ、水を浅い器で30分蒸す。カニをのせ15～20分、身を63°Cまで蒸す。",
+    "찹쌀·표고·밤·연자육·건새우·간장·물을 얕은 그릇에서 약 30분 찐다. 게를 올려 15~20분 더 쪄 살을 63°C로 익힌다."
+  ],
+  "检查米饭无硬芯、莲子板栗熟软；如夹生，少量加水继续蒸，焖 5 分钟后食用。": [
+    "Check rice has no hard center and seeds and chestnuts are soft; add a little water and steam longer if needed, then rest covered 5 minutes.",
+    "米に硬い芯がなくハスの実と栗が柔らかいか確認し、必要なら少量の水を加え追加で蒸す。5分蒸らす。",
+    "쌀에 단단한 속이 없고 연자육과 밤이 부드러운지 확인한다. 필요하면 물 조금을 넣어 더 찌고 5분 뜸 들인다."
+  ],
+  "鸭块焯水沥干；姜切厚片，用油中小火煸至边缘金黄，再放鸭肉炒干表面水分。": [
+    "Blanch and drain duck; gently brown thick ginger slices in oil, then add duck and fry off surface moisture.",
+    "鴨肉を下ゆでして水を切る。厚切りしょうがを油で中弱火できつね色にし、鴨肉を加えて表面の水分を飛ばす。",
+    "오리를 데쳐 물기를 뺀다. 두껍게 썬 생강을 기름에 중약불로 노릇하게 볶고 오리를 넣어 겉 수분을 날린다."
+  ],
+  "加入生抽、糖和水，煮开后盖锅小火炖 45–60 分钟，鸭肉中心至少 74°C，软烂后收汁。": [
+    "Add soy sauce, sugar and water, bring to a boil and simmer covered 45–60 minutes until tender and at least 74°C; reduce the sauce.",
+    "しょうゆ、砂糖、水を沸かし、ふたをして45～60分、中心74°C以上で柔らかく煮て煮詰める。",
+    "간장·설탕·물을 넣어 끓이고 덮어 약불로 45~60분 중심 74°C 이상 부드럽게 익힌 뒤 졸인다."
+  ],
+  "海米、香菇、五花肉丁用油炒香，肉炒熟后加生抽、白菜和生米翻匀；加入水煮开，小火盖煮约 20 分钟。": [
+    "Fry dried shrimp, shiitake and diced belly until pork is cooked, add soy sauce, cabbage and raw rice, then water; boil and cook covered on low about 20 minutes.",
+    "干しえび、しいたけ、豚バラを油で肉に火が通るまで炒め、しょうゆ、白菜、米、水を加えて沸かし、ふたをして弱火で約20分炊く。",
+    "건새우·표고·삼겹살 깍둑을 기름에 고기가 익도록 볶고 간장·배추·쌀·물을 넣어 끓여 덮고 약불로 20분 익힌다."
+  ],
+  "米芯完全熟透后关火焖 10 分钟；若偏干夹生，少量加水继续加热，不只依计时判断。": [
+    "Once rice is cooked through, rest covered off heat 10 minutes; add a little water and cook longer if dry or underdone rather than relying only on time.",
+    "米の芯まで火が通ったら火を止め10分蒸らす。乾いて芯が残る場合は少量の水を足し、時間だけで判断しない。",
+    "쌀 속까지 완전히 익으면 불을 끄고 10분 뜸 들인다. 건조하거나 설익으면 물을 조금 넣어 더 익히며 시간만으로 판단하지 않는다."
+  ],
+  "蒜用油炒香，牛肉片炒至全熟，加入沙茶酱、少量水和芹菜，翻炒约 2 分钟至菜熟汁匀。": [
+    "Fry garlic, cook beef slices through, then add shacha sauce, a little water and celery; stir-fry 2 minutes until vegetables are cooked and sauce coats.",
+    "にんにくを油で炒め、牛肉を完全に炒め、沙茶醤、少量の水、セロリを加えて約2分、火を通して絡める。",
+    "마늘을 기름에 볶고 소고기를 완전히 익힌 뒤 사차 소스·물 조금·셀러리를 넣고 약 2분 골고루 볶는다."
+  ],
+  "芋头去皮切块后蒸约 20–30 分钟至可轻压碎；处理生芋头时戴手套，必须熟透。": [
+    "Steam peeled taro pieces 20–30 minutes until easily mashed; wear gloves to handle raw taro and cook it thoroughly.",
+    "皮をむいた里芋を20～30分、簡単につぶれるまで蒸す。生の下処理は手袋を使い、完全に加熱する。",
+    "껍질 벗긴 토란을 잘라 20~30분 쉽게 으깨질 때까지 찐다. 생토란은 장갑을 끼고 다루며 완전히 익힌다."
+  ],
+  "熟芋头压泥，拌糖和猪油，小火搅拌至细腻；按需要加配方内的水调节浓稠度。": [
+    "Mash cooked taro with sugar and lard, stir gently over low heat until smooth; adjust thickness with the measured water as needed.",
+    "加熱した里芋をつぶし、砂糖とラードを混ぜ弱火でなめらかにする。分量内の水で硬さを調整する。",
+    "익힌 토란을 으깨 설탕·돼지기름을 섞고 약불에서 매끈하게 젓는다. 분량 내 물로 농도를 조절한다."
+  ],
+  "芋泥与即食红豆沙分区摆成阴阳形，表面放熟莲子，蒸约 5 分钟至全部热透；甜点少量分食。": [
+    "Arrange taro and ready-to-eat bean paste in a yin-yang pattern, add cooked lotus seeds and steam 5 minutes until hot; share as a small dessert.",
+    "芋ペーストと市販のあんこを陰陽型に盛り、加熱したハスの実をのせ約5分蒸して温め、少量ずつ分ける。",
+    "토란 페이스트와 시판 팥앙금을 태극 모양으로 놓고 익힌 연자육을 올려 약 5분 충분히 찐다. 디저트로 조금씩 나눈다."
+  ],
+  "鲤鱼块加姜与水微沸煮约 8–12 分钟至最厚处至少 63°C，盛盘；保留少量已煮熟鱼汤。": [
+    "Gently poach carp with ginger in water 8–12 minutes to at least 63°C in the thickest part, plate it and reserve a little cooked broth.",
+    "鯉をしょうが入りの湯で8～12分、厚い部分63°C以上までゆでて盛り、加熱済みの煮汁を少し取る。",
+    "잉어를 생강을 넣은 물에 약하게 8~12분 익혀 두꺼운 곳이 63°C 이상이면 담고 익힌 국물을 조금 남긴다."
+  ],
+  "用少量熟鱼汤煮开生抽、米醋和糖，淋淀粉水煮成薄芡，浇在熟鱼上，注意鱼刺。": [
+    "Boil soy sauce, vinegar and sugar with a little cooked fish broth, thicken lightly with starch slurry and pour over fish; watch for bones.",
+    "加熱した魚の煮汁少量でしょうゆ、米酢、砂糖を沸かし、水溶きでんぷんで薄くとろみをつけて魚にかける。骨に注意。",
+    "익힌 생선 국물 조금에 간장·식초·설탕을 끓이고 전분물로 연하게 농도를 내 생선에 붓는다. 가시를 확인한다."
+  ],
+  "焯好的五花肉皮朝下铺在葱姜上，加生抽、老抽、糖、料酒和水；小火焖 90–120 分钟，翻面继续煮至软糯。": [
+    "Place blanched belly skin-down over scallion and ginger, add light and dark soy, sugar, rice wine and water; simmer 90–120 minutes, turning until tender.",
+    "下ゆでした豚バラをねぎとしょうがに皮を下にしてのせ、しょうゆ2種、砂糖、酒、水で90～120分、途中返して柔らかく煮る。",
+    "데친 삼겹살을 파와 생강 위에 껍질 아래로 놓고 간장 두 종류·설탕·술·물을 넣어 약불로 90~120분 뒤집어 가며 부드럽게 익힌다."
+  ],
+  "干豆腐皮按包装泡软，裁成小方片；肉末拌姜末、生抽为馅，薄薄铺开卷紧，封口蘸淀粉水。": [
+    "Soften tofu skin as directed and cut squares; spread a thin layer of pork mixed with ginger and soy sauce, roll tightly and seal with starch slurry.",
+    "ゆばを表示どおり戻し四角く切る。ひき肉、しょうが、しょうゆのあんを薄く敷いて巻き、水溶きでんぷんで留める。",
+    "두부피를 표시대로 불려 사각으로 자른다. 다진 고기·생강·간장 소를 얇게 펴 단단히 말고 전분물로 붙인다."
+  ],
+  "豆腐卷中小火分批煎炸，勤翻面至酥脆；切开检查肉馅全熟、中心至少 71°C，再沥油。": [
+    "Shallow-fry rolls in batches over medium-low heat, turning until crisp; cut one to check filling reaches 71°C, then drain.",
+    "巻いたゆばを中弱火で数回に分けて返しながら揚げ焼きする。1本切り、肉あんが中心71°C以上か確認して油を切る。",
+    "두부말이를 중약불에서 나눠 넣고 자주 뒤집어 바삭하게 익힌다. 하나를 잘라 고기 소 중심 71°C 이상인지 확인해 기름을 뺀다."
+  ],
+  "鱼肉加姜与水煮至中心至少 63°C，仔细剔除残刺后拆碎，保留熟鱼汤。": [
+    "Poach fish with ginger to at least 63°C, carefully remove remaining bones and flake; reserve the cooked broth.",
+    "魚をしょうが入りの湯で中心63°C以上まで煮て、小骨を丁寧に除いてほぐす。加熱済み煮汁を取る。",
+    "생선을 생강을 넣은 물에 중심 63°C 이상 익혀 잔가시를 꼼꼼히 제거하고 살을 풀어 국물을 남긴다."
+  ],
+  "熟鱼汤加入香菇丝、熟火腿丝和鱼肉煮开，调生抽、米醋，淋蛋液煮至完全凝固。": [
+    "Boil cooked fish broth with shredded shiitake, cooked ham and flaked fish, add soy sauce and vinegar and cook in beaten egg until fully set.",
+    "魚の煮汁にしいたけ、加熱済みハム、魚を加え沸かし、しょうゆと酢で調え、卵を流し完全に固める。",
+    "익힌 생선 국물에 표고채·익힌 햄·생선 살을 넣어 끓이고 간장과 식초로 간한 뒤 달걀물을 부어 완전히 익힌다."
+  ],
+  "鲜笋剥壳去老根切块，足量清水煮至少 20 分钟至熟，倒掉煮笋水；不用生笋直接短炒。": [
+    "Peel fresh shoots, trim tough roots and cut; boil in plenty of water for at least 20 minutes and discard the water. Do not briefly stir-fry raw shoots.",
+    "生たけのこの皮と硬い根元を除いて切り、多めの水で20分以上下ゆでし湯を捨てる。生のまま短時間炒めない。",
+    "생 죽순의 껍질과 단단한 밑동을 제거해 썰고 넉넉한 물에서 최소 20분 익혀 물을 버린다. 생으로 짧게 볶지 않는다."
+  ],
+  "熟笋用油煸炒，加入生抽、老抽、糖和水，小火焖 10–15 分钟后揭盖收汁。": [
+    "Stir-fry cooked shoots in oil, add light and dark soy sauce, sugar and water, simmer 10–15 minutes and reduce uncovered.",
+    "下ゆでしたたけのこを油で炒め、しょうゆ2種、砂糖、水で10～15分蒸し煮にして煮詰める。",
+    "익힌 죽순을 기름에 볶고 간장 두 종류·설탕·물을 넣어 약불로 10~15분 익힌 뒤 뚜껑을 열어 졸인다."
+  ],
+  "黄鱼擦干用油煎两面，加入姜、雪菜和水煮开，小火煮约 10 分钟，鱼最厚处至少 63°C。": [
+    "Dry croaker and pan-fry both sides; add ginger, preserved greens and water and simmer 10 minutes to at least 63°C in the thickest part.",
+    "イシモチの水気を拭いて両面を焼き、しょうが、雪菜、水で約10分煮て厚い部分を63°C以上にする。",
+    "부세의 물기를 닦아 양면을 굽고 생강·절인 갓·물을 넣어 약불로 약 10분 끓여 두꺼운 곳을 63°C 이상 익힌다."
+  ],
+  "熟黑芝麻粉与糖、猪油拌匀，冷藏至可成团，分成小份作馅。": [
+    "Mix toasted black sesame powder, sugar and lard, chill until firm enough and divide into small filling portions.",
+    "炒り黒ごま粉、砂糖、ラードを混ぜ、丸められるまで冷蔵して小分けにする。",
+    "볶은 검은깨 가루·설탕·돼지기름을 섞어 뭉칠 때까지 냉장하고 작은 소로 나눈다."
+  ],
+  "糯米粉逐次加温水揉成不裂面团，分小份包芝麻馅，搓圆封严，大小尽量均匀。": [
+    "Add warm water gradually to glutinous rice flour for a smooth non-cracking dough, wrap sesame filling and seal into equal-sized balls.",
+    "もち米粉にぬるま湯を少しずつ加えて割れない生地にし、ごまあんを包んで均等な大きさに丸める。",
+    "찹쌀가루에 미지근한 물을 조금씩 넣어 갈라지지 않게 반죽하고 깨 소를 싸 크기를 고르게 둥글게 붙인다."
+  ],
+  "沸水下汤圆，轻推防粘；浮起后再微沸约 3–5 分钟，检查中心无生粉团，稍凉后小口食用。": [
+    "Add rice balls to boiling water and stir gently; simmer 3–5 minutes after floating and check for no raw flour center. Cool slightly before small bites.",
+    "沸騰した湯に入れ、浮いてからさらに3～5分ゆで、中心に生粉がないか確認する。少し冷まし小さく食べる。",
+    "끓는 물에 넣어 살살 젓고 떠오른 뒤 3~5분 더 약하게 끓인다. 속에 생가루가 없는지 확인해 조금 식혀 작게 먹는다."
+  ],
+  "熟鸡用干净器具切块，放浅容器尽快冷却并冷藏；倒入按标签可直接使用的熟制糟卤，冷藏浸约 2 小时。": [
+    "Cut cooked chicken with clean tools, cool promptly in a shallow container and refrigerate; add commercial cooked ready-to-use lees brine and refrigerate 2 hours.",
+    "加熱した鶏肉を清潔な器具で切り、浅い容器で速やかに冷まして冷蔵する。表示どおり使える加熱済み糟滷に冷蔵で約2時間漬ける。",
+    "익힌 닭을 깨끗한 도구로 잘라 얕은 용기에서 신속히 식혀 냉장한다. 표시상 바로 쓰는 가열 술지게미 양념물을 부어 냉장에서 약 2시간 담근다."
+  ],
+  "梅干菜冲洗，按包装短时泡发至软，挤干切碎；不长时间常温浸泡。": [
+    "Rinse dried preserved greens, soak briefly as packaged until soft, squeeze and chop; avoid long room-temperature soaking.",
+    "梅干菜を洗い、表示どおり短時間戻して絞り刻む。室温で長時間浸さない。",
+    "말린 절임 갓을 헹궈 포장 지시대로 짧게 불려 부드러워지면 짜서 다진다. 실온에 오래 두지 않는다."
+  ],
+  "焯熟的五花肉切厚片，皮朝下排碗中，覆盖梅干菜，淋生抽、老抽、糖和水，蒸约 75–90 分钟至软烂。": [
+    "Slice blanched belly, arrange skin-down in a bowl, cover with preserved greens, add light and dark soy, sugar and water and steam 75–90 minutes until tender.",
+    "下ゆでしたバラ肉を厚切りにして皮を下に並べ、梅干菜をかぶせ、しょうゆ2種、砂糖、水で75～90分柔らかく蒸す。",
+    "데친 삼겹살을 두껍게 썰어 껍질 아래로 담고 말린 절임 갓을 덮어 간장 두 종류·설탕·물을 넣어 75~90분 부드럽게 찐다."
+  ],
+  "戴隔热手套取出，用深盘扣住碗口小心翻扣；也可直接在碗中食用，避免烫伤。": [
+    "Remove with oven mitts and carefully invert onto a deep plate; serving directly from the bowl is also fine.",
+    "ミトンで取り出し、深皿をかぶせ注意して返す。無理に返さず器のままでもよい。",
+    "보호 장갑으로 꺼내 깊은 접시를 덮어 조심히 뒤집는다. 화상을 피하려면 그릇째 먹어도 된다."
+  ],
+  "熟笋与泡软梅干菜用油翻炒，加生抽和水，小火焖约 15 分钟至入味。": [
+    "Stir-fry cooked bamboo shoots and softened preserved greens in oil, add soy sauce and water and simmer 15 minutes.",
+    "下ゆでたたけのこと戻した梅干菜を油で炒め、しょうゆと水で約15分煮る。",
+    "익힌 죽순과 불린 절임 갓을 기름에 볶고 간장·물을 넣어 약불로 약 15분 익힌다."
+  ],
+  "鸭块用生抽、老抽、糖、八角和姜冷藏腌 1 小时，再加水煮开，小火炖约 50 分钟至鸭肉中心至少 74°C。": [
+    "Refrigerate duck in light and dark soy, sugar, star anise and ginger for 1 hour; add water and simmer about 50 minutes until center reaches 74°C.",
+    "鴨肉をしょうゆ2種、砂糖、八角、しょうがで冷蔵1時間漬け、水で約50分煮て中心74°C以上にする。",
+    "오리를 간장 두 종류·설탕·팔각·생강에 냉장 1시간 재우고 물을 넣어 약불에서 약 50분 중심 74°C 이상 익힌다."
+  ],
+  "鱼头请商家清理对半剖开，去鳃、洗净残血后擦干；放深盘铺姜葱，表面盖剁椒。": [
+    "Have a vendor clean and split the fish head, remove gills, rinse blood and dry; place over ginger and scallion in a deep dish and top with chopped chili.",
+    "店で頭を半分に割り、えらを除く。血を洗って拭き、深皿のしょうがとねぎにのせ、刻み唐辛子をかける。",
+    "판매점에서 머리를 반 갈라 손질하고 아가미를 제거한다. 피를 씻어 물기를 닦고 깊은 접시의 생강·파 위에 올려 다진 고추를 덮는다."
+  ],
+  "水沸后蒸约 20–25 分钟，按鱼头大小延长，最厚处至少 63°C；最后淋配方内的油与生抽，注意碎骨。": [
+    "Steam over boiling water 20–25 minutes, longer for a large head, to at least 63°C in the thickest part; add listed oil and soy sauce and watch for bones.",
+    "沸騰後20～25分、大きさに応じ延長し、厚い部分63°C以上まで蒸す。分量の油としょうゆをかけ、骨に注意する。",
+    "끓는 찜기에서 20~25분 크기에 맞춰 늘려 가장 두꺼운 곳을 63°C 이상 익힌다. 분량의 기름·간장을 뿌리고 잔뼈를 주의한다."
+  ],
+  "姜蒜用油炒香，牛肉薄片炒至全熟，加入鲜辣椒、芹菜和生抽，再炒 2–3 分钟至菜熟。": [
+    "Fry ginger and garlic, cook beef slices through, add fresh chili, celery and soy sauce and stir-fry 2–3 minutes until vegetables are cooked.",
+    "しょうがとにんにくを炒め、牛薄切りを完全に炒め、唐辛子、セロリ、しょうゆを加えて2～3分火を通す。",
+    "생강과 마늘을 볶아 소고기를 완전히 익히고 생고추·셀러리·간장을 넣어 2~3분 채소까지 익힌다."
+  ],
+  "青椒先在无油锅中中火煸至起皱盛出；肉片用油炒熟，加蒜、生抽与青椒翻炒约 2 分钟。": [
+    "Dry-fry peppers over medium heat until wrinkled and remove; cook pork in oil, then add garlic, soy sauce and peppers for 2 minutes.",
+    "ピーマンを油なしの中火でしわが出るまで炒め取り出す。豚肉を油で完全に炒め、にんにく、しょうゆ、ピーマンを約2分炒める。",
+    "피망을 기름 없는 팬에서 중불로 주름질 때까지 볶아 덜어 둔다. 고기를 기름에 익히고 마늘·간장·피망을 넣어 약 2분 볶는다."
+  ],
+  "香干切片，肉丝先用油炒至全熟；加入蒜、鲜辣椒和香干，淋生抽，炒约 3 分钟至全部热透。": [
+    "Slice smoked tofu, cook pork strips through in oil, add garlic, fresh chili and tofu, drizzle soy sauce and fry about 3 minutes until hot.",
+    "香干を切り、豚肉を油で完全に炒める。にんにく、唐辛子、香干、しょうゆを加え約3分熱々にする。",
+    "훈제 압착 두부를 썰고 고기채를 기름에 완전히 볶는다. 마늘·생고추·두부·간장을 넣어 약 3분 충분히 익힌다."
+  ],
+  "腊肉和腊鱼按包装要求浸洗、切薄片；若产品标签另有更长加热要求，优先照标签执行。": [
+    "Soak, rinse and thinly slice cured pork and fish as packaged; follow any longer heating instructions on the label.",
+    "干し豚肉と魚を表示どおり浸し洗いして薄切りにする。表示に長い加熱時間があれば従う。",
+    "염장 건조 돼지고기와 생선을 표시대로 불려 씻어 얇게 썬다. 제품 표시의 가열 요구가 더 길면 그 지시를 따른다."
+  ],
+  "腊肉和腊鱼铺盘加姜丝，沸水蒸约 25–30 分钟至全熟；不再额外加盐，蒸汁可少量弃去。": [
+    "Arrange cured pork and fish with ginger and steam 25–30 minutes until fully cooked; add no extra salt and discard some liquid if desired.",
+    "干し豚肉と魚にしょうがをのせ、沸騰した蒸し器で25～30分完全に加熱する。塩は足さず、蒸し汁は一部捨ててもよい。",
+    "염장 고기와 생선을 담아 생강채를 올리고 끓는 찜기에서 25~30분 완전히 익힌다. 소금을 더 넣지 않고 찜 국물은 일부 버려도 된다."
+  ],
+  "包菜手撕小片洗净沥干，粗梗切薄；干辣椒剪段。": [
+    "Tear cabbage into small pieces, wash and drain, thinly slice thick stems and cut dried chili.",
+    "キャベツを小さくちぎって洗い、水を切る。太い茎は薄く、唐辛子は短く切る。",
+    "양배추를 작게 뜯어 씻어 물기를 빼고 굵은 줄기는 얇게 썬다. 건고추는 자른다."
+  ],
+  "热油炒香蒜和干辣椒，先炒粗梗再加菜叶，中大火炒至熟，沿锅边淋生抽和米醋。": [
+    "Fry garlic and dried chili, cook thick stems first then leaves over medium-high heat until done; add soy sauce and vinegar around the pan edge.",
+    "油でにんにくと唐辛子を炒め、茎、葉の順に中強火で火を通し、鍋肌からしょうゆと米酢を加える。",
+    "기름에 마늘·건고추를 볶고 굵은 줄기 다음 잎을 넣어 중강불로 익힌 뒤 팬 가장자리에 간장·식초를 붓는다."
+  ],
+  "菜花切小朵洗净，沸水焯约 2 分钟沥干；五花肉切薄片。": [
+    "Cut cauliflower into small florets, wash and blanch about 2 minutes, drain; slice belly thinly.",
+    "カリフラワーを小房にして洗い約2分ゆで、水を切る。豚バラは薄切りにする。",
+    "콜리플라워를 작게 나눠 씻고 약 2분 데쳐 물기를 뺀다. 삼겹살은 얇게 썬다."
+  ],
+  "五花肉炒至熟并煸出少量油，加蒜、干辣椒和菜花炒约 3–5 分钟至花梗全熟，生抽调味。": [
+    "Cook belly through and render a little fat, add garlic, dried chili and cauliflower for 3–5 minutes until stems are cooked; season with soy sauce.",
+    "豚バラを完全に炒め少し脂を出し、にんにく、唐辛子、カリフラワーを3～5分、茎まで火を通ししょうゆで調える。",
+    "삼겹살을 완전히 익혀 기름을 조금 내고 마늘·건고추·콜리플라워를 넣어 3~5분 줄기까지 익힌 뒤 간장으로 간한다."
+  ],
+  "选正规鲜活小龙虾，刷洗腹部、去不食用部位；不使用死虾，不用酒或辣椒代替充分加热。": [
+    "Use live crayfish from a trusted seller, scrub bellies and remove inedible parts. Do not use dead crayfish or rely on alcohol or chili for safety.",
+    "信頼できる店の活ザリガニを選び腹を洗い、食べない部分を除く。死んだものは使わず、酒や唐辛子で加熱を代用しない。",
+    "믿을 수 있는 곳의 살아 있는 가재를 골라 배를 솔로 씻고 못 먹는 부분을 뗀다. 죽은 것은 쓰지 않으며 술이나 고추로 가열을 대신하지 않는다."
+  ],
+  "炒香姜蒜、豆瓣酱和干辣椒，加入小龙虾、生抽与水煮开，盖锅保持沸腾约 15–20 分钟至全熟，虾肉至少 63°C。": [
+    "Fry ginger, garlic, bean paste and dried chili, add crayfish, soy sauce and water, cover and boil 15–20 minutes until fully cooked to at least 63°C.",
+    "しょうが、にんにく、豆板醤、唐辛子を炒め、ザリガニ、しょうゆ、水を沸かす。ふたをして15～20分、身を63°C以上まで完全に加熱する。",
+    "생강·마늘·두반장·건고추를 볶고 가재·간장·물을 넣어 끓여 덮은 채 15~20분 충분히 끓인다. 살은 63°C 이상 완전히 익힌다."
+  ],
+  "鸭块炒干水分后放姜蒜、生抽、啤酒和水，煮开后不盖锅煮 5 分钟，再盖锅小火炖约 45 分钟至中心 74°C。": [
+    "Fry duck until surface moisture evaporates; add ginger, garlic, soy sauce, beer and water, boil uncovered 5 minutes, then simmer covered 45 minutes to 74°C.",
+    "鴨肉の水分を飛ばし、しょうが、にんにく、しょうゆ、ビール、水で5分ふたをせず沸かし、その後約45分ふたをして煮て中心74°Cにする。",
+    "오리 겉 수분을 볶아 날리고 생강·마늘·간장·맥주·물을 넣어 뚜껑 없이 5분 끓인 뒤 덮고 약불로 약 45분 중심 74°C까지 익힌다."
+  ],
+  "外婆菜先尝咸度，必要时冲洗沥干；肉末炒至全熟，放蒜、辣椒、外婆菜炒约 3 分钟，通常无需加盐。": [
+    "Taste preserved vegetables and rinse if needed; cook pork mince through, add garlic, chili and vegetables for 3 minutes, usually without extra salt.",
+    "刻み漬物の塩味を確認し必要なら洗う。ひき肉を完全に炒め、にんにく、唐辛子、漬物を約3分炒め、通常は塩を足さない。",
+    "절임 채소의 짠맛을 보고 필요하면 헹궈 물기를 뺀다. 다진 고기를 익혀 마늘·고추·절임 채소를 넣어 약 3분 볶고 보통 소금은 더 넣지 않는다."
+  ],
+  "青椒洗净擦干，在平底锅中火煎烙至表皮起泡且内部熟软；取出切小块。": [
+    "Wash and dry green peppers, dry-roast in a skillet over medium heat until blistered and tender inside, then chop.",
+    "ピーマンを洗って拭き、中火のフライパンで皮が膨れ中まで柔らかくなるまで焼き、小さく切る。",
+    "피망을 씻어 말리고 중불의 팬에서 껍질이 부풀고 속까지 부드럽게 익도록 구워 작게 자른다."
+  ],
+  "正规即食皮蛋去壳切块，与熟青椒、蒜泥、生抽、米醋放碗中捣拌，现做现吃。": [
+    "Peel and chop commercial ready-to-eat preserved egg; pound with cooked peppers, garlic, soy sauce and vinegar and serve immediately.",
+    "市販の即食ピータンをむいて切り、加熱したピーマン、にんにく、しょうゆ、酢と器でつぶして混ぜ、すぐ食べる。",
+    "시판 바로 먹는 피단의 껍질을 벗겨 썰고 익힌 피망·다진 마늘·간장·식초와 찧어 버무려 바로 먹는다."
+  ],
+  "使用正规冷藏预腌臭鳜鱼，核对保质期与加热要求；擦干切块，不在家自行发酵生鱼。": [
+    "Use commercial chilled fermented mandarin fish, check its date and heating directions, pat dry and cut; do not ferment raw fish at home.",
+    "市販の冷蔵発酵ケツギョを使い期限と加熱表示を確認し、拭いて切る。家庭で生魚を発酵させない。",
+    "시판 냉장 발효 쏘가리의 기한과 가열 지시를 확인해 물기를 닦고 자른다. 집에서 생선을 직접 발효하지 않는다."
+  ],
+  "鱼块用油煎定型，加姜、蒜、生抽和水，小火煮约 15–20 分钟至中心至少 63°C；按标签要求延长加热。": [
+    "Pan-fry fish until set, add ginger, garlic, soy sauce and water and simmer 15–20 minutes to at least 63°C; follow any longer label heating instructions.",
+    "魚を油で焼き固め、しょうが、にんにく、しょうゆ、水で15～20分、中心63°C以上まで煮る。表示が長ければ従う。",
+    "생선을 기름에 구워 모양을 잡고 생강·마늘·간장·물을 넣어 약불로 15~20분 중심 63°C 이상 익힌다. 표시가 더 길면 따른다."
+  ],
+  "仅使用正规冷藏毛豆腐，遵循包装储存要求；异常包装或超过保质期不用，不套用本方自制发酵。": [
+    "Use only commercial chilled hairy tofu stored as labeled; reject damaged or expired packs and do not use this recipe to ferment tofu.",
+    "市販の冷蔵毛豆腐を表示どおり保存して使う。包装異常や期限切れは使わず、この手順で自家発酵しない。",
+    "정식 시판 냉장 발효 두부를 표시대로 보관해 쓴다. 포장 이상·기한 만료 제품은 쓰지 않으며 이 방법으로 직접 발효하지 않는다."
+  ],
+  "毛豆腐用中小火煎至两面金黄起皱，加入蒜、生抽和少量水，加盖煮约 5–8 分钟至全熟，再收汁。": [
+    "Pan-fry tofu over medium-low heat until golden and wrinkled, add garlic, soy sauce and water, cover 5–8 minutes until cooked through, then reduce.",
+    "毛豆腐を中弱火で両面きつね色にし、にんにく、しょうゆ、少量の水を加えふたをして5～8分完全に加熱し煮詰める。",
+    "발효 두부를 중약불로 양면이 노릇하고 주름지게 굽는다. 마늘·간장·물 조금을 넣어 덮고 5~8분 완전히 익힌 뒤 졸인다."
+  ],
+  "商家清理的乳鸽切块，加姜、香菇和水煮开，撇沫后小火炖约 60 分钟，最厚处至少 74°C。": [
+    "Cut vendor-cleaned pigeon, boil with ginger, shiitake and water, skim and simmer about 60 minutes to at least 74°C in the thickest part.",
+    "店で下処理した若鳩を切り、しょうが、しいたけ、水を沸かす。あくを取り約60分煮て厚い部分を74°C以上にする。",
+    "판매점에서 손질한 비둘기를 잘라 생강·표고·물과 끓여 거품을 걷고 약불로 약 60분 가장 두꺼운 곳을 74°C 이상 익힌다."
+  ],
+  "锅底铺白菜，再依次铺豆腐、熟五花肉片、鸡块、香菇和熟鹌鹑蛋，加入生抽、姜和水至约八分满。": [
+    "Layer cabbage, tofu, cooked belly slices, chicken, shiitake and cooked quail eggs in a pot; add soy sauce, ginger and water to about four-fifths full.",
+    "鍋に白菜、豆腐、加熱済みバラ肉、鶏肉、しいたけ、ゆでうずら卵を重ね、しょうゆ、しょうが、水を八分目まで加える。",
+    "냄비에 배추·두부·익힌 삼겹살·닭·표고·삶은 메추리알을 차례로 놓고 간장·생강·물을 약 8부까지 넣는다."
+  ],
+  "煮开后盖锅小火炖约 40 分钟，鸡肉中心至少 74°C，所有食材热透；中途留意水量避免干锅。": [
+    "Bring to a boil, cover and simmer about 40 minutes until chicken reaches 74°C and everything is hot; watch liquid level to prevent drying out.",
+    "沸かしてふたをし約40分、鶏肉を中心74°C以上にし全体を十分加熱する。水分を確認し空だきを防ぐ。",
+    "끓으면 덮고 약불로 약 40분 닭 중심을 74°C 이상 익혀 모든 재료를 충분히 가열한다. 중간에 물 양을 확인해 타지 않게 한다."
+  ],
+  "熟笋、熟火腿和香菇切片，加姜、水小火炖约 15–20 分钟至入味；火腿含盐，先尝后调味。": [
+    "Slice cooked bamboo, cooked ham and shiitake, simmer with ginger and water 15–20 minutes; taste before adding salt because ham is salty.",
+    "下ゆでたたけのこ、加熱済みハム、しいたけを切り、しょうがと水で15～20分煮る。ハムの塩味を見てから調える。",
+    "익힌 죽순·익힌 햄·표고를 썰어 생강·물과 약불로 15~20분 익힌다. 햄이 짜므로 먼저 맛을 본 뒤 간한다."
+  ],
+  "鸡肉先加姜、水煮约 20 分钟，再放鱿鱼、熟火腿、香菇和白菜煮约 8 分钟；鸡肉至少 74°C、鱿鱼至少 63°C。": [
+    "Simmer chicken with ginger and water for 20 minutes, then add squid, cooked ham, shiitake and cabbage for 8 minutes; chicken must reach 74°C and squid 63°C.",
+    "鶏肉をしょうがと水で約20分煮、イカ、加熱済みハム、しいたけ、白菜を約8分煮る。鶏は74°C、イカは63°C以上にする。",
+    "닭을 생강·물과 약 20분 끓인 뒤 오징어·익힌 햄·표고·배추를 넣어 약 8분 끓인다. 닭은 74°C, 오징어는 63°C 이상 익힌다."
+  ],
+  "鸡块拌生抽、姜和香菇，盖好冷藏腌 15 分钟，铺浅盘；水沸后蒸约 30–40 分钟至鸡肉中心至少 74°C。": [
+    "Mix chicken, soy sauce, ginger and shiitake, refrigerate covered 15 minutes and spread in a shallow dish; steam 30–40 minutes to at least 74°C.",
+    "鶏肉、しょうゆ、しょうが、しいたけを冷蔵で15分漬け浅皿に並べ、沸騰した蒸し器で30～40分、中心74°C以上まで蒸す。",
+    "닭·간장·생강·표고를 섞어 덮고 냉장 15분 재워 얕은 접시에 펼친다. 끓는 찜기에서 30~40분 중심 74°C 이상 익힌다."
+  ],
+  "猪肉末拌豆腐碎、姜末、盐和土豆淀粉，搅至黏稠，搓成小丸子。": [
+    "Mix ground pork, crumbled tofu, ginger, salt and potato starch until sticky and roll into small balls.",
+    "豚ひき肉、崩した豆腐、しょうが、塩、じゃがいもでんぷんを粘るまで混ぜ小さく丸める。",
+    "다진 돼지고기·으깬 두부·다진 생강·소금·감자전분을 끈기 있게 섞어 작은 완자로 빚는다."
+  ],
+  "丸子平铺蒸盘，水沸后蒸约 20–25 分钟，中心至少 71°C；切开一颗检查内部全熟。": [
+    "Spread balls on a steaming dish and steam over boiling water 20–25 minutes to at least 71°C; cut one to confirm it is cooked throughout.",
+    "団子を蒸し皿に並べ、沸騰後20～25分、中心71°C以上まで蒸す。1個割り中まで加熱を確認する。",
+    "완자를 찜 접시에 펼쳐 끓는 찜기에서 20~25분 중심 71°C 이상 익힌다. 하나를 갈라 속까지 익었는지 확인한다."
+  ],
+  "五花肉细丝先炒熟，加蒜、香菇、白菜炒软，再放泡软粉丝、生抽和水，小火煮 3–5 分钟至粉丝熟软。": [
+    "Cook thin belly strips through, add garlic, shiitake and cabbage until soft, then soaked noodles, soy sauce and water for 3–5 minutes until tender.",
+    "豚バラの細切りを完全に炒め、にんにく、しいたけ、白菜を柔らかくし、戻した春雨、しょうゆ、水で3～5分煮る。",
+    "삼겹살채를 완전히 볶고 마늘·표고·배추를 부드럽게 익힌 뒤 불린 당면·간장·물을 넣어 3~5분 익힌다."
+  ],
+  "腊肉按标签处理后整块加姜、水煮约 40–60 分钟至熟软；切薄片前换用干净刀板。": [
+    "Prepare cured pork as labeled and simmer whole with ginger and water 40–60 minutes until cooked and tender; use clean tools for slicing.",
+    "干し豚肉を表示どおり処理し、塊のまましょうがと水で40～60分柔らかく加熱する。清潔な器具で薄切りにする。",
+    "염장 건조 고기를 표시대로 손질해 통째로 생강·물과 약 40~60분 부드럽게 익힌다. 얇게 썰 때 깨끗한 도구로 바꾼다."
+  ],
+  "干石耳按包装短时泡发，反复冲洗去砂，沥干；泡好后及时烹饪，不隔夜常温泡发。": [
+    "Soak dried rock ear briefly as packaged, rinse repeatedly to remove grit and drain; cook promptly and do not soak overnight at room temperature.",
+    "石耳を表示どおり短時間戻し、砂を何度も洗い流して水を切る。戻したらすぐ調理し室温で一晩浸さない。",
+    "석이버섯을 포장 지시대로 짧게 불려 모래를 여러 번 헹궈 물기를 뺀다. 바로 조리하고 실온에서 밤새 불리지 않는다."
+  ],
+  "鸡块、石耳、姜和水煮开，撇沫后小火炖约 45 分钟，鸡肉中心至少 74°C，最后加盐。": [
+    "Bring chicken, rock ear, ginger and water to a boil, skim and simmer about 45 minutes until chicken reaches 74°C, then season with salt.",
+    "鶏肉、石耳、しょうが、水を沸かし、あくを取って約45分、鶏肉の中心74°C以上まで煮て塩で調える。",
+    "닭·석이버섯·생강·물을 끓여 거품을 걷고 약불로 약 45분 닭 중심을 74°C 이상 익힌 뒤 소금으로 간한다."
+  ],
+  "面粉逐次加入温水揉成柔软面团，盖好醒 20 分钟；韭菜、豆腐干切碎，拌盐和一半食用油。": [
+    "Knead flour with warm water added gradually into a soft dough and rest covered 20 minutes; chop chives and pressed tofu and mix with salt and half the oil.",
+    "小麦粉にぬるま湯を少しずつ加えて柔らかくこね、覆って20分置く。にらと干し豆腐を刻み塩と油の半量を混ぜる。",
+    "밀가루에 미지근한 물을 나눠 넣어 부드럽게 반죽해 덮고 20분 둔다. 부추와 건두부를 다져 소금과 기름 절반을 섞는다."
+  ],
+  "面团分小份擀圆，包入韭菜豆腐干馅收紧口，再轻压成薄饼，避免压破。": [
+    "Divide and roll dough into circles, fill with chive-tofu mixture, seal and press gently into thin cakes without tearing.",
+    "生地を小分けにして丸く伸ばし、にらと豆腐のあんを包み閉じ、破らないよう薄く押す。",
+    "반죽을 나눠 동그랗게 밀고 부추·두부 소를 넣어 꼭 붙인 뒤 터지지 않게 얇게 누른다."
+  ],
+  "平底锅刷剩余油，中小火两面各烙约 4–6 分钟，至饼皮金黄、中心无生面，韭菜馅熟透。": [
+    "Brush pan with remaining oil; cook cakes over medium-low heat 4–6 minutes per side until golden with no raw dough and cooked filling.",
+    "残りの油をフライパンに塗り、中弱火で片面4～6分ずつ、きつね色で生地もあんも中まで加熱する。",
+    "팬에 남은 기름을 바르고 중약불로 한 면당 약 4~6분 구워 노릇하게 만들고 속에 생반죽이 없고 소가 완전히 익도록 한다."
+  ],
+  "牛肉末": [
+    "Ground beef",
+    "牛ひき肉",
+    "다진 소고기"
+  ],
+  "去鳞去内脏草鱼块": [
+    "Cleaned grass carp pieces",
+    "下処理済みソウギョの切り身",
+    "손질한 초어 토막"
+  ],
+  "鲜虾仁": [
+    "Peeled fresh shrimp",
+    "むきえび",
+    "깐 생새우"
+  ],
+  "鱼块加姜与水微沸煮约 8–12 分钟至最厚处至少 63°C，盛盘；保留少量已煮熟鱼汤。": [
+    "Gently poach fish pieces with ginger in water 8–12 minutes to at least 63°C in the thickest part; plate and reserve a little cooked broth.",
+    "魚をしょうが入りの湯で8～12分、厚い部分63°C以上までゆでて盛り、加熱済みの煮汁を少し取る。",
+    "생선을 생강을 넣은 물에 8~12분 약하게 익혀 두꺼운 곳이 63°C 이상이면 담고 익힌 국물을 조금 남긴다."
+  ],
+  "确认食材全熟后盛盘，趁热食用；剩余菜尽快分入浅容器冷藏，再食用时充分加热。": [
+    "Serve once fully cooked and eat hot. Promptly refrigerate leftovers in shallow containers and reheat thoroughly.",
+    "中まで加熱を確認して盛り、温かいうちに食べる。残りは浅い容器で速やかに冷蔵し、十分に再加熱する。",
+    "재료가 속까지 익었는지 확인해 따뜻하게 낸다. 남은 음식은 얕은 용기에 담아 신속히 냉장하고 다시 먹을 때 충분히 가열한다."
+  ],
+  "泡好的莲子加清水煮约 30–45 分钟至软熟，沥干备用。": [
+    "Simmer soaked lotus seeds in water for 30–45 minutes until tender, then drain.",
+    "戻したハスの実を水で30～45分柔らかくゆで、水を切る。",
+    "불린 연자육을 물에 약 30~45분 부드럽게 삶아 물기를 뺀다."
+  ],
+  "熟鸭稍凉后用干净刀板切块；需冷食时及时分装冷藏，不长时间常温晾放。": [
+    "Cool cooked duck briefly and cut with clean tools; for a cold dish, portion and refrigerate promptly rather than leaving at room temperature.",
+    "加熱した鴨肉を少し冷まして清潔な器具で切る。冷製は速やかに小分け冷蔵し、室温で長く放置しない。",
+    "익힌 오리를 약간 식혀 깨끗한 도구로 자른다. 차게 먹을 때는 신속히 나눠 냉장하고 실온에 오래 두지 않는다."
+  ],
+  "牛肉末翻炒至完全散开熟透，中心至少 71°C，不用半生肉末配豆腐。": [
+    "Break up and cook ground beef fully to at least 71°C; do not leave it undercooked with tofu.",
+    "牛ひき肉をほぐして中心71°C以上まで完全に炒め、半生で豆腐に合わせない。",
+    "다진 소고기를 풀어 중심 71°C 이상 완전히 익히며 덜 익은 고기를 두부와 섞지 않는다."
+  ],
+  "雪菜先冲洗沥干，切碎；不另加盐，以实际产品咸度调整用量。": [
+    "Rinse, drain and chop preserved greens. Add no extra salt and adjust the amount to the product saltiness.",
+    "雪菜を洗い水を切って刻む。塩を足さず、製品の塩分に合わせて量を調整する。",
+    "절인 갓을 헹궈 물기를 빼고 다진다. 소금을 추가하지 않고 제품의 짠맛에 따라 양을 조절한다."
+  ],
+  "菠萝与青椒切块，先用锅中少量油炒约 2 分钟；另放一旁，待肉块熟透后与糖醋汁一起回锅。": [
+    "Chop pineapple and pepper, stir-fry in a little of the listed oil for 2 minutes and set aside; return with the sauce after pork is cooked through.",
+    "パイナップルとピーマンを切り、分量内の少量の油で約2分炒め取り出す。肉が加熱できたら甘酢だれと戻す。",
+    "파인애플과 피망을 썰어 분량 내 기름 조금으로 약 2분 볶아 덜어 둔다. 고기가 완전히 익으면 소스와 함께 다시 넣는다."
+  ],
+  "家庭简化版，保留主要风味；搭配主食和足量蔬菜，按人数分食。": [
+    "A simplified home version retaining the main flavors; serve with a staple and plenty of vegetables and share by servings.",
+    "主な風味を生かした家庭向け簡略版。主食と十分な野菜を添え、人数で分ける。",
+    "주요 풍미를 살린 가정용 간소화 레시피다. 밥과 충분한 채소를 곁들여 인분에 맞게 나눈다."
+  ],
+  "这类煎炸或肥肉菜可少量分享，配清淡蔬菜；所列用油为烹饪用量，不代表全部吃入。": [
+    "Share a small portion of fried or fatty dishes with light vegetables; listed cooking oil is not necessarily all consumed.",
+    "揚げ物や脂の多い料理は少量を分け、あっさりした野菜を添える。調理油の分量が全て摂取量になるわけではない。",
+    "튀김이나 기름진 고기는 조금씩 나눠 담백한 채소와 먹는다. 표시된 조리용 기름이 전부 섭취되는 것은 아니다."
+  ],
+  "腌制、发酵或酱料食材自带盐分，先尝味再调盐；搭配无额外盐的蔬菜。": [
+    "Preserved or fermented ingredients and sauces add salt; taste before seasoning and pair with vegetables without added salt.",
+    "漬物・発酵食材・調味料の塩分があるため、味を見てから塩を調整し、塩を加えない野菜を添える。",
+    "절임·발효 재료와 소스에는 소금이 있으므로 맛을 본 뒤 간하고 소금을 더 넣지 않은 채소를 곁들인다."
+  ],
+  "甜点或甜口菜少量分食，不把它替代正餐；糖量可按口味减少。": [
+    "Share sweet dishes or desserts in small portions rather than replacing a meal; reduce sugar to taste.",
+    "甘い料理や菓子は少量ずつ分け、食事の代わりにせず、砂糖は好みで減らせる。",
+    "달콤한 요리나 디저트는 조금씩 나눠 먹고 식사를 대신하지 않는다. 설탕은 취향에 따라 줄일 수 있다."
+  ],
+  "含酒调味不保证酒精全部挥发；需要无酒精饮食时，请选择其他不含酒的菜谱。": [
+    "Cooking with wine or beer does not guarantee all alcohol evaporates; choose an alcohol-free recipe when needed.",
+    "酒類を使う調理でアルコールが全て飛ぶとは限らない。必要な場合は酒類を使わない料理を選ぶ。",
+    "술을 넣어 조리해도 알코올이 모두 증발하는 것은 아니다. 무알코올 식사가 필요하면 술 없는 레시피를 선택한다."
+  ],
+  "鱼、蟹等食材仍需留意残刺和硬壳；先按实际可食部分分份，再配主食蔬菜。": [
+    "Watch for residual fish bones and hard shell; portion the edible food and serve with a staple and vegetables.",
+    "魚の小骨やカニの硬い殻に注意し、可食部で取り分けて主食と野菜を添える。",
+    "생선 잔가시와 게의 단단한 껍질을 살피고 실제 먹는 부분을 나눠 밥·채소와 먹는다."
+  ],
+  "葱烧海参": [
+    "Scallion-braised sea cucumber",
+    "なまこのねぎ煮",
+    "파 소스 해삼 조림"
+  ],
+  "糖醋鲤鱼": [
+    "Sweet-and-sour carp",
+    "鯉の甘酢あん",
+    "잉어 탕수"
+  ],
+  "九转大肠": [
+    "Jinan sweet-sour braised intestine",
+    "済南風豚大腸の甘酢煮",
+    "지난식 돼지 대창 조림"
+  ],
+  "木须肉": [
+    "Mushu pork with egg and wood ear",
+    "豚肉と卵ときくらげの炒め物",
+    "목이버섯 달걀 돼지고기 볶음"
+  ],
+  "葱爆羊肉": [
+    "Scallion stir-fried lamb",
+    "羊肉のねぎ炒め",
+    "양고기 파 볶음"
+  ],
+  "四喜丸子": [
+    "Four braised pork meatballs",
+    "四喜肉団子",
+    "사희완자"
+  ],
+  "鲅鱼饺子": [
+    "Spanish mackerel dumplings",
+    "サワラの水餃子",
+    "삼치 만두"
+  ],
+  "奶汤蒲菜": [
+    "Cattail shoots in milky broth",
+    "ガマの若芽のミルクスープ",
+    "부들순 우유 탕"
+  ],
+  "黄焖鸡": [
+    "Shandong braised chicken",
+    "山東風鶏の蒸し煮",
+    "산둥식 닭 조림"
+  ],
+  "爆炒腰花": [
+    "Stir-fried pork kidney",
+    "豚の腎臓の花切り炒め",
+    "돼지 콩팥 볶음"
+  ],
+  "济南把子肉": [
+    "Jinan soy-braised pork belly",
+    "済南風豚バラ煮",
+    "지난식 삼겹살 간장 조림"
+  ],
+  "海米扒白菜": [
+    "Napa cabbage with dried shrimp",
+    "白菜と干しえびの煮込み",
+    "건새우 배추 조림"
+  ],
+  "宫保鸡丁": [
+    "Kung pao chicken",
+    "宮保鶏丁",
+    "궁바오지딩"
+  ],
+  "麻婆豆腐": [
+    "Mapo tofu",
+    "麻婆豆腐",
+    "마파두부"
+  ],
+  "鱼香肉丝": [
+    "Yuxiang shredded pork",
+    "魚香肉絲",
+    "위샹러우쓰"
+  ],
+  "回锅肉": [
+    "Twice-cooked pork",
+    "回鍋肉",
+    "후이궈러우"
+  ],
+  "水煮牛肉": [
+    "Sichuan beef in chili broth",
+    "牛肉の四川風辛煮",
+    "수이주뉴러우"
+  ],
+  "辣子鸡": [
+    "Chili chicken",
+    "鶏肉の唐辛子炒め",
+    "라쯔지"
+  ],
+  "蒜泥白肉": [
+    "Poached pork with garlic sauce",
+    "ゆで豚のにんにくだれ",
+    "마늘 소스 수육"
+  ],
+  "酸菜鱼": [
+    "Fish with pickled mustard greens",
+    "魚と酸菜のスープ",
+    "쏸차이위"
+  ],
+  "干煸四季豆": [
+    "Dry-fried green beans",
+    "いんげんの四川風炒め",
+    "쓰촨식 껍질콩 볶음"
+  ],
+  "蚂蚁上树": [
+    "Glass noodles with minced pork",
+    "春雨と豚ひき肉の辛味煮",
+    "개미가 나무를 오르다 당면 볶음"
+  ],
+  "口水鸡": [
+    "Chicken with Sichuan chili dressing",
+    "鶏肉の四川だれ",
+    "커우수이지"
+  ],
+  "干煸牛肉丝": [
+    "Dry-fried shredded beef",
+    "牛肉の四川風細切り炒め",
+    "소고기 채 건볶음"
+  ],
+  "白切鸡": [
+    "Cantonese poached chicken",
+    "広東風ゆで鶏",
+    "광둥식 백숙"
+  ],
+  "豉汁蒸排骨": [
+    "Steamed ribs with black bean sauce",
+    "排骨の豆豉蒸し",
+    "검은콩 소스 돼지갈비찜"
+  ],
+  "蜜汁叉烧": [
+    "Honey char siu",
+    "はちみつ叉焼",
+    "꿀 차슈"
+  ],
+  "清蒸鲈鱼": [
+    "Cantonese steamed sea bass",
+    "スズキの広東蒸し",
+    "광둥식 농어찜"
+  ],
+  "白灼虾": [
+    "Poached fresh shrimp",
+    "えびのゆで物",
+    "데친 새우"
+  ],
+  "蒜蓉粉丝蒸扇贝": [
+    "Scallops steamed with garlic and glass noodles",
+    "ホタテと春雨のにんにく蒸し",
+    "마늘 당면 가리비찜"
+  ],
+  "西芹炒百合": [
+    "Celery and lily bulb stir-fry",
+    "セロリとゆり根の炒め物",
+    "셀러리 백합뿌리 볶음"
+  ],
+  "菠萝咕咾肉": [
+    "Pineapple sweet-and-sour pork",
+    "パイナップル入り酢豚",
+    "파인애플 탕수육"
+  ],
+  "干炒牛河": [
+    "Cantonese beef chow fun",
+    "牛肉の平打ち米麺炒め",
+    "소고기 볶음 쌀국수"
+  ],
+  "腊味煲仔饭": [
+    "Clay-pot-style rice with sausage",
+    "広東ソーセージの土鍋ご飯",
+    "광둥 소시지 솥밥"
+  ],
+  "老火鸡汤": [
+    "Slow-simmered chicken soup",
+    "鶏のじっくり煮込みスープ",
+    "닭 장시간 끓인 탕"
+  ],
+  "上汤娃娃菜": [
+    "Baby cabbage in savory broth",
+    "ミニ白菜のスープ煮",
+    "알배추 맑은 탕"
+  ],
+  "清炖狮子头": [
+    "Clear-braised lion-head meatballs",
+    "獅子頭肉団子のスープ煮",
+    "맑은 스쯔터우 완자탕"
+  ],
+  "松鼠鳜鱼": [
+    "Squirrel-style sweet-and-sour mandarin fish",
+    "ケツギョの松鼠風甘酢あん",
+    "다람쥐 모양 쏘가리 탕수"
+  ],
+  "软兜长鱼": [
+    "Huaiyang tender rice eel",
+    "淮揚風タウナギの煮炒め",
+    "화이양식 부드러운 드렁허리"
+  ],
+  "大煮干丝": [
+    "Huaiyang shredded tofu soup",
+    "干し豆腐の細切りスープ",
+    "화이양 두부채 탕"
+  ],
+  "扬州炒饭": [
+    "Yangzhou fried rice",
+    "揚州チャーハン",
+    "양저우 볶음밥"
+  ],
+  "盐水鸭": [
+    "Nanjing saltwater duck",
+    "南京塩水鴨",
+    "난징 소금물 오리"
+  ],
+  "无锡酱排骨": [
+    "Wuxi sweet soy ribs",
+    "無錫風スペアリブ煮",
+    "우시식 간장 갈비 조림"
+  ],
+  "碧螺虾仁": [
+    "Biluochun tea shrimp",
+    "碧螺春茶のえび炒め",
+    "벽라춘 새우 볶음"
+  ],
+  "文思豆腐": [
+    "Wensi tofu thread soup",
+    "文思豆腐の糸切りスープ",
+    "원쓰 두부채 탕"
+  ],
+  "蟹粉豆腐": [
+    "Tofu with crab meat",
+    "豆腐のカニあん",
+    "게살 두부 조림"
+  ],
+  "苏式熏鱼": [
+    "Suzhou sauce-soaked fried fish",
+    "蘇州風魚の甘辛だれ漬け",
+    "쑤저우식 생선 소스 조림"
+  ],
+  "黄桥烧饼": [
+    "Huangqiao sesame pastry",
+    "黄橋のごま焼き餅",
+    "황차오 참깨 빵"
+  ],
+  "荔枝肉": [
+    "Lychee-cut sweet-and-sour pork",
+    "荔枝風切り込みの甘酢豚",
+    "리즈러우 탕수 돼지고기"
+  ],
+  "福州鱼丸": [
+    "Fuzhou stuffed fish balls",
+    "福州の肉入り魚団子",
+    "푸저우 소 넣은 어묵 완자"
+  ],
+  "海蛎煎": [
+    "Fujian oyster omelet",
+    "福建風カキの卵焼き",
+    "푸젠 굴 달걀 부침"
+  ],
+  "红糟鸡": [
+    "Chicken braised with red lees",
+    "鶏の紅麹酒粕煮",
+    "홍차오 닭 조림"
+  ],
+  "醉排骨": [
+    "Fuzhou sweet-sour garlic ribs",
+    "福州風にんにく甘酢排骨",
+    "푸저우 새콤 마늘 갈비"
+  ],
+  "淡糟香螺片": [
+    "Sea-snail slices with red lees",
+    "巻貝の紅麹酒粕炒め",
+    "홍차오 고둥 살 볶음"
+  ],
+  "鸡汤汆海蚌": [
+    "Clams in chicken broth",
+    "ハマグリの鶏スープ仕立て",
+    "닭 육수 조개탕"
+  ],
+  "八宝红鲟饭": [
+    "Mud crab over eight-treasure sticky rice",
+    "カニの八宝もち米蒸し",
+    "게 팔보 찹쌀밥"
+  ],
+  "姜母鸭": [
+    "Ginger-braised duck",
+    "鴨の生姜煮",
+    "생강 오리 조림"
+  ],
+  "闽南咸饭": [
+    "Southern Fujian savory rice",
+    "閩南の具入りご飯",
+    "민난식 짭짤한 솥밥"
+  ],
+  "沙茶牛肉": [
+    "Shacha beef",
+    "牛肉の沙茶醤炒め",
+    "사차 소스 소고기 볶음"
+  ],
+  "太极芋泥": [
+    "Yin-yang taro and bean paste",
+    "太極模様の里芋あん",
+    "태극 토란 앙금"
+  ],
+  "西湖醋鱼": [
+    "West Lake vinegar fish",
+    "西湖風魚の甘酢あん",
+    "서호 식초 생선"
+  ],
+  "东坡肉": [
+    "Dongpo braised pork",
+    "東坡肉",
+    "둥포러우"
+  ],
+  "龙井虾仁": [
+    "Longjing tea shrimp",
+    "龍井茶のえび炒め",
+    "룽징 새우 볶음"
+  ],
+  "干炸响铃": [
+    "Crisp tofu-skin pork rolls",
+    "ゆばの豚肉巻き揚げ",
+    "바삭한 두부피 고기말이"
+  ],
+  "宋嫂鱼羹": [
+    "Sister Song fish soup",
+    "宋嫂魚羹",
+    "쑹사오 생선 걸쭉탕"
+  ],
+  "油焖春笋": [
+    "Soy-braised spring bamboo shoots",
+    "春たけのこの油煮",
+    "봄 죽순 조림"
+  ],
+  "雪菜黄鱼": [
+    "Yellow croaker with preserved greens",
+    "イシモチと雪菜の煮物",
+    "절인 갓 부세 조림"
+  ],
+  "宁波汤圆": [
+    "Ningbo black sesame rice balls",
+    "寧波の黒ごま湯円",
+    "닝보 검은깨 탕위안"
+  ],
+  "绍兴醉鸡": [
+    "Shaoxing-style lees-scented chicken",
+    "紹興風鶏の糟滷漬け",
+    "사오싱 술향 닭"
+  ],
+  "梅干菜扣肉": [
+    "Steamed pork belly with dried greens",
+    "豚バラと梅干菜の蒸し物",
+    "말린 절임 갓 삼겹살찜"
+  ],
+  "干菜焖笋": [
+    "Bamboo shoots with dried greens",
+    "たけのこと梅干菜の煮物",
+    "말린 절임 갓 죽순 조림"
+  ],
+  "杭州酱鸭": [
+    "Hangzhou soy-braised duck",
+    "杭州風鴨のしょうゆ煮",
+    "항저우 간장 오리"
+  ],
+  "剁椒鱼头": [
+    "Fish head steamed with chopped chili",
+    "魚の頭の刻み唐辛子蒸し",
+    "다진 고추 생선머리찜"
+  ],
+  "小炒黄牛肉": [
+    "Hunan chili beef stir-fry",
+    "湖南風牛肉の唐辛子炒め",
+    "후난 고추 소고기 볶음"
+  ],
+  "辣椒炒肉": [
+    "Hunan pork and peppers",
+    "豚肉と唐辛子の湖南炒め",
+    "후난 고추 돼지고기 볶음"
+  ],
+  "香干炒肉": [
+    "Smoked tofu with pork",
+    "香干と豚肉の炒め物",
+    "훈제 두부 돼지고기 볶음"
+  ],
+  "腊味合蒸": [
+    "Steamed cured pork and fish",
+    "干し肉と干し魚の蒸し物",
+    "염장 고기 생선 모둠찜"
+  ],
+  "毛氏红烧肉": [
+    "Hunan red-braised pork belly",
+    "湖南風豚バラ煮",
+    "후난 홍샤오러우"
+  ],
+  "手撕包菜": [
+    "Hand-torn cabbage stir-fry",
+    "ちぎりキャベツの炒め物",
+    "손으로 뜯은 양배추 볶음"
+  ],
+  "干锅花菜": [
+    "Dry-pot cauliflower",
+    "カリフラワーの干鍋風炒め",
+    "콜리플라워 간궈"
+  ],
+  "口味虾": [
+    "Hunan spicy crayfish",
+    "湖南風ザリガニの辛煮",
+    "후난 매운 가재"
+  ],
+  "啤酒鸭": [
+    "Beer-braised duck",
+    "鴨のビール煮",
+    "맥주 오리 조림"
+  ],
+  "湘西外婆菜": [
+    "Western Hunan preserved-vegetable stir-fry",
+    "湖南西部の刻み漬物炒め",
+    "샹시 절임 채소 볶음"
+  ],
+  "擂辣椒皮蛋": [
+    "Pounded peppers and preserved egg",
+    "焼きピーマンとピータン和え",
+    "구운 고추 피단 무침"
+  ],
+  "臭鳜鱼": [
+    "Anhui fermented mandarin fish",
+    "安徽の発酵ケツギョ煮",
+    "안후이 발효 쏘가리 조림"
+  ],
+  "虎皮毛豆腐": [
+    "Golden pan-fried hairy tofu",
+    "毛豆腐のこんがり焼き",
+    "노릇한 발효 두부"
+  ],
+  "黄山炖鸽": [
+    "Huangshan pigeon soup",
+    "黄山の鳩スープ",
+    "황산 비둘기탕"
+  ],
+  "胡适一品锅": [
+    "Hu Shi layered family hot pot",
+    "胡適の重ね鍋",
+    "후스 모둠 층층 전골"
+  ],
+  "问政山笋": [
+    "Wenzheng bamboo shoots",
+    "問政山のたけのこ煮",
+    "원정산 죽순 조림"
+  ],
+  "李鸿章杂烩": [
+    "Li Hongzhang mixed-ingredient stew",
+    "李鴻章の具だくさん煮",
+    "리훙장 모둠 잡탕"
+  ],
+  "徽州蒸鸡": [
+    "Huizhou steamed chicken",
+    "徽州の鶏蒸し",
+    "후이저우 닭찜"
+  ],
+  "徽州圆子": [
+    "Huizhou pork and tofu balls",
+    "徽州の肉豆腐団子",
+    "후이저우 두부 고기완자"
+  ],
+  "绩溪炒粉丝": [
+    "Jixi stir-fried glass noodles",
+    "績渓の春雨炒め",
+    "지시 당면 볶음"
+  ],
+  "刀板香": [
+    "Huizhou sliced cured pork",
+    "徽州の干し豚肉薄切り",
+    "후이저우 염장 고기 편육"
+  ],
+  "石耳炖鸡": [
+    "Chicken with rock ear mushrooms",
+    "鶏と石耳のスープ",
+    "석이버섯 닭탕"
+  ],
+  "挞馃": [
+    "Huizhou chive and tofu flatbread",
+    "徽州のにら豆腐焼き餅",
+    "후이저우 부추 두부 납작빵"
+  ],
+  "莲子按包装要求用清水提前浸泡至吸水，沥干；长时间浸泡需冷藏。": [
+    "Soak lotus seeds in water as directed until hydrated, then drain; refrigerate during long soaking.",
+    "ハスの実を表示どおり水で戻して水を切る。長く浸す場合は冷蔵する。",
+    "연자육은 포장 지시대로 물에 충분히 불려 물기를 뺀다. 오래 불릴 때는 냉장한다."
+  ],
+  "家常菜与八大菜系 · 共 108 道": [
+    "Home cooking & eight regional cuisines · 108 dishes",
+    "家庭料理と中国八大料理・全108品",
+    "가정식과 중국 8대 요리 · 총 108가지"
+  ],
+  "按菜系筛选": [
+    "Filter by cuisine",
+    "料理系統で絞り込む",
+    "요리 계통별 필터"
+  ],
+  "全部菜系": [
+    "All cuisines",
+    "すべての料理系統",
+    "모든 요리 계통"
+  ],
+  "全部类型": [
+    "All dish types",
+    "すべての種類",
+    "모든 음식 종류"
+  ],
+  "选择菜系，或选“全部菜系”跨菜系搜索。": [
+    "Choose a cuisine, or choose All cuisines to search across every collection.",
+    "料理系統を選ぶか、「すべての料理系統」で横断検索できます。",
+    "요리 계통을 선택하거나 모든 요리 계통에서 전체를 검색하세요."
+  ],
+  "每类 12 道，按地域风味与家常做法整理；同名菜在不同地区可能有不同版本。": [
+    "Each collection has 12 dishes, organized by regional flavors and home methods; dishes may vary by location.",
+    "各分類12品を地域の風味と家庭向け手順で整理。同名料理にも地域差があります。",
+    "각 분류는 12가지이며 지역 풍미와 가정식 조리법으로 정리했습니다. 같은 요리도 지역에 따라 다를 수 있습니다."
+  ],
+  "家庭简化版 · 用料与做法可因地区而异": [
+    "Simplified home version · ingredients and methods vary by region",
+    "家庭向け簡略版・材料と手順には地域差あり",
+    "가정용 간소화 레시피 · 지역별 재료와 조리법 차이 있음"
+  ],
+  "108 道菜，九种餐桌风味": [
+    "108 dishes across nine collections",
+    "9分類・108品の食卓",
+    "9가지 분류의 108가지 요리"
+  ],
+  "保留家常菜，并收录鲁、川、粤、苏、闽、浙、湘、徽八大菜系，每类 12 道。": [
+    "The original home recipes plus Shandong, Sichuan, Cantonese, Jiangsu, Fujian, Zhejiang, Hunan and Anhui, with 12 dishes each.",
+    "家庭料理に加え、山東・四川・広東・江蘇・福建・浙江・湖南・安徽料理を各12品収録。",
+    "기존 가정식에 산둥·쓰촨·광둥·장쑤·푸젠·저장·후난·안후이 요리를 각각 12가지씩 담았습니다."
+  ],
+  "菜谱结果翻页": [
+    "Recipe result pages",
+    "料理検索結果のページ送り",
+    "레시피 검색 결과 페이지"
+  ],
+  "第 {page} / {pages} 页": [
+    "Page {page} of {pages}",
+    "{page} / {pages} ページ",
+    "{page} / {pages} 페이지"
+  ],
+  "12 道": [
+    "12 dishes",
+    "12品",
+    "12가지"
+  ],
+  "108 道": [
+    "108 dishes",
+    "108品",
+    "108가지"
+  ],
+  "泡好的糯米与香菇、板栗、莲子、海米、熟火腿、熟笋、胡萝卜、豌豆拌生抽和水，放浅碗蒸 30 分钟；铺青蟹再蒸 15–20 分钟至蟹肉 63°C。": [
+    "Mix soaked rice with shiitake, chestnuts, lotus seeds, dried shrimp, cooked ham, cooked bamboo, carrot, peas, soy sauce and water. Steam 30 minutes, add crab and steam 15–20 more to 63°C.",
+    "もち米にしいたけ、栗、ハスの実、干しえび、加熱済みハムとたけのこ、にんじん、豆、しょうゆ、水を混ぜ30分蒸す。カニをのせ15～20分、身を63°Cにする。",
+    "불린 찹쌀에 표고·밤·연자육·건새우·익힌 햄과 죽순·당근·완두콩·간장·물을 섞어 30분 찐다. 게를 올려 15~20분 더 쪄 살을 63°C로 익힌다."
+  ],
+  "锅底铺白菜，再依次铺豆腐、焯过的五花肉片、鸡块、香菇和熟鹌鹑蛋，加入生抽、姜和水至约八分满。": [
+    "Layer cabbage, tofu, blanched belly slices, chicken, shiitake and cooked quail eggs in a pot; add soy sauce, ginger and water to about four-fifths full.",
+    "鍋に白菜、豆腐、下ゆでしたバラ肉、鶏肉、しいたけ、ゆでうずら卵を重ね、しょうゆ、しょうが、水を八分目まで加える。",
+    "냄비에 배추·두부·데친 삼겹살·닭·표고·삶은 메추리알을 차례로 놓고 간장·생강·물을 약 8부까지 넣는다."
+  ],
+  "预计时间为参考；需提前泡发或腌制的食材，请同时查看步骤和包装说明。": [
+    "Times are estimates; for ingredients needing advance soaking or marinating, also check the steps and package instructions.",
+    "時間は目安です。事前の戻しや漬け込みが必要な材料は、手順と包装の表示も確認してください。",
+    "시간은 참고치입니다. 미리 불리거나 재워야 하는 재료는 순서와 포장 지시도 확인하세요."
   ]
 };
