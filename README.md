@@ -181,7 +181,7 @@ docker run -d --name daily-food-diary --read-only --cap-drop ALL \
 
 浏览器记录仍在使用者的浏览器中；容器不需要保存个人数据的磁盘卷。生产环境在容器前配置 HTTPS。包的访问方式按 GitHub Packages 页面显示的权限设置；包为私有时需使用有 `read:packages` 权限的 GitHub 凭据登录 GHCR。不要在聊天或命令历史中填写密钥。
 
-维护者发布流程：更新 `package.json` 版本，运行 `npm run db:check`、`npm test` 和 `npm run release:build`；在 `dist/` 检查可部署 ZIP、数据库与校验值，提交后创建对应 `v版本号` Release 并上传文件。发布 Release 会触发 `.github/workflows/publish-package.yml`，使用仓库自动提供的 `GITHUB_TOKEN` 发布同版本与 `latest` 容器标签，并拉取镜像验证网站和数据库 API。无需 `npm_token`，不发布到 npmjs.org。可用 workflow_dispatch 为已有标签重试；版本不可随意覆盖，修复应发布新版本。
+维护者发布流程：更新 `package.json` 版本，运行 `npm run db:check`、`npm test` 和 `npm run release:build`；在 `dist/` 检查可部署 ZIP、数据库与校验值，提交后创建对应 `v版本号` Release。发布 Release 会触发 `.github/workflows/publish-package.yml`，使用仓库自动提供的 `GITHUB_TOKEN` 上传 Release 附件并发布同版本与 `latest` 容器标签，并拉取镜像验证网站和数据库 API。无需 `npm_token`，不发布到 npmjs.org。可用 workflow_dispatch 为已有标签重试；版本不可随意覆盖，修复应发布新版本。
 
 ## 数据与隐私
 
