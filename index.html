@@ -14,6 +14,17 @@
     <section class="intro"><div><p class="eyebrow">A LITTLE CARE, EVERY DAY</p><h1>好好吃饭，<br class="mobile-break">慢慢记录<span>。</span></h1><p class="subtitle">把每一餐的小美好，留在生活里。</p></div><div class="intro-art" aria-hidden="true"><span class="art-label">enjoy your everyday</span><span class="plate">🥗</span><span class="spark">✳</span></div></section>
     <div class="toolbar"><div class="date-controls"><button id="previous-day" class="icon-button" aria-label="前一天">‹</button><label class="date-label"><span id="date-heading"></span><input id="date" type="date" aria-label="选择记录日期"></label><button id="next-day" class="icon-button" aria-label="后一天">›</button><button id="today" class="text-button">今天</button></div><button id="add-record" class="primary"><span>＋</span> 记一餐</button></div>
     <section class="stats" aria-label="当日概览"><div class="stat"><span class="stat-icon peach">◷</span><div><p>已记录餐食</p><strong id="record-count">0 <small>条</small></strong></div></div><div class="stat"><span class="stat-icon green">♧</span><div><p>记录的食物</p><strong id="food-count">0 <small>种</small></strong></div></div><div class="stat"><span class="stat-icon yellow">☀</span><div><p>估算摄入热量</p><strong id="calorie-count">0 <small>kcal</small></strong></div></div><div class="stat-note"><span>✦</span><p>每一餐都值得认真对待<br><small>均衡饮食，也别忘了享受美味</small></p></div></section>
+    <section class="calorie-charts" aria-label="热量可视化">
+      <div class="section-heading"><div><h2>每一餐，看得见</h2><p>热量可视化 · kcal（千卡），日常也称“大卡”</p></div><span class="section-tag">随记录实时更新</span></div>
+      <p id="chart-status" class="chart-status" role="status"></p>
+      <div class="charts-grid">
+        <article class="wellness-card"><h3>当日各餐占比 <small>环形饼图</small></h3><p class="chart-description">各餐占已填写热量总和的比例；未填项不参与计算。</p><div id="chart-pie" class="pie-layout"></div></article>
+        <article class="wellness-card"><h3>当日各餐对比 <small>条形图</small></h3><p class="chart-description">早餐、午餐、晚餐、加餐的已填热量，统一比例。</p><div id="chart-meals" class="meal-chart"></div></article>
+        <article class="wellness-card"><h3>最近 7 天 <small>堆叠柱状图</small></h3><p id="chart-range" class="chart-description"></p><p id="week-scale" class="chart-description"></p><div id="chart-week" class="week-chart"></div><p class="chart-description">颜色依次对应早餐、午餐、晚餐、加餐。点击或用键盘选择柱子查看当天；没有记录不等于没有摄入。</p></article>
+        <article class="wellness-card"><h3>当日食物热量分布 <small>直方图</small></h3><p class="chart-description">查看单条食物记录集中在哪些热量区间。</p><div id="chart-histogram" class="histogram"></div><p id="histogram-note" class="chart-description"></p></article>
+      </div>
+      <details class="chart-table-details"><summary>查看 7 天各餐数据表</summary><div class="chart-table-scroll" tabindex="0" role="region" aria-label="最近7天热量数据表，可横向滚动"><table class="chart-table"><caption>最近 7 天已填写热量与缺失情况（kcal）</caption><thead><tr><th scope="col">日期</th><th scope="col">早餐</th><th scope="col">午餐</th><th scope="col">晚餐</th><th scope="col">加餐</th><th scope="col">合计</th></tr></thead><tbody id="chart-table-body"></tbody></table></div></details>
+    </section>
     <section class="wellness" aria-label="健身与配餐">
       <div class="section-heading"><div><h2>吃练有计划</h2><p>按所选日期安排训练，搭配均衡的每一餐</p></div><button id="profile-button" class="text-button">设置我的目标 →</button></div>
       <div class="wellness-grid">

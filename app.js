@@ -1,3 +1,4 @@
+import { renderCharts } from './charts.js';
 import { setupFitness } from './fitness-ui.js';
 import { MEALS, localDate, validRecord, summarize } from './records.js';
 
@@ -44,6 +45,7 @@ function render() {
     target.replaceChildren(document.createTextNode(`${value} `), element('small', '', unit));
   }
   fitness.render();
+  renderCharts({ records, date: selectedDate, readable: storageReadable, $, element, selectDate: date => { selectedDate = date; render(); } });
   $('#meals').replaceChildren(...MEALS.map(meal => {
     const card = element('article', `meal-card ${meal.color}`);
     const head = element('div', 'meal-head');
