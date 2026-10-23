@@ -13,7 +13,8 @@
     "test:sync-schema": "node sync/verify-schema.mjs",
     "food:update-cache": "node scripts/update-food-cache.mjs",
     "db:build": "node database/build.mjs",
-    "db:check": "node database/check.mjs"
+    "db:check": "node database/check.mjs",
+    "release:build": "node scripts/build-release.mjs"
   },
   "engines": {
     "node": ">=22.13.0"

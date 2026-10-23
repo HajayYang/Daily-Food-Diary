@@ -6,3 +6,4 @@ worker/.dev.vars.*
 .env
 .env.*
 !.env.example
+dist/

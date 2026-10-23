@@ -166,6 +166,23 @@ npm test
 
 自动测试覆盖 SQLite 导入一致性与完整性、真实 SQL / WASM 查询、只读 API、未知营养与数值单位、旧记录兼容、营养换算与缺失项、运动统计、收藏复用、禁忌筛选、条码校验与份量、周报完整性、导入去重及冲突、存储回滚、云端鉴权与版本冲突。可重跑的 Playwright 脚本与安装说明见 [e2e/README.md](e2e/README.md)，包括新增/编辑、收藏复用、扫码填表与摄像头清理、购物清单、JSON 往返、四语言与移动布局；外部 API 使用模拟数据验证，真实服务可用性取决于网络与部署。
 
+## Release 与 GitHub Packages
+
+正式版本提供 GitHub Release 下载和容器包：
+
+- [Releases](https://github.com/HajayYang/Daily-Food-Diary/releases)：网站 ZIP、SQLite 菜品库及 `SHA256SUMS.txt`。网站包只包含公开静态资源和许可证，不包含密钥、个人记录或开发配置。
+- GitHub Packages 容器：`ghcr.io/hajayyang/daily-food-diary:1.0.0`，提供网页和 Node 只读菜品 API，支持 Linux amd64 / arm64。
+
+```sh
+docker run -d --name daily-food-diary --read-only --cap-drop ALL \
+  --security-opt no-new-privileges -p 3000:3000 \
+  ghcr.io/hajayyang/daily-food-diary:1.0.0
+```
+
+浏览器记录仍在使用者的浏览器中；容器不需要保存个人数据的磁盘卷。生产环境在容器前配置 HTTPS。包的访问方式按 GitHub Packages 页面显示的权限设置；包为私有时需使用有 `read:packages` 权限的 GitHub 凭据登录 GHCR。不要在聊天或命令历史中填写密钥。
+
+维护者发布流程：更新 `package.json` 版本，运行 `npm run db:check`、`npm test` 和 `npm run release:build`；在 `dist/` 检查可部署 ZIP、数据库与校验值，提交后创建对应 `v版本号` Release 并上传文件。发布 Release 会触发 `.github/workflows/publish-package.yml`，使用仓库自动提供的 `GITHUB_TOKEN` 发布同版本与 `latest` 容器标签，并拉取镜像验证网站和数据库 API。无需 `npm_token`，不发布到 npmjs.org。可用 workflow_dispatch 为已有标签重试；版本不可随意覆盖，修复应发布新版本。
+
 ## 数据与隐私
 
 默认将饮食与健康资料保存在当前浏览器、当前站点下，无需账号；只有主动配置和确认上传云同步时，备份才会发送到你指定的 Supabase 项目。云同步密码不保存，登录令牌仅在本标签页 sessionStorage 中保留，退出后清除；服务地址及公开客户端 key 可保存在 localStorage，均不包含在备份中。选择拍照识别时，经同意的照片会发送到单独配置的识别服务与 OpenAI。清除网站数据、更换浏览器或网站地址会导致原记录不可见，请定期导出备份。支持导出与预览合并导入；外观背景及照片不随备份迁移。共享设备上的其他使用者可能看到记录。

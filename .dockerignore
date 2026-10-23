@@ -1,0 +1,15 @@
+*
+!*.js
+!*.css
+!index.html
+!package.json
+!food-cache.json
+!LICENSE
+!data/
+!data/cookbook.sqlite
+!data/cookbook-manifest.json
+!database/
+!database/api.js
+!vendor/
+!vendor/sqljs/
+!vendor/sqljs/*

@@ -1,0 +1,80 @@
+name: Publish GitHub Package
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing release tag, for example v1.0.0
+        required: true
+        default: v1.0.0
+permissions:
+  contents: read
+  packages: write
+concurrency:
+  group: package-${{ github.event.release.tag_name || inputs.tag }}
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name || inputs.tag }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Validate tag and package version
+        id: metadata
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
+        run: |
+          [[ "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          VERSION=$(node -p 'JSON.parse(require("fs").readFileSync("package.json","utf8")).version')
+          test "$RELEASE_TAG" = "v$VERSION"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "image=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"
+          echo "revision=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - run: npm run db:check
+      - run: npm test
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and publish amd64 / arm64 image
+        id: image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            ${{ steps.metadata.outputs.image }}:${{ steps.metadata.outputs.version }}
+            ${{ steps.metadata.outputs.image }}:latest
+          labels: |
+            org.opencontainers.image.version=${{ steps.metadata.outputs.version }}
+            org.opencontainers.image.revision=${{ steps.metadata.outputs.revision }}
+      - name: Verify published image
+        env:
+          IMAGE: ${{ steps.metadata.outputs.image }}:${{ steps.metadata.outputs.version }}
+        run: |
+          docker pull "$IMAGE"
+          docker run -d --name diary-package-check --read-only --cap-drop ALL --security-opt no-new-privileges -p 127.0.0.1:3000:3000 "$IMAGE"
+          trap 'docker rm -f diary-package-check' EXIT
+          for attempt in $(seq 1 20); do
+            if curl --fail --silent http://127.0.0.1:3000/api/recipes/meta > /tmp/catalog.json; then break; fi
+            sleep 2
+          done
+          node -e 'const m=JSON.parse(require("fs").readFileSync("/tmp/catalog.json","utf8"));const expected=JSON.parse(require("fs").readFileSync("data/cookbook-manifest.json","utf8"));if(m.total!==expected.recipes||m.cuisines.length!==expected.cuisines)process.exit(1)'
+          curl --fail --silent http://127.0.0.1:3000/data/cookbook.sqlite -o /tmp/catalog.sqlite
+          sha256sum /tmp/catalog.sqlite
+          test "$(sha256sum /tmp/catalog.sqlite | cut -d' ' -f1)" = "$(node -p 'JSON.parse(require("fs").readFileSync("data/cookbook-manifest.json","utf8")).sha256')"
+      - name: Package summary
+        env:
+          IMAGE: ${{ steps.metadata.outputs.image }}:${{ steps.metadata.outputs.version }}
+          DIGEST: ${{ steps.image.outputs.digest }}
+        run: |
+          echo "Published $IMAGE" >> "$GITHUB_STEP_SUMMARY"
+          echo "Digest: $DIGEST" >> "$GITHUB_STEP_SUMMARY"

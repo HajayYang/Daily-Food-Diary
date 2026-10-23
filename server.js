@@ -1,12 +1,11 @@
 import * as http from 'node:http';
+import { PUBLIC_ASSETS } from './public-assets.js';
 import { createFoodSearchHandler } from './food-search.js';
 import { createRecipeApi } from './database/api.js';
 import { readFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 // Only this public catalog and browser assets are served. User diaries stay private.
-const assets=new Set(['recipes.js','recipes-ui.js','regional-recipes.js','recipe-client.js','recipe-query.js','recipe-db-worker.js',
- 'data/cookbook.sqlite','data/cookbook-manifest.json','vendor/sqljs/sql-wasm.js','vendor/sqljs/sql-wasm.wasm','vendor/sqljs/LICENSE',
- 'index.html','style.css','appearance.css','app.js','records.js','fitness.js','fitness-ui.js','training.js','charts.js','appearance.js','i18n.js','locales.js','food-discovery.js','food-online.js','food-api.js','food-snapshot.js','food-cache.json','photo-core.js','photo-client.js','photo-ui.js','next-day.js','next-day-ui.js','nutrition.js','lifestyle.js','lifestyle-ui.js','menu-plan.js','storage.js','reports.js','barcode.js','barcode-ui.js','backup.js','backup-ui.js','sync-client.js']);
+const assets=new Set(PUBLIC_ASSETS);
 function contentType(name) {
  if(name.endsWith('.sqlite'))return 'application/vnd.sqlite3';
  if(name.endsWith('.wasm'))return 'application/wasm';
