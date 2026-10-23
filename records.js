@@ -9,6 +9,7 @@ export function localDate(date = new Date()) {
 }
 export function validRecord(record) {
   if (!record || typeof record !== 'object') return false;
+  if (['protein', 'carbs', 'fat'].some(key => record[key] != null && (typeof record[key] !== 'number' || !Number.isFinite(record[key]) || record[key] < 0 || record[key] > 2000))) return false;
   const date = typeof record.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(record.date) && new Date(`${record.date}T12:00:00`).getTime();
   return Boolean(date && localDate(new Date(`${record.date}T12:00:00`)) === record.date && typeof record.id === 'string' && record.id.length && MEALS.some(meal => meal.id === record.meal) && typeof record.food === 'string' && record.food.trim().length > 0 && record.food.length <= 120 && typeof record.portion === 'string' && record.portion.length <= 40 && typeof record.note === 'string' && record.note.length <= 500 && (record.calories === null || (Number.isInteger(record.calories) && record.calories >= 0 && record.calories <= 20000)));
 }

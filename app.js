@@ -1,3 +1,4 @@
+import { setupFitness } from './fitness-ui.js';
 import { MEALS, localDate, validRecord, summarize } from './records.js';
 
 const STORAGE_KEY = 'daily-bites.records.v1';
@@ -42,6 +43,7 @@ function render() {
     const target = $(`#${id}`);
     target.replaceChildren(document.createTextNode(`${value} `), element('small', '', unit));
   }
+  fitness.render();
   $('#meals').replaceChildren(...MEALS.map(meal => {
     const card = element('article', `meal-card ${meal.color}`);
     const head = element('div', 'meal-head');
@@ -61,6 +63,8 @@ function render() {
       const row = element('div', 'record');
       const info = element('div', 'record-info');
       info.append(element('h4', '', record.food), element('p', '', [record.portion, record.calories === null ? '未填写热量' : `${record.calories} kcal`].filter(Boolean).join(' · ')));
+      const nutrition = ['protein', 'carbs', 'fat'].map((key, index) => record[key] == null ? null : `${['蛋白质', '碳水', '脂肪'][index]} ${record[key]}g`).filter(Boolean);
+      if (nutrition.length) info.append(element('p', '', nutrition.join(' · ')));
       if (record.note) info.append(element('p', 'record-note', record.note));
       const actions = element('div', 'record-actions');
       const edit = element('button', 'text-button', '编辑');
@@ -90,6 +94,7 @@ $('#record-form').addEventListener('submit', event => {
   event.preventDefault();
   const data = new FormData(event.currentTarget);
   const record = { id: data.get('id') || crypto.randomUUID(), date: data.get('date'), meal: data.get('meal'), food: data.get('food').trim(), portion: data.get('portion').trim(), calories: data.get('calories') === '' ? null : Number(data.get('calories')), note: data.get('note').trim() };
+  for (const key of ['protein', 'carbs', 'fat']) record[key] = data.get(key) === '' ? null : Number(data.get(key));
   if (!validRecord(record)) { toast('请检查日期、食物名称和热量是否填写正确。'); return; }
   const next = records.some(item => item.id === record.id) ? records.map(item => item.id === record.id ? record : item) : [...records, record];
   if (persist(next)) { selectedDate = record.date; $('#record-dialog').close(); render(); toast('已保存，记得好好吃饭'); }
@@ -103,8 +108,9 @@ for (const [id, offset] of [['previous-day', -1], ['next-day', 1]]) {
 $('#today').addEventListener('click', () => { selectedDate = localDate(); render(); });
 $('#export').addEventListener('click', () => {
   if (!storageReadable) { toast('原有数据无法读取，暂不能导出。'); return; }
-  const url = URL.createObjectURL(new Blob([JSON.stringify({ version: 1, exportedAt: new Date().toISOString(), records }, null, 2)], { type: 'application/json' }));
+  const url = URL.createObjectURL(new Blob([JSON.stringify({ version: 2, exportedAt: new Date().toISOString(), records, fitness: fitness.exportData() }, null, 2)], { type: 'application/json' }));
   const link = element('a'); link.href = url; link.download = `一日食记-${localDate()}.json`; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
+const fitness = setupFitness({ $, element, toast, refresh: render, getDate: () => selectedDate, getRecords: () => records });
 render();
 if (!storageReadable) toast('本地记录读取失败。原数据未被覆盖，请检查浏览器存储设置。');
