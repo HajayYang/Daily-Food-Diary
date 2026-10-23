@@ -4404,5 +4404,605 @@ export const MESSAGES = {
     "Live search is unavailable. Food database snapshot for “{query}” · retrieved {date} · {n} items. Not live results; verify the package.",
     "リアルタイム検索は利用できません。「{query}」の食品庫スナップショット · 取得日 {date} · {n} 件。最新検索ではありません。包装をご確認ください。",
     "실시간 검색을 사용할 수 없습니다. “{query}” 식품 DB 스냅샷 · 수집일 {date} · {n}개. 실시간 결과가 아니므로 포장을 확인하세요."
+  ],
+  "番茄": [
+    "Tomato",
+    "トマト",
+    "토마토"
+  ],
+  "食用油": [
+    "Cooking oil",
+    "食用油",
+    "식용유"
+  ],
+  "土豆": [
+    "Potato",
+    "じゃがいも",
+    "감자"
+  ],
+  "蒜": [
+    "Garlic",
+    "にんにく",
+    "마늘"
+  ],
+  "米醋": [
+    "Rice vinegar",
+    "米酢",
+    "쌀식초"
+  ],
+  "鲜辣椒（可省略）": [
+    "Fresh chili (optional)",
+    "生唐辛子（省略可）",
+    "생고추 (선택)"
+  ],
+  "去皮鸡胸肉": [
+    "Skinless chicken breast",
+    "皮なし鶏むね肉",
+    "껍질 없는 닭가슴살"
+  ],
+  "鲜香菇": [
+    "Fresh shiitake",
+    "生しいたけ",
+    "생표고버섯"
+  ],
+  "生抽（核对配料）": [
+    "Light soy sauce (check label)",
+    "薄口しょうゆ（原材料を確認）",
+    "간장 (성분 확인)"
+  ],
+  "姜": [
+    "Ginger",
+    "しょうが",
+    "생강"
+  ],
+  "瘦猪肉": [
+    "Lean pork",
+    "豚赤身肉",
+    "돼지고기 살코기"
+  ],
+  "青椒": [
+    "Green pepper",
+    "ピーマン",
+    "피망"
+  ],
+  "玉米淀粉": [
+    "Cornstarch",
+    "コーンスターチ",
+    "옥수수전분"
+  ],
+  "北豆腐": [
+    "Firm tofu",
+    "木綿豆腐",
+    "단단한 두부"
+  ],
+  "小白菜": [
+    "Bok choy",
+    "チンゲンサイ",
+    "청경채"
+  ],
+  "去刺鱼柳": [
+    "Boneless fish fillet",
+    "骨なし魚の切り身",
+    "가시를 제거한 생선살"
+  ],
+  "葱": [
+    "Scallion",
+    "ねぎ",
+    "파"
+  ],
+  "黄瓜": [
+    "Cucumber",
+    "きゅうり",
+    "오이"
+  ],
+  "熟米饭": [
+    "Cooked rice",
+    "炊いたご飯",
+    "지은 밥"
+  ],
+  "豌豆": [
+    "Peas",
+    "グリーンピース",
+    "완두콩"
+  ],
+  "干面条": [
+    "Dried noodles",
+    "乾麺",
+    "건면"
+  ],
+  "番茄炒蛋": [
+    "Tomato and egg stir-fry",
+    "トマトと卵の炒め物",
+    "토마토 달걀 볶음"
+  ],
+  "番茄洗净切块，鸡蛋打散；食材用量按生重、可食部分计。": [
+    "Wash and chop the tomatoes; beat the eggs. Amounts refer to raw edible portions.",
+    "トマトを洗って切り、卵を溶く。分量は調理前の可食部の重さ。",
+    "토마토를 씻어 썰고 달걀을 푼다. 분량은 조리 전 먹는 부분 기준이다."
+  ],
+  "中火热锅，加入一半油，倒入蛋液炒至凝固，盛出。": [
+    "Heat half the oil over medium heat. Scramble the eggs until set, then remove.",
+    "中火で油の半量を熱し、卵を入れて固まるまで炒め、取り出す。",
+    "중불로 기름 절반을 달군 뒤 달걀을 넣어 익혀 덜어 둔다."
+  ],
+  "加入剩余油和番茄，翻炒约 3 分钟；加水焖 2 分钟至出汁。": [
+    "Add the remaining oil and tomatoes. Stir-fry for 3 minutes, add water and simmer for 2 minutes until juicy.",
+    "残りの油とトマトを入れて約3分炒め、水を加えて2分蒸し煮にする。",
+    "남은 기름과 토마토를 넣어 3분 볶고 물을 넣어 2분 익혀 즙을 낸다."
+  ],
+  "倒回鸡蛋，加盐翻炒均匀，确保蛋液完全凝固后出锅。": [
+    "Return the eggs, add salt and toss. Serve once all egg is fully set.",
+    "卵を戻し、塩を加えて混ぜ、卵が完全に固まったら盛る。",
+    "달걀을 다시 넣고 소금으로 간해 볶는다. 달걀이 완전히 익으면 담는다."
+  ],
+  "搭配杂粮饭和一份绿叶菜；番茄本身有甜味，可不另加糖。": [
+    "Serve with mixed-grain rice and leafy greens. Tomatoes add sweetness without extra sugar.",
+    "雑穀ご飯と葉物野菜を添える。トマトの甘みを生かし、砂糖は加えなくてもよい。",
+    "잡곡밥과 잎채소를 곁들인다. 토마토의 단맛을 활용하면 설탕을 넣지 않아도 된다."
+  ],
+  "酸辣土豆丝": [
+    "Tangy shredded potatoes",
+    "じゃがいもの細切り炒め",
+    "새콤한 감자채 볶음"
+  ],
+  "土豆去皮切细丝，清水冲洗表面淀粉后沥干；蒜切片，辣椒切丝。": [
+    "Peel and shred the potatoes. Rinse off surface starch and drain; slice the garlic and chili.",
+    "じゃがいもを細切りにし、水で表面のでんぷんを洗い流す。にんにくと唐辛子を切る。",
+    "감자를 깎아 채 썰고 표면 전분을 헹궈 물기를 뺀다. 마늘과 고추를 썬다."
+  ],
+  "中火热油，放蒜和可选辣椒炒出香味，避免炒焦。": [
+    "Heat the oil over medium heat; briefly fry the garlic and optional chili without burning.",
+    "中火で油を熱し、にんにくと好みで唐辛子を焦がさず炒める。",
+    "중불에 기름을 달구고 마늘과 선택 재료인 고추를 타지 않게 볶는다."
+  ],
+  "倒入土豆丝，转中大火翻炒约 4–6 分钟；若粘锅，可少量分次加水。": [
+    "Add the potatoes and stir-fry over medium-high heat for 4–6 minutes. Add a little water if they stick.",
+    "じゃがいもを加え、中強火で4～6分炒める。くっつく場合は少量の水を加える。",
+    "감자를 넣고 중강불로 4~6분 볶는다. 눌어붙으면 물을 조금씩 넣는다."
+  ],
+  "加米醋和盐炒匀，确认土豆无生硬芯后出锅。": [
+    "Add vinegar and salt; serve when the potatoes have no hard raw center.",
+    "米酢と塩を混ぜ、じゃがいもに生の硬い芯がないことを確認して盛る。",
+    "식초와 소금을 넣고 감자 속까지 익었는지 확인한 뒤 담는다."
+  ],
+  "土豆可计入主食份量，这餐可适当少盛米饭，再搭配豆腐或瘦肉。": [
+    "Count potatoes toward the starchy part of the meal; serve less rice and add tofu or lean meat.",
+    "じゃがいもは主食の一部として、ご飯を調整し、豆腐や赤身肉を添える。",
+    "감자도 탄수화물 식품이므로 밥 양을 조절하고 두부나 살코기를 곁들인다."
+  ],
+  "蒜蓉西兰花": [
+    "Garlic broccoli",
+    "ブロッコリーのにんにく炒め",
+    "마늘 브로콜리 볶음"
+  ],
+  "西兰花切小朵，茎去硬皮后切片，流水洗净；蒜切末。": [
+    "Cut the broccoli into florets, peel and slice the stem, and rinse. Mince the garlic.",
+    "ブロッコリーを小房に分け、茎は硬い皮を除いて切り、洗う。にんにくを刻む。",
+    "브로콜리는 송이를 나누고 줄기는 질긴 껍질을 벗겨 썬 뒤 씻는다. 마늘은 다진다."
+  ],
+  "锅中水烧开，放西兰花焯约 1 分钟，捞出沥水。": [
+    "Blanch the broccoli in boiling water for about 1 minute, then drain.",
+    "沸騰した湯で約1分ゆで、水を切る。",
+    "끓는 물에 브로콜리를 약 1분 데친 뒤 물기를 뺀다."
+  ],
+  "中小火热油，蒜末炒香，倒入西兰花翻炒。": [
+    "Heat the oil over medium-low heat, fry the garlic briefly, then add the broccoli.",
+    "中弱火で油を熱し、にんにくを炒めてからブロッコリーを加える。",
+    "중약불에 기름을 달궈 마늘을 볶고 브로콜리를 넣는다."
+  ],
+  "加水和盐，翻炒约 2–3 分钟，至茎部熟透即可。": [
+    "Add water and salt; stir-fry for 2–3 minutes until the stems are cooked.",
+    "水と塩を加え、茎に火が通るまで2～3分炒める。",
+    "물과 소금을 넣고 줄기까지 익도록 2~3분 볶는다."
+  ],
+  "作为蔬菜配菜，另搭配主食和鱼、蛋或豆制品，组成完整一餐。": [
+    "Add a staple and fish, eggs or tofu to turn this vegetable side into a full meal.",
+    "野菜のおかずとして、主食と魚・卵・大豆製品を組み合わせる。",
+    "채소 반찬으로 먹고 밥과 생선·달걀·콩 식품을 함께 구성한다."
+  ],
+  "香菇炒鸡胸肉": [
+    "Chicken and shiitake stir-fry",
+    "鶏むね肉としいたけの炒め物",
+    "표고버섯 닭가슴살 볶음"
+  ],
+  "香菇洗净切片，姜切丝；鸡胸肉用独立刀板切薄片，不冲洗生鸡肉。": [
+    "Wash and slice the mushrooms; shred ginger. Slice chicken on a separate board; do not rinse raw chicken.",
+    "しいたけとしょうがを切る。鶏肉は専用のまな板で薄切りにし、生肉は洗わない。",
+    "표고버섯과 생강을 썬다. 닭고기는 별도 도마에서 얇게 썰고 생닭을 물로 씻지 않는다."
+  ],
+  "鸡肉拌生抽腌 5 分钟，接触过生肉的手和器具及时清洗。": [
+    "Marinate chicken in soy sauce for 5 minutes. Wash hands and utensils after handling raw meat.",
+    "鶏肉にしょうゆを混ぜ5分置く。生肉に触れた手や器具を洗う。",
+    "닭고기에 간장을 넣고 5분 재운다. 생고기를 만진 손과 도구를 씻는다."
+  ],
+  "中火热油炒香姜丝，加入鸡片炒至表面变色，再放香菇翻炒。": [
+    "Heat oil over medium heat, fry ginger, add chicken until its surface changes color, then add mushrooms.",
+    "中火で油としょうがを熱し、鶏肉の表面の色が変わるまで炒め、しいたけを加える。",
+    "중불로 기름에 생강을 볶고 닭고기 표면 색이 변하면 버섯을 넣어 볶는다."
+  ],
+  "加水盖锅焖约 5–8 分钟，翻匀并确认鸡肉中心至少达到 74°C，熟透再出锅。": [
+    "Add water, cover for about 5–8 minutes, then stir. Check the chicken reaches at least 74°C in the center before serving.",
+    "水を加え、ふたをして約5～8分加熱。混ぜ、鶏肉の中心が74°C以上になってから盛る。",
+    "물을 넣어 덮고 약 5~8분 익힌다. 뒤섞고 닭고기 중심이 74°C 이상인지 확인한 뒤 담는다."
+  ],
+  "搭配糙米饭与时蔬；生抽含钠，不必再额外加盐。": [
+    "Serve with brown rice and vegetables. Soy sauce adds sodium, so extra salt is unnecessary.",
+    "玄米ご飯と野菜を添える。しょうゆに塩分があるため、追加の塩は不要。",
+    "현미밥과 채소를 곁들인다. 간장에 나트륨이 있으므로 소금을 추가하지 않는다."
+  ],
+  "青椒肉丝": [
+    "Pork and green pepper stir-fry",
+    "豚肉とピーマンの細切り炒め",
+    "피망 돼지고기 볶음"
+  ],
+  "青椒洗净去籽切丝，姜切丝；瘦肉用另一块刀板切丝。": [
+    "Wash, deseed and shred peppers; shred ginger. Cut pork into strips on a separate board.",
+    "ピーマンの種を除いて細切りにし、しょうがも切る。豚肉は別のまな板で切る。",
+    "피망을 씻어 씨를 빼고 채 썬다. 생강과 고기는 각각 썰고 고기용 도마를 따로 쓴다."
+  ],
+  "肉丝加入生抽、淀粉和少量配方内的水拌匀，腌 5 分钟。": [
+    "Mix pork with soy sauce, starch and a little of the measured water; marinate for 5 minutes.",
+    "豚肉にしょうゆ、でんぷん、分量の水を少量混ぜ、5分置く。",
+    "고기에 간장, 전분과 분량 내 물 조금을 넣고 섞어 5분 재운다."
+  ],
+  "中火热油炒香姜，放肉丝炒散至变色，加入青椒翻炒约 3 分钟。": [
+    "Heat oil and ginger over medium heat. Separate and fry pork strips until the surface changes color; add peppers and fry for 3 minutes.",
+    "中火で油としょうがを熱し、肉をほぐして色が変わるまで炒め、ピーマンを加え約3分炒める。",
+    "중불에 기름과 생강을 볶고 고기를 풀어 볶는다. 표면 색이 변하면 피망을 넣어 3분 볶는다."
+  ],
+  "加剩余水焖炒至肉丝完全熟透、无生肉质感，青椒软硬按口味调整。": [
+    "Add remaining water and cook until pork is fully cooked with no raw texture; adjust the peppers to taste.",
+    "残りの水を加え、肉に完全に火を通す。ピーマンの硬さは好みで調整する。",
+    "남은 물을 넣고 고기가 속까지 완전히 익도록 조리한다. 피망 익힘은 취향에 맞춘다."
+  ],
+  "优先选择瘦肉，配一份主食；酱油的过敏原以实际标签为准。": [
+    "Choose lean pork and add a staple. Check the actual soy sauce label for allergens.",
+    "赤身肉を使い、主食を添える。しょうゆのアレルゲンは実際の表示を確認する。",
+    "살코기를 사용하고 밥을 곁들인다. 간장 알레르기 성분은 실제 제품 표시를 확인한다."
+  ],
+  "家常豆腐": [
+    "Tofu and vegetable skillet",
+    "豆腐と野菜の炒め煮",
+    "두부 채소 볶음"
+  ],
+  "豆腐沥水切厚片，胡萝卜和青椒切片，蒜切末。": [
+    "Drain tofu and cut thick slices; slice the carrot and pepper and mince garlic.",
+    "豆腐を水切りして厚めに切る。にんじんとピーマンを切り、にんにくを刻む。",
+    "두부 물기를 빼 두껍게 썰고 당근과 피망을 썬다. 마늘은 다진다."
+  ],
+  "不粘锅中火加油，豆腐平铺，煎至两面浅金黄后盛出。": [
+    "Heat oil in a nonstick pan over medium heat; lightly brown tofu on both sides and remove.",
+    "中火のフライパンに油を入れ、豆腐を両面薄いきつね色に焼いて取り出す。",
+    "중불로 코팅 팬에 기름을 두르고 두부 양면을 연한 갈색으로 구워 덜어 둔다."
+  ],
+  "原锅放蒜、胡萝卜和青椒翻炒 2 分钟，加入生抽和水。": [
+    "In the same pan, stir-fry garlic, carrot and pepper for 2 minutes; add soy sauce and water.",
+    "同じフライパンでにんにく、にんじん、ピーマンを2分炒め、しょうゆと水を加える。",
+    "같은 팬에서 마늘, 당근, 피망을 2분 볶고 간장과 물을 넣는다."
+  ],
+  "放回豆腐，小火煮约 5 分钟至蔬菜熟透，轻推拌匀后出锅。": [
+    "Return tofu; simmer for about 5 minutes until vegetables are cooked, then stir gently and serve.",
+    "豆腐を戻し、野菜に火が通るまで弱火で約5分煮て、優しく混ぜる。",
+    "두부를 다시 넣고 약불에서 채소가 익을 때까지 약 5분 끓인 뒤 부드럽게 섞는다."
+  ],
+  "豆腐可作为植物蛋白来源，搭配杂粮饭与绿叶蔬菜；无需油炸。": [
+    "Tofu provides plant protein. Serve with mixed grains and leafy greens; deep-frying is unnecessary.",
+    "豆腐は植物性たんぱく源。雑穀ご飯と葉物野菜を添え、揚げずに調理できる。",
+    "두부는 식물성 단백질 식품이다. 잡곡밥과 잎채소를 곁들이며 튀길 필요는 없다."
+  ],
+  "香菇炒青菜": [
+    "Shiitake and bok choy",
+    "しいたけと青菜の炒め物",
+    "표고버섯 청경채 볶음"
+  ],
+  "小白菜掰开洗净，菜梗和菜叶分开；香菇切片，蒜切末。": [
+    "Wash and separate bok choy stems and leaves; slice mushrooms and mince garlic.",
+    "青菜を洗い、茎と葉を分ける。しいたけを切り、にんにくを刻む。",
+    "청경채를 씻어 줄기와 잎을 나눈다. 버섯은 썰고 마늘은 다진다."
+  ],
+  "中火热油，蒜末炒香，香菇先炒约 2 分钟。": [
+    "Heat oil over medium heat, briefly fry garlic, then cook mushrooms for 2 minutes.",
+    "中火で油を熱してにんにくを炒め、しいたけを加えて約2分炒める。",
+    "중불로 기름을 달궈 마늘을 볶고 버섯을 넣어 약 2분 볶는다."
+  ],
+  "放菜梗翻炒 1 分钟，再加入菜叶和水。": [
+    "Stir-fry stems for 1 minute, then add leaves and water.",
+    "茎を1分炒めてから葉と水を加える。",
+    "줄기를 넣어 1분 볶은 뒤 잎과 물을 넣는다."
+  ],
+  "继续翻炒约 2–3 分钟至香菇与菜梗熟透，加盐拌匀。": [
+    "Cook for 2–3 more minutes until mushrooms and stems are cooked; mix in salt.",
+    "しいたけと茎に火が通るまでさらに2～3分炒め、塩を混ぜる。",
+    "버섯과 줄기가 익을 때까지 2~3분 더 볶고 소금으로 간한다."
+  ],
+  "焯煮或快炒可减少额外用油，配豆腐、蛋或鱼补充蛋白质。": [
+    "Blanching or quick stir-frying needs little oil; add tofu, eggs or fish for protein.",
+    "ゆでる・手早く炒める調理で油を控え、豆腐・卵・魚でたんぱく質を補う。",
+    "데치거나 빠르게 볶으면 기름을 줄일 수 있다. 두부·달걀·생선으로 단백질을 보충한다."
+  ],
+  "清蒸鱼柳": [
+    "Ginger steamed fish",
+    "魚のしょうが蒸し",
+    "생강 생선찜"
+  ],
+  "解冻后的鱼柳擦干、检查残留鱼刺，放耐热盘；姜切丝，葱切段。": [
+    "Pat thawed fish dry and check for bones; place on a heatproof plate. Slice ginger and scallion.",
+    "解凍した魚の水気を拭いて骨を確認し、耐熱皿に置く。しょうがとねぎを切る。",
+    "해동한 생선의 물기를 닦고 남은 가시를 확인해 내열 접시에 놓는다. 생강과 파를 썬다."
+  ],
+  "鱼上铺姜丝和一半葱，蒸锅加水烧开。": [
+    "Top fish with ginger and half the scallion; bring water in the steamer to a boil.",
+    "魚にしょうがとねぎの半量をのせ、蒸し器の湯を沸かす。",
+    "생선에 생강과 파 절반을 올리고 찜기 물을 끓인다."
+  ],
+  "放入鱼盘，大火蒸约 8–12 分钟，按厚度延长；中心达到 63°C、鱼肉易分片再取出。": [
+    "Steam over high heat for about 8–12 minutes, longer for thicker pieces. Check the center reaches 63°C and flakes easily.",
+    "強火で約8～12分、厚さに応じて長めに蒸す。中心が63°Cで、身がほぐれることを確認する。",
+    "센불에서 약 8~12분 찌고 두께에 따라 늘린다. 중심이 63°C이고 살이 쉽게 갈라지는지 확인한다."
+  ],
+  "小心取出倒去部分蒸汁，淋生抽和油，撒剩余葱；食用时仍需留意鱼刺。": [
+    "Carefully drain some cooking liquid, drizzle with soy sauce and oil, and add scallion. Watch for bones when eating.",
+    "蒸し汁を少し捨て、しょうゆと油、残りのねぎを加える。食べる際も骨に注意する。",
+    "조심히 꺼내 찜 국물을 일부 버리고 간장과 기름, 남은 파를 올린다. 먹을 때도 가시를 확인한다."
+  ],
+  "配米饭和两种蔬菜；鱼类和酱油相关过敏者应另选菜谱。": [
+    "Serve with rice and two vegetables. Choose another recipe if allergic to fish or ingredients in soy sauce.",
+    "ご飯と2種類の野菜を添える。魚やしょうゆの原材料にアレルギーがある場合は別の料理を選ぶ。",
+    "밥과 두 가지 채소를 곁들인다. 생선이나 간장 성분에 알레르기가 있으면 다른 요리를 선택한다."
+  ],
+  "蒜香拍黄瓜": [
+    "Garlic cucumber salad",
+    "きゅうりのにんにく和え",
+    "마늘 오이무침"
+  ],
+  "洗净双手和熟食刀板，黄瓜流水洗净，去两端。": [
+    "Wash hands and a board reserved for ready-to-eat food; rinse cucumber and trim the ends.",
+    "手と生食用のまな板を洗い、きゅうりを流水で洗って両端を落とす。",
+    "손과 바로 먹는 음식용 도마를 씻고 오이를 흐르는 물에 씻어 양끝을 자른다."
+  ],
+  "用刀面轻拍黄瓜使其裂开，再切成易入口小块。": [
+    "Gently crush the cucumber with the flat of a knife, then cut into bite-sized pieces.",
+    "包丁の平らな面で軽くたたいて割り、食べやすい大きさに切る。",
+    "칼의 넓은 면으로 오이를 가볍게 두드려 갈라지게 한 뒤 먹기 좋게 썬다."
+  ],
+  "蒜切末，与米醋、油和盐在干净碗中拌匀。": [
+    "Mince garlic; mix with vinegar, oil and salt in a clean bowl.",
+    "にんにくを刻み、清潔なボウルで米酢、油、塩と混ぜる。",
+    "마늘을 다져 깨끗한 그릇에서 식초, 기름, 소금과 섞는다."
+  ],
+  "加入黄瓜拌匀，现拌现吃；暂不食用时及时加盖冷藏。": [
+    "Toss in cucumber and serve promptly; cover and refrigerate if not eating immediately.",
+    "きゅうりを混ぜてすぐ食べる。すぐ食べない場合は覆って冷蔵する。",
+    "오이를 넣어 버무리고 바로 먹는다. 바로 먹지 않으면 덮어서 즉시 냉장한다."
+  ],
+  "清爽配菜不替代主餐，搭配全谷物和蛋白质食物。": [
+    "This refreshing side needs whole grains and a protein food to make a meal.",
+    "さっぱりした副菜として、全粒穀物とたんぱく源を組み合わせる。",
+    "가벼운 반찬이므로 통곡물과 단백질 식품을 함께 먹는다."
+  ],
+  "嫩滑蒸蛋": [
+    "Savory steamed eggs",
+    "なめらか卵蒸し",
+    "부드러운 달걀찜"
+  ],
+  "鸡蛋打散，加入盐和温水拌匀；水温以不烫手为宜。": [
+    "Beat eggs, then mix in salt and lukewarm water that is not hot to the touch.",
+    "卵を溶き、塩と触って熱くない程度のぬるま湯を混ぜる。",
+    "달걀을 풀고 소금과 손에 뜨겁지 않은 미지근한 물을 섞는다."
+  ],
+  "蛋液过滤到耐热碗，撇去泡沫，盖耐热盘防滴水。": [
+    "Strain into a heatproof bowl, skim bubbles and cover with a heatproof plate to prevent drips.",
+    "耐熱の器にこし入れ、泡を取り、耐熱皿で覆って水滴を防ぐ。",
+    "내열 그릇에 체로 거르고 거품을 걷은 뒤 내열 접시로 덮어 물방울을 막는다."
+  ],
+  "蒸锅水沸后放入，中小火蒸约 10–15 分钟；份量或深度增加时延长。": [
+    "Place in a boiling steamer; steam over medium-low heat for 10–15 minutes, longer for deeper or larger portions.",
+    "沸騰した蒸し器に入れ、中弱火で約10～15分蒸す。量や深さに応じて延長する。",
+    "찜기 물이 끓으면 넣고 중약불로 약 10~15분 찐다. 양이나 깊이에 따라 늘린다."
+  ],
+  "确认中心完全凝固、无流动蛋液后取出，淋油并撒洗净的葱花。": [
+    "Check the center is fully set with no liquid egg; remove and top with oil and washed scallion.",
+    "中心まで固まり、液状の卵がないことを確認し、油と洗ったねぎをのせる。",
+    "중심까지 굳고 흐르는 달걀물이 없는지 확인한 뒤 꺼내 기름과 씻은 파를 올린다."
+  ],
+  "鸡蛋提供蛋白质，但蒸蛋不能替代蔬菜和主食。": [
+    "Eggs provide protein; add vegetables and a staple for a complete meal.",
+    "卵はたんぱく源。蒸し卵だけでなく、野菜と主食も添える。",
+    "달걀은 단백질 식품이며 달걀찜만으로 채소와 밥을 대신할 수 없다."
+  ],
+  "蔬菜蛋炒饭": [
+    "Vegetable and egg fried rice",
+    "野菜と卵のチャーハン",
+    "채소 달걀 볶음밥"
+  ],
+  "胡萝卜切小丁，豌豆洗净，鸡蛋打散；用新煮米饭，或及时冷藏且保存得当的米饭。": [
+    "Dice carrots, wash peas and beat eggs. Use freshly cooked rice or promptly refrigerated, properly stored rice.",
+    "にんじんを小さく切り、豆を洗って卵を溶く。炊きたてか、速やかに冷蔵した適切に保存されたご飯を使う。",
+    "당근을 잘게 썰고 완두콩을 씻어 달걀을 푼다. 갓 지은 밥이나 신속히 냉장해 적절히 보관한 밥을 쓴다."
+  ],
+  "胡萝卜丁和豌豆先入沸水煮约 3–5 分钟至熟，沥水。": [
+    "Boil carrots and peas for about 3–5 minutes until cooked, then drain.",
+    "にんじんと豆を沸騰した湯で約3～5分、火が通るまでゆで、水を切る。",
+    "당근과 완두콩을 끓는 물에서 약 3~5분 익힌 뒤 물기를 뺀다."
+  ],
+  "中火热油，将蛋液炒至凝固，加入米饭打散翻炒。": [
+    "Heat oil over medium heat; scramble eggs until set, add rice and break up clumps.",
+    "中火で油を熱し、卵を固まるまで炒め、ご飯を加えてほぐす。",
+    "중불로 기름을 달궈 달걀을 완전히 익히고 밥을 넣어 뭉친 것을 푼다."
+  ],
+  "加入熟蔬菜和盐，持续翻炒至全部热透、冒热气；米饭只复热一次。": [
+    "Add cooked vegetables and salt. Stir until steaming hot throughout; reheat rice only once.",
+    "野菜と塩を加え、全体から湯気が出るまで炒める。ご飯の再加熱は1回まで。",
+    "익힌 채소와 소금을 넣고 전체에서 김이 나며 뜨거워질 때까지 볶는다. 밥은 한 번만 재가열한다."
+  ],
+  "可用部分糙米替代白米，另添一份绿叶菜；不使用室温久放的剩饭。": [
+    "Replace some white rice with brown rice and add leafy greens. Never use rice left at room temperature for a long time.",
+    "白米の一部を玄米に替え、葉物野菜を添える。室温で長時間放置したご飯は使わない。",
+    "백미 일부를 현미로 바꾸고 잎채소를 더한다. 실온에 오래 둔 밥은 사용하지 않는다."
+  ],
+  "番茄鸡蛋面": [
+    "Tomato and egg noodle soup",
+    "トマトと卵のスープ麺",
+    "토마토 달걀 국수"
+  ],
+  "番茄切块，小白菜洗净切段，鸡蛋打散；面条用量为干重。": [
+    "Chop tomatoes and washed bok choy; beat eggs. Noodle amounts are dry weight.",
+    "トマトと洗った青菜を切り、卵を溶く。麺の分量は乾燥重量。",
+    "토마토와 씻은 청경채를 썰고 달걀을 푼다. 국수 분량은 마른 면 기준이다."
+  ],
+  "锅中热油炒番茄约 3 分钟至出汁，加入水烧开。": [
+    "Heat oil and cook tomatoes for about 3 minutes until juicy; add water and bring to a boil.",
+    "油でトマトを約3分炒めて汁を出し、水を加えて沸騰させる。",
+    "기름에 토마토를 약 3분 볶아 즙을 낸 뒤 물을 넣고 끓인다."
+  ],
+  "加入面条，按包装时间煮熟；临近完成时放入青菜煮透。": [
+    "Add noodles and cook for the package time; add greens near the end and cook through.",
+    "麺を表示時間どおりゆで、仕上げ前に青菜を加えて火を通す。",
+    "면을 넣고 포장 표시 시간에 맞춰 끓인다. 끝나기 전에 청경채를 넣어 익힌다."
+  ],
+  "缓缓淋入蛋液，轻推并煮至蛋花完全凝固，最后加盐调味。": [
+    "Slowly pour in beaten egg, stir gently and cook until fully set; add salt to finish.",
+    "卵をゆっくり流し入れ、優しく混ぜて完全に固まるまで加熱し、塩で味を調える。",
+    "달걀물을 천천히 넣어 살살 저으며 완전히 익힌 뒤 소금으로 간한다."
+  ],
+  "面汤不必喝完；选低钠面条，主食、蛋白质和蔬菜一起搭配。": [
+    "You need not finish the broth. Choose lower-sodium noodles and combine starch, protein and vegetables.",
+    "汁は飲み干さなくてもよい。減塩の麺を選び、主食・たんぱく源・野菜を組み合わせる。",
+    "국물은 다 마시지 않아도 된다. 나트륨이 적은 면을 골라 탄수화물·단백질·채소를 함께 먹는다."
+  ],
+  "做饭手册": [
+    "Cooking handbook",
+    "料理ハンドブック",
+    "요리 안내서"
+  ],
+  "想吃什么，搜一下就开做": [
+    "Search a dish and start cooking",
+    "食べたい料理を検索して作ろう",
+    "먹고 싶은 요리를 검색하고 시작하세요"
+  ],
+  "菜名或食材都能搜，食材用量与步骤一次看清": [
+    "Search by dish or ingredient for amounts and clear steps",
+    "料理名や食材で検索して、分量と手順を確認",
+    "요리명이나 재료로 검색해 분량과 순서를 확인하세요"
+  ],
+  "内置家常菜 · 无需联网查询": [
+    "Built-in home recipes · no online lookup",
+    "内蔵の家庭料理・オンライン検索不要",
+    "내장 집밥 레시피 · 온라인 검색 불필요"
+  ],
+  "搜索菜名或食材，如番茄、鸡胸肉": [
+    "Search dishes or ingredients, e.g. tomato or chicken",
+    "料理名や食材で検索：トマト、鶏むね肉など",
+    "요리명 또는 재료 검색: 토마토, 닭가슴살"
+  ],
+  "按菜谱类别筛选": [
+    "Filter recipes by category",
+    "料理の種類で絞り込む",
+    "레시피 종류 필터"
+  ],
+  "全部菜谱": [
+    "All recipes",
+    "すべての料理",
+    "모든 레시피"
+  ],
+  "蔬菜与豆蛋": [
+    "Vegetables, tofu & eggs",
+    "野菜・豆腐・卵",
+    "채소·두부·달걀"
+  ],
+  "肉类与鱼": [
+    "Meat & fish",
+    "肉・魚",
+    "고기·생선"
+  ],
+  "米饭与面食": [
+    "Rice & noodles",
+    "ご飯・麺",
+    "밥·면"
+  ],
+  "重置菜谱搜索": [
+    "Reset recipe search",
+    "料理検索をリセット",
+    "레시피 검색 초기화"
+  ],
+  "找到 {n} 道菜，点击查看做法": [
+    "{n} recipes found; select one for instructions",
+    "{n}品見つかりました。選択して作り方を表示",
+    "레시피 {n}개. 선택해 만드는 법을 확인하세요"
+  ],
+  "暂未收录这道菜，试试其他菜名或食材，也可以切换分类。": [
+    "No matching recipe yet. Try another dish or ingredient, or change the category.",
+    "該当する料理はまだありません。別の料理名・食材や分類をお試しください。",
+    "아직 해당 레시피가 없습니다. 다른 요리명·재료나 분류를 선택해 보세요."
+  ],
+  "用餐人数": [
+    "Servings",
+    "人数",
+    "인분"
+  ],
+  "1 人份": [
+    "1 serving",
+    "1人分",
+    "1인분"
+  ],
+  "2 人份": [
+    "2 servings",
+    "2人分",
+    "2인분"
+  ],
+  "4 人份": [
+    "4 servings",
+    "4人分",
+    "4인분"
+  ],
+  "约 {n} 分钟": [
+    "About {n} min",
+    "約{n}分",
+    "약 {n}분"
+  ],
+  "需要的食材": [
+    "Ingredients needed",
+    "必要な材料",
+    "필요한 재료"
+  ],
+  "做法步骤": [
+    "Cooking steps",
+    "作り方",
+    "만드는 순서"
+  ],
+  "配餐小建议": [
+    "Serving suggestion",
+    "献立のヒント",
+    "식사 구성 팁"
+  ],
+  "可调整人数，用量随之变化；火候和时间仍需按厚度与锅具判断。": [
+    "Amounts adjust with servings; judge heat and time by food thickness and cookware.",
+    "人数で分量が変わります。火加減と時間は厚さや調理器具で調整してください。",
+    "인분에 따라 분량이 바뀝니다. 두께와 조리 도구에 맞게 불과 시간을 조절하세요."
+  ],
+  "以下配方涉及的过敏原": [
+    "Allergens in this recipe",
+    "この料理に含まれるアレルゲン",
+    "이 레시피에 포함된 알레르기 성분"
+  ],
+  "按所列配方未标出常见过敏原；仍需核对实际食材与交叉接触。": [
+    "No common allergens are flagged for the listed recipe; still check actual ingredients and cross-contact.",
+    "記載の材料に一般的なアレルゲンの表示はありませんが、実際の食材や交差接触を確認してください。",
+    "표시된 재료에 흔한 알레르기 성분 표시는 없지만 실제 성분과 교차 접촉을 확인하세요."
+  ],
+  "分量为家庭烹饪参考，盐和酱料可按实际品牌减少；菜谱不会自动写入已吃记录。": [
+    "Amounts are home-cooking references. Reduce salt or sauces to suit the brand; recipes are not automatically logged as eaten.",
+    "分量は家庭調理の目安です。製品に応じて塩や調味料を減らし、食べた記録は別途入力してください。",
+    "분량은 가정 조리 참고치입니다. 제품에 따라 소금과 소스를 줄이고 먹은 기록은 별도로 입력하세요."
+  ],
+  "个": [
+    "pcs",
+    "個",
+    "개"
+  ],
+  "瓣": [
+    "cloves",
+    "片",
+    "쪽"
   ]
 };

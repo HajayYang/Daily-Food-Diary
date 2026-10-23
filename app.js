@@ -1,4 +1,5 @@
 import { setupLifestyle } from './lifestyle-ui.js';
+import { setupCookbook } from './recipes-ui.js';
 import { setupBarcode } from './barcode-ui.js';
 import { setupBackup } from './backup-ui.js';
 import { writeLocal, recoverImport, blockExternalWrites } from './storage.js';
@@ -145,6 +146,7 @@ setupPhotoDiary({ $, element, getDate: () => selectedDate, saveRecords: entries 
   selectedDate = entries[0].date; render(); toast('已保存拍照识别的食物记录'); return true;
 } });
 setupFoodDiscovery({ $, element });
+setupCookbook({ $, element });
 setupAppearance({ $, toast });
 $('#appearance-done').addEventListener('click', () => $('#appearance-dialog').close());
 const lifestyle=setupLifestyle({$,element,toast,refresh:render,recordsReadable:()=>storageReadable,getRecords:()=>records,getDate:()=>selectedDate,getFitness:()=>fitness.exportData(),getPlanner:()=>nextDay.exportData(),saveRecords:entries=>{if(!entries.length||!entries.every(validRecord)||!persist([...records,...entries]))return false;selectedDate=entries[0].date;render();return true;}});

@@ -71,7 +71,7 @@ export function setupOnlineFood({ $, element, renderLocal }) {
   function switchMode(next) {
     cancel(); mode = next; result = undefined; page = 1;
     for (const button of document.querySelectorAll('[data-food-mode]')) button.setAttribute('aria-pressed', String(button.dataset.foodMode === mode));
-    $('.food-filters').hidden = mode === 'online';
+    $('.food-discovery .food-filters').hidden = mode === 'online';
     $('#food-online-notice').hidden = mode !== 'online';
     $('#food-online-submit').hidden = mode !== 'online';
     $('#food-online-pages').hidden = true; $('#food-online-retry').hidden = true;

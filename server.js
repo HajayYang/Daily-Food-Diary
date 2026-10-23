@@ -3,7 +3,7 @@ import { createFoodSearchHandler } from './food-search.js';
 import { readFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 // Serve only browser assets. Local model keys in worker/.dev.vars must never be public.
-const assets=new Set(['index.html','style.css','appearance.css','app.js','records.js','fitness.js','fitness-ui.js','training.js','charts.js','appearance.js','i18n.js','locales.js','food-discovery.js','food-online.js','food-api.js','food-snapshot.js','food-cache.json','photo-core.js','photo-client.js','photo-ui.js','next-day.js','next-day-ui.js','nutrition.js','lifestyle.js','lifestyle-ui.js','menu-plan.js','storage.js','reports.js','barcode.js','barcode-ui.js','backup.js','backup-ui.js','sync-client.js']);
+const assets=new Set(['recipes.js','recipes-ui.js','index.html','style.css','appearance.css','app.js','records.js','fitness.js','fitness-ui.js','training.js','charts.js','appearance.js','i18n.js','locales.js','food-discovery.js','food-online.js','food-api.js','food-snapshot.js','food-cache.json','photo-core.js','photo-client.js','photo-ui.js','next-day.js','next-day-ui.js','nutrition.js','lifestyle.js','lifestyle-ui.js','menu-plan.js','storage.js','reports.js','barcode.js','barcode-ui.js','backup.js','backup-ui.js','sync-client.js']);
 export function createAppServer({foodHandler=createFoodSearchHandler()}={}){return http.createServer(async(req,res)=>{
   let name;try{name=decodeURIComponent(new URL(req.url,'http://localhost').pathname).slice(1)||'index.html';}catch{res.writeHead(400);res.end();return;}
   if(name==='api/food-search'){
