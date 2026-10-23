@@ -171,6 +171,7 @@ npm test
 正式版本提供 GitHub Release 下载和容器包：
 
 - [Releases](https://github.com/HajayYang/Daily-Food-Diary/releases)：网站 ZIP、SQLite 菜品库及 `SHA256SUMS.txt`。网站包只包含公开静态资源和许可证，不包含密钥、个人记录或开发配置。
+- Release 的 `SHA256SUMS.txt.sigstore.json` 提供 Sigstore 数字签名，可验证仓库发布流程身份和下载文件完整性；签名配置提交由 GitHub 签名并显示 Verified。维护者邮箱为 `2467768838@qq.com`，验证命令及两种签名的区别见 [数字签名说明](SIGNING.md)。
 - GitHub Packages 容器：`ghcr.io/hajayyang/daily-food-diary:1.0.0`，提供网页和 Node 只读菜品 API，支持 Linux amd64 / arm64。
 
 ```sh
@@ -181,7 +182,7 @@ docker run -d --name daily-food-diary --read-only --cap-drop ALL \
 
 浏览器记录仍在使用者的浏览器中；容器不需要保存个人数据的磁盘卷。生产环境在容器前配置 HTTPS。包的访问方式按 GitHub Packages 页面显示的权限设置；包为私有时需使用有 `read:packages` 权限的 GitHub 凭据登录 GHCR。不要在聊天或命令历史中填写密钥。
 
-维护者发布流程：更新 `package.json` 版本，运行 `npm run db:check`、`npm test` 和 `npm run release:build`；在 `dist/` 检查可部署 ZIP、数据库与校验值，提交后创建对应 `v版本号` Release。发布 Release 会触发 `.github/workflows/publish-package.yml`，使用仓库自动提供的 `GITHUB_TOKEN` 上传 Release 附件并发布同版本与 `latest` 容器标签，并拉取镜像验证网站和数据库 API。无需 `npm_token`，不发布到 npmjs.org。可用 workflow_dispatch 为已有标签重试；版本不可随意覆盖，修复应发布新版本。
+维护者发布流程：更新 `package.json` 版本，运行 `npm run db:check`、`npm test` 和 `npm run release:build`；在 `dist/` 检查可部署 ZIP、数据库与校验值，提交后创建对应 `v版本号` Release。发布 Release 会触发 `.github/workflows/publish-package.yml`，使用仓库自动提供的 `GITHUB_TOKEN` 上传 Release 附件并发布同版本与 `latest` 容器标签，并拉取镜像验证网站和数据库 API，随后自动调用签名流程添加 Release 文件签名。无需 `npm_token` 或长期签名私钥，不发布到 npmjs.org。可用 workflow_dispatch 为已有标签重试；版本不可随意覆盖，修复应发布新版本。
 
 ## 数据与隐私
 

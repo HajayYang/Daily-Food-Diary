@@ -85,3 +85,11 @@ jobs:
         run: |
           echo "Published $IMAGE" >> "$GITHUB_STEP_SUMMARY"
           echo "Digest: $DIGEST" >> "$GITHUB_STEP_SUMMARY"
+  sign:
+    needs: publish
+    permissions:
+      contents: write
+      id-token: write
+    uses: ./.github/workflows/sign-release.yml
+    with:
+      tag: ${{ github.event.release.tag_name || inputs.tag }}

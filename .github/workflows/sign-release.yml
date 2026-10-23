@@ -1,0 +1,88 @@
+name: Sign release downloads
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing published release to sign, for example v1.0.0
+        required: true
+        default: v1.0.0
+        type: string
+  workflow_call:
+    inputs:
+      tag:
+        required: true
+        type: string
+permissions:
+  contents: write
+  id-token: write
+concurrency:
+  group: sign-release-${{ inputs.tag }}
+  cancel-in-progress: false
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
+      RELEASE_TAG: ${{ inputs.tag }}
+      SIGNING_IDENTITY: https://github.com/${{ github.repository }}/.github/workflows/sign-release.yml@${{ github.ref }}
+    steps:
+      # Download published bytes, rather than rebuilding or replacing the release.
+      # No repository code or long-lived personal signing key is needed here.
+      - name: Download and check the existing release
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          test "$(gh release view "$RELEASE_TAG" --json isDraft --jq .isDraft)" = false
+          mkdir verified-assets
+          cd verified-assets
+          prefix="daily-food-diary-$RELEASE_TAG"
+          gh release download "$RELEASE_TAG" \
+            --pattern "$prefix-web.zip" \
+            --pattern "$prefix-cookbook.sqlite" \
+            --pattern SHA256SUMS.txt
+          # Recreate the exact two-file manifest; never interpret paths supplied
+          # by a downloaded checksum file before checking its allowed contents.
+          sha256sum "$prefix-web.zip" "$prefix-cookbook.sqlite" > actual-checksums.txt
+          cmp SHA256SUMS.txt actual-checksums.txt
+      - name: Install verified Cosign
+        uses: sigstore/cosign-installer@faadad0cce49287aee09b3a48701e75088a2c6ad # v4.0.0
+        with:
+          cosign-release: v3.1.4
+      - name: Sign and verify the checksum manifest
+        working-directory: verified-assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          cosign sign-blob --yes --bundle SHA256SUMS.txt.sigstore.json SHA256SUMS.txt
+          cosign verify-blob \
+            --certificate-identity "$SIGNING_IDENTITY" \
+            --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+            --bundle SHA256SUMS.txt.sigstore.json SHA256SUMS.txt
+          # Also verify the files after the signature has been checked.
+          sha256sum --check SHA256SUMS.txt
+          printf '%s\n' \
+            "Release: $RELEASE_TAG" \
+            'Maintainer contact: 2467768838@qq.com' \
+            'Signature: Sigstore keyless; identity is the repository workflow, not a personal GPG key.' \
+            "Signing identity: $SIGNING_IDENTITY" \
+            'OIDC issuer: https://token.actions.githubusercontent.com' \
+            "Signing run: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+            '' \
+            'Download the two release files, SHA256SUMS.txt and SHA256SUMS.txt.sigstore.json into the same directory.' \
+            'Verify with Cosign v3:' \
+            "cosign verify-blob --certificate-identity '$SIGNING_IDENTITY' --certificate-oidc-issuer https://token.actions.githubusercontent.com --bundle SHA256SUMS.txt.sigstore.json SHA256SUMS.txt" \
+            'sha256sum --check SHA256SUMS.txt' \
+            > SIGNATURE-VERIFICATION.txt
+      - name: Attach signature and verification instructions
+        working-directory: verified-assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release upload "$RELEASE_TAG" SHA256SUMS.txt.sigstore.json SIGNATURE-VERIFICATION.txt --clobber
+          printf '%s\n' \
+            "Signed and verified release $RELEASE_TAG without replacing its ZIP, database or checksum manifest." \
+            "Certificate identity: $SIGNING_IDENTITY" \
+            "Release: https://github.com/$GITHUB_REPOSITORY/releases/tag/$RELEASE_TAG" \
+            >> "$GITHUB_STEP_SUMMARY"
