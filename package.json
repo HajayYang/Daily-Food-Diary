@@ -1,0 +1,9 @@
+{
+  "name": "daily-bites",
+  "version": "1.0.0",
+  "private": true,
+  "description": "简单、私密的每日饮食记录",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {"start": "python3 -m http.server 3000 --bind 0.0.0.0", "test": "node --test"}
+}

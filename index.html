@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7f2">
+  <title>一日食记 · 好好吃饭，慢慢记录</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="./"><span class="brand-icon">食</span> 一日食记<span class="brand-en">DAILY BITES</span></a><span class="local-badge"><i></i> 仅保存在此浏览器</span></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">A LITTLE CARE, EVERY DAY</p><h1>好好吃饭，<br class="mobile-break">慢慢记录<span>。</span></h1><p class="subtitle">把每一餐的小美好，留在生活里。</p></div><div class="intro-art" aria-hidden="true"><span class="art-label">enjoy your everyday</span><span class="plate">🥗</span><span class="spark">✳</span></div></section>
+    <div class="toolbar"><div class="date-controls"><button id="previous-day" class="icon-button" aria-label="前一天">‹</button><label class="date-label"><span id="date-heading"></span><input id="date" type="date" aria-label="选择记录日期"></label><button id="next-day" class="icon-button" aria-label="后一天">›</button><button id="today" class="text-button">今天</button></div><button id="add-record" class="primary"><span>＋</span> 记一餐</button></div>
+    <section class="stats" aria-label="当日概览"><div class="stat"><span class="stat-icon peach">◷</span><div><p>已记录餐食</p><strong id="record-count">0 <small>条</small></strong></div></div><div class="stat"><span class="stat-icon green">♧</span><div><p>记录的食物</p><strong id="food-count">0 <small>种</small></strong></div></div><div class="stat"><span class="stat-icon yellow">☀</span><div><p>估算摄入热量</p><strong id="calorie-count">0 <small>kcal</small></strong></div></div><div class="stat-note"><span>✦</span><p>每一餐都值得认真对待<br><small>均衡饮食，也别忘了享受美味</small></p></div></section>
+    <section class="diary"><div class="section-heading"><div><h2>我的餐桌</h2><p id="day-description">今天吃了什么好吃的？</p></div><span class="section-tag">一餐一记 · 日常有迹</span></div><div id="meals" class="meal-grid"></div></section>
+    <aside class="gentle-note"><span>🌱</span><p>记录是为了更好地照顾自己。无需完美，好好吃饭就是很棒的开始。</p></aside>
+    <footer><span>一日食记 <span class="footer-dot">·</span> 给日常一点温柔</span><div><button id="export" class="text-button">导出记录</button><span>开源 · 本地存储 · 无需登录</span></div></footer>
+  </main>
+  <dialog id="record-dialog"><form id="record-form"><div class="dialog-heading"><div><p class="eyebrow">A MOMENT FOR YOUR MEAL</p><h2 id="dialog-title">记下这一餐</h2></div><button type="button" id="close-dialog" class="icon-button" aria-label="关闭">×</button></div><input name="id" type="hidden"><div class="form-row"><label>日期<input type="date" name="date" required></label><label>餐次<select name="meal"><option value="breakfast">早餐</option><option value="lunch">午餐</option><option value="dinner">晚餐</option><option value="snack">加餐</option></select></label></div><label>吃了什么？<input name="food" placeholder="例如：番茄鸡蛋面、一个苹果" maxlength="120" required></label><div class="form-row"><label>份量<input name="portion" placeholder="例如：一碗" maxlength="40"></label><label>估算热量（kcal，可不填）<input name="calories" type="number" min="0" max="20000" step="1" placeholder="例如：350"></label></div><label>这一餐的小记<textarea name="note" rows="3" maxlength="500" placeholder="味道、心情，或是一起吃饭的人……"></textarea></label><p class="form-hint">热量由你填写，仅供日常参考，不构成营养建议。</p><button type="submit" class="primary save-button">保存这份美好</button></form></dialog>
+  <p id="toast" role="status" hidden></p>
+</body>
+</html>
