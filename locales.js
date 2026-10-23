@@ -7189,5 +7189,50 @@ export const MESSAGES = {
     "Times are estimates; for ingredients needing advance soaking or marinating, also check the steps and package instructions.",
     "時間は目安です。事前の戻しや漬け込みが必要な材料は、手順と包装の表示も確認してください。",
     "시간은 참고치입니다. 미리 불리거나 재워야 하는 재료는 순서와 포장 지시도 확인하세요."
+  ],
+  "正在载入菜谱…": [
+    "Loading recipes…",
+    "料理を読み込み中…",
+    "레시피를 불러오는 중…"
+  ],
+  "重新载入菜谱": [
+    "Reload recipes",
+    "料理を再読み込み",
+    "레시피 다시 불러오기"
+  ],
+  "正在查找菜谱…": [
+    "Finding recipes…",
+    "料理を検索中…",
+    "레시피를 찾는 중…"
+  ],
+  "菜谱暂时无法载入，请重试；其他饮食记录功能仍可使用。": [
+    "Recipes could not be loaded. Please retry; other diary features are still available.",
+    "料理を読み込めません。再試行してください。食事記録の他の機能は使えます。",
+    "레시피를 불러올 수 없습니다. 다시 시도해 주세요. 다른 식사 기록 기능은 사용할 수 있습니다."
+  ],
+  "已载入 {n} 道菜，可离线查询。": [
+    "{n} recipes loaded; available for offline search.",
+    "{n}品読み込み済み。オフラインで検索できます。",
+    "레시피 {n}개를 불러왔으며 오프라인으로 검색할 수 있습니다."
+  ],
+  "正在使用已缓存的菜谱，可离线查询。": [
+    "Using cached recipes, available for offline search.",
+    "保存済みの料理を使用中。オフラインで検索できます。",
+    "저장된 레시피를 사용 중이며 오프라인으로 검색할 수 있습니다."
+  ],
+  "{n} 道": [
+    "{n} dishes",
+    "{n}品",
+    "{n}가지"
+  ],
+  "{n} 道菜，{groups} 种餐桌风味": [
+    "{n} dishes across {groups} collections",
+    "{groups}分類・{n}品の食卓",
+    "{groups}가지 분류의 {n}가지 요리"
+  ],
+  "家常菜与八大菜系 · 共 {n} 道": [
+    "Home cooking & eight regional cuisines · {n} dishes",
+    "家庭料理と中国八大料理・全{n}品",
+    "가정식과 중국 8대 요리 · 총 {n}가지"
   ]
 };

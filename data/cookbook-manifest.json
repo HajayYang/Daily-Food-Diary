@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "applicationId": 1145194836,
+  "version": "63bf32693e17f422dbe190b6",
+  "sha256": "375c4a843ed8f76399a25d773916d0f43497a37fa3403a0350bd6777090e53f5",
+  "bytes": 688128,
+  "recipes": 108,
+  "cuisines": 9,
+  "ingredients": 128,
+  "languages": [
+    "zh-CN",
+    "en",
+    "ja",
+    "ko"
+  ]
+}

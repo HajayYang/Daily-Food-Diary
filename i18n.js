@@ -4,6 +4,15 @@ const key = 'daily-bites.language.v1';
 let language = 'zh-CN';
 try { const saved = globalThis.localStorage?.getItem(key); if (LANGUAGES.includes(saved)) language = saved; } catch { /* Default remains usable when storage is disabled. */ }
 export const getLanguage = () => language;
+// Catalog phrases can be updated together with the database, without changing UI code.
+export function registerTranslations(translations) {
+  if (!translations || typeof translations !== 'object' || Array.isArray(translations) || Object.keys(translations).length>20000) throw Error('Invalid catalog translations');
+  for (const [source,values] of Object.entries(translations)) {
+    if (['__proto__','constructor','prototype'].includes(source) || source.length>5000 || !Array.isArray(values) || values.length!==3 || values.some(value=>typeof value!=='string'||value.length>5000)) throw Error('Invalid catalog translations');
+  }
+  for (const [source,values] of Object.entries(translations)) Object.defineProperty(MESSAGES,source,{value:values,enumerable:true,writable:true,configurable:true});
+}
+
 const index = () => ({ en: 0, ja: 1, ko: 2 })[language];
 const escape = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const patterns = Object.entries(MESSAGES).filter(([source]) => /\{\w+\}/.test(source)).map(([source, values]) => {

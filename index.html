@@ -37,9 +37,10 @@
       <article class="wellness-card weekly-report"><div class="section-heading"><h3>每周饮食与运动报告</h3><span id="weekly-range" class="section-tag"></span></div><p>展示所选日期所在周，周一至周日；营养合计仅包含已填写数值。</p><div id="weekly-metrics" class="next-day-metrics"></div><div id="weekly-days" class="weekly-days"></div><dl id="weekly-nutrients" class="six-nutrients-grid"></dl><p id="weekly-exercise"></p><p id="weekly-note" class="muted"></p><p class="muted">先补齐漏记，再观察长期趋势；不根据单周数值诊断营养缺乏，也不要求补偿性节食。</p></article>
     </section>
     <section id="cookbook" class="cookbook" aria-labelledby="cookbook-title">
-      <div class="section-heading"><div><p class="eyebrow">FROM YOUR KITCHEN</p><h2 id="cookbook-title">今天吃什么</h2><p>想吃什么，搜一下就开做</p></div><span class="section-tag">家常菜与八大菜系 · 共 108 道</span></div>
+      <div class="section-heading"><div><p class="eyebrow">FROM YOUR KITCHEN</p><h2 id="cookbook-title">今天吃什么</h2><p>想吃什么，搜一下就开做</p></div><span id="recipe-catalog-count" class="section-tag">家常菜与八大菜系 · 共 108 道</span></div>
       <div class="wellness-card cookbook-card">
         <p class="cookbook-intro">菜名或食材都能搜，食材用量与步骤一次看清</p>
+        <div class="recipe-load-status"><p id="recipe-database-status" class="muted" role="status">正在载入菜谱…</p><button id="recipe-database-retry" class="text-button" type="button" hidden>重新载入菜谱</button></div>
         <div id="recipe-cuisines" class="recipe-cuisines" role="group" aria-label="按菜系筛选"></div>
         <div class="recipe-cuisine-summary"><h3 id="recipe-cuisine-title"></h3><p id="recipe-cuisine-region"></p><p id="recipe-cuisine-description"></p></div>
         <p class="muted">选择菜系，或选“全部菜系”跨菜系搜索。</p>
