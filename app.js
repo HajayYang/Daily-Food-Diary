@@ -1,3 +1,4 @@
+import { setupFoodDiscovery } from './food-discovery.js';
 import { setupAppearance } from './appearance.js';
 import { renderCharts } from './charts.js';
 import { setupFitness } from './fitness-ui.js';
@@ -114,6 +115,7 @@ $('#export').addEventListener('click', () => {
   const url = URL.createObjectURL(new Blob([JSON.stringify({ version: 2, exportedAt: new Date().toISOString(), records, fitness: fitness.exportData() }, null, 2)], { type: 'application/json' }));
   const link = element('a'); link.href = url; link.download = `一日食记-${localDate()}.json`; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
+setupFoodDiscovery({ $, element });
 setupAppearance({ $, toast });
 $('#appearance-done').addEventListener('click', () => $('#appearance-dialog').close());
 const fitness = setupFitness({ $, element, toast, refresh: render, getDate: () => selectedDate, getRecords: () => records });

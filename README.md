@@ -21,6 +21,14 @@
 
 主题、按钮及透明度使用 localStorage；背景图片使用 IndexedDB，均只保存在当前浏览器。不会上传服务器，不影响饮食或训练数据；外观与背景不包含在饮食 JSON 导出中。清除网站数据会清除这些设置。浏览器禁用本地存储或空间不足时会显示提示，图片保存失败不替换原背景。
 
+## 主页与食物百科
+
+健身计划位于每日概览后，桌面主栏约占 62% 宽度，手机端优先显示。保留训练生成、动作组次、消耗估算、完成打卡及饮食记录功能。
+
+“认识食物”提供苹果、橙子、猕猴桃、香蕉、西兰花、燕麦、鸡蛋和原味酸奶 8 张食物卡片，可按类别筛选或搜索。展示每 100 克可食部分的近似热量、营养特点、单次份量及搭配建议。苹果不标为高维 C 食物；份量只是一般健康成人的搭配参考，需结合全天总量与个人需求。数据参考 USDA 与中国居民膳食指南（2022），来源可在页面展开查看。
+
+液态玻璃按钮增加折射边缘、弧面高光、投影和悬停光泽，四种主题均可使用；尊重系统“减少动态效果”设置。
+
 ## 热量可视化
 
 - 环形饼图：所选日期早餐、午餐、晚餐和加餐的已填写热量占比。
@@ -61,7 +69,7 @@
 npm start
 ```
 
-在本地电脑运行时，访问 `http://localhost:3000`。也可以直接运行 `python3 -m http.server 3000`，无需安装 npm 依赖。服务器只提供静态文件，不接收饮食数据。部署时将 `index.html`、`style.css`、`app.js`、`records.js`、`fitness.js`、`fitness-ui.js`、`charts.js`、`training.js`、`appearance.js` 和 `appearance.css` 放到任意静态网站托管平台；正式部署使用 HTTPS。
+在本地电脑运行时，访问 `http://localhost:3000`。也可以直接运行 `python3 -m http.server 3000`，无需安装 npm 依赖。服务器只提供静态文件，不接收饮食数据。部署时将 `index.html`、`style.css`、`app.js`、`records.js`、`fitness.js`、`fitness-ui.js`、`charts.js`、`training.js`、`appearance.js`、`appearance.css` 和 `food-discovery.js` 放到任意静态网站托管平台；正式部署使用 HTTPS。
 
 ## 验证
 
