@@ -3,9 +3,9 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: Existing published release to sign, for example v1.0.0
+        description: Existing published release to sign, for example v1.1.0
         required: true
-        default: v1.0.0
+        default: v1.1.0
         type: string
   workflow_call:
     inputs:

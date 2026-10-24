@@ -8,7 +8,7 @@ export function recoverImport(storage=globalThis.localStorage){
   try{
     const raw=storage.getItem(JOURNAL_KEY);if(raw===null)return true;
     const entries=JSON.parse(raw);
-    if(!Array.isArray(entries)||!entries.every(entry=>Array.isArray(entry)&&entry.length===2&&['daily-bites.records.v1','daily-bites.fitness.v1','daily-bites.next-day.v1','daily-bites.lifestyle.v1'].includes(entry[0])&&(entry[1]===null||typeof entry[1]==='string')))return false;
+    if(!Array.isArray(entries)||!entries.every(entry=>Array.isArray(entry)&&entry.length===2&&['daily-bites.records.v1','daily-bites.fitness.v1','daily-bites.next-day.v1','daily-bites.lifestyle.v1','daily-bites.wellbeing.v1'].includes(entry[0])&&(entry[1]===null||typeof entry[1]==='string')))return false;
     // Free all affected values first; the old snapshot already fitted before this import.
     for(const [key] of entries)storage.removeItem(key);
     for(const [key,value] of entries)if(value!==null)storage.setItem(key,value);

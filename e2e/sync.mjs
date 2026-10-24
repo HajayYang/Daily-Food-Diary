@@ -1,7 +1,7 @@
 import {chromium} from 'playwright';
 import assert from 'node:assert/strict';
 const browser=await chromium.launch({...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args:['--no-sandbox']});try {
-const page=await browser.newPage({viewport:{width:390,height:1000}}),errors=[];page.on('pageerror',error=>errors.push(error.message));
+const page=await browser.newPage({serviceWorkers:'block',viewport:{width:390,height:1000}}),errors=[];page.on('pageerror',error=>errors.push(error.message));
 const host='https://example.supabase.co',record={id:'local',date:'2026-10-23',meal:'lunch',food:'本地食物',portion:'',calories:100,note:''},cloudRecord={...record,id:'cloud',food:'另一设备的食物'},snapshot={version:3,records:[cloudRecord],fitness:null,nextDay:null,lifestyle:null};let revision=1,uploads=0,requests=[];
 const user={id:'11111111-1111-4111-8111-111111111111',email:'test@example.com'},session={user,access_token:'access-fixture',refresh_token:'refresh-fixture',expires_at:9999999999};
 await page.route(host+'/**',async route=>{const req=route.request(),url=new URL(req.url());if(req.method()==='OPTIONS')return route.fulfill({status:204,headers:{'access-control-allow-origin':'*','access-control-allow-headers':'*','access-control-allow-methods':'*'}});requests.push({url:url.href,body:req.postData()});const options={headers:{'access-control-allow-origin':'*'}};

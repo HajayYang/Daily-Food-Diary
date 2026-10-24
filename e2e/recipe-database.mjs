@@ -4,7 +4,7 @@ const browser=await chromium.launch({...(process.env.CHROMIUM_PATH?{executablePa
 const base=process.env.APP_URL??'http://127.0.0.1:3000';
 const settle=page=>page.waitForFunction(()=>document.querySelector('#recipe-database-status').dataset.state==='ready'&&document.querySelector('#recipe-results').getAttribute('aria-busy')==='false');
 try {
- const context=await browser.newContext(),page=await context.newPage(),errors=[],loaded=[];
+ const context=await browser.newContext({serviceWorkers:'block'}),page=await context.newPage(),errors=[],loaded=[];
  page.on('pageerror',error=>errors.push(error.message));context.on('request',request=>loaded.push(new URL(request.url()).pathname));
  // A delayed worker reply verifies that an older query cannot overwrite the latest query.
  await context.route('**/recipe-db-worker.js',async route=>{
@@ -31,7 +31,7 @@ try {
  assert.equal(await page.locator('#recipe-current-title').textContent(),'宫保鸡丁');
  assert.deepEqual(errors,[]);await context.close();
  // A different browser has no valid cache. Corruption must show a recoverable error.
- const clean=await browser.newContext(),bad=await clean.newPage();let corrupt=true;
+ const clean=await browser.newContext({serviceWorkers:'block'}),bad=await clean.newPage();let corrupt=true;
  await clean.route('**/data/cookbook.sqlite*',async route=>corrupt?route.fulfill({status:200,body:'not a SQLite database',contentType:'application/vnd.sqlite3'}):route.continue());
  await bad.goto(base);await bad.waitForFunction(()=>document.querySelector('#recipe-database-status').dataset.state==='error');
  assert.equal(await bad.locator('#recipe-results button').count(),0);assert.equal(await bad.locator('#recipe-detail').isHidden(),true);

@@ -7,6 +7,9 @@ import { pathToFileURL } from 'node:url';
 // Only this public catalog and browser assets are served. User diaries stay private.
 const assets=new Set(PUBLIC_ASSETS);
 function contentType(name) {
+ if(name.endsWith('.webmanifest'))return 'application/manifest+json';
+ if(name.endsWith('.png'))return 'image/png';
+ if(name.endsWith('.svg'))return 'image/svg+xml';
  if(name.endsWith('.sqlite'))return 'application/vnd.sqlite3';
  if(name.endsWith('.wasm'))return 'application/wasm';
  if(name.endsWith('.html'))return 'text/html; charset=utf-8';

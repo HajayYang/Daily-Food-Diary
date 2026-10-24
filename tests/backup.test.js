@@ -4,7 +4,7 @@ import { parseBackup, planImport, applyImport, readSnapshot, DATA_KEYS } from '.
 import { recoverImport, JOURNAL_KEY, writeLocal } from '../storage.js';
 import { defaultLifestyle } from '../lifestyle.js';
 const record={id:'a',date:'2026-10-23',meal:'lunch',food:'米饭',portion:'100g',calories:null,note:''};
-const snapshot=(records=[])=>({version:3,records,fitness:null,nextDay:null,lifestyle:defaultLifestyle()});
+const snapshot=(records=[])=>({version:4,records,fitness:null,nextDay:null,lifestyle:defaultLifestyle(),wellbeing:null});
 function storage(){const map=new Map();return {map,getItem:key=>map.get(key)??null,setItem:(key,value)=>map.set(key,value),removeItem:key=>map.delete(key)};}
 test('backup accepts legacy exports, unknown nutrients and zeroes but rejects malformed or duplicate records before writing',()=>{
  assert.equal(parseBackup(JSON.stringify({version:1,records:[record]})).records[0].calories,null);
@@ -14,7 +14,7 @@ test('backup accepts legacy exports, unknown nutrients and zeroes but rejects ma
 });
 test('merge previews explicit ID conflicts, skips duplicates and preserves local settings by default',()=>{
  const local=snapshot([record]),incoming=snapshot([{...record,calories:130},{...record,id:'b'}]);local.lifestyle.restrictions.allergens=['milk'];incoming.lifestyle.restrictions.allergens=['soy'];
- const keep=planImport(local,incoming);assert.deepEqual(keep.counts,{records:1,workouts:0,favorites:0,shopping:0,conflicts:1,duplicates:0});assert.equal(keep.snapshot.records[0].calories,null);assert.deepEqual(keep.snapshot.lifestyle.restrictions.allergens,['milk']);
+ const keep=planImport(local,incoming);assert.deepEqual(keep.counts,{records:1,workouts:0,favorites:0,shopping:0,habits:0,conflicts:1,duplicates:0});assert.equal(keep.snapshot.records[0].calories,null);assert.deepEqual(keep.snapshot.lifestyle.restrictions.allergens,['milk']);
  const replace=planImport(local,incoming,{conflict:'backup',settings:true});assert.equal(replace.snapshot.records[0].calories,130);assert.deepEqual(replace.snapshot.lifestyle.restrictions.allergens,['soy']);assert.equal(planImport(local,snapshot([record])).counts.duplicates,1);assert.equal(local.records[0].calories,null);
 });
 test('multi-store import commits all data and leaves no journal on success',()=>{

@@ -1,0 +1,16 @@
+{
+  "id": "./",
+  "name": "一日食记 · Daily Bites",
+  "short_name": "Daily Bites",
+  "description": "饮食、运动、菜谱与日常健康记录",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f7f2",
+  "theme_color": "#526b45",
+  "icons": [
+    {"src":"app-icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"app-icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}

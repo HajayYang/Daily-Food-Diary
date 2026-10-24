@@ -3,11 +3,12 @@ import { scaleRecipeIngredients } from './recipe-query.js';
 import { ALLERGENS } from './lifestyle.js';
 import { getLanguage, registerTranslations } from './i18n.js';
 
-export function setupCookbook({ $, element }) {
-  let category = 'all', cuisine = 'home', page = 1, selected, metadata, visible = [], requestId = 0;
+export function setupCookbook({ $, element, tools }) {
+  let category = 'all', cuisine = 'home', page = 1, selected, metadata, visible = [], requestId = 0, activeRecipe;
   const client = createRecipeClient();
   const search = $('#recipe-search'), results = $('#recipe-results'), detail = $('#recipe-detail');
   function showRecipe(recipe) {
+    activeRecipe=recipe;
     detail.hidden = !recipe;
     detail.replaceChildren();
     if (!recipe) return;
@@ -42,6 +43,7 @@ export function setupCookbook({ $, element }) {
     detail.append(heading);
     if (recipe.cuisine !== 'home') detail.append(element('p', 'recipe-version', '家庭简化版 · 用料与做法可因地区而异'));
     detail.append(columns, tip, allergy);
+    if(tools)detail.append(tools.render(recipe,ingredients,Number($('#recipe-servings').value)));
   }
   function summary() {
     if (!metadata) return;
@@ -131,7 +133,7 @@ export function setupCookbook({ $, element }) {
     } catch { if (id === requestId) failed(); }
   }
   search.addEventListener('input', () => { page = 1; render(); });
-  $('#recipe-servings').addEventListener('change', () => showRecipe(visible.find(recipe => recipe.id === selected)));
+  $('#recipe-servings').addEventListener('change', () => showRecipe(activeRecipe));
   for (const button of document.querySelectorAll('[data-recipe-category]')) {
     button.addEventListener('click', () => { category = button.dataset.recipeCategory; page = 1; render(); });
   }
@@ -144,4 +146,13 @@ export function setupCookbook({ $, element }) {
   $('#recipe-database-retry').addEventListener('click', initialize);
   document.addEventListener('languagechange', render);
   initialize();
+  let catalogPromise;
+  return {
+    async allRecipes() {
+      if(!metadata)throw Error('recipe_database_unavailable');
+      if(!catalogPromise)catalogPromise=(async()=>{const first=await client.search({cuisine:'all'}),pages=await Promise.all(Array.from({length:first.pages-1},(_,index)=>client.search({cuisine:'all',page:index+2})));return [...first.recipes,...pages.flatMap(p=>p.recipes)];})().catch(error=>{catalogPromise=null;throw error;});
+      return catalogPromise;
+    },
+    async openRecipe(recipe) {if(!metadata)return;cuisine=recipe.cuisine;category='all';page=1;selected=recipe.id;search.value=recipe.name;await render();$('#recipe-detail').scrollIntoView({block:'start',behavior:'smooth'});}
+  };
 }

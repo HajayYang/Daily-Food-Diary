@@ -1,6 +1,9 @@
 *
 !*.js
 !*.css
+!*.png
+!*.svg
+!*.webmanifest
 !index.html
 !package.json
 !food-cache.json

@@ -1,8 +1,14 @@
 import { setupLifestyle } from './lifestyle-ui.js';
 import { setupCookbook } from './recipes-ui.js';
+import { setupRecipeTools } from './recipe-tools.js';
+import { setupWellbeing } from './wellbeing-ui.js';
+import { setupOffline } from './offline-ui.js';
+import { setupPrivacy } from './privacy-ui.js';
+import { readSnapshot, MAX_BACKUP_BYTES } from './backup.js';
+import { BACKUP_META_KEY } from './wellbeing.js';
 import { setupBarcode } from './barcode-ui.js';
 import { setupBackup } from './backup-ui.js';
-import { writeLocal, recoverImport, blockExternalWrites } from './storage.js';
+import { writeLocal, recoverImport, blockExternalWrites, transactionalWrite } from './storage.js';
 import { NUTRIENTS, renderNutrition } from './nutrition.js';
 import { setupNextDayAdvice } from './next-day-ui.js';
 import { setupPhotoDiary } from './photo-ui.js';
@@ -28,6 +34,7 @@ try {
 }
 let selectedDate = localDate();
 let toastTimer;
+let wellbeing;
 function toast(message) {
   $('#toast').textContent = translateText(message);
   $('#toast').hidden = false;
@@ -60,6 +67,7 @@ function render() {
   fitness.render();
   nextDay.render();
   lifestyle.render();
+  wellbeing?.render();
   renderCharts({ records, date: selectedDate, readable: storageReadable, $, element, selectDate: date => { selectedDate = date; render(); } });
   $('#meals').replaceChildren(...MEALS.map(meal => {
     const card = element('article', `meal-card ${meal.color}`);
@@ -136,8 +144,10 @@ for (const [id, offset] of [['previous-day', -1], ['next-day', 1]]) {
 $('#today').addEventListener('click', () => { selectedDate = localDate(); render(); });
 $('#export').addEventListener('click', () => {
   if (!storageReadable) { toast('原有数据无法读取，暂不能导出。'); return; }
-  const url = URL.createObjectURL(new Blob([JSON.stringify({ version: 3, exportedAt: new Date().toISOString(), records, fitness: fitness.exportData(), nextDay: nextDay.exportData(), lifestyle:lifestyle.exportData() }, null, 2)], { type: 'application/json' }));
+  let json;try{json=JSON.stringify({...readSnapshot(),exportedAt:new Date().toISOString()},null,2);if(new TextEncoder().encode(json).length>MAX_BACKUP_BYTES)throw Error('备份文件必须小于 2 MiB。');}catch(error){toast(error.message);return;}
+  const url = URL.createObjectURL(new Blob([json], { type: 'application/json' }));
   const link = element('a'); link.href = url; link.download = `一日食记-${localDate()}.json`; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+  try{writeLocal(BACKUP_META_KEY,JSON.stringify({lastExportAt:new Date().toISOString()}));document.dispatchEvent(new CustomEvent('backup-exported'));}catch{/* The download still works if reminder metadata cannot be stored. */}
 });
 setupLanguage({ refresh: render, toast });
 setupPhotoDiary({ $, element, getDate: () => selectedDate, saveRecords: entries => {
@@ -146,7 +156,8 @@ setupPhotoDiary({ $, element, getDate: () => selectedDate, saveRecords: entries 
   selectedDate = entries[0].date; render(); toast('已保存拍照识别的食物记录'); return true;
 } });
 setupFoodDiscovery({ $, element });
-setupCookbook({ $, element });
+const recipeTools=setupRecipeTools({$,element,toast,getDate:()=>selectedDate,addPlan:plan=>wellbeing.addPlan(plan)});
+const cookbook=setupCookbook({ $, element, tools:recipeTools });
 setupAppearance({ $, toast });
 $('#appearance-done').addEventListener('click', () => $('#appearance-dialog').close());
 const lifestyle=setupLifestyle({$,element,toast,refresh:render,recordsReadable:()=>storageReadable,getRecords:()=>records,getDate:()=>selectedDate,getFitness:()=>fitness.exportData(),getPlanner:()=>nextDay.exportData(),saveRecords:entries=>{if(!entries.length||!entries.every(validRecord)||!persist([...records,...entries]))return false;selectedDate=entries[0].date;render();return true;}});
@@ -154,7 +165,16 @@ setupBarcode({$,element,getDate:()=>selectedDate,openForm,getRestrictions:()=>li
 setupBackup({$,element,toast});
 const fitness = setupFitness({ $, element, toast, refresh: render, getDate: () => selectedDate, getRecords: () => records, getRestrictions:()=>lifestyle.getRestrictions() });
 const nextDay = setupNextDayAdvice({ $, element, getDate: () => selectedDate, getRecords: () => records, getFitness: () => fitness.exportData(), recordsReadable: () => storageReadable, getRestrictions:()=>lifestyle.getRestrictions(),generateShopping:advice=>lifestyle.generateShopping(advice),refresh:render });
+wellbeing=setupWellbeing({$,element,toast,refresh:render,getDate:()=>selectedDate,getRecords:()=>records,getFitness:()=>fitness.exportData(),getPlanner:()=>nextDay.exportData(),getRestrictions:()=>lifestyle.getRestrictions(),getRecipes:()=>cookbook.allRecipes(),openRecipe:recipe=>cookbook.openRecipe(recipe),
+  commitRecords(entries,changes){
+    if(!storageReadable||!entries.length||!entries.every(validRecord))return false;
+    const next=[...records,...entries];if(next.length>20000||new Set(next.map(i=>i.id)).size!==next.length)return false;
+    try{transactionalWrite({...changes,[STORAGE_KEY]:JSON.stringify(next)});records=next;selectedDate=entries[0].date;return true;}catch(error){toast(error.message);return false;}
+  }
+});
+setupOffline({$,toast,getPreferences:()=>wellbeing.getPreferences(),savePreferences:p=>wellbeing.savePreferences(p)});
+setupPrivacy({$,element});
 render();
 if (!storageReadable) toast('本地记录读取失败。原数据未被覆盖，请检查浏览器存储设置。');
 
-window.addEventListener('storage',event=>{if(event.key===null||['daily-bites.records.v1','daily-bites.fitness.v1','daily-bites.next-day.v1','daily-bites.lifestyle.v1','daily-bites.import-journal.v1'].includes(event.key)){blockExternalWrites();storageReadable=false;render();$('#lifestyle-status').textContent='另一标签页更新了数据，请刷新后继续编辑。';toast('另一标签页更新了数据，请刷新后继续编辑。');}});
+window.addEventListener('storage',event=>{if(event.key===null||['daily-bites.records.v1','daily-bites.fitness.v1','daily-bites.next-day.v1','daily-bites.lifestyle.v1','daily-bites.wellbeing.v1','daily-bites.import-journal.v1'].includes(event.key)){blockExternalWrites();storageReadable=false;render();$('#lifestyle-status').textContent='另一标签页更新了数据，请刷新后继续编辑。';toast('另一标签页更新了数据，请刷新后继续编辑。');}});

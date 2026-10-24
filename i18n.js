@@ -1,4 +1,6 @@
 import { MESSAGES } from './locales.js';
+import { HABIT_MESSAGES } from './habit-locales.js';
+Object.assign(MESSAGES,HABIT_MESSAGES);
 export const LANGUAGES = ['zh-CN', 'en', 'ja', 'ko'];
 const key = 'daily-bites.language.v1';
 let language = 'zh-CN';

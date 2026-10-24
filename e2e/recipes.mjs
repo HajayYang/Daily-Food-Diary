@@ -2,7 +2,7 @@ import { chromium } from 'playwright';
 import assert from 'node:assert/strict';
 const browser = await chromium.launch({ ...(process.env.CHROMIUM_PATH ? {executablePath:process.env.CHROMIUM_PATH} : {}), args:['--no-sandbox'] });
 try {
-  const page = await browser.newPage({ viewport:{width:1280,height:1000} }), errors=[];
+  const page = await browser.newPage({ serviceWorkers:'block', viewport:{width:1280,height:1000} }), errors=[];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto(process.env.APP_URL ?? 'http://127.0.0.1:3000');
   const settle = () => page.waitForFunction(() => document.querySelector('#recipe-results').getAttribute('aria-busy') === 'false' && document.querySelector('#recipe-database-status').dataset.state === 'ready');
