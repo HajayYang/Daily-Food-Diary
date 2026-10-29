@@ -1,0 +1,8 @@
+# Database source hashes and generated signatures must match on Windows and Unix.
+* text=auto eol=lf
+*.sqlite -text
+*.wasm -text
+*.png -text
+*.ico -text
+*.zip -text
+*.exe -text
