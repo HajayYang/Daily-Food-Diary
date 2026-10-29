@@ -216,3 +216,7 @@ docker run -d --name daily-food-diary --read-only --cap-drop ALL \
 ## 许可证
 
 [MIT](LICENSE)
+
+## Windows 桌面版
+
+Windows 10/11 x64 桌面版提供独立 SQLite 数据库、自动备份与迁移、侧栏导航、快捷键、托盘提醒及签名校验更新。安装与开发说明见 [DESKTOP.md](DESKTOP.md)；安装包在 [Releases](https://github.com/HajayYang/Daily-Food-Diary/releases/latest)。

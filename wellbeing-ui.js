@@ -1,3 +1,4 @@
+import { localStore } from './app-storage.js';
 import { WELLBEING_KEY, defaultWellbeing, validWellbeing, expiryState, pantryMatches, bodyTrend, confirmedEnergy, hydrationSummary, shiftDate } from './wellbeing.js';
 import { localDate, MEALS } from './records.js';
 import { writeLocal } from './storage.js';
@@ -6,7 +7,7 @@ import { translateText } from './i18n.js';
 
 export function setupWellbeing({$,element,toast,refresh,getDate,getRecords,getFitness,getPlanner,getRestrictions,commitRecords,getRecipes,openRecipe}) {
   let state=defaultWellbeing(),readable=true,lastDate,selectedPlan,recommendations=[],request=0;
-  try {const saved=JSON.parse(localStorage.getItem(WELLBEING_KEY)??'null');if(saved!==null){if(!validWellbeing(saved))throw Error();state=saved;}} catch {readable=false;}
+  try {const saved=JSON.parse(localStore.getItem(WELLBEING_KEY)??'null');if(saved!==null){if(!validWellbeing(saved))throw Error();state=saved;}} catch {readable=false;}
   function save(next) {
     if(!readable){toast('健康习惯数据无法读取，原数据已保留。');return false;}
     if(!validWellbeing(next)){toast('请检查输入范围、日期或项目数量。');return false;}

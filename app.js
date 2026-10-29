@@ -1,3 +1,5 @@
+import { setupDesktop } from './desktop-ui.js';
+import { localStore } from './app-storage.js';
 import { setupLifestyle } from './lifestyle-ui.js';
 import { setupCookbook } from './recipes-ui.js';
 import { setupRecipeTools } from './recipe-tools.js';
@@ -26,7 +28,7 @@ const recovered = recoverImport();
 let storageReadable = recovered;
 try {
   if(!recovered)throw new Error('unfinished import');
-  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '[]');
+  const saved = JSON.parse(localStore.getItem(STORAGE_KEY) ?? '[]');
   if (!Array.isArray(saved) || !saved.every(validRecord) || new Set(saved.map(record => record.id)).size !== saved.length) throw new Error('Invalid records');
   records = saved;
 } catch {
@@ -162,7 +164,7 @@ setupAppearance({ $, toast });
 $('#appearance-done').addEventListener('click', () => $('#appearance-dialog').close());
 const lifestyle=setupLifestyle({$,element,toast,refresh:render,recordsReadable:()=>storageReadable,getRecords:()=>records,getDate:()=>selectedDate,getFitness:()=>fitness.exportData(),getPlanner:()=>nextDay.exportData(),saveRecords:entries=>{if(!entries.length||!entries.every(validRecord)||!persist([...records,...entries]))return false;selectedDate=entries[0].date;render();return true;}});
 setupBarcode({$,element,getDate:()=>selectedDate,openForm,getRestrictions:()=>lifestyle.getRestrictions()});
-setupBackup({$,element,toast});
+const backupTools=setupBackup({$,element,toast});
 const fitness = setupFitness({ $, element, toast, refresh: render, getDate: () => selectedDate, getRecords: () => records, getRestrictions:()=>lifestyle.getRestrictions() });
 const nextDay = setupNextDayAdvice({ $, element, getDate: () => selectedDate, getRecords: () => records, getFitness: () => fitness.exportData(), recordsReadable: () => storageReadable, getRestrictions:()=>lifestyle.getRestrictions(),generateShopping:advice=>lifestyle.generateShopping(advice),refresh:render });
 wellbeing=setupWellbeing({$,element,toast,refresh:render,getDate:()=>selectedDate,getRecords:()=>records,getFitness:()=>fitness.exportData(),getPlanner:()=>nextDay.exportData(),getRestrictions:()=>lifestyle.getRestrictions(),getRecipes:()=>cookbook.allRecipes(),openRecipe:recipe=>cookbook.openRecipe(recipe),
@@ -174,6 +176,7 @@ wellbeing=setupWellbeing({$,element,toast,refresh:render,getDate:()=>selectedDat
 });
 setupOffline({$,toast,getPreferences:()=>wellbeing.getPreferences(),savePreferences:p=>wellbeing.savePreferences(p)});
 setupPrivacy({$,element});
+setupDesktop({preview:backupTools.preview});
 render();
 if (!storageReadable) toast('本地记录读取失败。原数据未被覆盖，请检查浏览器存储设置。');
 

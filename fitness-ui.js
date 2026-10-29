@@ -1,3 +1,4 @@
+import { localStore } from './app-storage.js';
 import { writeLocal } from './storage.js';
 import { NUTRIENTS } from './nutrition.js';
 import { translateText } from './i18n.js';
@@ -9,7 +10,7 @@ export function setupFitness({ $, element, toast, refresh, getDate, getRecords, 
   let state = { profile: { goal: 'health', weight: null, target: null }, workouts: [] };
   let readable = true;
   try {
-    const saved = JSON.parse(localStorage.getItem(key) ?? 'null');
+    const saved = JSON.parse(localStore.getItem(key) ?? 'null');
     if (saved !== null) { if (!validFitness(saved)) throw new Error('Invalid fitness data'); state = saved; }
   } catch { readable = false; }
   function save(next) {

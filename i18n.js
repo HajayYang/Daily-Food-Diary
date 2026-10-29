@@ -1,10 +1,12 @@
+import { localStore } from './app-storage.js';
 import { MESSAGES } from './locales.js';
 import { HABIT_MESSAGES } from './habit-locales.js';
-Object.assign(MESSAGES,HABIT_MESSAGES);
+import { DESKTOP_MESSAGES } from './desktop-locales.js';
+Object.assign(MESSAGES,HABIT_MESSAGES,DESKTOP_MESSAGES);
 export const LANGUAGES = ['zh-CN', 'en', 'ja', 'ko'];
 const key = 'daily-bites.language.v1';
 let language = 'zh-CN';
-try { const saved = globalThis.localStorage?.getItem(key); if (LANGUAGES.includes(saved)) language = saved; } catch { /* Default remains usable when storage is disabled. */ }
+try { const saved = localStore.getItem(key); if (LANGUAGES.includes(saved)) language = saved; } catch { /* Default remains usable when storage is disabled. */ }
 export const getLanguage = () => language;
 // Catalog phrases can be updated together with the database, without changing UI code.
 export function registerTranslations(translations) {
@@ -75,7 +77,7 @@ export function setupLanguage({ refresh, toast }) {
   observer.observe(document.documentElement, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['placeholder','aria-label','title'] });
   document.querySelector('#language-select').addEventListener('change', event => {
     setLanguage(event.target.value);
-    try { localStorage.setItem(key, language); } catch { toast(translateText('语言已切换，但浏览器无法保存偏好。')); }
+    try { localStore.setItem(key, language); } catch { toast(translateText('语言已切换，但浏览器无法保存偏好。')); }
     refresh(); apply();
     document.dispatchEvent(new CustomEvent('languagechange'));
   });

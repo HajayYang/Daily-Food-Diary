@@ -1,3 +1,4 @@
+import { localStore } from './app-storage.js';
 import { renderNutrition } from './nutrition.js';
 import { getLanguage, translateText } from './i18n.js';
 import { localDate, validRecord } from './records.js';
@@ -9,7 +10,7 @@ export function setupPhotoDiary({ $, element, getDate, saveRecords }) {
   let photo,previewUrl,controller,busy=false,serial=0;
   const dialog=$('#photo-dialog'),form=$('#photo-review-form');
   const status=message=>{$('#photo-status').textContent=message;};
-  try{$('#photo-service-url').value=localStorage.getItem(key)||document.querySelector('meta[name="photo-service"]')?.content||'';}catch{/* Address can still be entered for this page. */}
+  try{$('#photo-service-url').value=localStore.getItem(key)||document.querySelector('meta[name="photo-service"]')?.content||'';}catch{/* Address can still be entered for this page. */}
   function controls(){
     for(const id of ['photo-upload','photo-camera','photo-recognize','photo-check-service','photo-save-service','photo-service-url','photo-service-token'])$(`#${id}`).disabled=busy||(id==='photo-recognize'&&(!photo||!$('#photo-consent').checked));
     $('#photo-cancel').hidden=!busy;$('#photo-review-save').disabled=busy;
@@ -37,7 +38,7 @@ export function setupPhotoDiary({ $, element, getDate, saveRecords }) {
   });
   $('#photo-consent').addEventListener('change',controls);
   $('#photo-save-service').addEventListener('click',()=>{
-    try{const origin=normalizePhotoService($('#photo-service-url').value);localStorage.setItem(key,origin);$('#photo-service-url').value=origin;status('服务地址已保存；访问码不会保存在浏览器存储中。');}
+    try{const origin=normalizePhotoService($('#photo-service-url').value);localStore.setItem(key,origin);$('#photo-service-url').value=origin;status('服务地址已保存；访问码不会保存在浏览器存储中。');}
     catch(error){status(error.message==='photo_service_invalid'?PHOTO_ERRORS.photo_service_invalid:'无法保存服务地址，请检查浏览器存储设置。');}
   });
   async function run(health=false){

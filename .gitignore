@@ -7,3 +7,6 @@ worker/.dev.vars.*
 .env.*
 !.env.example
 dist/
+electron-builder.json
+*.sqlite-wal
+*.sqlite-shm

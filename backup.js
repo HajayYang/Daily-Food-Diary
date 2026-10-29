@@ -1,3 +1,4 @@
+import { localStore } from './app-storage.js';
 import { validRecord } from './records.js';
 import { validFitness } from './fitness.js';
 import { validPlanner } from './next-day.js';
@@ -14,7 +15,7 @@ export function parseBackup(text){
  // Never import model-service settings, tokens, appearance images or arbitrary top-level keys.
  return {version:4,records:data.records,fitness:data.fitness??null,nextDay:data.nextDay??null,lifestyle:data.lifestyle??null,wellbeing:data.wellbeing??null};
 }
-export function readSnapshot(storage=globalThis.localStorage){
+export function readSnapshot(storage=localStore){
  if(!canWrite(storage))throw Error('请先刷新页面以恢复上次未完成的导入。');
  let result={version:4};try{for(const [key,name] of Object.entries(DATA_KEYS)){const value=storage.getItem(name);result[key]=value===null?(key==='records'?[]:null):JSON.parse(value);}}catch{throw Error('本地数据无法读取，暂不能导入或上传。');}
  if(!validSnapshot(result))throw Error('本地数据无法读取，暂不能导入或上传。');return result;
@@ -34,4 +35,4 @@ export function planImport(local,incoming,{conflict='local',settings=false}={}){
  const all=[records,workouts,favorites,shopping,...Object.values(habits)];
  return {snapshot,counts:{records:records.added,workouts:workouts.added,favorites:favorites.added,shopping:shopping.added,habits:Object.values(habits).reduce((n,i)=>n+i.added,0),conflicts:all.reduce((n,i)=>n+i.conflicts,0),duplicates:all.reduce((n,i)=>n+i.duplicates,0)}};
 }
-export function applyImport(snapshot,storage=globalThis.localStorage){if(!validSnapshot(snapshot))throw Error('备份格式或数据校验失败，没有修改现有记录。');const changes=Object.fromEntries(Object.entries(DATA_KEYS).filter(([key])=>snapshot[key]!==null&&snapshot[key]!==undefined).map(([key,name])=>[name,JSON.stringify(snapshot[key])]));transactionalWrite(changes,storage);}
+export function applyImport(snapshot,storage=localStore){if(!validSnapshot(snapshot))throw Error('备份格式或数据校验失败，没有修改现有记录。');const changes=Object.fromEntries(Object.entries(DATA_KEYS).filter(([key])=>snapshot[key]!==null&&snapshot[key]!==undefined).map(([key,name])=>[name,JSON.stringify(snapshot[key])]));transactionalWrite(changes,storage);}

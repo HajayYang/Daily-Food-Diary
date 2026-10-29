@@ -1,10 +1,11 @@
+import { localStore } from './app-storage.js';
 // A durable rollback journal protects multi-key imports from partial quota failures.
 let externalChange=false;
 export function blockExternalWrites(){externalChange=true;}
 export const JOURNAL_KEY='daily-bites.import-journal.v1';
-export function canWrite(storage=globalThis.localStorage){return !externalChange&&storage.getItem(JOURNAL_KEY)===null;}
-export function writeLocal(key,value,storage=globalThis.localStorage){if(!canWrite(storage))throw new Error('unfinished import');storage.setItem(key,value);}
-export function recoverImport(storage=globalThis.localStorage){
+export function canWrite(storage=localStore){return !externalChange&&storage.getItem(JOURNAL_KEY)===null;}
+export function writeLocal(key,value,storage=localStore){if(!canWrite(storage))throw new Error('unfinished import');storage.setItem(key,value);}
+export function recoverImport(storage=localStore){
   try{
     const raw=storage.getItem(JOURNAL_KEY);if(raw===null)return true;
     const entries=JSON.parse(raw);
@@ -15,8 +16,9 @@ export function recoverImport(storage=globalThis.localStorage){
     storage.removeItem(JOURNAL_KEY);return true;
   }catch{return false;}
 }
-export function transactionalWrite(changes,storage=globalThis.localStorage){
+export function transactionalWrite(changes,storage=localStore){
  if(!canWrite(storage))throw new Error('请先刷新页面以恢复上次未完成的导入。');
+ if(typeof storage.atomicWrite==='function'){storage.atomicWrite(changes);return;}
  const before=Object.keys(changes).map(key=>[key,storage.getItem(key)]);
  try{storage.setItem(JOURNAL_KEY,JSON.stringify(before));}catch{throw new Error('无法创建导入前备份，现有数据未修改；请释放空间后重试。');}
  try{for(const [key,value] of Object.entries(changes))storage.setItem(key,value);storage.removeItem(JOURNAL_KEY);}

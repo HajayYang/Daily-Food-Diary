@@ -1,0 +1,94 @@
+name: Windows desktop
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  release:
+    types: [published]
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name || github.ref }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: node node_modules/electron/install.js
+      - run: npm run db:check
+      - run: npm test
+      - run: npm run desktop:windows
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      - name: Install and test the Windows installer
+        shell: pwsh
+        run: |
+          $installer = Get-ChildItem 'dist/desktop/*-setup.exe' | Select-Object -First 1
+          if (-not $installer) { throw 'Windows installer missing' }
+          $installDir = Join-Path $env:RUNNER_TEMP 'DailyBitesInstalled'
+          $process = Start-Process -FilePath $installer.FullName -ArgumentList '/S', "/D=$installDir" -PassThru -Wait
+          if ($process.ExitCode -ne 0) { throw "Installer failed: $($process.ExitCode)" }
+          $env:DESKTOP_EXECUTABLE = Join-Path $installDir 'Daily Bites.exe'
+          $env:DESKTOP_SCREENSHOT = Join-Path $env:RUNNER_TEMP 'daily-bites-desktop.png'
+          if (-not (Test-Path $env:DESKTOP_EXECUTABLE)) { throw 'Installed executable missing' }
+          npm run test:desktop
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: daily-bites-windows-x64
+          path: dist/desktop/*-setup.exe
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: desktop-screenshot
+          path: ${{ runner.temp }}/daily-bites-desktop.png
+          if-no-files-found: ignore
+  publish:
+    if: github.event_name == 'release'
+    needs: windows
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+      RELEASE_TAG: ${{ github.event.release.tag_name }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: daily-bites-windows-x64
+          path: desktop-assets
+      - name: Validate release version and create desktop manifest
+        run: |
+          node --input-type=module <<'JS'
+          import {readFileSync,readdirSync,writeFileSync} from 'node:fs';
+          import {createHash} from 'node:crypto';
+          const version=JSON.parse(readFileSync('package.json')).version;
+          if(process.env.RELEASE_TAG!==`v${version}`)throw Error('Release tag does not match desktop package version');
+          const filename=`Daily-Bites-${version}-win-x64-setup.exe`;
+          if(JSON.stringify(readdirSync('desktop-assets'))!==JSON.stringify([filename]))throw Error('Unexpected release artifacts');
+          const hash=createHash('sha256').update(readFileSync(`desktop-assets/${filename}`)).digest('hex');
+          writeFileSync('desktop-assets/DESKTOP-SHA256SUMS.txt',`${hash}  ${filename}\n`);
+          JS
+      - uses: sigstore/cosign-installer@faadad0cce49287aee09b3a48701e75088a2c6ad
+        with:
+          cosign-release: v3.1.4
+      - name: Sign and verify installer manifest
+        run: |
+          cosign sign-blob --yes --bundle desktop-assets/DESKTOP-SHA256SUMS.sigstore.json desktop-assets/DESKTOP-SHA256SUMS.txt
+          cosign verify-blob --bundle desktop-assets/DESKTOP-SHA256SUMS.sigstore.json --certificate-identity "https://github.com/${REPO}/.github/workflows/desktop-release.yml@refs/tags/${RELEASE_TAG}" --certificate-oidc-issuer https://token.actions.githubusercontent.com desktop-assets/DESKTOP-SHA256SUMS.txt
+          (cd desktop-assets && sha256sum --check DESKTOP-SHA256SUMS.txt)
+      - name: Attach installer and signature to release
+        run: gh release upload "$RELEASE_TAG" desktop-assets/* --repo "$REPO" --clobber

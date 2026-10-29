@@ -1,10 +1,12 @@
+import { isDesktop, localStore } from './app-storage.js';
 import { backupDue, dueReminders, BACKUP_META_KEY } from './wellbeing.js';
 import { translateText } from './i18n.js';
 
 export function setupOffline({$,toast,getPreferences,savePreferences}) {
+  if(isDesktop)return setupNativeOffline({$,toast,getPreferences,savePreferences});
   let installPrompt,registration,lastSent={};
   const sentKey='daily-bites.reminders-sent.v1';
-  try{const saved=JSON.parse(localStorage.getItem(sentKey)??'{}');if(saved&&typeof saved==='object'&&!Array.isArray(saved))lastSent=saved;}catch{/* Invalid reminder metadata does not block the diary. */}
+  try{const saved=JSON.parse(localStore.getItem(sentKey)??'{}');if(saved&&typeof saved==='object'&&!Array.isArray(saved))lastSent=saved;}catch{/* Invalid reminder metadata does not block the diary. */}
   const secure=window.isSecureContext;
   function connection() {
     $('#offline-status').textContent=!secure?'离线安装需要 HTTPS 或 localhost。':!('serviceWorker' in navigator)?'此浏览器不支持离线安装，仍可在线使用。':navigator.onLine?'已联网，正在检查离线准备状态。':'当前离线；已缓存的功能仍可使用。';
@@ -14,7 +16,7 @@ export function setupOffline({$,toast,getPreferences,savePreferences}) {
     $('#notification-enable').disabled=!('Notification' in window)||Notification.permission!=='default';
   }
   function backupStatus() {
-    let at;try{at=JSON.parse(localStorage.getItem(BACKUP_META_KEY)??'{}').lastExportAt;}catch{/* Treat absent/invalid backup metadata as not backed up. */}
+    let at;try{at=JSON.parse(localStore.getItem(BACKUP_META_KEY)??'{}').lastExportAt;}catch{/* Treat absent/invalid backup metadata as not backed up. */}
     $('#backup-reminder').textContent=backupDue(at,getPreferences().backupDays)?'到备份时间了，建议导出并妥善保存完整 JSON 备份。':getPreferences().backupDays?'备份提醒已设置；导出操作不代表文件已完成保存。':'备份提醒已关闭，可随时手动导出。';
   }
   function settings() {
@@ -48,7 +50,7 @@ export function setupOffline({$,toast,getPreferences,savePreferences}) {
   function tick() {
     for(const event of dueReminders(getPreferences(),new Date(),lastSent)) {
       // A second tab seeing this key will not deliver another copy in this minute.
-      try {const raw=JSON.parse(localStorage.getItem(sentKey)??'{}'),saved=raw&&typeof raw==='object'&&!Array.isArray(raw)?raw:{};if(saved[event.kind]===event.date)continue;lastSent={...saved,[event.kind]:event.date};localStorage.setItem(sentKey,JSON.stringify(lastSent));}catch{lastSent[event.kind]=event.date;}
+      try {const raw=JSON.parse(localStore.getItem(sentKey)??'{}'),saved=raw&&typeof raw==='object'&&!Array.isArray(raw)?raw:{};if(saved[event.kind]===event.date)continue;lastSent={...saved,[event.kind]:event.date};localStore.setItem(sentKey,JSON.stringify(lastSent));}catch{lastSent[event.kind]=event.date;}
       const message=event.kind==='meal'?'到用餐提醒时间了，记得规律吃饭并核对记录。':'到运动提醒时间了，按身体状态安排运动与恢复。';
       $('#reminder-status').textContent=message;toast(message);
       if('Notification' in window&&Notification.permission==='granted')try {
@@ -63,4 +65,13 @@ export function setupOffline({$,toast,getPreferences,savePreferences}) {
   document.addEventListener('backup-exported',backupStatus);
   document.addEventListener('languagechange',()=>{settings();connection();readyStatus();});
   return {refresh:settings};
+}
+
+function setupNativeOffline({$,toast,getPreferences,savePreferences}) {
+ const api=globalThis.dailyBitesDesktop;
+ function settings(){const p=getPreferences();$('#reminders-enabled').checked=p.reminders;$('#reminder-meal-time').value=p.mealTime;$('#reminder-exercise-time').value=p.exerciseTime;$('#backup-frequency').value=p.backupDays;$('#offline-status').textContent=translateText('桌面版离线资源随安装包提供；在线查询和 AI 功能需要网络。');$('#notification-status').textContent=translateText('提醒时间在下方设置。程序运行或留在托盘时可提醒；完全退出后不会提醒。');$('#notification-enable').textContent=translateText('测试系统通知');$('#install-app').hidden=true;$('#offline-update').hidden=true;$('#install-help').textContent=translateText('桌面版离线资源随安装包提供；在线查询和 AI 功能需要网络。');$('#backup-now').textContent=translateText('立即备份');}
+ $('#reminder-form').addEventListener('submit',event=>{event.preventDefault();if(savePreferences({...getPreferences(),reminders:$('#reminders-enabled').checked,mealTime:$('#reminder-meal-time').value,exerciseTime:$('#reminder-exercise-time').value,backupDays:Number($('#backup-frequency').value)})){settings();toast('提醒设置已保存');}});
+ $('#notification-enable').addEventListener('click',async()=>{try{await api.notify();}catch(error){toast(error.message);}});
+ $('#backup-now').addEventListener('click',async()=>{try{await api.backup();toast('操作完成');}catch(error){toast(error.message);}});
+ document.addEventListener('languagechange',settings);settings();return {refresh:settings};
 }

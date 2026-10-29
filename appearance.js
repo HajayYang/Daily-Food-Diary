@@ -1,3 +1,4 @@
+import { localStore } from './app-storage.js';
 export const DEFAULT_APPEARANCE = Object.freeze({ theme: 'green', buttonStyle: 'normal', opacity: 25 });
 export function validAppearance(value) {
   return Boolean(value && ['white', 'black', 'green', 'blue'].includes(value.theme) && ['normal', 'glass'].includes(value.buttonStyle) && Number.isInteger(value.opacity) && value.opacity >= 0 && value.opacity <= 100);
@@ -50,7 +51,7 @@ export function setupAppearance({ $, toast }) {
   let busy = true;
   let settingsReadable = true;
   try {
-    const saved = JSON.parse(localStorage.getItem(key) ?? 'null');
+    const saved = JSON.parse(localStore.getItem(key) ?? 'null');
     if (saved !== null) { if (!validAppearance(saved)) throw new Error('Invalid settings'); settings = saved; }
   } catch { settingsReadable = false; }
   function apply() {
@@ -70,7 +71,7 @@ export function setupAppearance({ $, toast }) {
   }
   function change(next) {
     if (!settingsReadable) { toast('外观设置读取失败，请先点击“恢复默认外观”，不会影响饮食或训练记录。'); apply(); return; }
-    try { localStorage.setItem(key, JSON.stringify(next)); settings = next; apply(); }
+    try { localStore.setItem(key, JSON.stringify(next)); settings = next; apply(); }
     catch { toast('外观设置保存失败，请检查浏览器存储空间。'); apply(); }
   }
   function showImage(blob) {
@@ -102,7 +103,7 @@ export function setupAppearance({ $, toast }) {
     finally { busy = false; apply(); }
   });
   $('#reset-appearance').addEventListener('click', () => {
-    try { localStorage.setItem(key, JSON.stringify(DEFAULT_APPEARANCE)); settingsReadable = true; settings = { ...DEFAULT_APPEARANCE }; apply(); toast('已恢复默认配色与按钮，背景图片保留，可单独移除'); }
+    try { localStore.setItem(key, JSON.stringify(DEFAULT_APPEARANCE)); settingsReadable = true; settings = { ...DEFAULT_APPEARANCE }; apply(); toast('已恢复默认配色与按钮，背景图片保留，可单独移除'); }
     catch { toast('恢复失败，请检查浏览器存储权限。'); }
   });
   apply();

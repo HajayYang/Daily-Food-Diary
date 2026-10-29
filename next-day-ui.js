@@ -1,3 +1,4 @@
+import { localStore } from './app-storage.js';
 import { writeLocal } from './storage.js';
 import { NUTRIENTS } from './nutrition.js';
 import { REVIEW_GROUPS, buildNextDayAdvice, foodFingerprint, validPlanner } from './next-day.js';
@@ -5,7 +6,7 @@ import { MEALS } from './records.js';
 export function setupNextDayAdvice({ $, element, getDate, getRecords, getFitness, recordsReadable, getRestrictions, generateShopping, refresh }) {
   const key='daily-bites.next-day.v1';
   let state={diet:'balanced',reviews:{}},readable=true;
-  try{const saved=JSON.parse(localStorage.getItem(key)??'null');if(saved!==null){if(!validPlanner(saved))throw new Error('Invalid planner');state=saved;}}catch{readable=false;}
+  try{const saved=JSON.parse(localStore.getItem(key)??'null');if(saved!==null){if(!validPlanner(saved))throw new Error('Invalid planner');state=saved;}}catch{readable=false;}
   function write(){
     if(!readable){$('#next-day-status').textContent='饮食建议偏好读取失败，暂不能保存修改；原饮食和运动记录不受影响。';return false;}
     try{writeLocal(key,JSON.stringify(state));return true;}catch{$('#next-day-status').textContent='建议偏好保存失败，请检查浏览器存储空间。';return false;}

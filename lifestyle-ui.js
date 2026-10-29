@@ -1,3 +1,4 @@
+import { localStore } from './app-storage.js';
 import { ALLERGENS, LIFESTYLE_KEY, defaultLifestyle, validLifestyle, foodTemplate, instantiateFavorite, addShopping } from './lifestyle.js';
 import { ingredient } from './menu-plan.js';
 import { weeklyReport } from './reports.js';
@@ -6,7 +7,7 @@ import { writeLocal } from './storage.js';
 import { translateText } from './i18n.js';
 export function setupLifestyle({$,element,toast,refresh,getRecords,getDate,getFitness,getPlanner,saveRecords,recordsReadable}){
  let state=defaultLifestyle(),readable=true;
- try{const saved=JSON.parse(localStorage.getItem(LIFESTYLE_KEY)??'null');if(saved!==null){if(!validLifestyle(saved))throw Error();state=saved;}}catch{readable=false;}
+ try{const saved=JSON.parse(localStore.getItem(LIFESTYLE_KEY)??'null');if(saved!==null){if(!validLifestyle(saved))throw Error();state=saved;}}catch{readable=false;}
  function save(next){if(!readable){toast('生活工具数据无法读取，原数据已保留。');return false;}if(!validLifestyle(next)){toast('请检查内容长度或项目数量。');return false;}try{writeLocal(LIFESTYLE_KEY,JSON.stringify(next));state=next;refresh();return true;}catch{toast('保存失败，请检查浏览器存储空间。');return false;}}
  function favorite(records,name){if(!records.length){toast('请先记录食物再收藏。');return;}if(state.favorites.length>=100){toast('收藏最多保存 100 项，请先整理。');return;}if(save({...state,favorites:[...state.favorites,{id:crypto.randomUUID(),name:name.slice(0,120),items:records.map(foodTemplate)}]}))toast('已加入收藏，可在常吃食物与餐单中复用。');}
  $('#save-meal-favorite').addEventListener('click',()=>{const meal=$('#favorite-meal').value;favorite(getRecords().filter(record=>record.date===getDate()&&record.meal===meal),$('#favorite-save-name').value.trim()||`${translateText(MEALS.find(item=>item.id===meal).name)} · ${getDate()}`);});
