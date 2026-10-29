@@ -1,71 +1,105 @@
-# 拍照识别服务（Cloudflare Worker + OpenAI）
+# 拍照识别服务：OpenAI / 阿里云百炼 Qwen
 
-浏览器拍照、压缩为 JPEG，明确同意发送后请求此 Worker。Worker 调用 OpenAI Responses API，以结构化 JSON 返回最多 10 种食物；浏览器让用户编辑、选择并确认后写入本地记录。GitHub Pages 只能托管网页，不能直接运行此服务。
+浏览器拍照并压缩为 JPEG，明确同意后发送给独立的识别服务。服务端选择 OpenAI Responses API 或百炼 OpenAI 兼容 Chat Completions API，并将结果归一化为相同的餐食 JSON。用户仍需编辑、选择并确认后才能记入饮食。GitHub Pages 只能提供网页，不能运行此服务。
 
-## 部署
+## 百炼 Qwen 接入
 
-需要 Cloudflare 账号、已开通 API 计费/额度且可使用视觉模型的 OpenAI 项目。ChatGPT 订阅不等于 OpenAI API 额度。
+仓库提供独立的 Wrangler `qwen` 环境，默认示例模型为 **`qwen3-vl-flash`**，也可设置为 **`qwen3-vl-plus`**。两者的非思考模式支持图片输入和 JSON Object 输出；服务会设置 `enable_thinking=false`，再对返回内容执行本地字段、数量、范围和未知值校验。模型是否可用取决于具体地域、账号权限和额度；不能将纯文本模型当作视觉模型使用。
 
-1. 从仓库根目录执行下面命令，按提示登录 Cloudflare：
+1. 在阿里云百炼开通模型服务与额度，创建 API Key，并确认对应地域及业务空间的 **OpenAI 兼容 Base URL**。
+2. 编辑 `worker/wrangler.toml` 的 `[env.qwen.vars]`：
+
+   ```toml
+   ALLOWED_ORIGIN = "https://hajayyang.github.io"
+   VISION_PROVIDER = "dashscope"
+   DASHSCOPE_MODEL = "qwen3-vl-flash"
+   DASHSCOPE_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+   ```
+
+   上例为北京共享域名，官方目前仍支持。生产环境优先使用控制台提供的业务空间专属 URL，例如 `https://你的业务空间ID.cn-beijing.maas.aliyuncs.com/compatible-mode/v1`。**Base URL 必须与 API Key 的地域、业务空间和计费方案匹配**，不要把北京地址与新加坡密钥混用。这里填写模型 API 的地址，网页里填写的是部署后的识别服务根地址，两者不同。
+
+   | 地域 | 共享 OpenAI 兼容 Base URL |
+   | --- | --- |
+   | 北京 | `https://dashscope.aliyuncs.com/compatible-mode/v1` |
+   | 新加坡 | `https://dashscope-intl.aliyuncs.com/compatible-mode/v1` |
+   | 美国弗吉尼亚 | `https://dashscope-us.aliyuncs.com/compatible-mode/v1` |
+   | 中国香港 | `https://cn-hongkong.dashscope.aliyuncs.com/compatible-mode/v1` |
+
+   业务空间专属域名支持 `cn-beijing`、`ap-southeast-1`、`us-east-1`、`eu-central-1`、`cn-hongkong`。服务只允许上述阿里云官方主机和 `/compatible-mode/v1` 路径，拒绝任意代理、HTTP、用户凭据、查询参数和非标准端口。模型在各地域的供应以控制台为准。
+3. 在安全的本地终端登录 Cloudflare，再逐条执行下列命令，在交互提示中输入值。**不要将真实密钥写入命令、仓库或聊天**：
 
    ```sh
    npx wrangler@4 login
+   npx wrangler@4 secret put DASHSCOPE_API_KEY --env qwen --config worker/wrangler.toml
+   npx wrangler@4 secret put PHOTO_ACCESS_TOKEN --env qwen --config worker/wrangler.toml
+   npx wrangler@4 deploy --env qwen --config worker/wrangler.toml
    ```
 
-2. 编辑 `worker/wrangler.toml` 中 `ALLOWED_ORIGIN`。GitHub Pages 默认示例为 `https://hajayyang.github.io`，不包含 `/Daily-Food-Diary/` 路径；自定义域名需使用自己的精确 origin。多来源用逗号分隔，不使用 `*`。
-3. 在安全的本地终端逐条执行，并在交互提示中输入值，不写在命令、源码或聊天里：
+   `DASHSCOPE_API_KEY` 是百炼的模型密钥；`PHOTO_ACCESS_TOKEN` 是另行生成的 24–512 字符随机访问码，不能与任何模型密钥相同。访问码用于授权使用本服务。Qwen 环境不需要 OpenAI 密钥，也不会自动回退到 OpenAI。
+4. 在应用打开“拍照记餐 → 识别服务设置”，填入部署结果中的 `https://你的服务.workers.dev` 根地址和**服务访问码**，点击“检测服务连接”。新服务会显示 `阿里云百炼 Qwen / 模型名`。不要把百炼密钥或模型 API Base URL 填进网页。
+5. 选择真实餐食照片，勾选发送同意，识别并核对后保存。连接检测仅验证服务端配置和访问码，**不验证真实模型权限、密钥有效性、余额或识别效果**，必须再完成一次真实照片识别。
+
+官方资料：[图像与视频理解](https://help.aliyun.com/zh/model-studio/vision)、[结构化输出](https://help.aliyun.com/zh/model-studio/json-mode)、[Base URL 与地域](https://help.aliyun.com/zh/model-studio/base-url)。接入依据核对日期：2026-10-29；模型、地域、价格及额度以百炼控制台最新信息为准。
+
+## 保留 OpenAI 方案
+
+原有默认环境不变：`VISION_PROVIDER=openai`（未填写也默认为 OpenAI），`VISION_MODEL=gpt-4.1-mini`。需要已开通 API 计费/额度且有视觉模型权限的 OpenAI 项目；ChatGPT 订阅不等于 API 额度。
+
+1. 编辑 `worker/wrangler.toml` 中默认 `[vars]` 的 `ALLOWED_ORIGIN`。
+2. 在本地安全终端执行，值仅在交互提示中输入：
 
    ```sh
+   npx wrangler@4 login
    npx wrangler@4 secret put OPENAI_API_KEY --config worker/wrangler.toml
    npx wrangler@4 secret put PHOTO_ACCESS_TOKEN --config worker/wrangler.toml
-   ```
-
-   `OPENAI_API_KEY` 是服务端模型密钥；`PHOTO_ACCESS_TOKEN` 使用至少 24 字符的随机访问码，由服务管理员保管、分发给获准使用者。两者不能相同，不要在网页填写模型密钥。
-4. 部署：
-
-   ```sh
    npx wrangler@4 deploy --config worker/wrangler.toml
    ```
 
-5. 打开网页“拍照记餐 → 识别服务设置”，填入部署后得到的 `https://你的服务.workers.dev` 根地址与访问码，点击“检测服务连接”。也可在 `index.html` 的 `photo-service` meta 标签中预设服务根地址，**不能预设访问码或模型密钥**。
-6. 选择一张真实餐食图片，勾选发送同意，开始识别；核对份量与营养值后保存。连接检测只验证 Worker 配置与访问码，不验证 OpenAI 权限或余额，需完成一次实际识别。
+3. 在网页填写部署后的识别服务根地址及访问码，再检测连接、发送真实照片验证。
 
-默认 `VISION_MODEL=gpt-4.1-mini`。更换时应选择支持图像输入与结构化输出的模型；不兼容或无权限时会显示服务异常，不回退到伪造结果。
+默认环境和 `--env qwen` 的 secrets 互相独立。更换 OpenAI 模型时选择支持图像输入和 Responses API 结构化输出的模型。未配置、无权限或不兼容时返回错误，不生成虚假结果。
+
+## 来源与网页配置
+
+`ALLOWED_ORIGIN` 采用精确 origin。GitHub Pages 示例为 `https://hajayyang.github.io`，不包含 `/Daily-Food-Diary/` 路径；多个来源以逗号分隔，不使用 `*`。
+
+也可在 `index.html` 的 `photo-service` meta 标签中预设部署后的服务根地址。不能预设访问码或模型密钥。浏览器只保存服务地址，访问码仅保留在当前页面内存。
 
 ## 本地开发
 
-需要 Node.js 22.9+（运行可选 env 文件命令），不需要安装应用依赖。
+建议 Node.js 24，项目最低要求 22.13，不需要安装应用运行依赖。
 
-1. 将 `.dev.vars.example` 复制为 `worker/.dev.vars`，在本机安全编辑填入真实值。该文件已忽略，请勿提交。
-2. 两个终端从仓库根目录分别运行：
+1. 将 `worker/.dev.vars.example` 复制为 `worker/.dev.vars`，在本机安全编辑；该文件已忽略，不要提交。
+2. 测试 Qwen 时设置 `VISION_PROVIDER=dashscope`，填写 `DASHSCOPE_API_KEY`、`DASHSCOPE_BASE_URL` 和独立访问码；测试 OpenAI 时使用 `VISION_PROVIDER=openai` 与 `OPENAI_API_KEY`。
+3. 两个终端从仓库根目录分别运行：
 
    ```sh
    npm start
    npm run photo:dev
    ```
 
-3. 前端服务端口为 3000，开发识别 API 仅监听本机 8787；在页面中填写 `http://localhost:8787` 与本地访问码。`.dev.vars` 的 `ALLOWED_ORIGIN` 示例允许本地前端。
+4. 页面填写 `http://localhost:8787` 与本地访问码。识别开发服务仅监听本机 8787，前端端口为 3000。Node.js 24 会沿用已有 HTTP(S) 代理配置及 CA 信任，不关闭 TLS 验证。
 
-`npm start` 仅提供白名单中的网页资源，不提供 `worker/`、本地密钥文件、Git 元数据或测试文件。不要使用会公开整个仓库目录的文件服务器来运行包含真实 `.dev.vars` 的本地项目。
+`npm start` 仅公开白名单资源，不提供 `worker/`、密钥文件、Git 元数据或测试文件。不要使用公开整个仓库目录的文件服务器运行含真实密钥的项目。
 
 ## API 与限制
 
-- `GET /api/health`：需要允许的网站 Origin 和 Bearer 访问码；返回 `ready: true` 只表示配置存在。
-- `POST /api/recognize-meal`：`Authorization: Bearer <访问码>`，JSON `{ "image": "data:image/jpeg;base64,...", "language": "zh-CN" }`。语言还支持 `en`、`ja`、`ko`。
-- 请求最大约 2.1 MB，JPEG 最大 1.5 MB；不接受外部图片 URL。客户端原图最大 12 MB，压缩最长边至 1600px 并重新编码，原始 EXIF 不发送。
-- 模型调用最长 45 秒。每个 Worker 实例按来源 IP 最多 6 次/分钟；这是尽力限流，不是跨实例的严格配额。
-- 访问码用于个人或有限分享场景。大规模公开使用应增加用户认证、持久化配额与费用上限，不能移除鉴权后无限制调用模型。
-- 应用不记录或持久化照片、请求体和密钥；请求使用 `store: false`。这不等于模型服务商零保留，仍适用服务商的数据处理政策。
-- 图中指令视为不可信内容；只提取餐食，结果仍按字段、数量及数值范围检查。识别值是图中整份食物的估算，不是食品成分表，也不保证热量、油脂、份量、过敏原或食品安全判断。
+- `GET /api/health`：需允许的 Origin 和 Bearer 访问码；返回 `ready: true`、当前 `provider`、`model`，百炼另有 `region`。仅代表配置完整，不会调用收费模型或返回密钥。
+- `POST /api/recognize-meal`：`Authorization: Bearer <访问码>`，JSON `{ "image": "data:image/jpeg;base64,...", "language": "zh-CN" }`；也支持 `en`、`ja`、`ko`。客户端不能指定提供方、模型或上游 URL，不转发身体数据和已有记录。
+- 请求最大约 2.1 MB，JPEG 最大 1.5 MB；不接受外部图片 URL。原图最大 12 MB，客户端压缩最长边至 1600px 并重新编码，不发送原始 EXIF。
+- 调用最长 45 秒。每 Worker 实例每来源 IP 最多 6 次/分钟，这是尽力限流而非跨实例配额。公开服务应另加用户认证、持久化配额与费用上限。
+- 百炼使用非思考 JSON Object 模式，格式正确不代表字段正确，因此返回结果再次验证。截断、拒绝、无效 JSON、非法数值和缺失字段均拒绝入账；服务异常不会暗中切换模型提供方或重试产生多次调用。
+- 应用不记录或持久化照片、请求体和模型密钥。OpenAI 请求使用 `store:false`；百炼不发送这个 OpenAI 专用选项。两者均适用各自数据处理政策，这不等于服务商零保留。
+- 图中指令视为不可信内容，只提取餐食。数值是整份食物的估算，不是每 100 g 成分表；重量、油脂和热量仍需人工核对，不能依靠照片诊断过敏、判断食品安全或推断维生素、矿物质与水含量。
 
 ## 验证
 
-仓库根目录运行 `npm test`。测试通过受控模型响应覆盖鉴权、来源、限流、大小限制、结构化请求、空值、拒绝与错误处理，不消耗 API 额度。
+仓库根目录运行 `npm test`。测试以受控模型响应覆盖 OpenAI 和 Qwen 的请求/响应格式、非思考 JSON 输出、地域/业务空间地址校验、鉴权、来源、限流、大小限制、未知值、截断、拒绝及错误脱敏，不消耗模型额度。`e2e/photo.mjs` 验证完整拍照核对保存流程及四语言连接状态，使用模拟服务而非真实模型。
 
 部署前可执行：
 
 ```sh
-npx wrangler@4 deploy --dry-run --config worker/wrangler.toml
+npx wrangler@4 deploy --dry-run --env qwen --config worker/wrangler.toml
 ```
 
-试运行打包成功不代表服务已部署或真实视觉识别已验证；上线后需用真实照片测试。
+打包成功和受控测试通过不代表服务已部署、密钥已配置或真实 Qwen 识别已验证。上线后需要在对应账号与地域用真实餐食照片测试。

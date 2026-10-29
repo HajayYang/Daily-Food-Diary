@@ -48,7 +48,12 @@ export function setupPhotoDiary({ $, element, getDate, saveRecords }) {
     try{
       const result=await requestPhotoService({url:$('#photo-service-url').value,token:$('#photo-service-token').value,image:photo?.dataUrl,language:getLanguage(),signal:requestController.signal,health});
       if(id!==serial||!dialog.open)return;
-      if(health){status('服务已连接；实际识别还取决于模型权限和额度。');return;}
+      if(health){
+        const labels={openai:'OpenAI',dashscope:'阿里云百炼 Qwen'},provider=Object.hasOwn(labels,result.provider)?labels[result.provider]:null;
+        if(provider&&typeof result.model==='string')status(`服务已连接：${provider} / ${result.model.slice(0,120)}；实际识别还取决于模型权限和额度。`);
+        else status('服务已连接；实际识别还取决于模型权限和额度。');
+        return;
+      }
       if(!result.is_food){status('没有识别到可用的餐食，请重新拍照或手动记录。');return;}
       showReview(result);status('识别完成，请核对名称、份量和营养估算，再勾选保存。');
     }catch(error){if(id===serial)status(timedOut?PHOTO_ERRORS.recognition_timeout:error.name==='AbortError'?'已取消识别，没有保存任何记录。':PHOTO_ERRORS[error.message]?photoError(error):error.message==='photo_service_invalid'?PHOTO_ERRORS.photo_service_invalid:error.message);}

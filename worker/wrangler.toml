@@ -6,5 +6,18 @@ workers_dev = true
 [vars]
 # Exact site origin(s), comma-separated. GitHub Pages paths are NOT part of an origin.
 ALLOWED_ORIGIN = "https://hajayyang.github.io"
-VISION_MODEL = "gpt-4.1-mini"
+VISION_PROVIDER = "openai"
+# OpenAI model defaults to gpt-4.1-mini in code; VISION_MODEL may override it.
 # Configure OPENAI_API_KEY and PHOTO_ACCESS_TOKEN using `wrangler secret put`.
+
+# Deploy Qwen separately: --env qwen. Secrets are separate for this environment.
+[env.qwen]
+name = "daily-bites-photo-qwen"
+
+[env.qwen.vars]
+ALLOWED_ORIGIN = "https://hajayyang.github.io"
+VISION_PROVIDER = "dashscope"
+DASHSCOPE_MODEL = "qwen3-vl-flash"
+# Must match the API key's region; workspace-specific URLs are also supported.
+DASHSCOPE_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+# Configure DASHSCOPE_API_KEY and PHOTO_ACCESS_TOKEN with `--env qwen`.

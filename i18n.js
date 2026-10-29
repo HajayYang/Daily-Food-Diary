@@ -29,7 +29,7 @@ export function translateText(source) {
   for (const pattern of patterns) {
     const match = trimmed.match(pattern.regex);
     if (!match) continue;
-    const values = Object.fromEntries(pattern.names.map((name, i) => [name, ['meal', 'activity', 'status', 'intensity', 'extra', 'reference', 'detail', 'suffix', 'prefix', 'snack'].includes(name) ? translateText(match[i + 1]) : match[i + 1]]));
+    const values = Object.fromEntries(pattern.names.map((name, i) => [name, ['meal', 'activity', 'status', 'intensity', 'extra', 'reference', 'detail', 'suffix', 'prefix', 'snack', 'provider'].includes(name) ? translateText(match[i + 1]) : match[i + 1]]));
     return source.replace(trimmed, () => pattern.values[index()].replace(/\{(\w+)\}/g, (_, name) => values[name] ?? ''));
   }
   return source;

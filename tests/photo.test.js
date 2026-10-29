@@ -5,6 +5,7 @@ import assert from 'node:assert/strict';
 import { validateRecognition, normalizePhotoService, validPhotoDataUrl, MAX_PHOTO_BODY } from '../photo-core.js';
 import { createPhotoHandler } from '../worker/index.js';
 import { requestPhotoService } from '../photo-client.js';
+import { dashscopeEndpoint } from '../worker/providers.js';
 const token='test-only-access-token-32-characters';
 const env={OPENAI_API_KEY:'test-only-provider-key',PHOTO_ACCESS_TOKEN:token,ALLOWED_ORIGIN:'https://example.org',VISION_MODEL:'gpt-4.1-mini'};
 const image=`data:image/jpeg;base64,${Buffer.from([255,216,255,...Array(120).fill(0)]).toString('base64')}`;
@@ -54,4 +55,33 @@ test('client uses service access code, preserves null values and reports unavail
   assert.equal(url,'https://worker.example/api/recognize-meal');assert.equal(options.headers.Authorization,'Bearer browser-code');assert.equal(options.credentials,'omit');assert.equal(JSON.parse(options.body).language,'ja');return new Response(JSON.stringify(result));
  }});assert.equal(data.items[0].fat,null);
  await assert.rejects(()=>requestPhotoService({url:'https://worker.example',token:'code',fetcher:async()=>new Response(JSON.stringify({error:{code:'not_configured'}}),{status:503})}),/not_configured/);
+});
+
+const qwenEnv={VISION_PROVIDER:'dashscope',DASHSCOPE_API_KEY:'test-only-bailian-provider-key-32-chars',DASHSCOPE_BASE_URL:'https://workspace-test.cn-beijing.maas.aliyuncs.com/compatible-mode/v1',PHOTO_ACCESS_TOKEN:token,ALLOWED_ORIGIN:'https://example.org',VISION_MODEL:'gpt-4.1-mini'};
+const qwenResponse=(data=result,finish='stop')=>new Response(JSON.stringify({choices:[{finish_reason:finish,message:{role:'assistant',content:JSON.stringify(data)}}]}));
+test('Qwen uses official regional chat completions with image data, JSON mode and disabled thinking',async()=>{
+ const handler=createPhotoHandler({fetcher:async(url,options)=>{
+  assert.equal(url,qwenEnv.DASHSCOPE_BASE_URL+'/chat/completions');assert.equal(options.headers.Authorization,`Bearer ${qwenEnv.DASHSCOPE_API_KEY}`);assert.equal(options.redirect,'error');
+  const body=JSON.parse(options.body);assert.equal(body.model,'qwen3-vl-flash');assert.equal(body.enable_thinking,false);assert.equal(body.stream,false);assert.deepEqual(body.response_format,{type:'json_object'});assert.equal(body.messages[1].content[0].image_url.url,image);assert.match(body.messages[1].content[1].text,/ja/);assert.match(body.messages[0].content,/JSON schema/);
+  assert.equal(body.store,undefined);assert.ok(!options.body.includes(token));assert.ok(!options.body.includes(qwenEnv.DASHSCOPE_API_KEY));assert.ok(!options.body.includes('never-forward'));assert.ok(!options.body.includes('"profile"'));return qwenResponse();
+ }});
+ const response=await handler(req({image,language:'ja',profile:{weight:80},records:['never-forward'],provider:'openai'}),qwenEnv);assert.equal(response.status,200);assert.deepEqual(await response.json(),result);
+});
+test('Qwen base URLs allow only official hosts and paths, and never accept redirects or arbitrary proxies',()=>{
+ for(const [base,region] of [['https://dashscope.aliyuncs.com/compatible-mode/v1','cn-beijing'],['https://dashscope-intl.aliyuncs.com/compatible-mode/v1/','ap-southeast-1'],['https://dashscope-us.aliyuncs.com/compatible-mode/v1','us-east-1'],['https://workspace-test.eu-central-1.maas.aliyuncs.com/compatible-mode/v1','eu-central-1'],['https://cn-hongkong.dashscope.aliyuncs.com/compatible-mode/v1','cn-hongkong']])assert.equal(dashscopeEndpoint(base).region,region);
+ for(const base of ['https://evil.example/compatible-mode/v1','https://constructor/compatible-mode/v1','https://__proto__/compatible-mode/v1','https://dashscope.aliyuncs.com.evil.example/compatible-mode/v1','http://dashscope.aliyuncs.com/compatible-mode/v1','https://secret@dashscope.aliyuncs.com/compatible-mode/v1','https://dashscope.aliyuncs.com:8443/compatible-mode/v1','https://dashscope.aliyuncs.com/compatible-mode/v1?key=secret','https://dashscope.aliyuncs.com/api/v1','https://workspace.unknown.maas.aliyuncs.com/compatible-mode/v1'])assert.equal(dashscopeEndpoint(base),null,base);
+});
+test('Qwen health exposes selected provider/model/region, does not bill or return keys, and needs only Qwen credentials',async()=>{
+ let calls=0;const handler=createPhotoHandler({fetcher:async()=>{calls++;return qwenResponse();}});
+ const request=new Request('https://worker.example/api/health',{headers:{Origin:'https://example.org',Authorization:`Bearer ${token}`}});
+ const response=await handler(request,{...qwenEnv,DASHSCOPE_MODEL:'qwen3-vl-plus'});assert.equal(response.status,200);assert.deepEqual(await response.json(),{ready:true,provider:'dashscope',model:'qwen3-vl-plus',region:'cn-beijing'});assert.equal(calls,0);
+ for(const change of [{DASHSCOPE_API_KEY:''},{DASHSCOPE_BASE_URL:'https://evil.example/compatible-mode/v1'},{VISION_PROVIDER:'other'},{DASHSCOPE_MODEL:'bad\nmodel'},{PHOTO_ACCESS_TOKEN:qwenEnv.DASHSCOPE_API_KEY}])assert.equal((await handler(req(),{...qwenEnv,...change})).status,503);
+ assert.equal(calls,0);
+});
+test('Qwen rejects truncated, refused, malformed and out-of-range results without falling back to another provider',async()=>{
+ for(const response of [qwenResponse(result,'length'),qwenResponse({...result,items:[{...item,grams:9000}]}),new Response(JSON.stringify({choices:[{finish_reason:'stop',message:{content:'```json\n{}\n```'}}]})),new Response(JSON.stringify({choices:[{finish_reason:'stop',message:{refusal:'cannot',content:JSON.stringify(result)}}]}))]) {
+  let calls=0;const handler=createPhotoHandler({fetcher:async()=>{calls++;return response;}});assert.equal((await handler(req(),{...qwenEnv,OPENAI_API_KEY:'unused-openai-key'})).status,422);assert.equal(calls,1);
+ }
+ const noFood=await createPhotoHandler({fetcher:async()=>qwenResponse({is_food:false,items:[],warning:''})})(req(),qwenEnv);assert.equal(noFood.status,200);assert.equal((await noFood.json()).is_food,false);
+ for(const status of [401,403,429,500]) {const response=await createPhotoHandler({fetcher:async()=>new Response('provider secret error',{status})})(req(),qwenEnv);assert.equal(response.status,status===429?429:502);assert.ok(!(await response.text()).includes('provider secret error'));}
 });

@@ -1,5 +1,7 @@
 // Daily-routine copy in English, Japanese and Korean.
 export const HABIT_MESSAGES = {
+  "阿里云百炼 Qwen": ["Alibaba Cloud Bailian Qwen", "Alibaba Cloud 百錬 Qwen", "Alibaba Cloud Bailian Qwen"],
+  "服务已连接：{provider} / {model}；实际识别还取决于模型权限和额度。": ["Connected: {provider} / {model}. Recognition still depends on model access and quota.", "接続済み：{provider} / {model}。認識にはモデル権限と利用枠が必要です。", "연결됨: {provider} / {model}. 실제 인식에는 모델 권한과 이용 한도가 필요합니다."],
   "用餐计划与库存": [
     "Meal plans & pantry",
     "食事予定と食材庫",
