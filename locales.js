@@ -2565,10 +2565,10 @@ export const MESSAGES = {
     "JPG・PNG・WebP、最大12 MB。送信前にローカルで圧縮。",
     "JPG, PNG, WebP, 최대 12 MB. 전송 전 로컬에서 압축해요."
   ],
-  "我同意将此照片发送到配置的识别服务及其视觉模型提供方（OpenAI 或阿里云百炼）处理。照片不保存到食记，服务方按其政策处理；身体数据和已有饮食记录不会发送。": [
-    "I agree to send this photo to the configured service and its vision model provider (OpenAI or Alibaba Cloud Bailian). The diary does not save photos; providers apply their own policies. Body data and existing records are not sent.",
-    "設定した認識サービスと視覚モデル提供者（OpenAI または Alibaba Cloud 百錬）への写真送信に同意します。食記は写真を保存せず、提供者の方針が適用されます。身体情報や既存記録は送信しません。",
-    "설정된 인식 서비스와 시각 모델 제공자(OpenAI 또는 Alibaba Cloud Bailian)로 사진을 보내는 데 동의해요. 일지에는 사진을 저장하지 않으며 제공자의 정책이 적용돼요. 신체 정보와 기존 기록은 전송하지 않아요."
+  "我同意将此照片发送到配置的识别服务及其视觉模型提供方（OpenAI、阿里云百炼或 DeepSeek）处理。照片不保存到食记，服务方按其政策处理；身体数据和已有饮食记录不会发送。": [
+    "I agree to send this photo to the configured service and its vision model provider (OpenAI, Alibaba Cloud Bailian or DeepSeek). The diary does not save photos; providers apply their own policies. Body data and existing records are not sent.",
+    "設定した認識サービスと視覚モデル提供者（OpenAI、Alibaba Cloud 百錬、または DeepSeek）への写真送信に同意します。食記は写真を保存せず、提供者の方針が適用されます。身体情報や既存記録は送信しません。",
+    "설정된 인식 서비스와 시각 모델 제공자(OpenAI, Alibaba Cloud Bailian 또는 DeepSeek)로 사진을 보내는 데 동의해요. 일지에는 사진을 저장하지 않으며 제공자의 정책이 적용돼요. 신체 정보와 기존 기록은 전송하지 않아요."
   ],
   "开始识别": [
     "Recognize meal",

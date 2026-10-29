@@ -6,6 +6,9 @@ DASHSCOPE_API_KEY=
 # Production may use https://WORKSPACE.cn-beijing.maas.aliyuncs.com/compatible-mode/v1
 DASHSCOPE_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 DASHSCOPE_MODEL=qwen3-vl-flash
+DEEPSEEK_API_KEY=
+# For DeepSeek, use VISION_PROVIDER=deepseek. Images require a vision model.
+DEEPSEEK_MODEL=deepseek-flash
 PHOTO_ACCESS_TOKEN=
 ALLOWED_ORIGIN=http://localhost:3000,http://127.0.0.1:3000
 VISION_MODEL=gpt-4.1-mini

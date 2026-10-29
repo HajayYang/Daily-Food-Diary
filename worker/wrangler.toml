@@ -21,3 +21,13 @@ DASHSCOPE_MODEL = "qwen3-vl-flash"
 # Must match the API key's region; workspace-specific URLs are also supported.
 DASHSCOPE_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
 # Configure DASHSCOPE_API_KEY and PHOTO_ACCESS_TOKEN with `--env qwen`.
+
+# Deploy DeepSeek separately: --env deepseek. Never put keys in [vars].
+[env.deepseek]
+name = "daily-bites-photo-deepseek"
+
+[env.deepseek.vars]
+ALLOWED_ORIGIN = "https://hajayyang.github.io"
+VISION_PROVIDER = "deepseek"
+DEEPSEEK_MODEL = "deepseek-flash"
+# Configure DEEPSEEK_API_KEY and PHOTO_ACCESS_TOKEN with `--env deepseek`.

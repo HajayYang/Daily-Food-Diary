@@ -49,7 +49,7 @@ export function setupPhotoDiary({ $, element, getDate, saveRecords }) {
       const result=await requestPhotoService({url:$('#photo-service-url').value,token:$('#photo-service-token').value,image:photo?.dataUrl,language:getLanguage(),signal:requestController.signal,health});
       if(id!==serial||!dialog.open)return;
       if(health){
-        const labels={openai:'OpenAI',dashscope:'阿里云百炼 Qwen'},provider=Object.hasOwn(labels,result.provider)?labels[result.provider]:null;
+        const labels={openai:'OpenAI',dashscope:'阿里云百炼 Qwen',deepseek:'DeepSeek'},provider=Object.hasOwn(labels,result.provider)?labels[result.provider]:null;
         if(provider&&typeof result.model==='string')status(`服务已连接：${provider} / ${result.model.slice(0,120)}；实际识别还取决于模型权限和额度。`);
         else status('服务已连接；实际识别还取决于模型权限和额度。');
         return;

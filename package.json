@@ -9,7 +9,7 @@
     "start": "node server.js",
     "test": "node --test",
     "photo:dev": "node --env-file-if-exists=worker/.dev.vars worker/dev-server.js",
-    "test:browser": "node e2e/lifestyle.mjs && node e2e/sync.mjs && node e2e/camera.mjs && node e2e/storage-tabs.mjs && node e2e/food-search.mjs && node e2e/recipes.mjs && node e2e/recipe-database.mjs && node e2e/habits.mjs && node e2e/photo.mjs",
+    "test:browser": "node e2e/lifestyle.mjs && node e2e/sync.mjs && node e2e/camera.mjs && node e2e/storage-tabs.mjs && node e2e/food-search.mjs && node e2e/recipes.mjs && node e2e/recipe-database.mjs && node e2e/habits.mjs && node e2e/photo.mjs && node e2e/photo.mjs deepseek",
     "test:sync-schema": "node sync/verify-schema.mjs",
     "food:update-cache": "node scripts/update-food-cache.mjs",
     "db:build": "node database/build.mjs",

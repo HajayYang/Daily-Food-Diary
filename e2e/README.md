@@ -33,3 +33,5 @@ npm run test:browser
 旧用例主动屏蔽 Service Worker，以独立控制食品 API、数据库损坏和缓存失败场景；`habits.mjs` 使用真实 Service Worker 验证完整应用的离线行为。
 
 `photo.mjs` 将完整拍照界面接到真实服务处理器和受控 Qwen 上游，验证四语言提供方/模型显示、本地压缩、发送同意、确认后才入账、未知营养值、密钥不写存储，以及截断结果不入账。不请求真实模型、不消耗 API 额度。
+
+`node e2e/photo.mjs deepseek` 复用完整拍照用例，单独验证 DeepSeek 官方端点、Flash 模型、`thinking.type=disabled`、四语言模型显示和错误不入账，使用受控响应而非真实模型。

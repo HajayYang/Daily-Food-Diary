@@ -58,12 +58,12 @@ test('client uses service access code, preserves null values and reports unavail
 });
 
 const qwenEnv={VISION_PROVIDER:'dashscope',DASHSCOPE_API_KEY:'test-only-bailian-provider-key-32-chars',DASHSCOPE_BASE_URL:'https://workspace-test.cn-beijing.maas.aliyuncs.com/compatible-mode/v1',PHOTO_ACCESS_TOKEN:token,ALLOWED_ORIGIN:'https://example.org',VISION_MODEL:'gpt-4.1-mini'};
-const qwenResponse=(data=result,finish='stop')=>new Response(JSON.stringify({choices:[{finish_reason:finish,message:{role:'assistant',content:JSON.stringify(data)}}]}));
+const chatResponse=(data=result,finish='stop')=>new Response(JSON.stringify({choices:[{finish_reason:finish,message:{role:'assistant',content:JSON.stringify(data)}}]}));
 test('Qwen uses official regional chat completions with image data, JSON mode and disabled thinking',async()=>{
  const handler=createPhotoHandler({fetcher:async(url,options)=>{
   assert.equal(url,qwenEnv.DASHSCOPE_BASE_URL+'/chat/completions');assert.equal(options.headers.Authorization,`Bearer ${qwenEnv.DASHSCOPE_API_KEY}`);assert.equal(options.redirect,'error');
   const body=JSON.parse(options.body);assert.equal(body.model,'qwen3-vl-flash');assert.equal(body.enable_thinking,false);assert.equal(body.stream,false);assert.deepEqual(body.response_format,{type:'json_object'});assert.equal(body.messages[1].content[0].image_url.url,image);assert.match(body.messages[1].content[1].text,/ja/);assert.match(body.messages[0].content,/JSON schema/);
-  assert.equal(body.store,undefined);assert.ok(!options.body.includes(token));assert.ok(!options.body.includes(qwenEnv.DASHSCOPE_API_KEY));assert.ok(!options.body.includes('never-forward'));assert.ok(!options.body.includes('"profile"'));return qwenResponse();
+  assert.equal(body.store,undefined);assert.ok(!options.body.includes(token));assert.ok(!options.body.includes(qwenEnv.DASHSCOPE_API_KEY));assert.ok(!options.body.includes('never-forward'));assert.ok(!options.body.includes('"profile"'));return chatResponse();
  }});
  const response=await handler(req({image,language:'ja',profile:{weight:80},records:['never-forward'],provider:'openai'}),qwenEnv);assert.equal(response.status,200);assert.deepEqual(await response.json(),result);
 });
@@ -72,16 +72,48 @@ test('Qwen base URLs allow only official hosts and paths, and never accept redir
  for(const base of ['https://evil.example/compatible-mode/v1','https://constructor/compatible-mode/v1','https://__proto__/compatible-mode/v1','https://dashscope.aliyuncs.com.evil.example/compatible-mode/v1','http://dashscope.aliyuncs.com/compatible-mode/v1','https://secret@dashscope.aliyuncs.com/compatible-mode/v1','https://dashscope.aliyuncs.com:8443/compatible-mode/v1','https://dashscope.aliyuncs.com/compatible-mode/v1?key=secret','https://dashscope.aliyuncs.com/api/v1','https://workspace.unknown.maas.aliyuncs.com/compatible-mode/v1'])assert.equal(dashscopeEndpoint(base),null,base);
 });
 test('Qwen health exposes selected provider/model/region, does not bill or return keys, and needs only Qwen credentials',async()=>{
- let calls=0;const handler=createPhotoHandler({fetcher:async()=>{calls++;return qwenResponse();}});
+ let calls=0;const handler=createPhotoHandler({fetcher:async()=>{calls++;return chatResponse();}});
  const request=new Request('https://worker.example/api/health',{headers:{Origin:'https://example.org',Authorization:`Bearer ${token}`}});
  const response=await handler(request,{...qwenEnv,DASHSCOPE_MODEL:'qwen3-vl-plus'});assert.equal(response.status,200);assert.deepEqual(await response.json(),{ready:true,provider:'dashscope',model:'qwen3-vl-plus',region:'cn-beijing'});assert.equal(calls,0);
  for(const change of [{DASHSCOPE_API_KEY:''},{DASHSCOPE_BASE_URL:'https://evil.example/compatible-mode/v1'},{VISION_PROVIDER:'other'},{DASHSCOPE_MODEL:'bad\nmodel'},{PHOTO_ACCESS_TOKEN:qwenEnv.DASHSCOPE_API_KEY}])assert.equal((await handler(req(),{...qwenEnv,...change})).status,503);
  assert.equal(calls,0);
 });
 test('Qwen rejects truncated, refused, malformed and out-of-range results without falling back to another provider',async()=>{
- for(const response of [qwenResponse(result,'length'),qwenResponse({...result,items:[{...item,grams:9000}]}),new Response(JSON.stringify({choices:[{finish_reason:'stop',message:{content:'```json\n{}\n```'}}]})),new Response(JSON.stringify({choices:[{finish_reason:'stop',message:{refusal:'cannot',content:JSON.stringify(result)}}]}))]) {
+ for(const response of [chatResponse(result,'length'),chatResponse({...result,items:[{...item,grams:9000}]}),new Response(JSON.stringify({choices:[{finish_reason:'stop',message:{content:'```json\n{}\n```'}}]})),new Response(JSON.stringify({choices:[{finish_reason:'stop',message:{refusal:'cannot',content:JSON.stringify(result)}}]}))]) {
   let calls=0;const handler=createPhotoHandler({fetcher:async()=>{calls++;return response;}});assert.equal((await handler(req(),{...qwenEnv,OPENAI_API_KEY:'unused-openai-key'})).status,422);assert.equal(calls,1);
  }
- const noFood=await createPhotoHandler({fetcher:async()=>qwenResponse({is_food:false,items:[],warning:''})})(req(),qwenEnv);assert.equal(noFood.status,200);assert.equal((await noFood.json()).is_food,false);
+ const noFood=await createPhotoHandler({fetcher:async()=>chatResponse({is_food:false,items:[],warning:''})})(req(),qwenEnv);assert.equal(noFood.status,200);assert.equal((await noFood.json()).is_food,false);
  for(const status of [401,403,429,500]) {const response=await createPhotoHandler({fetcher:async()=>new Response('provider secret error',{status})})(req(),qwenEnv);assert.equal(response.status,status===429?429:502);assert.ok(!(await response.text()).includes('provider secret error'));}
+});
+
+const deepseekEnv={VISION_PROVIDER:'deepseek',DEEPSEEK_API_KEY:'test-only-deepseek-provider-key-32-chars',PHOTO_ACCESS_TOKEN:token,ALLOWED_ORIGIN:'https://example.org',OPENAI_API_KEY:'unused-openai-key',DASHSCOPE_API_KEY:'unused-qwen-key'};
+test('DeepSeek vision uses the fixed official endpoint, Flash model and its own thinking control',async()=>{
+ const handler=createPhotoHandler({fetcher:async(url,options)=>{
+  assert.equal(url,'https://api.deepseek.com/chat/completions');assert.equal(options.headers.Authorization,`Bearer ${deepseekEnv.DEEPSEEK_API_KEY}`);assert.equal(options.redirect,'error');
+  const body=JSON.parse(options.body);assert.equal(body.model,'deepseek-flash');assert.deepEqual(body.thinking,{type:'disabled'});assert.equal(body.enable_thinking,undefined);assert.equal(body.store,undefined);assert.equal(body.stream,false);assert.deepEqual(body.response_format,{type:'json_object'});
+  assert.equal(body.messages[1].role,'user');assert.equal(body.messages[1].content[0].image_url.url,image);assert.match(body.messages[1].content[1].text,/ko/);assert.match(body.messages[0].content,/JSON schema/);
+  for(const value of [token,deepseekEnv.DEEPSEEK_API_KEY,deepseekEnv.OPENAI_API_KEY,'never-forward'])assert.ok(!options.body.includes(value));
+  return chatResponse();
+ }});
+ const response=await handler(req({image,language:'ko',records:['never-forward'],provider:'openai'}),{...deepseekEnv,DEEPSEEK_BASE_URL:'https://untrusted.example'});assert.equal(response.status,200);assert.deepEqual(await response.json(),result);
+});
+test('DeepSeek health is free, credential-specific, authenticated and excludes secret values',async()=>{
+ let calls=0;const handler=createPhotoHandler({fetcher:async()=>{calls++;return chatResponse();}});
+ const response=await handler(new Request('https://worker.example/api/health',{headers:{Origin:'https://example.org',Authorization:`Bearer ${token}`}}),deepseekEnv);
+ assert.deepEqual(await response.json(),{ready:true,provider:'deepseek',model:'deepseek-flash'});assert.equal(calls,0);
+ for(const change of [{DEEPSEEK_API_KEY:''},{DEEPSEEK_MODEL:'invalid\nmodel'},{PHOTO_ACCESS_TOKEN:deepseekEnv.DEEPSEEK_API_KEY}])assert.equal((await handler(req(),{...deepseekEnv,...change})).status,503);
+ assert.equal((await handler(req(undefined,{headers:{Authorization:'Bearer wrong'}}),deepseekEnv)).status,401);assert.equal((await handler(req(undefined,{headers:{Origin:'https://other.example'}}),deepseekEnv)).status,403);assert.equal(calls,0);
+});
+test('DeepSeek failures never trigger provider fallback, retries, partial records or exposed reasoning',async()=>{
+ for(const response of [chatResponse(result,'length'),chatResponse(result,'content_filter'),chatResponse({...result,items:[{...item,protein:-1}]}),new Response(JSON.stringify({choices:[{finish_reason:'stop',message:{content:''}}]}))]) {
+  let calls=0;const handler=createPhotoHandler({fetcher:async url=>{calls++;assert.equal(url,'https://api.deepseek.com/chat/completions');return response;}});
+  assert.equal((await handler(req(),deepseekEnv)).status,422);assert.equal(calls,1);
+ }
+ for(const status of [401,402,429,500]){let calls=0;const response=await createPhotoHandler({fetcher:async()=>{calls++;return new Response('upstream private details',{status});}})(req(),deepseekEnv);assert.equal(response.status,status===429?429:502);assert.ok(!(await response.text()).includes('upstream private details'));assert.equal(calls,1);}
+ const response=await createPhotoHandler({fetcher:async()=>new Response(JSON.stringify({choices:[{finish_reason:'stop',message:{content:JSON.stringify(result),reasoning_content:'private reasoning'}}]}))})(req(),deepseekEnv);assert.deepEqual(await response.json(),result);
+});
+test('DeepSeek recognition shares the bounded request quota rather than making unlimited paid calls',async()=>{
+ let calls=0;const handler=createPhotoHandler({now:()=>1000,fetcher:async()=>{calls++;return chatResponse();}});
+ for(let i=0;i<6;i++)assert.equal((await handler(req(),deepseekEnv)).status,200);
+ assert.equal((await handler(req(),deepseekEnv)).status,429);assert.equal(calls,6);
 });

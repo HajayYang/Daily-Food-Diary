@@ -1,7 +1,7 @@
 import { PHOTO_SCHEMA, validateRecognition } from '../photo-core.js';
 
-// Only official Alibaba Cloud API hosts are accepted. The browser never chooses
-// a provider endpoint, model or provider key in a recognition request.
+// Configurable Bailian URLs accept only official Alibaba Cloud hosts. OpenAI
+// and DeepSeek URLs are fixed; browsers never choose endpoints, models or keys.
 const LEGACY_REGIONS = {
   'dashscope.aliyuncs.com':'cn-beijing',
   'dashscope-intl.aliyuncs.com':'ap-southeast-1',
@@ -21,9 +21,10 @@ export function dashscopeEndpoint(base) {
 }
 export function resolveVisionProvider(env) {
   const provider=env.VISION_PROVIDER??'openai';
-  const model=provider==='dashscope'?(env.DASHSCOPE_MODEL||'qwen3-vl-flash'):(env.VISION_MODEL||'gpt-4.1-mini');
+  const model=provider==='dashscope'?(env.DASHSCOPE_MODEL||'qwen3-vl-flash'):provider==='deepseek'?(env.DEEPSEEK_MODEL||'deepseek-flash'):(env.VISION_MODEL||'gpt-4.1-mini');
   if(typeof model!=='string'||!/^[a-zA-Z0-9][a-zA-Z0-9_./:-]{0,119}$/.test(model))return null;
   if(provider==='openai'&&typeof env.OPENAI_API_KEY==='string'&&env.OPENAI_API_KEY.trim())return {provider,model,key:env.OPENAI_API_KEY,url:'https://api.openai.com/v1/responses'};
+  if(provider==='deepseek'&&typeof env.DEEPSEEK_API_KEY==='string'&&env.DEEPSEEK_API_KEY.trim())return {provider,model,key:env.DEEPSEEK_API_KEY,url:'https://api.deepseek.com/chat/completions'};
   if(provider==='dashscope'&&typeof env.DASHSCOPE_API_KEY==='string'&&env.DASHSCOPE_API_KEY.trim()) {
     const endpoint=dashscopeEndpoint(env.DASHSCOPE_BASE_URL);
     if(endpoint)return {provider,model,key:env.DASHSCOPE_API_KEY,...endpoint};
@@ -34,9 +35,10 @@ export function visionRequest(config,payload,instructions) {
   if(config.provider==='openai')return {model:config.model,store:false,instructions,
     input:[{role:'user',content:[{type:'input_text',text:`Describe the pictured meal in ${payload.language}. Return only the requested JSON.`},{type:'input_image',image_url:payload.image,detail:'auto'}]}],
     text:{format:{type:'json_schema',name:'meal_photo',strict:true,schema:PHOTO_SCHEMA}},max_output_tokens:2500};
-  // Bailian JSON Object mode supports non-thinking Qwen3-VL models. It does not
-  // enforce our schema, so validateRecognition remains mandatory after parsing.
-  return {model:config.model,enable_thinking:false,stream:false,max_tokens:2500,response_format:{type:'json_object'},messages:[
+  // Both chat APIs offer JSON Object mode, not enforcement of our food schema.
+  // Their thinking controls differ; validateRecognition is mandatory for both.
+  const thinking=config.provider==='deepseek'?{thinking:{type:'disabled'}}:{enable_thinking:false};
+  return {model:config.model,...thinking,stream:false,max_tokens:2500,response_format:{type:'json_object'},messages:[
     {role:'system',content:`${instructions}\nReturn exactly one JSON object matching this JSON schema: ${JSON.stringify(PHOTO_SCHEMA)}`},
     {role:'user',content:[{type:'image_url',image_url:{url:payload.image}},{type:'text',text:`Describe the pictured meal in ${payload.language}. Return only the requested JSON.`}]},
   ]};

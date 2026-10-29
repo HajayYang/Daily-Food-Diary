@@ -31,7 +31,7 @@ export function createPhotoHandler({ fetcher = globalThis.fetch, now = Date.now 
     if (!['/api/recognize-meal','/api/health'].includes(path))return fail('not_found',404);
     if(request.method==='OPTIONS')return new Response(null,{status:204,headers:cors});
     const config=resolveVisionProvider(env);
-    if(!config||typeof env.PHOTO_ACCESS_TOKEN!=='string'||env.PHOTO_ACCESS_TOKEN.length<24||env.PHOTO_ACCESS_TOKEN.length>512||[env.OPENAI_API_KEY,env.DASHSCOPE_API_KEY].includes(env.PHOTO_ACCESS_TOKEN))return fail('not_configured',503);
+    if(!config||typeof env.PHOTO_ACCESS_TOKEN!=='string'||env.PHOTO_ACCESS_TOKEN.length<24||env.PHOTO_ACCESS_TOKEN.length>512||[env.OPENAI_API_KEY,env.DASHSCOPE_API_KEY,env.DEEPSEEK_API_KEY].includes(env.PHOTO_ACCESS_TOKEN))return fail('not_configured',503);
     if(!await authorized(request.headers.get('Authorization'),env.PHOTO_ACCESS_TOKEN))return fail('unauthorized',401);
     if(path==='/api/health')return request.method==='GET'?response({ready:true,provider:config.provider,model:config.model,...(config.region?{region:config.region}:{})}):fail('method_not_allowed',405);
     if(request.method!=='POST')return fail('method_not_allowed',405);
