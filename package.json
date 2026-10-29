@@ -17,8 +17,8 @@
     "release:build": "node scripts/build-release.mjs",
     "desktop:dev": "electron .",
     "desktop:prepare": "node scripts/prepare-desktop.mjs",
-    "desktop:pack": "npm run desktop:prepare && electron-builder --dir",
-    "desktop:windows": "npm run desktop:prepare && electron-builder --win nsis --x64",
+    "desktop:pack": "npm run desktop:prepare && electron-builder --dir --publish never",
+    "desktop:windows": "npm run desktop:prepare && electron-builder --win nsis --x64 --publish never",
     "test:desktop": "node e2e/desktop.mjs"
   },
   "engines": {
