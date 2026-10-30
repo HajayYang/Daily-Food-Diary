@@ -1,6 +1,6 @@
 {
   "name": "daily-bites",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
   "description": "简单、私密的每日饮食记录",
   "license": "MIT",
@@ -9,23 +9,27 @@
     "start": "node server.js",
     "test": "node --test",
     "photo:dev": "node --env-file-if-exists=worker/.dev.vars worker/dev-server.js",
-    "test:browser": "node e2e/lifestyle.mjs && node e2e/sync.mjs && node e2e/camera.mjs && node e2e/storage-tabs.mjs && node e2e/food-search.mjs && node e2e/recipes.mjs && node e2e/recipe-database.mjs && node e2e/habits.mjs && node e2e/photo.mjs && node e2e/photo.mjs deepseek",
+    "test:browser": "node e2e/lifestyle.mjs && node e2e/sync.mjs && node e2e/camera.mjs && node e2e/storage-tabs.mjs && node e2e/food-search.mjs && node e2e/recipes.mjs && node e2e/recipe-database.mjs && node e2e/recipe-compat.mjs && node e2e/habits.mjs && node e2e/photo.mjs && node e2e/photo.mjs deepseek",
     "test:sync-schema": "node sync/verify-schema.mjs",
     "food:update-cache": "node scripts/update-food-cache.mjs",
     "db:build": "node database/build.mjs",
-    "db:check": "node database/check.mjs",
+    "db:check": "node database/check.mjs && node scripts/build-cookbook-pages.mjs --check",
     "release:build": "node scripts/build-release.mjs",
     "desktop:dev": "electron .",
     "desktop:prepare": "node scripts/prepare-desktop.mjs",
     "desktop:pack": "npm run desktop:prepare && electron-builder --dir --publish never",
     "desktop:windows": "npm run desktop:prepare && electron-builder --win nsis --x64 --publish never",
-    "test:desktop": "node e2e/desktop.mjs"
+    "test:desktop": "node e2e/desktop.mjs",
+    "cookbook:build": "node scripts/build-cookbook-pages.mjs"
   },
   "engines": {
     "node": ">=24.15.0"
   },
   "main": "desktop/main.mjs",
-  "author": "Hangjay Yang <2467768838@qq.com>",
+  "author": {
+    "name": "Hangjay-Yang",
+    "email": "2467768838@qq.com"
+  },
   "homepage": "https://hajayyang.github.io/Daily-Food-Diary/",
   "repository": {
     "type": "git",

@@ -21,7 +21,7 @@ export function createRecipeClient({workerFactory=()=>new Worker(new URL('./reci
           worker.addEventListener('messageerror',fail);
         }
         const id=++sequence;
-        const timer=setTimeout(()=>{fail();},45000);
+        const timer=setTimeout(()=>{fail();},action==='init'?90000:45000);
         pending.set(id,{resolve,reject,timer});worker.postMessage({id,action,params});
       } catch {fail();reject(Error('recipe_database_unavailable'));}
     });

@@ -10,3 +10,6 @@ dist/
 electron-builder.json
 *.sqlite-wal
 *.sqlite-shm
+*.pfx
+*.p12
+*.key

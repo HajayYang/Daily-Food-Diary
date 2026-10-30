@@ -25,14 +25,14 @@
 手工校验：
 
 ```powershell
-Get-FileHash .\Daily-Bites-2.0.0-win-x64-setup.exe -Algorithm SHA256
+Get-FileHash .\Daily-Bites-2.0.1-win-x64-setup.exe -Algorithm SHA256
 ```
 
 将结果与签名清单对照；完整的 Sigstore 验证可使用：
 
 ```sh
 cosign verify-blob --bundle DESKTOP-SHA256SUMS.sigstore.json \
-  --certificate-identity 'https://github.com/HajayYang/Daily-Food-Diary/.github/workflows/desktop-release.yml@refs/tags/v2.0.0' \
+  --certificate-identity 'https://github.com/HajayYang/Daily-Food-Diary/.github/workflows/desktop-release.yml@refs/tags/v2.0.1' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com DESKTOP-SHA256SUMS.txt
 ```
 
@@ -43,3 +43,5 @@ cosign verify-blob --bundle DESKTOP-SHA256SUMS.sigstore.json \
 Node 24.15+、npm。运行 `npm ci`、`node node_modules/electron/install.js`、`npm run desktop:dev`。Windows 执行 `npm run desktop:windows` 生成 NSIS x64 安装包；`npm run desktop:pack` 可在当前平台打出目录用于测试。打包采用明确的公开资源和桌面代码清单，不包含 `.env`、Worker 密钥、个人数据库或测试数据。Electron 渲染器启用沙盒、contextIsolation、禁用 Node，预加载桥仅开放指定存储与桌面操作；文件路径由原生选择器决定。
 
 `npm test` 验证 SQLite 持久化、事务回滚、完整备份、恢复校验、版本比较与更新防篡改。`npm run test:desktop` 使用真实 Electron 窗口验证重启持久化、离线食谱、导入预览和快捷键；Linux 需要 X 显示服务器。CI 在 Windows 实际安装 NSIS 文件后运行相同测试，再在正式 Release 上发布签名清单。测试时的 `--desktop-test --test-data=绝对路径` 使用独立临时用户目录并停用定时任务，不影响正常启动。
+
+软件作者/公司属性为 **Hangjay-Yang**。Windows 可信发行者的申请与自动签名配置见 [WINDOWS-SIGNING.md](WINDOWS-SIGNING.md)。网页菜谱兼容访问见 [RECIPE-TROUBLESHOOTING.md](RECIPE-TROUBLESHOOTING.md)。

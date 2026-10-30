@@ -1,7 +1,7 @@
 import { PUBLIC_ASSETS } from './offline-assets.js';
 
 // Bump for every public application update; a complete cache installs atomically.
-const CACHE='daily-bites.shell.20261030.2';
+const CACHE='daily-bites.shell.20261030.3';
 const scope=self.registration.scope;
 const allowed=new Set(PUBLIC_ASSETS.map(path=>new URL(path,scope).href));
 self.addEventListener('install',event=>{

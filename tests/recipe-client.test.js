@@ -21,7 +21,7 @@ test('worker client correlates out-of-order replies and rejects failed queries w
 test('worker errors and timeouts reject pending work and allow a fresh worker to be initialized',async t=>{
  t.mock.timers.enable({apis:['setTimeout']});
  const workers=[],client=createRecipeClient({workerFactory:()=>{const worker=new WorkerFixture();workers.push(worker);return worker;}});
- const timeout=assert.rejects(client.initialize(),/recipe_database_unavailable/);t.mock.timers.tick(45000);await timeout;assert.equal(workers[0].terminated,true);
+ const timeout=assert.rejects(client.initialize(),/recipe_database_unavailable/);t.mock.timers.tick(90000);await timeout;assert.equal(workers[0].terminated,true);
  const error=assert.rejects(client.initialize(),/recipe_database_unavailable/);workers[1].dispatchEvent(new Event('error',{cancelable:true}));await error;
  const retry=client.initialize();workers[2].reply({id:3,data:{total:108}});assert.equal((await retry).total,108);client.close();
 });

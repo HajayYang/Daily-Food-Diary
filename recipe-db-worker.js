@@ -1,9 +1,9 @@
 /* A dedicated worker queries the same public SQLite file served by GitHub Pages. */
-importScripts('./vendor/sqljs/sql-wasm.js');
 let initialization, engine;
 const catalogUrl=new URL('./data/cookbook.sqlite',self.location.href);
 const manifestUrl=new URL('./data/cookbook-manifest.json',self.location.href);
 const cacheName='daily-bites.cookbook.sqlite.v1';
+const failure=code=>Object.assign(Error(code),{code});
 async function digest(bytes) {
   return [...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(n=>n.toString(16).padStart(2,'0')).join('');
 }
@@ -13,45 +13,64 @@ function validManifest(m) {
     && Number.isSafeInteger(m.recipes) && m.recipes>0 && Number.isSafeInteger(m.cuisines) && m.cuisines>0;
 }
 async function checkedBytes(response,manifest) {
-  if (!response?.ok) throw Error('catalog_unavailable');
+  if (!response?.ok) throw failure('catalog_unavailable');
   const bytes=await response.arrayBuffer();
-  if (bytes.byteLength!==manifest.bytes || await digest(bytes)!==manifest.sha256) throw Error('catalog_checksum_mismatch');
+  if (bytes.byteLength!==manifest.bytes || await digest(bytes)!==manifest.sha256) throw failure('catalog_checksum_mismatch');
   return bytes;
 }
 async function fetchFile(url) {
-  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
-  try { return await fetch(url,{signal:controller.signal,credentials:'omit',cache:'no-store'}); }
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),30000);
+  try {
+    const response=await fetch(url,{signal:controller.signal,credentials:'omit',cache:'no-store'});
+    if(!response.ok)throw failure('catalog_unavailable');
+    if(Number(response.headers.get('Content-Length'))>8*1024*1024)throw failure('catalog_unavailable');
+    const bytes=await response.arrayBuffer();
+    if(bytes.byteLength>8*1024*1024)throw failure('catalog_unavailable');
+    return new Response(bytes,{status:response.status,headers:{'Content-Type':response.headers.get('Content-Type')??'application/octet-stream'}});
+  } catch(error){throw error.code?error:failure('catalog_unavailable');}
   finally { clearTimeout(timer); }
+}
+async function loadEngine() {
+  if(typeof WebAssembly==='object'&&typeof WebAssembly.instantiate==='function')try {
+    importScripts('./vendor/sqljs/sql-wasm.js');
+    const response=await fetchFile(new URL('./vendor/sqljs/sql-wasm.wasm',self.location.href));
+    const SQL=await initSqlJs({wasmBinary:await response.arrayBuffer(),printErr:()=>{}});
+    return {SQL,name:'wasm'};
+  }catch { /* A blocked WASM download or runtime must not hide the cookbook. */ }
+  try {
+    importScripts('./vendor/sqljs/sql-asm.js');
+    return {SQL:await initSqlJs(),name:'javascript'};
+  }catch {throw failure('recipe_engine_unavailable');}
 }
 async function loadCatalog() {
   let cache;
   try { cache=await caches.open(cacheName); } catch { /* Read without persistent cache when unavailable. */ }
   try {
     const response=await fetchFile(manifestUrl);
-    if (!response.ok) throw Error('catalog_unavailable');
+    if (!response.ok) throw failure('catalog_unavailable');
     const manifest=await response.json();
-    if (!validManifest(manifest)) throw Error('invalid_catalog_manifest');
+    if (!validManifest(manifest)) throw failure('invalid_catalog_manifest');
     const versioned=new URL(catalogUrl); versioned.searchParams.set('v',manifest.version);
     const bytes=await checkedBytes(await fetchFile(versioned),manifest);
     return {manifest,bytes,source:'sqlite-network',cache,versioned};
-  } catch {
-    if (!cache) throw Error('catalog_unavailable');
+  } catch(error) {
+    if (!cache) throw error;
     const manifestResponse=await cache.match(manifestUrl);
-    if (!manifestResponse) throw Error('catalog_unavailable');
+    if (!manifestResponse) throw error;
     const manifest=await manifestResponse.json();
-    if (!validManifest(manifest)) throw Error('invalid_catalog_manifest');
+    if (!validManifest(manifest)) throw failure('invalid_catalog_manifest');
     const versioned=new URL(catalogUrl); versioned.searchParams.set('v',manifest.version);
     const bytes=await checkedBytes(await cache.match(versioned),manifest);
     return {manifest,bytes,source:'sqlite-cache'};
   }
 }
 async function initialize() {
-  const [{createRecipeRepository},SQL,loaded]=await Promise.all([
+  const [{createRecipeRepository},runtime,loaded]=await Promise.all([
     import('./recipe-query.js'),
-    engine??=initSqlJs({locateFile:name=>new URL(`./vendor/sqljs/${name}`,self.location.href).href}),
+    engine??=loadEngine(),
     loadCatalog()
   ]);
-  const db=new SQL.Database(new Uint8Array(loaded.bytes));
+  const db=new runtime.SQL.Database(new Uint8Array(loaded.bytes));
   try {
     db.run('pragma query_only=on');
     const repository=createRecipeRepository((sql,params=[])=>{
@@ -60,7 +79,7 @@ async function initialize() {
       finally { stmt.free(); }
     });
     const meta=repository.metadata();
-    if(meta.version!==loaded.manifest.version || meta.total!==loaded.manifest.recipes || meta.cuisines.length!==loaded.manifest.cuisines) throw Error('invalid_catalog');
+    if(meta.version!==loaded.manifest.version || meta.total!==loaded.manifest.recipes || meta.cuisines.length!==loaded.manifest.cuisines) throw failure('invalid_catalog');
     if (loaded.cache) {
       try {
         await loaded.cache.put(loaded.versioned,new Response(loaded.bytes,{headers:{'Content-Type':'application/vnd.sqlite3'}}));
@@ -68,7 +87,7 @@ async function initialize() {
         for(const request of await loaded.cache.keys()) if(request.url!==manifestUrl.href && request.url!==loaded.versioned.href) await loaded.cache.delete(request);
       } catch { /* Quota or private browsing must not block the verified in-memory database. */ }
     }
-    return {repository,meta:{...meta,source:loaded.source}};
+    return {repository,meta:{...meta,source:loaded.source,engine:runtime.name}};
   } catch(error) { db.close(); throw error; }
 }
 self.addEventListener('message',async event=>{

@@ -36,3 +36,7 @@ sha256sum --check SHA256SUMS.txt
 macOS 可将第二条命令替换为 `shasum -a 256 --check SHA256SUMS.txt`。第一条验证证书身份、签名和透明日志证明；第二条验证实际 ZIP 与数据库是否匹配已签名清单。缺少签名、证书身份不符或任意文件校验失败时，验证失败。
 
 未来通过新标签 Release 事件自动发布时，证书身份中的 `@refs/heads/main` 会变为对应的 `@refs/tags/v版本号`。预期仓库和工作流路径始终为 `HajayYang/Daily-Food-Diary/.github/workflows/sign-release.yml`；每个 Release 附带的 `SIGNATURE-VERIFICATION.txt` 记录本次证书身份、签名运行链接和验证命令。容器镜像目前不包含在这个文件签名范围内。
+
+## Windows Authenticode
+
+作者元数据为 Hangjay-Yang；受信任的 Windows 发行者必须由代码签名证书核验。申请、GitHub Actions 配置及当前限制见 [WINDOWS-SIGNING.md](WINDOWS-SIGNING.md)。未取得证书时不宣称已完成 Windows 可信签名。

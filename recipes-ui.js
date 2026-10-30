@@ -62,7 +62,7 @@ export function setupCookbook({ $, element, tools }) {
       detail.hidden = true;
     }
   }
-  function failed() {
+  function failed(error) {
     metadata = undefined; visible = []; selected = undefined;
     client.close(); busy(false); results.replaceChildren(); showRecipe();
     $('#recipe-pages').hidden = true;
@@ -70,7 +70,10 @@ export function setupCookbook({ $, element, tools }) {
     $('#recipe-database-status').dataset.state = 'error';
     $('#recipe-database-status').dataset.source = '';
     $('#recipe-database-retry').hidden = false;
-    $('#recipe-status').textContent = '';
+    const code=error?.code??error?.message;
+    const messages={catalog_unavailable:'菜谱数据库下载失败，请检查网络后重试；也可直接查看免加载菜谱目录。',catalog_checksum_mismatch:'菜谱文件校验失败，请重新载入；也可直接查看免加载菜谱目录。',invalid_catalog_manifest:'菜谱版本信息无效，请重新载入。',invalid_catalog:'菜谱内容与版本不一致，请重新载入。',recipe_engine_unavailable:'浏览器无法运行菜谱查询组件，可直接查看免加载菜谱目录。'};
+    $('#recipe-status').textContent = messages[code]??'菜谱查询组件无法启动，请更新浏览器或直接查看免加载菜谱目录。';
+    $('#recipe-database-status').dataset.error=code??'recipe_database_unavailable';
   }
   async function render() {
     summary();
@@ -104,7 +107,7 @@ export function setupCookbook({ $, element, tools }) {
         return button;
       }));
       busy(false); showRecipe(visible.find(recipe => recipe.id === selected));
-    } catch { if (id === requestId) failed(); }
+    } catch(error) { if (id === requestId) failed(error); }
   }
   async function initialize() {
     const id = ++requestId;
@@ -117,9 +120,11 @@ export function setupCookbook({ $, element, tools }) {
       const next = await client.initialize();
       if (id !== requestId) return;
       registerTranslations(next.translations); metadata = next;
-      $('#recipe-database-status').textContent = next.source === 'sqlite-cache' ? '正在使用已缓存的菜谱，可离线查询。' : `已载入 ${next.total} 道菜，可离线查询。`;
+      $('#recipe-database-status').textContent = next.engine==='javascript'?'已启用兼容模式，仍从 SQLite 数据库查询菜谱。':next.source === 'sqlite-cache' ? '正在使用已缓存的菜谱，可离线查询。' : `已载入 ${next.total} 道菜，可离线查询。`;
       $('#recipe-database-status').dataset.state = 'ready';
       $('#recipe-database-status').dataset.source = next.source;
+      $('#recipe-database-status').dataset.engine=next.engine??'wasm';
+      delete $('#recipe-database-status').dataset.error;
       $('#recipe-catalog-count').textContent = `家常菜与八大菜系 · 共 ${next.total} 道`;
       const cuisines = [...next.cuisines, {id:'all',name:'全部菜系',count:next.total}];
       $('#recipe-cuisines').replaceChildren(...cuisines.map(origin => {
@@ -130,8 +135,10 @@ export function setupCookbook({ $, element, tools }) {
         return button;
       }));
       await render();
-    } catch { if (id === requestId) failed(); }
+    } catch(error) { if (id === requestId) failed(error); }
   }
+  function fallbackLink(){const language=getLanguage();$('#cookbook-static-link').href=`./cookbook${language==='zh-CN'?'':'.'+language}.html`;}
+  fallbackLink();document.addEventListener('languagechange',fallbackLink);
   search.addEventListener('input', () => { page = 1; render(); });
   $('#recipe-servings').addEventListener('change', () => showRecipe(activeRecipe));
   for (const button of document.querySelectorAll('[data-recipe-category]')) {

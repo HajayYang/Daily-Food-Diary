@@ -16,3 +16,21 @@ jobs:
           node-version: 24
       - run: npm run db:check
       - run: npm test
+  browser-recipes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - name: Start public site
+        run: |
+          node server.js > "$RUNNER_TEMP/diary-site.log" 2>&1 &
+          curl --fail --retry 15 --retry-connrefused --retry-delay 1 http://127.0.0.1:3000/ -o /dev/null
+      - name: Verify cold SQLite queries and browser compatibility
+        run: |
+          node e2e/recipe-database.mjs
+          node e2e/recipe-compat.mjs

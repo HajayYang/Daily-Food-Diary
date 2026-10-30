@@ -27,6 +27,22 @@ jobs:
       - run: npm run desktop:windows
         env:
           CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+          WINDOWS_SIGNING_MODE: ${{ github.event_name == 'release' && vars.WINDOWS_SIGNING_MODE || 'none' }}
+          WINDOWS_CERTIFICATE_PUBLISHER: ${{ vars.WINDOWS_CERTIFICATE_PUBLISHER }}
+          AZURE_SIGNING_ENDPOINT: ${{ vars.AZURE_SIGNING_ENDPOINT }}
+          AZURE_SIGNING_ACCOUNT: ${{ vars.AZURE_SIGNING_ACCOUNT }}
+          AZURE_SIGNING_PROFILE: ${{ vars.AZURE_SIGNING_PROFILE }}
+          AZURE_TENANT_ID: ${{ vars.AZURE_SIGNING_TENANT_ID }}
+          AZURE_CLIENT_ID: ${{ vars.AZURE_SIGNING_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ github.event_name == 'release' && vars.WINDOWS_SIGNING_MODE == 'azure' && secrets.AZURE_SIGNING_CLIENT_SECRET || '' }}
+      - name: Verify author metadata and configured Authenticode signature
+        shell: pwsh
+        env:
+          WINDOWS_SIGNING_MODE: ${{ github.event_name == 'release' && vars.WINDOWS_SIGNING_MODE || 'none' }}
+          WINDOWS_CERTIFICATE_PUBLISHER: ${{ vars.WINDOWS_CERTIFICATE_PUBLISHER }}
+        run: |
+          $installer = (Get-ChildItem 'dist/desktop/*-setup.exe' | Select-Object -First 1).FullName
+          ./scripts/verify-windows-signature.ps1 -Installer $installer -Application 'dist/desktop/win-unpacked/Daily Bites.exe' -SigningMode $env:WINDOWS_SIGNING_MODE -ExpectedPublisher $env:WINDOWS_CERTIFICATE_PUBLISHER
       - name: Install and test the Windows installer
         shell: pwsh
         run: |

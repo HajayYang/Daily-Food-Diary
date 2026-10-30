@@ -25,7 +25,7 @@ export const DESKTOP_MESSAGES = {
 '下载已验证的安装包':['Download verified installer','検証済みインストーラーを取得','검증된 설치 파일 다운로드'],
 '打开安装包':['Open installer','インストーラーを開く','설치 파일 열기'],
 '更新会验证 GitHub Actions 的 Sigstore 签名及 SHA-256。安装前自动备份，是否安装由你决定。':['Updates verify the GitHub Actions Sigstore signature and SHA-256. Your data is backed up before you choose to install.','更新では GitHub Actions の Sigstore 署名と SHA-256 を検証します。インストール前にバックアップします。','업데이트 시 GitHub Actions Sigstore 서명과 SHA-256을 검증합니다. 설치 전에 데이터를 백업합니다.'],
-'此安装包尚无 Windows 发行者证书，系统可能显示“未知发布者”。':['This installer has no Windows publisher certificate; Windows may show “Unknown publisher”.','Windows 発行元証明書がないため「不明な発行元」と表示される場合があります。','Windows 게시자 인증서가 없어 “알 수 없는 게시자”로 표시될 수 있습니다.'],
+'Windows 发行者取决于受信任的代码签名证书；未配置时可能显示“未知发布者”。':['Windows publisher identity comes from a trusted code-signing certificate. Without one, Windows may show “Unknown publisher”.','Windows 発行元は信頼されたコード署名証明書で決まります。未設定時は「不明な発行元」と表示される場合があります。','Windows 게시자는 신뢰된 코드 서명 인증서로 결정됩니다. 미설정 시 알 수 없는 게시자로 표시될 수 있습니다.'],
 '预览恢复':['Preview restore','復元をプレビュー','복원 미리 보기'],
 '还没有备份':['No backups yet','バックアップはありません','아직 백업이 없습니다'],
 '处理中…':['Working…','処理中…','처리 중…'],

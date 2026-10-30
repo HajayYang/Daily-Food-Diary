@@ -34,7 +34,7 @@ export function setupDesktop({preview}) {
  const backups=el('ul',null,{id:'desktop-backups',class:'desktop-backups'});panel.append(backups);
  panel.append(el('p','提醒时间在下方设置。程序运行或留在托盘时可提醒；完全退出后不会提醒。'));
  button(panel,'测试系统通知','desktop-notify',()=>api.notify());
- panel.append(el('h3','检查更新'),el('p','更新会验证 GitHub Actions 的 Sigstore 签名及 SHA-256。安装前自动备份，是否安装由你决定。'),el('p','此安装包尚无 Windows 发行者证书，系统可能显示“未知发布者”。',{class:'muted'}));
+ panel.append(el('h3','检查更新'),el('p','更新会验证 GitHub Actions 的 Sigstore 签名及 SHA-256。安装前自动备份，是否安装由你决定。'),el('p','Windows 发行者取决于受信任的代码签名证书；未配置时可能显示“未知发布者”。',{class:'muted'}));
  const updateStatus=el('p',null,{role:'status',id:'desktop-update-status',translate:'no'}),notes=el('pre',null,{id:'desktop-release-notes',translate:'no'});panel.append(updateStatus);
  let updateAvailable=false,downloaded=false;
  button(panel,'检查更新','desktop-update-check',async()=>{updateAvailable=false;downloaded=false;const r=await api.checkUpdate();updateAvailable=r.available;updateStatus.textContent=r.available?`${t('更新签名验证通过')} · ${r.version}`:t('已是最新版本');notes.textContent=r.notes??'';});

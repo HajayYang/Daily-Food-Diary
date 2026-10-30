@@ -220,3 +220,5 @@ docker run -d --name daily-food-diary --read-only --cap-drop ALL \
 ## Windows 桌面版
 
 Windows 10/11 x64 桌面版提供独立 SQLite 数据库、自动备份与迁移、侧栏导航、快捷键、托盘提醒及签名校验更新。安装与开发说明见 [DESKTOP.md](DESKTOP.md)；安装包在 [Releases](https://github.com/HajayYang/Daily-Food-Diary/releases/latest)。
+
+菜谱在其他电脑的访问问题与免加载目录见 [RECIPE-TROUBLESHOOTING.md](RECIPE-TROUBLESHOOTING.md)；Windows 发行者与证书申请见 [WINDOWS-SIGNING.md](WINDOWS-SIGNING.md)。

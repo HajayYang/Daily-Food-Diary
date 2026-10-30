@@ -2,6 +2,7 @@
 
 These unmodified runtime files come from the MIT-licensed `sql.js@1.13.0` npm package:
 
+- `dist/sql-asm.js` (JavaScript compatibility engine when WebAssembly is unavailable or blocked)
 - `dist/sql-wasm.js`
 - `dist/sql-wasm.wasm`
 - `LICENSE`

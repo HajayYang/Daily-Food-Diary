@@ -1,10 +1,11 @@
 import {_electron as electron} from 'playwright';
 import assert from 'node:assert/strict';
-import {mkdtemp,rm} from 'node:fs/promises';
+import {mkdtemp,rm,readFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 const directory=await mkdtemp(join(tmpdir(),'daily-bites-desktop-e2e-'));
 const errors=[];
+const version=JSON.parse(await readFile(new URL('../package.json',import.meta.url),'utf8')).version;
 let app;
 const launch=async()=>{
  const packaged=process.env.DESKTOP_EXECUTABLE;
@@ -24,7 +25,7 @@ try{
  page=await launch();assert.equal(await page.evaluate(()=>JSON.parse(window.dailyBitesDesktop.storage.get('daily-bites.records.v1'))[0].calories),450);
  await page.keyboard.press('Control+,');await page.locator('#desktop-backups button').first().click();await page.waitForSelector('#import-preview:not([hidden])');assert.equal(await page.locator('#import-apply').isEnabled(),true);await page.locator('#close-backup').click();
  await page.locator('#language-select').selectOption('en');await page.waitForFunction(()=>document.querySelector('[data-page=settings]').textContent==='Desktop & data');
- const status=await page.evaluate(()=>window.dailyBitesDesktop.status());assert.equal(status.version,'2.0.0');assert.ok(status.dataPath.endsWith('personal.sqlite'));
+ const status=await page.evaluate(()=>window.dailyBitesDesktop.status());assert.equal(status.version,version);assert.ok(status.dataPath.endsWith('personal.sqlite'));
  // Renderer-controlled arbitrary filesystem paths and SQL are not exposed.
  await assert.rejects(page.evaluate(()=>window.dailyBitesDesktop.storage.get('../../secrets')));
  await page.screenshot({path:process.env.DESKTOP_SCREENSHOT||join(tmpdir(),'daily-bites-desktop.png'),fullPage:true});

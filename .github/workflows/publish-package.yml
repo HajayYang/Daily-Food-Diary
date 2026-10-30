@@ -76,6 +76,8 @@ jobs:
           done
           node -e 'const m=JSON.parse(require("fs").readFileSync("/tmp/catalog.json","utf8"));const expected=JSON.parse(require("fs").readFileSync("data/cookbook-manifest.json","utf8"));if(m.total!==expected.recipes||m.cuisines.length!==expected.cuisines)process.exit(1)'
           curl --fail --silent http://127.0.0.1:3000/data/cookbook.sqlite -o /tmp/catalog.sqlite
+          curl --fail --silent http://127.0.0.1:3000/cookbook.html -o /tmp/cookbook.html
+          node -e 'if((require("fs").readFileSync("/tmp/cookbook.html","utf8").match(/<article /g)||[]).length!==108)process.exit(1)'
           sha256sum /tmp/catalog.sqlite
           test "$(sha256sum /tmp/catalog.sqlite | cut -d' ' -f1)" = "$(node -p 'JSON.parse(require("fs").readFileSync("data/cookbook-manifest.json","utf8")).sha256')"
       - name: Package summary
