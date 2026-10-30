@@ -38,18 +38,36 @@ jobs:
       - run: npm run db:check
       - run: npm test
       - run: npm run release:build
-      - name: Upload release downloads
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
-        run: gh release upload "$RELEASE_TAG" dist/*.zip dist/*.sqlite dist/SHA256SUMS.txt --clobber
       - uses: docker/setup-buildx-action@v3
       - uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build container candidate before publishing
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64
+          push: false
+          load: true
+          tags: daily-bites-candidate:${{ steps.metadata.outputs.version }}
+      - name: Verify container contents before publishing
+        env:
+          IMAGE: daily-bites-candidate:${{ steps.metadata.outputs.version }}
+        run: |
+          docker run -d --name diary-package-check --read-only --cap-drop ALL --security-opt no-new-privileges -p 127.0.0.1:3000:3000 "$IMAGE"
+          trap 'docker rm -f diary-package-check' EXIT
+          for attempt in $(seq 1 20); do
+            if curl --fail --silent http://127.0.0.1:3000/api/recipes/meta > /tmp/catalog.json; then break; fi
+            sleep 2
+          done
+          node -e 'const m=JSON.parse(require("fs").readFileSync("/tmp/catalog.json","utf8"));const expected=JSON.parse(require("fs").readFileSync("data/cookbook-manifest.json","utf8"));if(m.total!==expected.recipes||m.cuisines.length!==expected.cuisines)process.exit(1)'
+          curl --fail --silent http://127.0.0.1:3000/data/cookbook.sqlite -o /tmp/catalog.sqlite
+          curl --fail --silent http://127.0.0.1:3000/cookbook.html -o /tmp/cookbook.html
+          node -e 'if((require("fs").readFileSync("/tmp/cookbook.html","utf8").match(/<article /g)||[]).length!==108)process.exit(1)'
+          sha256sum /tmp/catalog.sqlite
+          test "$(sha256sum /tmp/catalog.sqlite | cut -d' ' -f1)" = "$(node -p 'JSON.parse(require("fs").readFileSync("data/cookbook-manifest.json","utf8")).sha256')"
       - name: Build and publish amd64 / arm64 image
         id: image
         uses: docker/build-push-action@v6
@@ -63,23 +81,12 @@ jobs:
           labels: |
             org.opencontainers.image.version=${{ steps.metadata.outputs.version }}
             org.opencontainers.image.revision=${{ steps.metadata.outputs.revision }}
-      - name: Verify published image
+      - name: Upload release downloads
         env:
-          IMAGE: ${{ steps.metadata.outputs.image }}:${{ steps.metadata.outputs.version }}
-        run: |
-          docker pull "$IMAGE"
-          docker run -d --name diary-package-check --read-only --cap-drop ALL --security-opt no-new-privileges -p 127.0.0.1:3000:3000 "$IMAGE"
-          trap 'docker rm -f diary-package-check' EXIT
-          for attempt in $(seq 1 20); do
-            if curl --fail --silent http://127.0.0.1:3000/api/recipes/meta > /tmp/catalog.json; then break; fi
-            sleep 2
-          done
-          node -e 'const m=JSON.parse(require("fs").readFileSync("/tmp/catalog.json","utf8"));const expected=JSON.parse(require("fs").readFileSync("data/cookbook-manifest.json","utf8"));if(m.total!==expected.recipes||m.cuisines.length!==expected.cuisines)process.exit(1)'
-          curl --fail --silent http://127.0.0.1:3000/data/cookbook.sqlite -o /tmp/catalog.sqlite
-          curl --fail --silent http://127.0.0.1:3000/cookbook.html -o /tmp/cookbook.html
-          node -e 'if((require("fs").readFileSync("/tmp/cookbook.html","utf8").match(/<article /g)||[]).length!==108)process.exit(1)'
-          sha256sum /tmp/catalog.sqlite
-          test "$(sha256sum /tmp/catalog.sqlite | cut -d' ' -f1)" = "$(node -p 'JSON.parse(require("fs").readFileSync("data/cookbook-manifest.json","utf8")).sha256')"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
+        run: gh release upload "$RELEASE_TAG" dist/*.zip dist/*.sqlite dist/SHA256SUMS.txt --clobber
       - name: Package summary
         env:
           IMAGE: ${{ steps.metadata.outputs.image }}:${{ steps.metadata.outputs.version }}

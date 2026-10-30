@@ -5,6 +5,10 @@
 !*.svg
 !*.webmanifest
 !index.html
+!cookbook.html
+!cookbook.en.html
+!cookbook.ja.html
+!cookbook.ko.html
 !package.json
 !food-cache.json
 !LICENSE

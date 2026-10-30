@@ -25,14 +25,14 @@
 手工校验：
 
 ```powershell
-Get-FileHash .\Daily-Bites-2.0.1-win-x64-setup.exe -Algorithm SHA256
+Get-FileHash .\Daily-Bites-2.0.2-win-x64-setup.exe -Algorithm SHA256
 ```
 
 将结果与签名清单对照；完整的 Sigstore 验证可使用：
 
 ```sh
 cosign verify-blob --bundle DESKTOP-SHA256SUMS.sigstore.json \
-  --certificate-identity 'https://github.com/HajayYang/Daily-Food-Diary/.github/workflows/desktop-release.yml@refs/tags/v2.0.1' \
+  --certificate-identity 'https://github.com/HajayYang/Daily-Food-Diary/.github/workflows/desktop-release.yml@refs/tags/v2.0.2' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com DESKTOP-SHA256SUMS.txt
 ```
 

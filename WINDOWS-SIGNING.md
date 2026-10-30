@@ -41,7 +41,7 @@ Windows 的已验证发行者来自 CA 核验后的证书主体。CA 不一定�
 在 Windows PowerShell 中运行：
 
 ```powershell
-Get-AuthenticodeSignature '.\Daily-Bites-2.0.1-win-x64-setup.exe' |
+Get-AuthenticodeSignature '.\Daily-Bites-2.0.2-win-x64-setup.exe' |
   Format-List Status,StatusMessage,SignerCertificate,TimeStamperCertificate
 ```
 
