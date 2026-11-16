@@ -1,0 +1,27 @@
+name: Inspect Codespaces securely
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: codespaces-maintenance
+  cancel-in-progress: false
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Inspect only the Daily Food Diary Codespaces
+        env:
+          GH_CODESPACES_TOKEN: ${{ secrets.GH_CODESPACES_TOKEN }}
+        run: node maintenance/inspect-codespaces.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: encrypted-codespaces-inspection
+          path: codespaces-inspection/inventory.encrypted.json
+          if-no-files-found: error
+          retention-days: 3
