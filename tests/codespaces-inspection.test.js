@@ -20,3 +20,20 @@ test('inspection fails closed on missing permission, wrong owner and incomplete 
  await assert.rejects(inspectCodespaces({token:'test',fetcher:async()=>new Response('{"login":"someone-else"}')}),/owner/);
  await assert.rejects(inspectCodespaces({token:'test',fetcher:async url=>new Response(JSON.stringify(url.endsWith('/user')?{login:'HajayYang'}:{total_count:1,codespaces:[]}))}),/Incomplete/);
 });
+test('a stopped-space probe stops the space after SSH failure, never deletes, and rejects a mismatched fingerprint',async()=>{
+ const {probe,fingerprint}=await import('../maintenance/probe-codespace.mjs');
+ const space={name:'test-space',state:'Shutdown',created_at:'2026-10-23',repository:{full_name:repository}},calls=[];
+ let running=false;
+ const fetcher=async(url,options={})=>{
+  calls.push([options.method??'GET',url]);
+  if(url.endsWith('/user'))return new Response('{"login":"HajayYang"}');
+  if(url.includes('/repos/'))return new Response(JSON.stringify({total_count:1,codespaces:[space]}));
+  if(url.endsWith('/start')){running=true;return new Response('{}');}
+  if(url.endsWith('/stop')){running=false;return new Response('{}');}
+  return new Response(JSON.stringify({state:running?'Available':'Shutdown'}));
+ };
+ const target=fingerprint({...space,repository});
+ const report=await probe({token:'test-only-token',target,fetcher,command:async()=>({code:1,stdout:'',stderr:'test failure'}),wait:async()=>{}});
+ assert.equal(report.stopped,true);assert.ok(report.inspection_error);assert.ok(calls.some(([m,u])=>m==='POST'&&u.endsWith('/stop')));assert.ok(calls.every(([m])=>m!=='DELETE'));
+ const before=calls.length;await assert.rejects(probe({token:'test-only-token',target:'0'.repeat(64),fetcher}),/inventory/);assert.ok(calls.slice(before).every(([m])=>m==='GET'));
+});

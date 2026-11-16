@@ -1,6 +1,14 @@
 name: Inspect Codespaces securely
 on:
   workflow_dispatch:
+    inputs:
+      operation:
+        type: choice
+        options: [inventory, probe]
+        default: inventory
+      target_fingerprint:
+        type: string
+        required: false
 permissions:
   contents: read
 concurrency:
@@ -9,19 +17,27 @@ concurrency:
 jobs:
   inspect:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 24
       - name: Inspect only the Daily Food Diary Codespaces
+        if: inputs.operation != 'probe'
         env:
           GH_CODESPACES_TOKEN: ${{ secrets.GH_CODESPACES_TOKEN }}
         run: node maintenance/inspect-codespaces.mjs
+      - name: Privately inspect a verified stopped Codespace
+        if: inputs.operation == 'probe'
+        env:
+          GH_CODESPACES_TOKEN: ${{ secrets.GH_CODESPACES_TOKEN }}
+          CODESPACE_FINGERPRINT: ${{ inputs.target_fingerprint }}
+        run: node maintenance/probe-codespace.mjs
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: encrypted-codespaces-inspection
-          path: codespaces-inspection/inventory.encrypted.json
-          if-no-files-found: error
+          path: codespaces-inspection/*.encrypted.json
+          if-no-files-found: ignore
           retention-days: 3
