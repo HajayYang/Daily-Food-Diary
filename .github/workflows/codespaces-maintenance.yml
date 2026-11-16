@@ -4,7 +4,7 @@ on:
     inputs:
       operation:
         type: choice
-        options: [inventory, probe]
+        options: [inventory, probe, export]
         default: inventory
       target_fingerprint:
         type: string
@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 24
       - name: Inspect only the Daily Food Diary Codespaces
-        if: inputs.operation != 'probe'
+        if: inputs.operation == 'inventory'
         env:
           GH_CODESPACES_TOKEN: ${{ secrets.GH_CODESPACES_TOKEN }}
         run: node maintenance/inspect-codespaces.mjs
@@ -34,6 +34,12 @@ jobs:
           GH_CODESPACES_TOKEN: ${{ secrets.GH_CODESPACES_TOKEN }}
           CODESPACE_FINGERPRINT: ${{ inputs.target_fingerprint }}
         run: node maintenance/probe-codespace.mjs
+      - name: Recover the current branch without starting the Codespace
+        if: inputs.operation == 'export'
+        env:
+          GH_CODESPACES_TOKEN: ${{ secrets.GH_CODESPACES_TOKEN }}
+          CODESPACE_FINGERPRINT: ${{ inputs.target_fingerprint }}
+        run: node maintenance/export-codespace.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

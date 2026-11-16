@@ -37,3 +37,12 @@ test('a stopped-space probe stops the space after SSH failure, never deletes, an
  assert.equal(report.stopped,true);assert.ok(report.inspection_error);assert.ok(calls.some(([m,u])=>m==='POST'&&u.endsWith('/stop')));assert.ok(calls.every(([m])=>m!=='DELETE'));
  const before=calls.length;await assert.rejects(probe({token:'test-only-token',target:'0'.repeat(64),fetcher}),/inventory/);assert.ok(calls.slice(before).every(([m])=>m==='GET'));
 });
+test('recovery export preserves a verified current-branch commit without launching or deleting the space',async()=>{
+ const {exportSpace}=await import('../maintenance/export-codespace.mjs');const {fingerprint}=await import('../maintenance/probe-codespace.mjs');
+ const space={name:'test-space',state:'Shutdown',created_at:'2026-10-23',repository:{full_name:repository}},calls=[];
+ const fetcher=async(url,options={})=>{calls.push([options.method??'GET',url]);let data;
+ if(url.endsWith('/user'))data={login:'HajayYang'};else if(url.includes('/repos/'))data={total_count:1,codespaces:[space]};else if(url.endsWith('/exports/latest'))data={state:'succeeded',branch:'codespace-test-space',sha:'a'.repeat(40)};else if(url.endsWith('/exports'))data={state:'pending'};else data=space;
+ return new Response(JSON.stringify(data));};
+ const report=await exportSpace({token:'test-only-token',target:fingerprint({...space,repository}),fetcher,wait:async()=>{}});
+ assert.equal(report.export.sha,'a'.repeat(40));assert.equal(report.scope,'current-branch-only');assert.equal(report.after.state,'Shutdown');assert.ok(calls.filter(([m])=>m==='POST').every(([,u])=>u.endsWith('/exports')));assert.ok(calls.every(([m])=>m!=='DELETE'));
+});
