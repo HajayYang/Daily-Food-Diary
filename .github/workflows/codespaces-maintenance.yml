@@ -1,14 +1,23 @@
-name: Inspect Codespaces securely
+name: Maintain Codespaces safely
 on:
   workflow_dispatch:
     inputs:
       operation:
         type: choice
-        options: [inventory, probe, export]
+        options: [inventory, probe, export, delete]
         default: inventory
       target_fingerprint:
         type: string
         required: false
+      verified_export_sha:
+        type: string
+        required: false
+      verified_last_used_at:
+        type: string
+        required: false
+      current_branch_only_confirmed:
+        type: boolean
+        default: false
 permissions:
   contents: read
 concurrency:
@@ -40,6 +49,16 @@ jobs:
           GH_CODESPACES_TOKEN: ${{ secrets.GH_CODESPACES_TOKEN }}
           CODESPACE_FINGERPRINT: ${{ inputs.target_fingerprint }}
         run: node maintenance/export-codespace.mjs
+      - name: Delete only an explicitly confirmed and verified exported space
+        if: inputs.operation == 'delete'
+        env:
+          GH_CODESPACES_TOKEN: ${{ secrets.GH_CODESPACES_TOKEN }}
+          GH_REPOSITORY_TOKEN: ${{ github.token }}
+          CODESPACE_FINGERPRINT: ${{ inputs.target_fingerprint }}
+          VERIFIED_EXPORT_SHA: ${{ inputs.verified_export_sha }}
+          VERIFIED_LAST_USED_AT: ${{ inputs.verified_last_used_at }}
+          CURRENT_BRANCH_ONLY_CONFIRMED: ${{ inputs.current_branch_only_confirmed }}
+        run: node maintenance/delete-exported-codespace.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

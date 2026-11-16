@@ -46,3 +46,18 @@ test('recovery export preserves a verified current-branch commit without launchi
  const report=await exportSpace({token:'test-only-token',target:fingerprint({...space,repository}),fetcher,wait:async()=>{}});
  assert.equal(report.export.sha,'a'.repeat(40));assert.equal(report.scope,'current-branch-only');assert.equal(report.after.state,'Shutdown');assert.ok(calls.filter(([m])=>m==='POST').every(([,u])=>u.endsWith('/exports')));assert.ok(calls.every(([m])=>m!=='DELETE'));
 });
+test('deletion requires explicit backup-scope confirmation and a matching published export, refuses changed or active spaces',async()=>{
+ const {deleteExportedSpace}=await import('../maintenance/delete-exported-codespace.mjs');const {fingerprint}=await import('../maintenance/probe-codespace.mjs');
+ const space={name:'test-space',state:'Shutdown',created_at:'2026-10-23',last_used_at:'2026-10-23T10:00:00Z',repository:{full_name:repository}};
+ const options={token:'test-only-token',repositoryToken:'test-read-token',target:fingerprint({...space,repository}),exportSha:'b'.repeat(40),lastUsedAt:space.last_used_at,confirmedCurrentBranchOnly:true,wait:async()=>{}};
+ function mock({changed=false,missingRef=false,active=false}={}){const calls=[];let deleted=false;return {calls,fetcher:async(url,args={})=>{calls.push([args.method??'GET',url]);let data;
+ if(args.method==='DELETE'){deleted=true;return new Response(null,{status:202});}
+ if(url.endsWith('/user'))data={login:'HajayYang'};else if(url.includes('/repos/')&&url.includes('/codespaces?'))data={total_count:1,codespaces:[space]};
+ else if(url.endsWith('/exports/latest'))data={state:'succeeded',branch:'codespace-backup',sha:options.exportSha};
+ else if(url.includes('/git/ref/'))data={object:{sha:missingRef?'c'.repeat(40):options.exportSha}};
+ else if(deleted)return new Response('{}',{status:404});else data={...space,state:active?'Available':'Shutdown',last_used_at:changed?'2026-11-16T10:00:00Z':space.last_used_at};
+ return new Response(JSON.stringify(data));}};}
+ await assert.rejects(deleteExportedSpace({...options,confirmedCurrentBranchOnly:false}),/confirmation/);
+ for(const flags of [{changed:true},{missingRef:true},{active:true}]){const m=mock(flags),r=await deleteExportedSpace({...options,fetcher:m.fetcher});assert.ok(r.error);assert.ok(m.calls.every(([method])=>method!=='DELETE'));}
+ const m=mock(),r=await deleteExportedSpace({...options,fetcher:m.fetcher});assert.equal(r.deletion_confirmed,true);assert.equal(m.calls.filter(([method])=>method==='DELETE').length,1);assert.ok(m.calls.filter(([method])=>method==='DELETE').every(([,url])=>url.endsWith('/user/codespaces/test-space')));
+});
